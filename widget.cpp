@@ -46,10 +46,33 @@ void Widget::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
 
-    painter.fillRect(
-        QRect(0, 0, 800, 600),
-        QBrush(QColor(255, 255, 255))
-    );
+    bool color = true;
+    //bool offset = false;
+    for (int i = 0; i < 12; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            if (color)
+            {
+                painter.fillRect(
+                    i*64, j*64, 64, 64,
+                    QBrush(QColor(216,197,150))
+                );
+            }
+            else
+            {
+                painter.fillRect(
+                    i*64, j*64, 64, 64,
+                    QBrush(QColor(159,193,100))
+                );
+            }
+            color = !color;
+        }
+    }
+//    painter.fillRect(
+//        QRect(0, 0, 800, 600),
+//        QBrush(QColor(255, 255, 255))
+//    );
 
     std::vector<Entity *>::iterator it;
     for (it = entities.begin(); it != entities.end(); ++it)
@@ -115,7 +138,9 @@ void Widget::keyReleaseEvent(QKeyEvent * event)
 
 void Widget::spawnBomb(int aPosX, int aPosY)
 {
-    addEntity(new Bomb(aPosX, aPosY));
+    int posX = (aPosX+0x20)&(~0x3f);
+    int posY = (aPosY+0x20)&(~0x3f);
+    addEntity(new Bomb(posX, posY));
 }
 
 void Widget::spawnExplosion(int aPosX, int aPosY)
