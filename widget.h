@@ -14,6 +14,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -26,6 +27,9 @@ public:
     void addEntity(Entity * entity);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
+
+    void spawnBomb(int aPosX, int aPosY);
+
 
 private:
     Ui::Widget *ui;

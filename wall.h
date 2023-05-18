@@ -10,10 +10,6 @@
 class Wall : public Entity
 {
 
-private:
-    int itsX;
-    int itsY;
-
 public:
     Wall(int X, int Y);
 

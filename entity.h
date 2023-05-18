@@ -1,9 +1,11 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+
 #include <QPainter>
 #include <QKeyEvent>
 #include <QKeyEvent>
+
 
 class Entity
 {
@@ -11,6 +13,7 @@ class Entity
 public:
     Entity(int X, int Y);
 
+    QWidget * itsParent;
     int getX();
     int getY();
 
@@ -24,10 +27,19 @@ public:
 
     virtual QRect getRect();
 
+    void deleteEntity();
+    bool isMarkedForDeletion();
+
+
 
 protected:
     int itsX;
     int itsY;
+
+
+private:
+    bool markedForDeletion;
+
 
 };
 

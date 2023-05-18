@@ -9,6 +9,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bomb.cpp \
+    destructiblewall.cpp \
     entity.cpp \
     main.cpp \
     playercharacter.cpp \
@@ -16,6 +18,8 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    bomb.h \
+    destructiblewall.h \
     entity.h \
     playercharacter.h \
     wall.h \
@@ -28,3 +32,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    t_bomberman.qrc

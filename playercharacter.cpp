@@ -1,7 +1,11 @@
 #include <iostream>
 
+#include "destructiblewall.h"
 #include "playercharacter.h"
+
+#include "qwidget.h"
 #include "wall.h"
+#include "widget.h"
 
 
 PlayerCharacter::PlayerCharacter(int X, int Y)
@@ -11,9 +15,10 @@ PlayerCharacter::PlayerCharacter(int X, int Y)
 
 void PlayerCharacter::draw(QPainter * aPainter)
 {
-    aPainter->fillRect(
+    QPixmap sprite(":/assets/t_bomberman.png");
+    aPainter->drawPixmap(
         QRect(itsX, itsY, 64, 64),
-        QBrush(QColor(232, 115, 73))
+        sprite
     );
 }
 
@@ -31,6 +36,8 @@ void PlayerCharacter::keyPressedEvent(QKeyEvent * event)
     if (event->key() == Qt::Key_D) { itsMotionX = 1; }
     if (event->key() == Qt::Key_W) { itsMotionY = -1; }
     if (event->key() == Qt::Key_S) { itsMotionY = 1; }
+
+    if (event->key() == Qt::Key_Space) { dynamic_cast<Widget*>(itsParent)->spawnBomb(itsX, itsY); }
 }
 
 
@@ -45,7 +52,7 @@ void PlayerCharacter::keyReleasedEvent(QKeyEvent * event)
 
 void PlayerCharacter::collisionEvent(Entity * body)
 {
-    if (dynamic_cast<Wall*>(body) != nullptr)
+    if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<DestructibleWall*>(body) != nullptr)
     {
         int distX = itsX - body->getX();
         int distY = itsY - body->getY();

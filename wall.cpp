@@ -1,4 +1,5 @@
 #include "wall.h"
+#include "qwidget.h"
 
 Wall::Wall(int X, int Y)
     : Entity(X, Y)
@@ -13,9 +14,10 @@ void Wall::update()
 
 void Wall::draw(QPainter * aPainter)
 {
-    aPainter->fillRect(
+    QPixmap sprite(":/assets/t_wall.png");
+    aPainter->drawPixmap(
         QRect(itsX, itsY, 64, 64),
-        QBrush(QColor(70, 78, 79))
+        sprite
     );
 }
 

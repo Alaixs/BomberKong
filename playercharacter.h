@@ -19,6 +19,8 @@ private:
 public:
     PlayerCharacter(int X = 0, int Y = 0);
 
+
+
     void update();
     void draw(QPainter * aPainter);
 
@@ -28,6 +30,9 @@ public:
     void collisionEvent(Entity * body);
 
     QRect getRect();
+
+signals:
+    void putBomb(int aPosX, int aPosY);
 
 };
 

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/t_bomberman.png</file>
+        <file>assets/t_bomb.png</file>
+        <file>assets/t_destructible_wall.png</file>
+        <file>assets/t_wall.png</file>
+    </qresource>
+</RCC>
