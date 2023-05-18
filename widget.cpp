@@ -61,7 +61,7 @@ void Widget::gameUpdate()
         {
             if ((*it)->getRect().intersects((*it2)->getRect()))
             {
-                if (it != it2) { std::cout << "bonk" << std::endl; };
+                if (it != it2) { (*it)->collisionEvent(*it2); }
             }
         }
     }

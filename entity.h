@@ -16,8 +16,12 @@ public:
 
     virtual void update() = 0;
     virtual void draw(QPainter * aPainter) = 0;
+
     virtual void keyPressedEvent(QKeyEvent * event);
     virtual void keyReleasedEvent(QKeyEvent * event);
+
+    virtual void collisionEvent(Entity * body);
+
     virtual QRect getRect();
 
 

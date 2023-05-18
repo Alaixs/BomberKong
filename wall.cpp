@@ -14,7 +14,7 @@ void Wall::update()
 void Wall::draw(QPainter * aPainter)
 {
     aPainter->fillRect(
-        QRect(itsX, itsY, 30, 30),
+        QRect(itsX, itsY, 64, 64),
         QBrush(QColor(70, 78, 79))
     );
 }
@@ -22,5 +22,5 @@ void Wall::draw(QPainter * aPainter)
 
 QRect Wall::getRect()
 {
-    return QRect(itsX, itsY, 30, 30);
+    return QRect(itsX, itsY, 64, 64);
 }
