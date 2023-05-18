@@ -12,9 +12,7 @@ class DestructibleWall : public Entity
 
 public:
     DestructibleWall(int X, int Y);
-
-
-
+    void collisionEvent(Entity * body);
     void update();
     void draw(QPainter * aPainter);
     QRect getRect();

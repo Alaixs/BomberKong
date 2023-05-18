@@ -1,5 +1,6 @@
 #include "destructiblewall.h"
 #include "qwidget.h"
+#include "explosion.h"
 
 DestructibleWall::DestructibleWall(int X, int Y) : Entity(X, Y){}
 
@@ -20,4 +21,13 @@ void DestructibleWall::draw(QPainter * aPainter)
 QRect DestructibleWall::getRect()
 {
     return QRect(itsX, itsY, 64, 64);
+}
+
+
+void DestructibleWall::collisionEvent(Entity * body)
+{
+    if (dynamic_cast<Explosion*>(body) != nullptr)
+    {
+        deleteEntity();
+    }
 }

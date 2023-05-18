@@ -29,6 +29,7 @@ public:
     void keyReleaseEvent(QKeyEvent * event);
 
     void spawnBomb(int aPosX, int aPosY);
+    void spawnExplosion(int aPosX, int aPosY);
 
 
 private:

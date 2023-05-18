@@ -1,12 +1,12 @@
 #include "bomb.h"
 
 
-#include <iostream>>
+#include "qwidget.h"
+#include "widget.h"
 
-Bomb::Bomb(int X, int Y) : Entity(X, Y)
-{
-}
+#include <iostream>
 
+Bomb::Bomb(int X, int Y) : Entity(X, Y) {}
 
 void Bomb::update()
 {
@@ -29,5 +29,10 @@ void Bomb::draw(QPainter * aPainter)
 
 void Bomb::detonate()
 {
+    dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX, itsY);
+    dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX+64, itsY);
+    dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX-64, itsY);
+    dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX, itsY+64);
+    dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX, itsY-64);
     deleteEntity();
 }

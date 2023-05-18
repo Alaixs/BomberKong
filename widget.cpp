@@ -4,6 +4,7 @@
 #include "playercharacter.h"
 #include "ui_widget.h"
 #include "wall.h"
+#include "explosion.h"
 
 #include <iostream>
 
@@ -25,9 +26,10 @@ Widget::Widget(QWidget *parent)
     addEntity(new Wall(0, 64));
     addEntity(new Wall(0, 128));
 
-    addEntity(new Bomb(128, 128));
 
     addEntity(new DestructibleWall(192, 128));
+    addEntity(new DestructibleWall(256, 128));
+    addEntity(new DestructibleWall(320, 128));
 
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
 
@@ -114,4 +116,9 @@ void Widget::keyReleaseEvent(QKeyEvent * event)
 void Widget::spawnBomb(int aPosX, int aPosY)
 {
     addEntity(new Bomb(aPosX, aPosY));
+}
+
+void Widget::spawnExplosion(int aPosX, int aPosY)
+{
+    addEntity(new Explosion(aPosX, aPosY));
 }

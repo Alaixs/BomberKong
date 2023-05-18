@@ -12,6 +12,7 @@ SOURCES += \
     bomb.cpp \
     destructiblewall.cpp \
     entity.cpp \
+    explosion.cpp \
     main.cpp \
     playercharacter.cpp \
     wall.cpp \
@@ -21,6 +22,7 @@ HEADERS += \
     bomb.h \
     destructiblewall.h \
     entity.h \
+    explosion.h \
     playercharacter.h \
     wall.h \
     widget.h
