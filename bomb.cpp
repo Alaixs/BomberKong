@@ -34,5 +34,6 @@ void Bomb::detonate()
     dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX-64, itsY);
     dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX, itsY+64);
     dynamic_cast<Widget*>(itsParent)->spawnExplosion(itsX, itsY-64);
+    dynamic_cast<Widget*>(itsParent)->playExplosionSound();
     deleteEntity();
 }

@@ -27,15 +27,16 @@ void PlayerCharacter::update()
 {
     itsX += itsMotionX * itsSpeed;
     itsY += itsMotionY * itsSpeed;
+
 }
 
 
 void PlayerCharacter::keyPressedEvent(QKeyEvent * event)
 {
-    if (event->key() == Qt::Key_A) { itsMotionX = -1; }
-    if (event->key() == Qt::Key_D) { itsMotionX = 1; }
-    if (event->key() == Qt::Key_W) { itsMotionY = -1; }
-    if (event->key() == Qt::Key_S) { itsMotionY = 1; }
+    if (event->key() == Qt::Key_A) { itsMotionX = -1; dynamic_cast<Widget*>(itsParent)->playWalkSound(); }
+    if (event->key() == Qt::Key_D) { itsMotionX = 1; dynamic_cast<Widget*>(itsParent)->playWalkSound();}
+    if (event->key() == Qt::Key_W) { itsMotionY = -1; dynamic_cast<Widget*>(itsParent)->playWalkSound();}
+    if (event->key() == Qt::Key_S) { itsMotionY = 1; dynamic_cast<Widget*>(itsParent)->playWalkSound();}
 
     if (event->key() == Qt::Key_Space) { dynamic_cast<Widget*>(itsParent)->spawnBomb(itsX, itsY); }
 }

@@ -1,5 +1,4 @@
 #include "destructiblewall.h"
-#include "qwidget.h"
 #include "explosion.h"
 
 DestructibleWall::DestructibleWall(int X, int Y) : Entity(X, Y){}

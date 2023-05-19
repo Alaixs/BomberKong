@@ -1,5 +1,4 @@
 #include "wall.h"
-#include "qwidget.h"
 
 Wall::Wall(int X, int Y)
     : Entity(X, Y)

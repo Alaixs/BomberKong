@@ -1,5 +1,4 @@
 #include "entity.h"
-#include "qwidget.h"
 
 Entity::Entity(int X, int Y)
 {

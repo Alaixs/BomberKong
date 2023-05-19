@@ -11,6 +11,7 @@ public:
     Explosion(int X, int Y);
     void update();
     void draw(QPainter * aPainter);
+    void playSound();
     QRect getRect();
 
 private:

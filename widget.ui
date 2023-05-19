@@ -6,15 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>768</width>
-    <height>576</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Bomberkong</string>
-  </property>
-  <property name="autoFillBackground">
-   <bool>false</bool>
+   <string>Widget</string>
   </property>
  </widget>
  <resources/>

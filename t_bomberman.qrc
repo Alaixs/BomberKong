@@ -5,5 +5,7 @@
         <file>assets/t_destructible_wall.png</file>
         <file>assets/t_wall.png</file>
         <file>assets/t_explosion.png</file>
+        <file>sounds/explosion.wav</file>
+        <file>sounds/walk.wav</file>
     </qresource>
 </RCC>

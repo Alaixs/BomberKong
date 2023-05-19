@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QTimer>
+#include <QSoundEffect>
 #include <vector>
 
 
@@ -27,7 +28,8 @@ public:
     void addEntity(Entity * entity);
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
-
+    void playExplosionSound();
+    void playWalkSound();
     void spawnBomb(int aPosX, int aPosY);
     void spawnExplosion(int aPosX, int aPosY);
 
@@ -44,6 +46,7 @@ private:
 
 private slots:
     void gameUpdate();
+
 
 };
 #endif // WIDGET_H

@@ -34,6 +34,7 @@ Widget::Widget(QWidget *parent)
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
 
     timer.start(16);
+
 }
 
 Widget::~Widget()
@@ -57,22 +58,22 @@ void Widget::paintEvent(QPaintEvent *)
                 painter.fillRect(
                     i*64, j*64, 64, 64,
                     QBrush(QColor(216,197,150))
-                );
+                    );
             }
             else
             {
                 painter.fillRect(
                     i*64, j*64, 64, 64,
                     QBrush(QColor(159,193,100))
-                );
+                    );
             }
             color = !color;
         }
     }
-//    painter.fillRect(
-//        QRect(0, 0, 800, 600),
-//        QBrush(QColor(255, 255, 255))
-//    );
+    //    painter.fillRect(
+    //        QRect(0, 0, 800, 600),
+    //        QBrush(QColor(255, 255, 255))
+    //    );
 
     std::vector<Entity *>::iterator it;
     for (it = entities.begin(); it != entities.end(); ++it)
@@ -96,7 +97,6 @@ void Widget::gameUpdate()
     {
         if ((*it)->isMarkedForDeletion())
         {
-            std::cout << "ratio aleks" << std::endl;
             it =  entities.erase(it);
         }
         else
@@ -138,12 +138,38 @@ void Widget::keyReleaseEvent(QKeyEvent * event)
 
 void Widget::spawnBomb(int aPosX, int aPosY)
 {
-    int posX = (aPosX+0x20)&(~0x3f);
-    int posY = (aPosY+0x20)&(~0x3f);
+    int posX = (aPosX + 0x20) & (~0x3f);
+    int posY = (aPosY + 0x20) & (~0x3f);
     addEntity(new Bomb(posX, posY));
 }
+
 
 void Widget::spawnExplosion(int aPosX, int aPosY)
 {
     addEntity(new Explosion(aPosX, aPosY));
+}
+
+void Widget::playExplosionSound()
+{
+    QSoundEffect* soundEffect = new QSoundEffect(this);
+    soundEffect->setSource(QUrl::fromLocalFile(":/sounds/explosion.wav"));
+    soundEffect->setVolume(1.0);
+    soundEffect->play();
+
+}
+
+void Widget::playWalkSound()
+{
+    static QSoundEffect* soundEffect = nullptr;
+
+    if (soundEffect == nullptr || !soundEffect->isPlaying()) {
+        if (soundEffect != nullptr) {
+            soundEffect->deleteLater();
+        }
+
+        soundEffect = new QSoundEffect(this);
+        soundEffect->setSource(QUrl::fromLocalFile(":/sounds/walk.wav"));
+        soundEffect->setVolume(1.0);
+        soundEffect->play();
+    }
 }

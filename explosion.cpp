@@ -1,4 +1,6 @@
 #include "explosion.h"
+#include <QSoundEffect>
+#include <QDebug>
 
 Explosion::Explosion(int X, int Y) : Entity(X, Y) {}
 
@@ -9,8 +11,8 @@ void Explosion::update()
     {
         deleteEntity();
     }
-}
 
+}
 
 void Explosion::draw(QPainter * aPainter)
 {
@@ -18,11 +20,10 @@ void Explosion::draw(QPainter * aPainter)
     aPainter->drawPixmap(
         QRect(itsX, itsY, 64, 64),
         sprite
-    );
+        );
 }
 
 QRect Explosion::getRect()
 {
     return QRect(itsX, itsY, 64, 64);
 }
-
