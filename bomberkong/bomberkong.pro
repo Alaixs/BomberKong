@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     input.cpp \
     main.cpp \
-    widget.cpp
+    widget.cpp \
+    entity.cpp \
 
 HEADERS += \
     input.h \
-    widget.h
+    widget.h \
+    entity.h \
 
 FORMS += \
     widget.ui
