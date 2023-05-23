@@ -1,0 +1,4 @@
+build-bomberkong-Desktop_Qt_6_4_2_GCC_64bit-Debug
+*/*.pro.user
+*/*.o
+*/*.d
