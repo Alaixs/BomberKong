@@ -18,6 +18,7 @@ HEADERS += \
     input.h \
     widget.h \
     entity.h \
+    coordinate.h \
 
 FORMS += \
     widget.ui

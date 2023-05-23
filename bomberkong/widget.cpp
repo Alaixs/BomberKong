@@ -3,6 +3,7 @@
 
 #include "input.h"
 
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -28,5 +29,23 @@ void Widget::keyReleaseEvent(QKeyEvent * ev) { Input::keyReleasedEvent(ev); }
 
 void Widget::gameUpdate()
 {
-    // Update
+    std::vector<Entity*>::iterator it = entities.begin();
+    while (it != entities.end())
+    {
+        (*it)->update();
+        it++;
+    }
 }
+
+
+void Widget::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+
+    painter.fillRect(
+        0, 0, 800, 600,
+        QBrush(QColor(216,197,150))
+    );
+
+}
+

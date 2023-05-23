@@ -3,14 +3,15 @@
 
 #include <QWidget>
 #include <QTimer>
+#include <QPainter>
+#include <vector>
+
+#include "entity.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
-
-
-#include <QTimer>
-
 
 class Widget : public QWidget
 {
@@ -27,6 +28,7 @@ public:
 
 private:
     Ui::Widget *ui;
+    std::vector<Entity*> entities;
 
 private slots:
     /**
@@ -36,5 +38,6 @@ private slots:
      */
     void gameUpdate();
 
+    void paintEvent(QPaintEvent *);
 };
 #endif // WIDGET_H
