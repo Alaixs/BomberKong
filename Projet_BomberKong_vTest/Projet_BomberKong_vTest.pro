@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    MainBomberKong
+    MainBomberKong \
+    test_PlayerCharacter
