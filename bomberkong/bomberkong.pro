@@ -9,13 +9,21 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+<<<<<<< HEAD
     entity.cpp \
+=======
+    input.cpp \
+>>>>>>> d5cc0d77e0483ca131b5fb8c92ece064944d41fc
     main.cpp \
     widget.cpp
 
 HEADERS += \
+<<<<<<< HEAD
     coordinate.h \
     entity.h \
+=======
+    input.h \
+>>>>>>> d5cc0d77e0483ca131b5fb8c92ece064944d41fc
     widget.h
 
 FORMS += \
