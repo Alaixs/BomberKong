@@ -11,7 +11,7 @@
 class Coordinate{
 
 public:
-    Coordinate(int x, int y);
+    Coordinate(int xVal, int yVal);
 
     /**
      * @brief set the X value of the coordinates
