@@ -4,17 +4,25 @@
 #include <QPainter>
 
 
+/**
+ * @brief An entity present in the game world.
+ *
+ * An entity with a position, a sprite and an optional collision box.
+ * Every entity in the main widget `entities` vector will be updated each
+ * tick (i.e. it's `update` method will be called).
+ * Entities HAVE to be spawned in the game world using `createEntity` method
+ * of the `widget` class, otherwise, the `parent` property won't be correctly
+ * set.
+ */
 class Entity
 {
 
-    /**
-    *
-    *
-    */
-
 private:
-    Coordinate pos;///< The coordinate of the entity
-    bool isActive;///< Delete the entity
+    bool isActive; ///< Delete the entity if false
+
+protected:
+    Coordinate pos; ///< The coordinate of the entity
+    QWidget * parent; ///< The main widget, used to call method from it.
 
 public:
 
@@ -30,6 +38,12 @@ public:
      * @param pos the coordinate of the entity
      */
     Entity(Coordinate pos);
+
+    /**
+     * @brief Set the parent property to a pointer to the main widget
+     * @param parent The main widget
+     */
+    void setParent(QWidget * aParent);
 
     /**
      * @brief getter of the coordinate

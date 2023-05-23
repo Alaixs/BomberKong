@@ -21,14 +21,14 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-    QTimer timer; // Main timer, used to call game ticks
+    QTimer timer; ///< Main timer, used to call game ticks
 
     void keyPressEvent(QKeyEvent * ev);
     void keyReleaseEvent(QKeyEvent * ev);
 
 private:
     Ui::Widget *ui;
-    std::vector<Entity*> entities;
+    std::vector<Entity*> entities; ///< A vector toring all entities active in the game world
 
 private slots:
     /**
@@ -38,6 +38,12 @@ private slots:
      */
     void gameUpdate();
 
+    /**
+     * @brief Draw the game inside the widget.
+     *
+     * Called each tick to draw every entity inside the widget.
+     * The oldest entity will be drawn first.
+     */
     void paintEvent(QPaintEvent *);
 };
 #endif // WIDGET_H

@@ -18,11 +18,17 @@ enum Actions {
 };
 
 
+/**
+ * @brief The Input class manages and stores the states of every key used in the game.
+ *
+ * This static class tracks the status of every key used in the game. it is updated at
+ * every key event in `widget.cpp` and can be used to know if a given key is pressed or not.
+ * It is also used to bind keys to specific actions (movements, placing a bomb, etc.)
+ */
 class Input
 {
 
 public:
-    Input();
 
     /**
      * @brief Called when the user presses a key

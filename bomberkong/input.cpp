@@ -45,13 +45,7 @@ void Input::keyReleasedEvent(QKeyEvent * event)
 
         case Qt::Key_Q:
             moveLeft = false;
-            break;    /**
-     * @brief gameUpdate called each tick (frame)
-     *
-     * Used to update the state of every object at each frame.
-     */
-    void gameUpdate();
-
+            break;
 
         case Qt::Key_D:
             moveRight = false;
