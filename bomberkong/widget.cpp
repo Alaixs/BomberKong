@@ -47,18 +47,20 @@ repaint(0, 0, 800, 600);
 
 void Widget::paintEvent(QPaintEvent *)
 {
-    QPainter painter(this);
+QPainter painter(this);
 
-    // Fill the background with a color
-    painter.fillRect(
-        0, 0, 800, 600,
-        QBrush(QColor(216, 197, 150))
-    );
 
-    for (std::vector<Entity*>::iterator it = entities.begin(); it != entities.end(); ++it)
-    {
-        // Draw the entity
-        (*it)->draw(&painter);
-    }
+// Fill the background with a color
+painter.fillRect(
+    0, 0, 800, 600,
+    QBrush(QColor(216, 197, 150))
+);
+
+std::vector<Entity*>::iterator it = entities.begin();
+while (it != entities.end())
+{
+    // Draw the entity
+    (*it)->draw(&painter);
+    it++;
 }
-
+}
