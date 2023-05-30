@@ -2,6 +2,6 @@
 
 Coordinate::Coordinate(int xVal, int yVal)
 {
-    x = xVal;
-    y = yVal;
+    x = xVal; // coordinate x
+    y = yVal; // coordiante y
 }
