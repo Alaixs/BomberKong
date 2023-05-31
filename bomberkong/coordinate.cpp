@@ -70,6 +70,11 @@ Coordinate Coordinate::operator/(int n)
         int newX = x / n;
         int newY = y / n;
     }
+    else
+    {
+        int newX = 0;
+        int newY = 0;
+    }
     return Coordinate(newX, newY);
 }
 
