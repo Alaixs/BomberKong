@@ -13,13 +13,24 @@ public:
     ~testCoordinate();
 
 private slots:
-    // Tests setters
-    void test_setX();
-    void test_setY();
+    // tests operators add
+    void test_operatorAdd();
+    void test_operatorAddEqual();
 
-    // Tests getters
-    void test_getX();
-    void test_getY();
+    // tests operators minus
+    void test_operatorMinus();
+    void test_operatorMinusEqual();
+
+    // tests operators multi
+    void test_operatorMulti();
+    void test_operatorMultiEqual();
+
+    // tests operators div
+    void test_operatorDiv();
+    void test_operatorDivEqual();
+
+    // tests operators equal
+    void test_operatorEqual2();
 };
 
 testCoordinate::testCoordinate()
@@ -32,43 +43,95 @@ testCoordinate::~testCoordinate()
 
 }
 
-// Tests setters
-void testCoordinate::test_setX()
+// tests operators add
+void testCoordinate::test_operatorAdd()
 {
-    Coordinate* aCoordinateTest = new Coordinate(0,0);
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate();
+    Coordinate* aCoordinate2 = new Coordinate(1,1);
+    Coordinate* aCoordinate3 = new Coordinate(1,3);
+    Coordinate* aFinalCoordinate = new Coordinate();
 
-    aCoordinateTest->setX(10);
-    QCOMPARE(aCoordinateTest->getX(),10);
+    // test avec 2 Coordinate à variable > 0
+    *aFinalCoordinate = *aCoordinate3 + *aCoordinate2;
+    QCOMPARE(aFinalCoordinate->x,2);
+    QCOMPARE(aFinalCoordinate->y,4);
 
-    delete aCoordinateTest;
+    // test avec 1 Coordinate à variable = 0
+    *aFinalCoordinate = *aCoordinate1 + *aCoordinate2;
+    QCOMPARE(aFinalCoordinate->x,1);
+    QCOMPARE(aFinalCoordinate->y,1);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aCoordinate2;
+    delete aCoordinate3;
+    delete aFinalCoordinate;
 }
 
-void testCoordinate::test_setY()
+void testCoordinate::test_operatorAddEqual()
 {
-    Coordinate* aCoordinateTest = new Coordinate(0,0);
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate();
+    Coordinate* aCoordinate2 = new Coordinate(1,1);
+    Coordinate* aCoordinate3 = new Coordinate(1,3);
 
-    aCoordinateTest->setY(10);
-    QCOMPARE(aCoordinateTest->getY(),10);
+    *aCoordinate1 = *aCoordinate2 += *aCoordinate3 += *aCoordinate1;
+    // test aCoordinate1
+    QCOMPARE(aCoordinate1->x,2);
+    QCOMPARE(aCoordinate1->y,4);
 
-    delete aCoordinateTest;
+    // test aCoordinate1
+    QCOMPARE(aCoordinate2->x,2);
+    QCOMPARE(aCoordinate2->y,4);
+
+    // test aCoordinate1
+    QCOMPARE(aCoordinate3->x,1);
+    QCOMPARE(aCoordinate3->y,3);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aCoordinate2;
+    delete aCoordinate3;
 }
 
-// Tests getters
-void testCoordinate::test_getX()
+// tests operators minus
+void testCoordinate::test_operatorMinus()
 {
-    Coordinate* aCoordinateTest = new Coordinate(0,1);
 
-    QCOMPARE(aCoordinateTest->getX(),0);
-
-    delete aCoordinateTest;
 }
-void testCoordinate::test_getY()
+
+void testCoordinate::test_operatorMinusEqual()
 {
-    Coordinate* aCoordinateTest = new Coordinate(0,1);
 
-    QCOMPARE(aCoordinateTest->getY(),1);
+}
 
-    delete aCoordinateTest;
+// tests operators multi
+void testCoordinate::test_operatorMulti()
+{
+
+}
+
+void testCoordinate::test_operatorMultiEqual()
+{
+
+}
+
+// tests operators div
+void testCoordinate::test_operatorDiv()
+{
+
+}
+
+void testCoordinate::test_operatorDivEqual()
+{
+
+}
+
+//tests operators equal
+void testCoordinate::test_operatorEqual2()
+{
+
 }
 
 QTEST_APPLESS_MAIN(testCoordinate)
