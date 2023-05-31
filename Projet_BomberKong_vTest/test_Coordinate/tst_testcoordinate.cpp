@@ -98,7 +98,37 @@ void testCoordinate::test_operatorAddEqual()
 // tests operators minus
 void testCoordinate::test_operatorMinus()
 {
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate();
+    Coordinate* aCoordinate2 = new Coordinate(1,1);
+    Coordinate* aCoordinate3 = new Coordinate(1,3);
+    Coordinate* aCoordinate4 = new Coordinate(-1,-1);
+    Coordinate* aFinalCoordinate = new Coordinate();
 
+    // test renvoie nombre négatif & nul
+    *aFinalCoordinate = *aCoordinate2 - *aCoordinate3;
+    QCOMPARE(aFinalCoordinate->x,0);
+    QCOMPARE(aFinalCoordinate->y,-2);
+
+    // test soustraction avec 1 coordinate 0,0
+    *aFinalCoordinate = *aCoordinate3 - *aCoordinate1;
+    QCOMPARE(aFinalCoordinate->x,1);
+    QCOMPARE(aFinalCoordinate->y,3);
+
+    // test soustraction avec un négatif (augmentation)
+    *aFinalCoordinate = *aCoordinate1 - *aCoordinate4;
+    QCOMPARE(aFinalCoordinate->x,1);
+    QCOMPARE(aFinalCoordinate->y,1);
+
+    // test soustraction passant dans le négatif
+    *aFinalCoordinate = *aCoordinate1 - *aCoordinate3;
+    QCOMPARE(aFinalCoordinate->x,-1);
+    QCOMPARE(aFinalCoordinate->y,-3);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aCoordinate2;
+    delete aCoordinate3;
 }
 
 void testCoordinate::test_operatorMinusEqual()
