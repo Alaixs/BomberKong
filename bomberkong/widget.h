@@ -26,6 +26,8 @@ public:
     void keyPressEvent(QKeyEvent * ev);
     void keyReleaseEvent(QKeyEvent * ev);
 
+    void createEntity(Entity * entity);
+
 private:
     Ui::Widget *ui;
     std::vector<Entity*> entities; ///< A vector toring all entities active in the game world

@@ -40,6 +40,7 @@ public:
      */
     static void keyPressedEvent(QKeyEvent * event);
 
+
     /**
      * @brief Called when the user releases a key
      *
@@ -63,7 +64,7 @@ public:
      * }
      *
      * @param action
-     * @return
+     * @return is the action currently pressed
      */
     static bool isActionPressed(Actions action);
 

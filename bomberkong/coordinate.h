@@ -11,33 +11,23 @@
 class Coordinate{
 
 public:
+    Coordinate();
     Coordinate(int xVal, int yVal);
 
-    /**
-     * @brief set the X value of the coordinates
-     * @param val the new value
-     */
-    void setX(int val);
+    Coordinate operator+(const Coordinate& c);
+    Coordinate operator+=(const Coordinate& c);
 
-    /**
-     * @brief set the Y value of the coordinates
-     * @param val the new value
-     */
-    void setY(int val);
+    Coordinate operator-(const Coordinate& c);
+    Coordinate operator-=(const Coordinate& c);
 
-    /**
-     * @brief Getter for the X value
-     * @return X
-     */
-    int getX();
+    Coordinate operator*(int n);
+    Coordinate operator*=(int n);
 
-    /**
-     * @brief Getter for the Y value
-     * @return  Y
-     */
-    int getY();
+    Coordinate operator/(int n);
+    Coordinate operator/=(int n);
 
-private:
+    friend bool operator==(const Coordinate& c1, const Coordinate& c2);
+
     int x;
     int y;
 

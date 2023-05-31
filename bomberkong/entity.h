@@ -43,7 +43,7 @@ public:
      * @brief Set the parent property to a pointer to the main widget
      * @param parent The main widget
      */
-    void setParent(QWidget * aParent);
+    void setParent(QWidget * parent);
 
     /**
      * @brief getter of the coordinate

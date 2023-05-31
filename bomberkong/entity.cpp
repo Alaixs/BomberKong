@@ -10,9 +10,9 @@ Entity::Entity(Coordinate pos) : pos(pos), isActive(true)
 
 }
 
-void Entity::setParent(QWidget * aParent)
+void Entity::setParent(QWidget * parent)
 {
-    parent = aParent;
+    parent = parent;
 }
 
 Coordinate Entity::getPos()

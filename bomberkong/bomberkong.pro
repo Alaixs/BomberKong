@@ -12,11 +12,13 @@ SOURCES += \
     coordinate.cpp \
     input.cpp \
     main.cpp \
+    playercharacter.cpp \
     widget.cpp \
     entity.cpp \
 
 HEADERS += \
     input.h \
+    playercharacter.h \
     widget.h \
     entity.h \
     coordinate.h \
@@ -28,3 +30,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    ressources.qrc
