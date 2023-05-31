@@ -2,7 +2,7 @@
 
 AnimationManager::AnimationManager()
 {
-    frameInterval = 5;
+    frameInterval = 8;
 }
 
 
@@ -21,10 +21,13 @@ int AnimationManager::getFrame()
 
 void AnimationManager::play(int frameStart, int frameEnd)
 {
-    startFrame = frameStart;
-    endFrame = frameEnd;
-    timer = frameInterval;
-    frame = frameStart;
+    if (frameStart != startFrame || frameEnd != endFrame)
+    {
+        startFrame = frameStart;
+        endFrame = frameEnd;
+        timer = frameInterval;
+        frame = frameStart;
+    }
 }
 
 

@@ -31,24 +31,16 @@ void PlayerCharacter::update()
     else if (Input::isActionPressed(MOVE_UP)) { motion.y = -1; }
     else { motion.y = 0; }
 
-
+    pos += motion * speed;
 
     if (abs(motion.x) > 0 || abs(motion.y) > 0)
     {
-        if (animation.getFrame() < 4 || animation.getFrame() > 8)
-        {
-            animation.play(4, 8);
-        }
+        animation.play(4, 8);
     }
     else
     {
-        if (animation.getFrame() > 4)
-        {
-            animation.play(0, 4);
-        }
+        animation.play(0, 4);
     }
-
-    pos += motion * speed;
 }
 
 
