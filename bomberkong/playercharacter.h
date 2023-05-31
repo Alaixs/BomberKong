@@ -2,6 +2,7 @@
 #define PLAYERCHARACTER_H
 
 #include "entity.h"
+#include "animationmanager.h"
 
 class PlayerCharacter : public Entity
 {
@@ -16,6 +17,7 @@ public:
 private:
     QPixmap sprite;
     Coordinate motion;
+    AnimationManager animation;
     int speed = 4; ///< The number of pixels traveled each frame
 
 };
