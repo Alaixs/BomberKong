@@ -29,8 +29,8 @@ private slots:
     void test_operatorDiv();
     void test_operatorDivEqual();
 
-    // tests operators equal
-    void test_operatorEqual2();
+    // tests operator ==
+    void test_operatorEqualEqual();
 };
 
 testCoordinate::testCoordinate()
@@ -75,17 +75,20 @@ void testCoordinate::test_operatorAddEqual()
     Coordinate* aCoordinate1 = new Coordinate();
     Coordinate* aCoordinate2 = new Coordinate(1,1);
     Coordinate* aCoordinate3 = new Coordinate(1,3);
+    Coordinate* aCoordinate4 = new Coordinate(-1,-1);
 
     *aCoordinate1 = *aCoordinate2 += *aCoordinate3 += *aCoordinate1;
-    // test aCoordinate1
-    QCOMPARE(aCoordinate1->x,2);
-    QCOMPARE(aCoordinate1->y,4);
+    *aCoordinate1 += *aCoordinate4;
 
     // test aCoordinate1
+    QCOMPARE(aCoordinate1->x,1);
+    QCOMPARE(aCoordinate1->y,3);
+
+    // test aCoordinate2
     QCOMPARE(aCoordinate2->x,2);
     QCOMPARE(aCoordinate2->y,4);
 
-    // test aCoordinate1
+    // test aCoordinate3
     QCOMPARE(aCoordinate3->x,1);
     QCOMPARE(aCoordinate3->y,3);
 
@@ -93,6 +96,7 @@ void testCoordinate::test_operatorAddEqual()
     delete aCoordinate1;
     delete aCoordinate2;
     delete aCoordinate3;
+    delete aCoordinate4;
 }
 
 // tests operators minus
@@ -129,37 +133,161 @@ void testCoordinate::test_operatorMinus()
     delete aCoordinate1;
     delete aCoordinate2;
     delete aCoordinate3;
+    delete aCoordinate4;
+    delete aFinalCoordinate;
 }
 
 void testCoordinate::test_operatorMinusEqual()
 {
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate();
+    Coordinate* aCoordinate2 = new Coordinate(1,1);
+    Coordinate* aCoordinate3 = new Coordinate(1,3);
+    Coordinate* aCoordinate4 = new Coordinate(-1,-1);
 
+    *aCoordinate1 = *aCoordinate2 -= *aCoordinate3 -= *aCoordinate1;
+    *aCoordinate1 -= *aCoordinate4;
+
+    // test aCoordinate1
+    QCOMPARE(aCoordinate1->x,1);
+    QCOMPARE(aCoordinate1->y,-1);
+
+    // test aCoordinate2
+    QCOMPARE(aCoordinate2->x,0);
+    QCOMPARE(aCoordinate2->y,-2);
+
+    // test aCoordinate3
+    QCOMPARE(aCoordinate3->x,1);
+    QCOMPARE(aCoordinate3->y,3);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aCoordinate2;
+    delete aCoordinate3;
+    delete aCoordinate4;
 }
 
 // tests operators multi
 void testCoordinate::test_operatorMulti()
 {
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate(1,2);
+    Coordinate* aFinalCoordinate = new Coordinate();
 
+    // test multiplication par 0
+    *aFinalCoordinate = *aCoordinate1 * 0;
+    QCOMPARE(aFinalCoordinate->x,0);
+    QCOMPARE(aFinalCoordinate->y,0);
+
+    // test multiplication par un nombre > 0
+    *aFinalCoordinate = *aCoordinate1 * 10;
+    QCOMPARE(aFinalCoordinate->x,10);
+    QCOMPARE(aFinalCoordinate->y,20);
+
+    // test multiplication par un nombre < 0
+    *aFinalCoordinate = *aCoordinate1 * -10;
+    QCOMPARE(aFinalCoordinate->x,-10);
+    QCOMPARE(aFinalCoordinate->y,-20);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aFinalCoordinate;
 }
 
 void testCoordinate::test_operatorMultiEqual()
 {
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate(1,2);
+    Coordinate* aFinalCoordinate = new Coordinate();
 
+    // test multiplication par un nombre > 0
+    *aFinalCoordinate = *aCoordinate1 *= 10;
+    QCOMPARE(aFinalCoordinate->x,10);
+    QCOMPARE(aFinalCoordinate->y,20);
+    QCOMPARE(aCoordinate1->x,10);
+    QCOMPARE(aCoordinate1->y,20);
+
+    // test multiplication par un nombre < 0
+    *aFinalCoordinate = *aCoordinate1 *= -10;
+    QCOMPARE(aFinalCoordinate->x,-100);
+    QCOMPARE(aFinalCoordinate->y,-200);
+    QCOMPARE(aCoordinate1->x,-100);
+    QCOMPARE(aCoordinate1->y,-200);
+
+    // test multiplication par 0
+    *aFinalCoordinate = *aCoordinate1 *= 0;
+    QCOMPARE(aFinalCoordinate->x,0);
+    QCOMPARE(aFinalCoordinate->y,0);
+    QCOMPARE(aCoordinate1->x,0);
+    QCOMPARE(aCoordinate1->y,0);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aFinalCoordinate;
 }
 
 // tests operators div
 void testCoordinate::test_operatorDiv()
 {
 
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate(10,20);
+    Coordinate* aFinalCoordinate = new Coordinate();
+
+    // test multiplication par 0
+    *aFinalCoordinate = *aCoordinate1 / 0;
+    QCOMPARE(aFinalCoordinate->x,0);
+    QCOMPARE(aFinalCoordinate->y,0);
+
+    // test multiplication par un nombre > 0
+    *aFinalCoordinate = *aCoordinate1 / 10;
+    QCOMPARE(aFinalCoordinate->x,1);
+    QCOMPARE(aFinalCoordinate->y,2);
+
+    // test multiplication par un nombre < 0
+    *aFinalCoordinate = *aCoordinate1 / -10;
+    QCOMPARE(aFinalCoordinate->x,-1);
+    QCOMPARE(aFinalCoordinate->y,-2);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aFinalCoordinate;
 }
 
 void testCoordinate::test_operatorDivEqual()
 {
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate(8,4);
+    Coordinate* aFinalCoordinate = new Coordinate();
 
+    // test multiplication par un nombre > 0
+    *aFinalCoordinate = *aCoordinate1 /= 2;
+    QCOMPARE(aFinalCoordinate->x,4);
+    QCOMPARE(aFinalCoordinate->y,2);
+    QCOMPARE(aCoordinate1->x,4);
+    QCOMPARE(aCoordinate1->y,2);
+
+    // test multiplication par un nombre < 0
+    *aFinalCoordinate = *aCoordinate1 /= -2;
+    QCOMPARE(aFinalCoordinate->x,-2);
+    QCOMPARE(aFinalCoordinate->y,-1);
+    QCOMPARE(aCoordinate1->x,-2);
+    QCOMPARE(aCoordinate1->y,-1);
+
+    // test multiplication par 0
+    *aFinalCoordinate = *aCoordinate1 /= 0;
+    QCOMPARE(aFinalCoordinate->x,-2);
+    QCOMPARE(aFinalCoordinate->y,-1);
+    QCOMPARE(aCoordinate1->x,-2);
+    QCOMPARE(aCoordinate1->y,-1);
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aFinalCoordinate;
 }
 
 //tests operators equal
-void testCoordinate::test_operatorEqual2()
+void testCoordinate::test_operatorEqualEqual()
 {
 
 }
