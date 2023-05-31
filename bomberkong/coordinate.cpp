@@ -67,7 +67,7 @@ Coordinate Coordinate::operator/(int n)
 {
     int newX = 0;
     int newY = 0;
-    if (!n)
+    if (n != 0)
     {
         newX = x / n;
         newY = y / n;
@@ -78,7 +78,7 @@ Coordinate Coordinate::operator/(int n)
 
 Coordinate Coordinate::operator/=(int n)
 {
-    if (!n)
+    if (n != 0)
     {
         x /= n;
         y /= n;
