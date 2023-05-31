@@ -1,4 +1,5 @@
 #include <QtTest>
+#include <../../../../SAE-final/bomber-kong/bomberkong/coordinate.cpp>
 #include <../../../../SAE-final/bomber-kong/bomberkong/coordinate.h>
 
 // add necessary includes here
