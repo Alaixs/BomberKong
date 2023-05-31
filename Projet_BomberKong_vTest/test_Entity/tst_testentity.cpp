@@ -1,5 +1,8 @@
 #include <QtTest>
-
+#include <../../../../SAE-final/bomber-kong/bomberkong/coordinate.cpp>
+#include <../../../../SAE-final/bomber-kong/bomberkong/coordinate.h>
+#include <../../../../SAE-final/bomber-kong/bomberkong/entity.cpp>
+#include <../../../../SAE-final/bomber-kong/bomberkong/entity.h>
 // add necessary includes here
 
 class testEntity : public QObject
@@ -11,7 +14,8 @@ public:
     ~testEntity();
 
 private slots:
-    void test_case1();
+    // Test getter
+    void test_getPos();
 
 };
 
@@ -25,7 +29,7 @@ testEntity::~testEntity()
 
 }
 
-void testEntity::test_case1()
+void testEntity::test_getPos()
 {
 
 }
