@@ -289,7 +289,22 @@ void testCoordinate::test_operatorDivEqual()
 //tests operators equal
 void testCoordinate::test_operatorEqualEqual()
 {
+    // création des variables utiles
+    Coordinate* aCoordinate1 = new Coordinate(1,1);
+    Coordinate* aCoordinate2 = new Coordinate(1,1);
+    Coordinate* aCoordinate3 = new Coordinate();
 
+    // tests valides
+    QVERIFY(*aCoordinate1 == *aCoordinate2);
+    QVERIFY(*aCoordinate3 == Coordinate());
+
+    // test invalide
+    QVERIFY(!(*aCoordinate1 == *aCoordinate3));
+
+    // suppression des variables
+    delete aCoordinate1;
+    delete aCoordinate2;
+    delete aCoordinate3;
 }
 
 QTEST_APPLESS_MAIN(testCoordinate)
