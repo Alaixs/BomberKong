@@ -65,16 +65,22 @@ Coordinate Coordinate::operator*=(int n)
 
 Coordinate Coordinate::operator/(int n)
 {
-    int newX = x / n;
-    int newY = y / n;
+    if (!n)
+    {
+        int newX = x / n;
+        int newY = y / n;
+    }
     return Coordinate(newX, newY);
 }
 
 
 Coordinate Coordinate::operator/=(int n)
 {
-    x /= n;
-    y /= n;
+    if (!n)
+    {
+        x /= n;
+        y /= n;
+    }
     return *this;
 }
 
