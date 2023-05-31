@@ -1,8 +1,8 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    MainBomberKong \
     test_Bomb \
+    test_Coordinate \
     test_DestructibleWall \
     test_Entity \
     test_Explosion \
