@@ -24,8 +24,8 @@ void PlayerCharacter::update()
 {
     animation.update();
 
-    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1; }
-    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -1; }
+    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1; flipped = true; }
+    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -1; flipped = false; }
     else { motion.x = 0; }
 
     if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1; }
@@ -48,29 +48,43 @@ void PlayerCharacter::update()
 void PlayerCharacter::collisionEvent(Entity * body)
 {
     if (dynamic_cast<Wall*>(body) != nullptr)
-        {
-            int distX = pos.x - body->getPos().x;
-            int distY = pos.y - body->getPos().y;
+    {
+        // Offsets the player away from the collider
+        int distX = pos.x - body->getPos().x;
+        int distY = pos.y - body->getPos().y;
 
-            if (abs(distX) > abs(distY))
-            {
-                pos.x += (distX / abs(distX)) * speed;
-            }
-            else
-            {
-                pos.y += (distY / abs(distY)) * speed;
-            }
+        if (abs(distX) > abs(distY))
+        {
+            pos.x += (distX / abs(distX)) * speed;
         }
+        else
+        {
+            pos.y += (distY / abs(distY)) * speed;
+        }
+    }
 }
 
 
 void PlayerCharacter::draw(QPainter * painter)
 {
-    painter->drawPixmap(
-        QRect(pos.x, pos.y, 48, 48),
-        sprite,
-        QRect(animation.getFrame() * 16, 0, 16, 16)
-    );
+    if (!flipped)
+    {
+        // Draw the normal sprite
+        painter->drawPixmap(
+            QRect(pos.x, pos.y, 48, 48),
+            sprite,
+            QRect(animation.getFrame() * 16, 0, 16, 16)
+        );
+    }
+    else
+    {
+        // Draw the flipped sprite
+        painter->drawPixmap(
+            QRect(pos.x, pos.y, 48, 48),
+            sprite.transformed(QTransform().scale(-1, 1)),
+            QRect((10 - animation.getFrame()) * 16, 0, 16, 16)
+        );
+    }
 }
 
 
