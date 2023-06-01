@@ -18,7 +18,7 @@ class Entity
 {
 
 private:
-    bool isActive; ///< Delete the entity if false
+    bool active; ///< Delete the entity if false
 
 protected:
     Coordinate pos; ///< The coordinate of the entity
@@ -43,7 +43,7 @@ public:
      * @brief Set the parent property to a pointer to the main widget
      * @param parent The main widget
      */
-    void setParent(QWidget * parent);
+    void setParent(QWidget * newParent);
 
     /**
      * @brief getter of the coordinate
@@ -55,6 +55,13 @@ public:
      * @brief delete the entity
      */
     void deleteEntity();
+
+
+    /**
+     * @brief isAlive
+     * @return is the entity active
+     */
+    bool isActive();
 
     /**
      * @brief update the entity (move, change direction, etc.)
@@ -71,7 +78,7 @@ public:
      * @brief collisionEvent
      * @param body the entity that collide with the current entity
      */
-    virtual void collisionEvent(Entity* body);
+    virtual void collisionEvent(Entity * body);
 
     /**
      * @brief getRect get the rectangle of the entity

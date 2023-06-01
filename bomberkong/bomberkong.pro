@@ -10,7 +10,9 @@ CONFIG += c++17
 
 SOURCES += \
     animationmanager.cpp \
+    bomb.cpp \
     coordinate.cpp \
+    explosion.cpp \
     input.cpp \
     main.cpp \
     playercharacter.cpp \
@@ -20,6 +22,8 @@ SOURCES += \
 
 HEADERS += \
     animationmanager.h \
+    bomb.h \
+    explosion.h \
     input.h \
     playercharacter.h \
     widget.h \

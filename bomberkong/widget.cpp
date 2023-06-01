@@ -6,6 +6,8 @@
 
 #include "playercharacter.h"
 #include "wall.h"
+#include "bomb.h"
+#include "explosion.h"
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -16,6 +18,11 @@ ui->setupUi(this);
     createEntity(new PlayerCharacter(96, 96));
 
     createEntity(new Wall(200, 200));
+
+    createEntity(new Bomb(300, 300));
+
+    createEntity(new Explosion(100, 100));
+    createEntity(new Explosion(148, 100));
 
     // updates the game every 16ms
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
@@ -47,23 +54,32 @@ void Widget::gameUpdate()
     std::vector<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
     {
-        // TODO: remove the entity if it is inactive
-        (*it)->update();
-
-        // Collisions
-        std::vector<Entity*>::iterator collider;
-        for (collider = entities.begin(); collider != entities.end(); ++collider)
+        if ((*it)->isActive())
         {
-            if (it != collider)
+            // TODO: remove the entity if it is inactive
+            (*it)->update();
+
+            // Collisions
+            std::vector<Entity*>::iterator collider;
+            for (collider = entities.begin(); collider != entities.end(); ++collider)
             {
-                if ((*it)->getRect().intersects((*collider)->getRect()))
+                if (it != collider)
                 {
-                    (*it)->collisionEvent(*collider);
+                    if ((*it)->getRect().intersects((*collider)->getRect()))
+                    {
+                        (*it)->collisionEvent(*collider);
+                    }
                 }
             }
+
+            it++;
+        }
+        else
+        {
+            delete *it;
+            it = entities.erase(it);
         }
 
-        it++;
     }
 
     // Draw a frame
@@ -95,4 +111,10 @@ void Widget::createEntity(Entity * entity)
 {
     entities.push_back(entity);
     entity->setParent(this);
+}
+
+
+void Widget::createExplosion(int posX, int posY)
+{
+    createEntity(new Explosion(posX, posY));
 }

@@ -1,18 +1,18 @@
 #include "entity.h"
 
-Entity::Entity(int x, int y) : pos(x, y), isActive(true)
+Entity::Entity(int x, int y) : pos(x, y), active(true)
 {
 
 }
 
-Entity::Entity(Coordinate pos) : pos(pos), isActive(true)
+Entity::Entity(Coordinate pos) : pos(pos), active(true)
 {
 
 }
 
-void Entity::setParent(QWidget * parent)
+void Entity::setParent(QWidget * newParent)
 {
-    parent = parent;
+    parent = newParent;
 }
 
 Coordinate Entity::getPos()
@@ -22,7 +22,7 @@ Coordinate Entity::getPos()
 
 void Entity::deleteEntity()
 {
-    isActive = false;
+    active = false;
 }
 
 void Entity::draw(QPainter * painter)
@@ -39,4 +39,10 @@ void Entity::collisionEvent(Entity* body)
 QRect Entity::getRect()
 {
 
+}
+
+
+bool Entity::isActive()
+{
+    return active;
 }

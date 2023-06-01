@@ -28,6 +28,8 @@ public:
 
     void createEntity(Entity * entity);
 
+    void createExplosion(int posX, int posY);
+
 private:
     Ui::Widget *ui;
     std::vector<Entity*> entities; ///< A vector toring all entities active in the game world
@@ -47,5 +49,6 @@ private slots:
      * The oldest entity will be drawn first.
      */
     void paintEvent(QPaintEvent *);
+
 };
 #endif // WIDGET_H
