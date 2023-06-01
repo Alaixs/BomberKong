@@ -1,6 +1,7 @@
 #include "playercharacter.h"
 
 #include "input.h"
+#include "wall.h"
 
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
@@ -44,6 +45,25 @@ void PlayerCharacter::update()
 }
 
 
+void PlayerCharacter::collisionEvent(Entity * body)
+{
+    if (dynamic_cast<Wall*>(body) != nullptr)
+        {
+            int distX = pos.x - body->getPos().x;
+            int distY = pos.y - body->getPos().y;
+
+            if (abs(distX) > abs(distY))
+            {
+                pos.x += (distX / abs(distX)) * speed;
+            }
+            else
+            {
+                pos.y += (distY / abs(distY)) * speed;
+            }
+        }
+}
+
+
 void PlayerCharacter::draw(QPainter * painter)
 {
     painter->drawPixmap(
@@ -51,4 +71,10 @@ void PlayerCharacter::draw(QPainter * painter)
         sprite,
         QRect(animation.getFrame() * 16, 0, 16, 16)
     );
+}
+
+
+QRect PlayerCharacter::getRect()
+{
+    return QRect(pos.x + 6, pos.y, 35, 48);
 }

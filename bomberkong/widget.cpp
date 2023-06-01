@@ -5,6 +5,7 @@
 #include "input.h"
 
 #include "playercharacter.h"
+#include "wall.h"
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -12,7 +13,9 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
-    createEntity(new PlayerCharacter(10, 10));
+    createEntity(new PlayerCharacter(96, 96));
+
+    createEntity(new Wall(200, 200));
 
     // updates the game every 16ms
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
@@ -46,6 +49,20 @@ void Widget::gameUpdate()
     {
         // TODO: remove the entity if it is inactive
         (*it)->update();
+
+        // Collisions
+        std::vector<Entity*>::iterator collider;
+        for (collider = entities.begin(); collider != entities.end(); ++collider)
+        {
+            if (it != collider)
+            {
+                if ((*it)->getRect().intersects((*collider)->getRect()))
+                {
+                    (*it)->collisionEvent(*collider);
+                }
+            }
+        }
+
         it++;
     }
 

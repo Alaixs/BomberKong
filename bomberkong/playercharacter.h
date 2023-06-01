@@ -14,6 +14,10 @@ public:
     void update();
     void draw(QPainter * painter);
 
+    void collisionEvent(Entity * body);
+
+    QRect getRect();
+
 private:
     QPixmap sprite;
     Coordinate motion;

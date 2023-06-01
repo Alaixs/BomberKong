@@ -16,6 +16,7 @@ SOURCES += \
     playercharacter.cpp \
     widget.cpp \
     entity.cpp \
+    wall.cpp \
 
 HEADERS += \
     animationmanager.h \
@@ -24,6 +25,7 @@ HEADERS += \
     widget.h \
     entity.h \
     coordinate.h \
+    wall.h \
 
 FORMS += \
     widget.ui
