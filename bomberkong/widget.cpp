@@ -7,7 +7,6 @@
 #include "playercharacter.h"
 #include "wall.h"
 #include "indestructiblewall.h"
-#include "bomb.h"
 #include "explosion.h"
 #include "bombergirl.h"
 #include "donkeykong.h"

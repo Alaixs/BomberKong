@@ -4,5 +4,7 @@
         <file>assets/sprites/t_walls.png</file>
         <file>assets/sprites/t_bomb.png</file>
         <file>assets/sprites/t_explosion.png</file>
+        <file>assets/sprites/t_bombergirl.png</file>
+        <file>assets/sprites/t_barrel.png</file>
     </qresource>
 </RCC>

@@ -1,20 +1,18 @@
 #include "tonneaux.h"
 
-#include "widget.h"
-
 
 Tonneaux::Tonneaux(int posX, int posY)
     : Entity(posX, posY)
 {
-    sprite.load("://assets/sprites/t_bomb.png");
-    animation.play(0, 2);
+    sprite.load("://assets/sprites/t_barrel.png");
+    animation.play(0, 3);
 }
 
 Tonneaux::Tonneaux(Coordinate position)
     : Entity(position)
 {
-    sprite.load("://assets/sprites/t_bomb.png");
-    animation.play(0, 2);
+    sprite.load("://assets/sprites/t_barrel.png");
+    animation.play(0, 3);
 }
 
 
@@ -22,17 +20,9 @@ void Tonneaux::update()
 {
     animation.update();
     timer++;
-    pos.y+=3;
+    pos.y += 3;
 
-    if (timer%50==0)
-    {
-        animation.play(2, 4);
-    }
-    else if (timer%50==25)
-    {
-        animation.play(4, 2);
-    }
-    if (timer==400)
+    if (timer == 400)
     {
         deleteEntity();
     }

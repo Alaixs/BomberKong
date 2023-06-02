@@ -1,6 +1,7 @@
 #ifndef BOMBERGIRL_H
 #define BOMBERGIRL_H
 
+#include "animationmanager.h"
 #include "entity.h"
 
 class BomberGirl : public Entity
@@ -18,6 +19,7 @@ public:
 
 private:
     QPixmap sprite;
+    AnimationManager animation;
 };
 
 #endif // BOMBERGIRL_H
