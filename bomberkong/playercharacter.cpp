@@ -37,7 +37,7 @@ void PlayerCharacter::update()
     if(timer<0){
         if(Input::isActionPressed(PLACE_BOMB)) {
             dynamic_cast<Widget*>(parent)->createEntity(new Bomb(pos));
-            timer=62;
+            timer=100;
         }
     }
 
