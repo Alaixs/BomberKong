@@ -5,7 +5,7 @@ bool moveUp = false;
 bool moveDown = false;
 bool moveLeft = false;
 bool moveRight = false;
-//bool placeBomb = false;
+bool placeBomb = false;
 
 
 void Input::keyPressedEvent(QKeyEvent * event)
@@ -26,6 +26,10 @@ void Input::keyPressedEvent(QKeyEvent * event)
 
         case Qt::Key_D:
             moveRight = true;
+            break;
+
+        case Qt::Key_A:
+            placeBomb = true;
             break;
     }
 }
@@ -50,6 +54,10 @@ void Input::keyReleasedEvent(QKeyEvent * event)
         case Qt::Key_D:
             moveRight = false;
             break;
+
+        case Qt::Key_A:
+            placeBomb = false;
+            break;
     }
 }
 
@@ -72,6 +80,10 @@ bool Input::isActionPressed(Actions action)
 
         case MOVE_RIGHT:
             return moveRight;
+            break;
+
+        case PLACE_BOMB:
+            return placeBomb;
             break;
     }
 }

@@ -14,7 +14,8 @@ enum Actions {
     MOVE_UP,
     MOVE_DOWN,
     MOVE_LEFT,
-    MOVE_RIGHT
+    MOVE_RIGHT,
+    PLACE_BOMB
 };
 
 
