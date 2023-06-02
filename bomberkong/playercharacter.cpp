@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "playercharacter.h"
 
 #include "widget.h"
@@ -80,14 +82,23 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
         }
     }
-    if (dynamic_cast<Tonneaux*>(body) != nullptr){
-        pos.x=200;
-        pos.y=200;
+    if (dynamic_cast<Tonneaux*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
+        if(nbLive == 0)
+        {
+            QMessageBox * losePopup = new QMessageBox();
+            losePopup->setFixedSize(500,100);
+            losePopup->setText("You lose");
+            losePopup->show();
+            dynamic_cast<Widget*>(parent)->timer.stop();
+        }
+        //obliger sinon il reetourne au début du niveau
+        else{
+            pos.x=716;
+            pos.y=912;
+            nbLive--;
+        }
     }
-    if (dynamic_cast<Explosion*>(body) != nullptr){
-        pos.x=200;
-        pos.y=200;
-    }
+
 }
 
 

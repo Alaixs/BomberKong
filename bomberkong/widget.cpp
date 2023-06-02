@@ -17,6 +17,8 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
+
+
     int height=1056;
     int width=1532;
     setFixedSize(width,height);
