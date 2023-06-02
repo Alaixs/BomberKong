@@ -18,6 +18,7 @@ SOURCES += \
     input.cpp \
     main.cpp \
     playercharacter.cpp \
+    tonneaux.cpp \
     widget.cpp \
     entity.cpp \
     wall.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     indestructiblewall.h \
     input.h \
     playercharacter.h \
+    tonneaux.h \
     widget.h \
     entity.h \
     coordinate.h \
