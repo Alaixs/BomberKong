@@ -24,7 +24,7 @@ private:
     AnimationManager animation;
     int speed = 4; ///< The number of pixels traveled each frame
     bool flipped;
-    int timer;
+    int timer=0;
 
 };
 
