@@ -4,7 +4,8 @@
 #include "widget.h"
 #include "playercharacter.h"
 #include "coordinate.h"
-
+#include "wall.h"
+#include "indestructiblewall.h"
 
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
@@ -42,7 +43,9 @@ void Bomb::update()
 }
 
 void Bomb::collisionEvent(Entity * body){
-    if(dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB)){
+    if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB))
+           || (dynamic_cast<Wall*>(body) != nullptr
+            || dynamic_cast<IndestructibleWall*>(body) != nullptr)){
         if(body->getPos().x>pos.x){
             pos.x-=48;
         }

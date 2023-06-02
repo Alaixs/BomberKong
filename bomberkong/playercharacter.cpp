@@ -74,6 +74,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
         else
         {
             pos.y += (distY / abs(distY)) * speed;
+
         }
     }
     if (dynamic_cast<Tonneaux*>(body) != nullptr){
