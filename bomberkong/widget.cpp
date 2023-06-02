@@ -15,14 +15,15 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
-    createEntity(new PlayerCharacter(96, 96));
+    createEntity(new PlayerCharacter(200, 200));
 
-    createEntity(new Wall(200, 200));
+    createEntity(new Bomb(48, 48));
 
-    createEntity(new Bomb(300, 300));
+    createEntity(new Wall(0, 0));
+    createEntity(new Wall(48, 0));
+    createEntity(new Wall(0, 48));
 
-    createEntity(new Explosion(100, 100));
-    createEntity(new Explosion(148, 100));
+
 
     // updates the game every 16ms
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
@@ -56,7 +57,6 @@ void Widget::gameUpdate()
     {
         if ((*it)->isActive())
         {
-            // TODO: remove the entity if it is inactive
             (*it)->update();
 
             // Collisions
@@ -72,14 +72,13 @@ void Widget::gameUpdate()
                 }
             }
 
-            it++;
+            ++it;
         }
         else
         {
-            delete *it;
+            //delete *it;
             it = entities.erase(it);
         }
-
     }
 
     // Draw a frame

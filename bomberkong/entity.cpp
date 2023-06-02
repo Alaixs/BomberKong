@@ -30,7 +30,7 @@ void Entity::draw(QPainter * painter)
 
 }
 
-void Entity::collisionEvent(Entity* body)
+void Entity::collisionEvent(Entity * body)
 {
 
 }

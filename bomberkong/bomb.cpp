@@ -2,6 +2,7 @@
 
 #include "widget.h"
 
+
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
 {

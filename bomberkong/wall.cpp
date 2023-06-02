@@ -1,4 +1,5 @@
 #include "wall.h"
+#include "explosion.h"
 
 
 Wall::Wall(int posX, int posY)
@@ -28,6 +29,15 @@ void Wall::draw(QPainter * painter)
         sprite,
         QRect(16, 0, 16, 16)
     );
+}
+
+
+void Wall::collisionEvent(Entity * body)
+{
+    if (dynamic_cast<Explosion*>(body) != nullptr)
+    {
+        deleteEntity();
+    }
 }
 
 
