@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     animationmanager.cpp \
     bomb.cpp \
+    bombergirl.cpp \
     coordinate.cpp \
     explosion.cpp \
     indestructiblewall.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 HEADERS += \
     animationmanager.h \
     bomb.h \
+    bombergirl.h \
     explosion.h \
     indestructiblewall.h \
     input.h \

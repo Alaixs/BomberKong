@@ -27,7 +27,7 @@ void IndestructibleWall::draw(QPainter * painter)
     painter->drawPixmap(
         QRect(pos.x, pos.y, 48, 48),
         sprite,
-        QRect(16, 0, 16, 16)
+        QRect(0, 0, 16, 16)
     );
 }
 

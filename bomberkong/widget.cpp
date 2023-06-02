@@ -9,6 +9,7 @@
 #include "indestructiblewall.h"
 #include "bomb.h"
 #include "explosion.h"
+#include "bombergirl.h"
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -26,6 +27,7 @@ ui->setupUi(this);
 
     createEntity(new IndestructibleWall(200, 48));
 
+    createEntity(new BomberGirl(300,300));
 
 
     // updates the game every 16ms

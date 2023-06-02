@@ -43,6 +43,8 @@ void PlayerCharacter::update()
     {
         animation.play(0, 4);
     }
+
+
 }
 
 
