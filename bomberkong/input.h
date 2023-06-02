@@ -7,7 +7,8 @@
 
 
 // [Arrow Keys] : Move character
-// [Space] : Place bomb
+// [K] : Place bomb
+// [L] : Push bomb
 
 
 enum Actions {
@@ -15,7 +16,8 @@ enum Actions {
     MOVE_DOWN,
     MOVE_LEFT,
     MOVE_RIGHT,
-    PLACE_BOMB
+    PLACE_BOMB,
+    PUSH_BOMB
 };
 
 

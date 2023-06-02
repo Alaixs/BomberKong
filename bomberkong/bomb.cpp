@@ -1,8 +1,10 @@
 #include "bomb.h"
 
+#include "input.h"
 #include "widget.h"
 #include "playercharacter.h"
 #include "coordinate.h"
+
 
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
@@ -40,18 +42,18 @@ void Bomb::update()
 }
 
 void Bomb::collisionEvent(Entity * body){
-    if(dynamic_cast<PlayerCharacter*>(body) != nullptr){
+    if(dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB)){
         if(body->getPos().x>pos.x){
-            pos.x-=50;
+            pos.x-=48;
         }
         else if(body->getPos().x<pos.x){
-            pos.x+=50;
+            pos.x+=48;
         }
         else if(body->getPos().y>pos.y){
-            pos.y-=50;
+            pos.y-=48;
         }
         else{
-            pos.y+=50;
+            pos.y+=48;
         }
     }
 }

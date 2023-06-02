@@ -19,9 +19,10 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
+    createExplosion(-48, 0);
+    createExplosion(-48, 0);
+
     createEntity(new PlayerCharacter(200, 200));
-
-
 
     createEntity(new Wall(0, 0));
     createEntity(new Wall(48, 0));

@@ -20,8 +20,8 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 
 void DonkeyKong::update()
 {
-    if(timer >1000){
-        pos.x+=50;
+    if(timer > 62){
+        pos.x+=48;
         dynamic_cast<Widget*>(parent)->createEntity(new Tonneaux(pos));
         timer=0;
     }
