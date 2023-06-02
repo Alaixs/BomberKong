@@ -22,7 +22,7 @@ void Tonneaux::update()
     timer++;
     pos.y += 3;
 
-    if (timer == 400)
+    if (timer == 1000)
     {
         deleteEntity();
     }

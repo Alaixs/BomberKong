@@ -17,19 +17,24 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
+    int height=1056;
+    int width=1532;
+    setFixedSize(width,height);
     srand(time(nullptr));
 
-    createEntity(new PlayerCharacter(240, 240));
+    for(int h=0;h<21;h++){
+        for(int l=0;l<32;l++){
+            if(h == 0 || h == 20 || l == 0 || l == 31){
+                createEntity(new IndestructibleWall(48*l,48*h+48));
+            }
+        }
+    }
 
-    createEntity(new Wall(0, 0));
-    createEntity(new Wall(48, 0));
-    createEntity(new Wall(0, 48));
+    createEntity(new PlayerCharacter(716, 912));
 
-    createEntity(new IndestructibleWall(240, 48));
+    createEntity(new BomberGirl(716,144));
 
-    createEntity(new BomberGirl(300,300));
-
-    createEntity(new DonkeyKong(0,0));
+    createEntity(new DonkeyKong(716,0));
 
 
     // updates the game every 16ms
@@ -89,7 +94,7 @@ void Widget::gameUpdate()
     }
 
     // Draw a frame
-    repaint(0, 0, 1500, 1500);
+    repaint(0, 0, 1532,1056);
 }
 
 
@@ -99,7 +104,7 @@ void Widget::paintEvent(QPaintEvent *)
 
     // Fill the background with a color
     painter.fillRect(
-        0, 0, 1500,1500,
+        0, 0, 1532,1056,
         QBrush(QColor(216, 197, 150))
     );
 

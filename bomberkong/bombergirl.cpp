@@ -1,6 +1,7 @@
 #include "bombergirl.h"
 #include "playercharacter.h"
-
+#include <QTimer>
+#include "widget.h"
 
 BomberGirl::BomberGirl(int posX, int posY)
     : Entity(posX, posY)
@@ -38,7 +39,7 @@ void BomberGirl::collisionEvent(Entity * body)
 {
     if (dynamic_cast<PlayerCharacter*>(body) != nullptr)
     {
-        deleteEntity();
+        dynamic_cast<Widget*>(parent)->timer.stop();
     }
 }
 
