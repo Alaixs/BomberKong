@@ -5,6 +5,7 @@
 #include "input.h"
 #include "wall.h"
 #include "bomb.h"
+#include "tonneaux.h"
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -73,6 +74,10 @@ void PlayerCharacter::collisionEvent(Entity * body)
         {
             pos.y += (distY / abs(distY)) * speed;
         }
+    }
+    if (dynamic_cast<Tonneaux*>(body) != nullptr){
+        pos.x=200;
+        pos.y=200;
     }
 }
 
