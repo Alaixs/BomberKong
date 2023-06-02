@@ -17,6 +17,8 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
+    srand(time(nullptr));
+
     createEntity(new PlayerCharacter(240, 240));
 
     createEntity(new Wall(0, 0));
@@ -87,7 +89,7 @@ void Widget::gameUpdate()
     }
 
     // Draw a frame
-    repaint(0, 0, 800, 600);
+    repaint(0, 0, 1500, 1500);
 }
 
 
@@ -97,7 +99,7 @@ void Widget::paintEvent(QPaintEvent *)
 
     // Fill the background with a color
     painter.fillRect(
-        0, 0, 800, 600,
+        0, 0, 1500,1500,
         QBrush(QColor(216, 197, 150))
     );
 

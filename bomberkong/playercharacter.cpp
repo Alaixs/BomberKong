@@ -42,7 +42,7 @@ void PlayerCharacter::update()
             bombPos.x = ((bombPos.x + 48/2) / 48) * 48;
             bombPos.y = ((bombPos.y + 48/2) / 48) * 48;
             dynamic_cast<Widget*>(parent)->createEntity(new Bomb(bombPos));
-            timer=100;
+            timer=200;
         }
     }
 

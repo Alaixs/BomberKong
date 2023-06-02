@@ -1,8 +1,8 @@
 #include "donkeykong.h"
-#include "playercharacter.h"
 #include "qwidget.h"
 #include "tonneaux.h"
 #include "widget.h"
+#include <random>
 
 DonkeyKong::DonkeyKong(int posX, int posY)
     : Entity(posX, posY)
@@ -21,7 +21,8 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 void DonkeyKong::update()
 {
     if(timer > 62){
-        pos.x+=48;
+        int random = rand() % 28;
+        pos.x = 48 + (random*48);
         dynamic_cast<Widget*>(parent)->createEntity(new Tonneaux(pos));
         timer=0;
     }
