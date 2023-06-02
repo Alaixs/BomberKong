@@ -26,6 +26,12 @@ void DonkeyKong::update()
         timer=0;
     }
     timer++;
+    if(timer%50 == 0){
+        animation.play(2,4);
+    }
+    else if(timer%50 == 25){
+        animation.play(4,2);
+    }
 }
 
 

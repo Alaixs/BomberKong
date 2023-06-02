@@ -1,6 +1,7 @@
 #ifndef DONKEYKONG_H
 #define DONKEYKONG_H
 #include "entity.h"
+#include "animationmanager.h"
 
 class DonkeyKong : public Entity
 {
@@ -16,6 +17,7 @@ public:
 private:
     QPixmap sprite;
     int timer=0;
+    AnimationManager animation;
 };
 
 #endif // DONKEYKONG_H

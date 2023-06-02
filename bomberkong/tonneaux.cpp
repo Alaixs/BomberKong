@@ -28,12 +28,9 @@ void Tonneaux::update()
     {
         animation.play(2, 4);
     }
-    else if (timer%50==0)
+    else if (timer%50==25)
     {
         animation.play(4, 2);
-    }
-    {
-        animation.play(2, 4);
     }
     if (timer==400)
     {
