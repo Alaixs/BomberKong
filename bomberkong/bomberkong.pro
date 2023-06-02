@@ -13,6 +13,7 @@ SOURCES += \
     bomb.cpp \
     bombergirl.cpp \
     coordinate.cpp \
+    donkeykong.cpp \
     explosion.cpp \
     indestructiblewall.cpp \
     input.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     animationmanager.h \
     bomb.h \
     bombergirl.h \
+    donkeykong.h \
     explosion.h \
     indestructiblewall.h \
     input.h \
