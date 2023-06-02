@@ -13,6 +13,7 @@ public:
 
     void update();
     void draw(QPainter * painter);
+    void collisionEvent(Entity * body);
 
     QRect getRect();
 

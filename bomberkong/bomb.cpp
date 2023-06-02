@@ -1,7 +1,8 @@
 #include "bomb.h"
 
 #include "widget.h"
-
+#include "playercharacter.h"
+#include "coordinate.h"
 
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
@@ -22,7 +23,6 @@ void Bomb::update()
 {
     animation.update();
     timer--;
-
     if (timer == 62)
     {
         animation.play(2, 4);
@@ -39,6 +39,22 @@ void Bomb::update()
     }
 }
 
+void Bomb::collisionEvent(Entity * body){
+    if(dynamic_cast<PlayerCharacter*>(body) != nullptr){
+        if(body->getPos().x>pos.x){
+            pos.x-=50;
+        }
+        else if(body->getPos().x<pos.x){
+            pos.x+=50;
+        }
+        else if(body->getPos().y>pos.y){
+            pos.y-=50;
+        }
+        else{
+            pos.y+=50;
+        }
+    }
+}
 
 void Bomb::draw(QPainter * painter)
 {
