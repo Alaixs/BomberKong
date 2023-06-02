@@ -37,12 +37,13 @@ void PlayerCharacter::update()
     if(timer<0){
         if(Input::isActionPressed(PLACE_BOMB)) {
             dynamic_cast<Widget*>(parent)->createEntity(new Bomb(pos));
-            timer=300;
+            timer=62;
         }
     }
 
     pos += motion * speed;
-    if(timer>=-1){timer--;}
+    if(timer>=-1){
+        timer--;}
     if (abs(motion.x) > 0 || abs(motion.y) > 0)
     {
         animation.play(4, 8);
