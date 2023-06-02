@@ -10,7 +10,6 @@
 #include "bomb.h"
 #include "explosion.h"
 #include "bombergirl.h"
-#include "tonneaux.h"
 #include "donkeykong.h"
 
 Widget::Widget(QWidget *parent)
@@ -19,16 +18,13 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
-    createExplosion(-48, 0);
-    createExplosion(-48, 0);
-
-    createEntity(new PlayerCharacter(200, 200));
+    createEntity(new PlayerCharacter(240, 240));
 
     createEntity(new Wall(0, 0));
     createEntity(new Wall(48, 0));
     createEntity(new Wall(0, 48));
 
-    createEntity(new IndestructibleWall(200, 48));
+    createEntity(new IndestructibleWall(240, 48));
 
     createEntity(new BomberGirl(300,300));
 
@@ -62,7 +58,7 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 
 void Widget::gameUpdate()
 {
-    std::vector<Entity*>::iterator it = entities.begin();
+    std::list<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
     {
         if ((*it)->isActive())
@@ -70,7 +66,7 @@ void Widget::gameUpdate()
             (*it)->update();
 
             // Collisions
-            std::vector<Entity*>::iterator collider;
+            std::list<Entity*>::iterator collider;
             for (collider = entities.begin(); collider != entities.end(); ++collider)
             {
                 if (it != collider)
@@ -106,7 +102,7 @@ void Widget::paintEvent(QPaintEvent *)
         QBrush(QColor(216, 197, 150))
     );
 
-    std::vector<Entity*>::iterator it = entities.begin();
+    std::list<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
     {
         // Draw the entity

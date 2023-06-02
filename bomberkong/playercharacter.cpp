@@ -38,7 +38,10 @@ void PlayerCharacter::update()
 
     if(timer<0){
         if(Input::isActionPressed(PLACE_BOMB)) {
-            dynamic_cast<Widget*>(parent)->createEntity(new Bomb(pos));
+            Coordinate bombPos(pos);
+            bombPos.x = ((bombPos.x + 48/2) / 48) * 48;
+            bombPos.y = ((bombPos.y + 48/2) / 48) * 48;
+            dynamic_cast<Widget*>(parent)->createEntity(new Bomb(bombPos));
             timer=100;
         }
     }

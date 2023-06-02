@@ -32,7 +32,7 @@ public:
 
 private:
     Ui::Widget *ui;
-    std::vector<Entity*> entities; ///< A vector toring all entities active in the game world
+    std::list<Entity*> entities; ///< A vector toring all entities active in the game world
 
 private slots:
     /**
