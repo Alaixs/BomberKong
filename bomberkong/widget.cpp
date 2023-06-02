@@ -11,6 +11,7 @@
 #include "explosion.h"
 #include "bombergirl.h"
 #include "tonneaux.h"
+#include "donkeykong.h"
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -30,7 +31,7 @@ ui->setupUi(this);
 
     createEntity(new BomberGirl(300,300));
 
-    createEntity(new Tonneaux(300,0));
+    createEntity(new DonkeyKong(0,0));
 
 
     // updates the game every 16ms
