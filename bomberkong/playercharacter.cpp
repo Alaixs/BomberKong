@@ -1,5 +1,6 @@
 #include "playercharacter.h"
 
+#include "indestructiblewall.h"
 #include "input.h"
 #include "wall.h"
 
@@ -47,7 +48,7 @@ void PlayerCharacter::update()
 
 void PlayerCharacter::collisionEvent(Entity * body)
 {
-    if (dynamic_cast<Wall*>(body) != nullptr)
+    if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
     {
         // Offsets the player away from the collider
         int distX = pos.x - body->getPos().x;

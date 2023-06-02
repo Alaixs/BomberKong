@@ -6,6 +6,7 @@
 
 #include "playercharacter.h"
 #include "wall.h"
+#include "indestructiblewall.h"
 #include "bomb.h"
 #include "explosion.h"
 
@@ -17,11 +18,13 @@ ui->setupUi(this);
 
     createEntity(new PlayerCharacter(200, 200));
 
-    createEntity(new Bomb(48, 48));
+
 
     createEntity(new Wall(0, 0));
     createEntity(new Wall(48, 0));
     createEntity(new Wall(0, 48));
+
+    createEntity(new IndestructibleWall(200, 48));
 
 
 

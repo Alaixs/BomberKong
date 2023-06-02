@@ -13,6 +13,7 @@ SOURCES += \
     bomb.cpp \
     coordinate.cpp \
     explosion.cpp \
+    indestructiblewall.cpp \
     input.cpp \
     main.cpp \
     playercharacter.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     animationmanager.h \
     bomb.h \
     explosion.h \
+    indestructiblewall.h \
     input.h \
     playercharacter.h \
     widget.h \
