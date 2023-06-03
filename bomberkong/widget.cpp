@@ -28,7 +28,7 @@ ui->setupUi(this);
 
     // Create level from file
     std::ifstream levelDataFile;
-    levelDataFile.open("../bomberkong/assets/maps/test_level.bkmap");
+    levelDataFile.open("../bomberkong/assets/maps/Map.bkmap");
 
     if (!levelDataFile.is_open())
     {
