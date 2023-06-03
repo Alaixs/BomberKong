@@ -11,7 +11,6 @@
 #include "bombergirl.h"
 #include "donkeykong.h"
 
-
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
 , ui(new Ui::Widget)
@@ -26,6 +25,23 @@ ui->setupUi(this);
 
     srand(time(nullptr));
 
+    // Choose a random Map
+     wMap = rand() % 3;
+
+    start();
+
+    // updates the game every 16ms
+    connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
+    timer.start(16);
+}
+
+Widget::~Widget()
+{
+    delete ui;
+}
+
+void Widget::start(){
+
     // Create level from file
     std::ifstream levelDataFile;
     levelDataFile.open("../bomberkong/assets/maps/Map.bkmap");
@@ -36,9 +52,6 @@ ui->setupUi(this);
     }
 
     char block;
-
-    // Choose a random Map
-    int wMap = rand() % 3;
 
     // Skip Until the goop map
     for(int i=0;i<wMap;i++){
@@ -77,18 +90,13 @@ ui->setupUi(this);
 
     createEntity(new DonkeyKong(492,0));
 
-
-    // updates the game every 16ms
-    connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
-    timer.start(16);
 }
 
-
-Widget::~Widget()
-{
-    delete ui;
+void Widget::deleteEntities(){
+    while(entities.size() != 0){
+        entities.pop_back();
+    }
 }
-
 
 // Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
@@ -101,7 +109,6 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 {
     Input::keyReleasedEvent(ev);
 }
-
 
 void Widget::gameUpdate()
 {

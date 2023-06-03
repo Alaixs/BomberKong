@@ -25,6 +25,7 @@ public:
 
     void keyPressEvent(QKeyEvent * ev);
     void keyReleaseEvent(QKeyEvent * ev);
+    int wMap;
 
     /**
      * @brief Create an entity, sets it parent to `this` and adds it to the entities list
@@ -33,6 +34,10 @@ public:
     void createEntity(Entity * entity);
 
     void createExplosion(int posX, int posY);
+
+    void start();
+
+    void deleteEntities();
 
 private:
     Ui::Widget *ui;

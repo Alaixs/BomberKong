@@ -64,7 +64,11 @@ void PlayerCharacter::update()
     if(timer >= -1)
         timer--;
 
-    if (abs(motion.x) > 0 || abs(motion.y) > 0)
+    if(isAlive == false)
+    {
+        animation.play(8,11);
+    }
+    else if (abs(motion.x) > 0 || abs(motion.y) > 0)
     {
         animation.play(4, 8);
     }
@@ -103,13 +107,16 @@ void PlayerCharacter::collisionEvent(Entity * body)
             losePopup->setFixedSize(500, 100);
             losePopup->setText("You lose");
             losePopup->show();
-            dynamic_cast<Widget*>(parent)->timer.stop();
+            isAlive=false;
         }
         //obliger sinon il reetourne au début du niveau
         else{
             pos.x = 456;
             pos.y = 912;
             nbLive--;
+            isAlive=false;
+            dynamic_cast<Widget*>(parent)->deleteEntities();
+            dynamic_cast<Widget*>(parent)->start();
         }
     }
 }
