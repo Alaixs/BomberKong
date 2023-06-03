@@ -23,7 +23,7 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 void DonkeyKong::update()
 {
     if(timer > 62){
-        int random = rand() % 28;
+        int random = rand() % 18;
         pos.x = 48 + (random * 48);
         dynamic_cast<Widget*>(parent)->createEntity(new Barrel(pos));
         timer = 0;
