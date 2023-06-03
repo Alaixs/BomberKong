@@ -144,10 +144,30 @@ void Widget::paintEvent(QPaintEvent *)
     QPainter painter(this);
 
     // Fill the background with a color
-    painter.fillRect(
-        0, 0, 1532, 1056,
-        QBrush(QColor(216, 197, 150))
-    );
+    int width = 48;
+    for(int i = 0; i < 20; i++){
+        for(int j = 0; j < 11; j++){
+            painter.fillRect(
+                width*2*i, width*2*j, width, width,
+                QBrush(QColor(0, 161, 30))
+                );
+
+            painter.fillRect(
+                width*2*i+48, width*2*j+48, width, width,
+                QBrush(QColor(0, 161, 30))
+                );
+
+            painter.fillRect(
+                width*2*i+48, width*2*j, width, width,
+                QBrush(QColor(1, 133, 21))
+                );
+
+            painter.fillRect(
+                width*2*i, width*2*j+48, width, width,
+                QBrush(QColor(1, 133, 21))
+                );
+        }
+    }
 
     std::list<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
