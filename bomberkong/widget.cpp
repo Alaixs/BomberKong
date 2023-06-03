@@ -2,9 +2,10 @@
 #include "widget.h"
 
 #include "ui_widget.h"
-
+#include <fstream>
 #include "input.h"
 #include "playercharacter.h"
+#include "wall.h"
 #include "indestructiblewall.h"
 #include "explosion.h"
 #include "bombergirl.h"
@@ -19,25 +20,53 @@ ui->setupUi(this);
 
 
 
-    int height = 1056;
-    int width = 1532;
+    int height = 960;
+    int width = 960;
     setFixedSize(width, height);
 
     srand(time(nullptr));
 
-    for(int h=0;h<21;h++){
-        for(int l=0;l<32;l++){
-            if(h == 0 || h == 20 || l == 0 || l == 31){
-                createEntity(new IndestructibleWall(48*l,48*h+48));
+    // Create level from file
+    std::ifstream levelDataFile;
+    levelDataFile.open("../bomberkong/assets/maps/test_level.bkmap");
+
+    if (!levelDataFile.is_open())
+    {
+        qDebug() << "Could not open the file";
+    }
+
+    char block;
+    int yPos = 0;
+    int xPos = 0;
+    while (levelDataFile >> block)
+    {
+        if (block == ';')
+        {
+            yPos += 48;
+            xPos = 0;
+
+        }
+        else
+        {
+            if (block == '2')
+            {
+                createEntity(new Wall(xPos, yPos));
             }
+            else if (block == '1')
+            {
+                createEntity(new IndestructibleWall(xPos, yPos));
+            }
+            xPos += 48;
         }
     }
 
-    createEntity(new PlayerCharacter(716, 912));
+    levelDataFile.close();
 
-    createEntity(new BomberGirl(716,144));
+    createEntity(new PlayerCharacter(456, 816));
 
-    createEntity(new DonkeyKong(716,0));
+    createEntity(new BomberGirl(456,96));
+
+    createEntity(new DonkeyKong(492,0));
 
 
     // updates the game every 16ms

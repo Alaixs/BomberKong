@@ -6,5 +6,6 @@
         <file>assets/sprites/t_explosion.png</file>
         <file>assets/sprites/t_bombergirl.png</file>
         <file>assets/sprites/t_barrel.png</file>
+        <file>assets/maps/test_level.bkmap</file>
     </qresource>
 </RCC>

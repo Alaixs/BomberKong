@@ -96,8 +96,8 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
         //obliger sinon il reetourne au début du niveau
         else{
-            pos.x = 716;
-            pos.y = 912;
+            pos.x = 456;
+            pos.y = 816;
             nbLive--;
         }
     }
