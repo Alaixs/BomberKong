@@ -47,6 +47,5 @@ void Explosion::draw(QPainter * painter)
 
 QRect Explosion::getRect()
 {
-            qDebug() << "getrect baby" ;
     return QRect(pos.x, pos.y, 48, 48);
 }
