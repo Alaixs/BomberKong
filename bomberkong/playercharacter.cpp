@@ -64,11 +64,7 @@ void PlayerCharacter::update()
     if(timer >= -1)
         timer--;
 
-    if(isAlive == false)
-    {
-        animation.play(8,11);
-    }
-    else if (abs(motion.x) > 0 || abs(motion.y) > 0)
+    if (abs(motion.x) > 0 || abs(motion.y) > 0)
     {
         animation.play(4, 8);
     }
@@ -101,20 +97,19 @@ void PlayerCharacter::collisionEvent(Entity * body)
     }
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
 
-        if(nbLive == 0)
+        if(dynamic_cast<Widget*>(parent)->nbLive == 0)
         {
             QMessageBox * losePopup = new QMessageBox();
             losePopup->setFixedSize(500, 100);
             losePopup->setText("You lose");
             losePopup->show();
-            isAlive=false;
+            dynamic_cast<Widget*>(parent)->timer.stop();
         }
         //obliger sinon il reetourne au début du niveau
         else{
             pos.x = 456;
             pos.y = 912;
-            nbLive--;
-            isAlive=false;
+            dynamic_cast<Widget*>(parent)->nbLive--;
             dynamic_cast<Widget*>(parent)->deleteEntities();
             dynamic_cast<Widget*>(parent)->start();
         }

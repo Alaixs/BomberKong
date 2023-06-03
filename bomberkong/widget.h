@@ -26,6 +26,7 @@ public:
     void keyPressEvent(QKeyEvent * ev);
     void keyReleaseEvent(QKeyEvent * ev);
     int wMap;
+    int nbLive = 2;
 
     /**
      * @brief Create an entity, sets it parent to `this` and adds it to the entities list

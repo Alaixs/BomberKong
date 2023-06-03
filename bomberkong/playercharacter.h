@@ -17,7 +17,6 @@ public:
     void collisionEvent(Entity * body);
 
     QRect getRect();
-    int nbLive = 2;
 
 private:
     QPixmap sprite;
@@ -26,7 +25,6 @@ private:
     int speed = 4; ///< The number of pixels traveled each frame
     bool flipped;
     int timer=0;
-    bool isAlive = true;
 
 };
 
