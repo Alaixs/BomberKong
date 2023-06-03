@@ -1,6 +1,7 @@
 #include "explosion.h"
 #include <QDebug>
 
+
 Explosion::Explosion(int posX, int posY)
     : Entity(posX, posY)
 {

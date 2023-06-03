@@ -1,9 +1,9 @@
 // includes the necessary header files
 #include "widget.h"
+
 #include "ui_widget.h"
-
+#include <fstream>
 #include "input.h"
-
 #include "playercharacter.h"
 #include "wall.h"
 #include "indestructiblewall.h"
@@ -11,23 +11,62 @@
 #include "bombergirl.h"
 #include "donkeykong.h"
 
+
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
 , ui(new Ui::Widget)
 {
 ui->setupUi(this);
 
-    createEntity(new PlayerCharacter(240, 240));
 
-    createEntity(new Wall(0, 0));
-    createEntity(new Wall(48, 0));
-    createEntity(new Wall(0, 48));
 
-    createEntity(new IndestructibleWall(240, 48));
+    int height = 960;
+    int width = 960;
+    setFixedSize(width, height);
 
-    createEntity(new BomberGirl(300,300));
+    srand(time(nullptr));
 
-    createEntity(new DonkeyKong(0,0));
+    // Create level from file
+    std::ifstream levelDataFile;
+    levelDataFile.open("../bomberkong/assets/maps/test_level.bkmap");
+
+    if (!levelDataFile.is_open())
+    {
+        qDebug() << "Could not open the file";
+    }
+
+    char block;
+    int yPos = 0;
+    int xPos = 0;
+    while (levelDataFile >> block)
+    {
+        if (block == ';')
+        {
+            yPos += 48;
+            xPos = 0;
+
+        }
+        else
+        {
+            if (block == '2')
+            {
+                createEntity(new Wall(xPos, yPos));
+            }
+            else if (block == '1')
+            {
+                createEntity(new IndestructibleWall(xPos, yPos));
+            }
+            xPos += 48;
+        }
+    }
+
+    levelDataFile.close();
+
+    createEntity(new PlayerCharacter(456, 816));
+
+    createEntity(new BomberGirl(456,96));
+
+    createEntity(new DonkeyKong(492,0));
 
 
     // updates the game every 16ms
@@ -87,7 +126,7 @@ void Widget::gameUpdate()
     }
 
     // Draw a frame
-    repaint(0, 0, 800, 600);
+    repaint(0, 0, 1532,1056);
 }
 
 
@@ -97,7 +136,7 @@ void Widget::paintEvent(QPaintEvent *)
 
     // Fill the background with a color
     painter.fillRect(
-        0, 0, 800, 600,
+        0, 0, 1532, 1056,
         QBrush(QColor(216, 197, 150))
     );
 

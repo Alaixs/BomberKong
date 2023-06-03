@@ -1,13 +1,13 @@
-#ifndef TONNEAUX_H
-#define TONNEAUX_H
+#ifndef BARREL_H
+#define BARREL_H
 #include "animationmanager.h"
 #include "entity.h"
 
-class Tonneaux : public Entity
+class Barrel : public Entity
 {
 public:
-    Tonneaux(int posX,int posY);
-    Tonneaux(Coordinate pos);
+    Barrel(int posX,int posY);
+    Barrel(Coordinate pos);
 
     void update();
     void draw(QPainter * painter);
@@ -20,4 +20,4 @@ private:
     AnimationManager animation;
 };
 
-#endif // TONNEAUX_H
+#endif // BARREL_H

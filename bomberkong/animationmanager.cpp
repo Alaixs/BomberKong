@@ -1,5 +1,6 @@
 #include "animationmanager.h"
 
+
 AnimationManager::AnimationManager()
 {
     frameInterval = 8;

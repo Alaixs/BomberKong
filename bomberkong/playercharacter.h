@@ -17,6 +17,7 @@ public:
     void collisionEvent(Entity * body);
 
     QRect getRect();
+    int nbLive = 2;
 
 private:
     QPixmap sprite;

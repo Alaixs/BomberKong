@@ -1,5 +1,9 @@
 #include "bombergirl.h"
+
 #include "playercharacter.h"
+#include <QTimer>
+#include "qmessagebox.h"
+#include "widget.h"
 
 
 BomberGirl::BomberGirl(int posX, int posY)
@@ -38,7 +42,11 @@ void BomberGirl::collisionEvent(Entity * body)
 {
     if (dynamic_cast<PlayerCharacter*>(body) != nullptr)
     {
-        deleteEntity();
+        QMessageBox * winPopup = new QMessageBox();
+        winPopup->setFixedSize(500,100);
+        winPopup->setText("Congrats, You win");
+        winPopup->show();
+        dynamic_cast<Widget*>(parent)->timer.stop();
     }
 }
 
