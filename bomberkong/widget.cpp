@@ -20,7 +20,7 @@ ui->setupUi(this);
 
 
 
-    int height = 960;
+    int height = 1056;
     int width = 960;
     setFixedSize(width, height);
 
@@ -36,7 +36,7 @@ ui->setupUi(this);
     }
 
     char block;
-    int yPos = 0;
+    int yPos = 96;
     int xPos = 0;
     while (levelDataFile >> block)
     {
@@ -62,9 +62,9 @@ ui->setupUi(this);
 
     levelDataFile.close();
 
-    createEntity(new PlayerCharacter(456, 816));
+    createEntity(new PlayerCharacter(456, 912));
 
-    createEntity(new BomberGirl(456,96));
+    createEntity(new BomberGirl(456,192));
 
     createEntity(new DonkeyKong(492,0));
 
