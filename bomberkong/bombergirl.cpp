@@ -44,7 +44,7 @@ void BomberGirl::collisionEvent(Entity * body)
     {
         QMessageBox * winPopup = new QMessageBox();
         winPopup->setFixedSize(500,100);
-        winPopup->setText("Congrats, You win");
+        winPopup->setText("Congrats, You've won");
         winPopup->show();
         dynamic_cast<Widget*>(parent)->timer.stop();
     }
