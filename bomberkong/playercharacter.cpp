@@ -1,14 +1,14 @@
-#include <QMessageBox>
-
 #include "playercharacter.h"
 
+#include <QMessageBox>
 #include "widget.h"
 #include "indestructiblewall.h"
 #include "input.h"
 #include "wall.h"
 #include "bomb.h"
-#include "tonneaux.h"
+#include "barrel.h"
 #include "explosion.h"
+
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -38,19 +38,22 @@ void PlayerCharacter::update()
     else if (Input::isActionPressed(MOVE_UP)) { motion.y = -1; }
     else { motion.y = 0; }
 
-    if(timer<0){
-        if(Input::isActionPressed(PLACE_BOMB)) {
+    if(Input::isActionPressed(PLACE_BOMB))
+    {
+        if(timer < 0)
+        {
             Coordinate bombPos(pos);
-            bombPos.x = ((bombPos.x + 48/2) / 48) * 48;
-            bombPos.y = ((bombPos.y + 48/2) / 48) * 48;
+            bombPos.x = ((bombPos.x + 48 / 2) / 48) * 48;
+            bombPos.y = ((bombPos.y + 48 / 2) / 48) * 48;
             dynamic_cast<Widget*>(parent)->createEntity(new Bomb(bombPos));
-            timer=200;
+            timer = 200;
         }
     }
 
     pos += motion * speed;
-    if(timer>=-1){
-        timer--;}
+    if(timer >= -1)
+        timer--;
+
     if (abs(motion.x) > 0 || abs(motion.y) > 0)
     {
         animation.play(4, 8);
@@ -82,19 +85,19 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
         }
     }
-    if (dynamic_cast<Tonneaux*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
+    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
         if(nbLive == 0)
         {
             QMessageBox * losePopup = new QMessageBox();
-            losePopup->setFixedSize(500,100);
+            losePopup->setFixedSize(500, 100);
             losePopup->setText("You lose");
             losePopup->show();
             dynamic_cast<Widget*>(parent)->timer.stop();
         }
         //obliger sinon il reetourne au début du niveau
         else{
-            pos.x=716;
-            pos.y=912;
+            pos.x = 716;
+            pos.y = 912;
             nbLive--;
         }
     }

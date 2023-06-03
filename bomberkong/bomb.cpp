@@ -7,12 +7,14 @@
 #include "wall.h"
 #include "indestructiblewall.h"
 
+
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
 {
     sprite.load("://assets/sprites/t_bomb.png");
     animation.play(0, 2);
 }
+
 
 Bomb::Bomb(Coordinate position)
     : Entity(position)
@@ -42,24 +44,28 @@ void Bomb::update()
     }
 }
 
+
 void Bomb::collisionEvent(Entity * body){
+    // Is pushed away when colliding with walls or the player
     if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB))
-           || (dynamic_cast<Wall*>(body) != nullptr
-            || dynamic_cast<IndestructibleWall*>(body) != nullptr)){
-        if(body->getPos().x>pos.x){
-            pos.x-=48;
+        || dynamic_cast<Wall*>(body) != nullptr
+        || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+    {
+        if(body->getPos().x > pos.x){
+            pos.x -= 48;
         }
-        else if(body->getPos().x<pos.x){
-            pos.x+=48;
+        else if(body->getPos().x < pos.x){
+            pos.x += 48;
         }
-        else if(body->getPos().y>pos.y){
-            pos.y-=48;
+        else if(body->getPos().y > pos.y){
+            pos.y -= 48;
         }
         else{
-            pos.y+=48;
+            pos.y += 48;
         }
     }
 }
+
 
 void Bomb::draw(QPainter * painter)
 {

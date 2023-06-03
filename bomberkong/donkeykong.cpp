@@ -1,8 +1,10 @@
 #include "donkeykong.h"
+
 #include "qwidget.h"
-#include "tonneaux.h"
+#include "barrel.h"
 #include "widget.h"
 #include <random>
+
 
 DonkeyKong::DonkeyKong(int posX, int posY)
     : Entity(posX, posY)
@@ -22,16 +24,16 @@ void DonkeyKong::update()
 {
     if(timer > 62){
         int random = rand() % 28;
-        pos.x = 48 + (random*48);
-        dynamic_cast<Widget*>(parent)->createEntity(new Tonneaux(pos));
-        timer=0;
+        pos.x = 48 + (random * 48);
+        dynamic_cast<Widget*>(parent)->createEntity(new Barrel(pos));
+        timer = 0;
     }
     timer++;
-    if(timer%50 == 0){
-        animation.play(2,4);
+    if(timer % 50 == 0){
+        animation.play(2, 4);
     }
-    else if(timer%50 == 25){
-        animation.play(4,2);
+    else if(timer % 50 == 25){
+        animation.play(4, 2);
     }
 }
 
@@ -44,6 +46,7 @@ void DonkeyKong::draw(QPainter * painter)
         QRect(48, 0, 16, 16)
     );
 }
+
 
 QRect DonkeyKong::getRect()
 {

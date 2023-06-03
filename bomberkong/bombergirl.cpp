@@ -1,8 +1,10 @@
 #include "bombergirl.h"
+
 #include "playercharacter.h"
 #include <QTimer>
 #include "qmessagebox.h"
 #include "widget.h"
+
 
 BomberGirl::BomberGirl(int posX, int posY)
     : Entity(posX, posY)

@@ -1,15 +1,15 @@
 // includes the necessary header files
 #include "widget.h"
+
 #include "ui_widget.h"
 
 #include "input.h"
-
 #include "playercharacter.h"
-#include "wall.h"
 #include "indestructiblewall.h"
 #include "explosion.h"
 #include "bombergirl.h"
 #include "donkeykong.h"
+
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -19,9 +19,10 @@ ui->setupUi(this);
 
 
 
-    int height=1056;
-    int width=1532;
-    setFixedSize(width,height);
+    int height = 1056;
+    int width = 1532;
+    setFixedSize(width, height);
+
     srand(time(nullptr));
 
     for(int h=0;h<21;h++){
@@ -106,7 +107,7 @@ void Widget::paintEvent(QPaintEvent *)
 
     // Fill the background with a color
     painter.fillRect(
-        0, 0, 1532,1056,
+        0, 0, 1532, 1056,
         QBrush(QColor(216, 197, 150))
     );
 

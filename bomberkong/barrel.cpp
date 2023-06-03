@@ -1,14 +1,15 @@
-#include "tonneaux.h"
+#include "barrel.h"
 
 
-Tonneaux::Tonneaux(int posX, int posY)
+Barrel::Barrel(int posX, int posY)
     : Entity(posX, posY)
 {
     sprite.load("://assets/sprites/t_barrel.png");
     animation.play(0, 3);
 }
 
-Tonneaux::Tonneaux(Coordinate position)
+
+Barrel::Barrel(Coordinate position)
     : Entity(position)
 {
     sprite.load("://assets/sprites/t_barrel.png");
@@ -16,7 +17,7 @@ Tonneaux::Tonneaux(Coordinate position)
 }
 
 
-void Tonneaux::update()
+void Barrel::update()
 {
     animation.update();
     timer++;
@@ -29,7 +30,7 @@ void Tonneaux::update()
 }
 
 
-void Tonneaux::draw(QPainter * painter)
+void Barrel::draw(QPainter * painter)
 {
     painter->drawPixmap(
         QRect(pos.x, pos.y, 48, 48),
@@ -39,7 +40,7 @@ void Tonneaux::draw(QPainter * painter)
 }
 
 
-QRect Tonneaux::getRect()
+QRect Barrel::getRect()
 {
     return QRect(pos.x, pos.y, 48, 48);
 }

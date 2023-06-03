@@ -26,6 +26,10 @@ public:
     void keyPressEvent(QKeyEvent * ev);
     void keyReleaseEvent(QKeyEvent * ev);
 
+    /**
+     * @brief Create an entity, sets it parent to `this` and adds it to the entities list
+     * @param entity
+     */
     void createEntity(Entity * entity);
 
     void createExplosion(int posX, int posY);

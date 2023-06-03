@@ -1,5 +1,6 @@
 #include "explosion.h"
 
+
 Explosion::Explosion(int posX, int posY)
     : Entity(posX, posY)
 {

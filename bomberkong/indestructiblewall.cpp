@@ -31,6 +31,7 @@ void IndestructibleWall::draw(QPainter * painter)
     );
 }
 
+
 QRect IndestructibleWall::getRect()
 {
     return QRect(pos.x, pos.y, 48, 48);

@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     animationmanager.cpp \
+    barrel.cpp \
     bomb.cpp \
     bombergirl.cpp \
     coordinate.cpp \
@@ -19,13 +20,13 @@ SOURCES += \
     input.cpp \
     main.cpp \
     playercharacter.cpp \
-    tonneaux.cpp \
     widget.cpp \
     entity.cpp \
     wall.cpp \
 
 HEADERS += \
     animationmanager.h \
+    barrel.h \
     bomb.h \
     bombergirl.h \
     donkeykong.h \
@@ -33,7 +34,6 @@ HEADERS += \
     indestructiblewall.h \
     input.h \
     playercharacter.h \
-    tonneaux.h \
     widget.h \
     entity.h \
     coordinate.h \
