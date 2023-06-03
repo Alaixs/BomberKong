@@ -1,4 +1,4 @@
-// includes the necessary header files
+﻿// includes the necessary header files
 #include "widget.h"
 
 #include "ui_widget.h"
@@ -36,9 +36,15 @@ ui->setupUi(this);
     }
 
     char block;
+
+    int wMap = rand() % 3;
+    for(int i=0;i<wMap;i++){
+        while(levelDataFile >> block && block != '!'){};
+    }
+
     int yPos = 96;
     int xPos = 0;
-    while (levelDataFile >> block)
+    while (levelDataFile >> block && block != '!')
     {
         if (block == ';')
         {
