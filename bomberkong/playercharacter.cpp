@@ -86,6 +86,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
     }
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
+
         if(nbLive == 0)
         {
             QMessageBox * losePopup = new QMessageBox();
@@ -97,11 +98,10 @@ void PlayerCharacter::collisionEvent(Entity * body)
         //obliger sinon il reetourne au début du niveau
         else{
             pos.x = 456;
-            pos.y = 816;
+            pos.y = 912;
             nbLive--;
         }
     }
-
 }
 
 
