@@ -37,7 +37,10 @@ ui->setupUi(this);
 
     char block;
 
+    // Choose a random Map
     int wMap = rand() % 3;
+
+    // Skip Until the goop map
     for(int i=0;i<wMap;i++){
         while(levelDataFile >> block && block != '!'){};
     }
