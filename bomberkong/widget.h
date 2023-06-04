@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "entity.h"
+#include "soundmanager.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +40,8 @@ public:
     void start();
 
     void deleteEntities();
+
+    SoundManager* soundManager;
 
 private:
     Ui::Widget *ui;

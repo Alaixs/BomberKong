@@ -41,6 +41,7 @@ void Bomb::update()
         dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y - 48);
 
         deleteEntity();
+        explosionSfx();
     }
 }
 
@@ -75,6 +76,12 @@ void Bomb::draw(QPainter * painter)
         QRect(animation.getFrame() * 16, 0, 16, 16)
     );
 }
+
+void Bomb::explosionSfx()
+{
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_explosion.wav", 0.5);
+}
+
 
 
 QRect Bomb::getRect()

@@ -10,6 +10,8 @@
 #include "explosion.h"
 #include "bombergirl.h"
 #include "donkeykong.h"
+#include <QSoundEffect>
+#include "soundmanager.h"
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -28,7 +30,16 @@ ui->setupUi(this);
     // Choose a random Map
      wMap = rand() % 3;
 
+     // preload sounds (avoid lag)
+     SoundManager::getInstance().loadSound("://assets/sounds/sfx_explosion.wav");
+     SoundManager::getInstance().loadSound("://assets/sounds/sfx_footsteps.wav");
+     SoundManager::getInstance().loadSound("://assets/sounds/sfx_mainTheme.wav");
+     SoundManager::getInstance().loadSound("://assets/sounds/sfx_loseTheme.wav");
+     SoundManager::getInstance().loadSound("://assets/sounds/sfx_winTheme.wav");
+
     start();
+    //play main theme
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03);
 
     // updates the game every 16ms
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));

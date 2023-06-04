@@ -3,6 +3,7 @@
 
 #include "entity.h"
 #include "animationmanager.h"
+#include "soundmanager.h"
 
 class Bomb : public Entity
 {
@@ -14,6 +15,8 @@ public:
     void update();
     void draw(QPainter * painter);
     void collisionEvent(Entity * body);
+    void explosionSfx();
+    SoundManager* soundManager;
 
     QRect getRect();
 

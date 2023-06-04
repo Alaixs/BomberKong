@@ -9,7 +9,7 @@
 #include "bomb.h"
 #include "barrel.h"
 #include "explosion.h"
-
+#include "soundmanager.h"
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -31,12 +31,12 @@ void PlayerCharacter::update()
 {
     animation.update();
 
-    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1; flipped = true; }
-    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -1; flipped = false; }
+    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1; flipped = true; footstepsSfx(); }
+    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -1; flipped = false; footstepsSfx(); }
     else { motion.x = 0; }
 
-    if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1; }
-    else if (Input::isActionPressed(MOVE_UP)) { motion.y = -1; }
+    if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1; footstepsSfx(); }
+    else if (Input::isActionPressed(MOVE_UP)) { motion.y = -1; footstepsSfx(); }
     else { motion.y = 0; }
 
     if(Input::isActionPressed(PLACE_BOMB))
@@ -52,6 +52,7 @@ void PlayerCharacter::update()
     }
 
     if(pos.y > 1104){
+
         QMessageBox * anotherWay = new QMessageBox();
         anotherWay->setFixedSize(500,100);
         anotherWay->setText("You get on another way and decide to let Donkey Kong with Bomber Girl."
@@ -137,6 +138,22 @@ void PlayerCharacter::draw(QPainter * painter)
             QRect((10 - animation.getFrame()) * 16, 0, 16, 16)
         );
     }
+}
+
+void PlayerCharacter::footstepsSfx()
+{
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
+}
+
+
+void PlayerCharacter::loseThemeSfx()
+{
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5);
+}
+
+void PlayerCharacter::winThemeSfx()
+{
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5);
 }
 
 

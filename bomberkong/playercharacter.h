@@ -3,6 +3,8 @@
 
 #include "entity.h"
 #include "animationmanager.h"
+#include "soundmanager.h"
+
 
 class PlayerCharacter : public Entity
 {
@@ -15,6 +17,13 @@ public:
     void draw(QPainter * painter);
 
     void collisionEvent(Entity * body);
+
+    void footstepsSfx();
+    void loseThemeSfx();
+    void winThemeSfx();
+    void stopAllSounds();
+    SoundManager* soundManager;
+
 
     QRect getRect();
 

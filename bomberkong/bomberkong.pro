@@ -1,4 +1,5 @@
 QT       += core gui
+QT += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,6 +21,7 @@ SOURCES += \
     input.cpp \
     main.cpp \
     playercharacter.cpp \
+    soundmanager.cpp \
     widget.cpp \
     entity.cpp \
     wall.cpp \
@@ -34,6 +36,7 @@ HEADERS += \
     indestructiblewall.h \
     input.h \
     playercharacter.h \
+    soundmanager.h \
     widget.h \
     entity.h \
     coordinate.h \
