@@ -11,6 +11,7 @@
 #include "explosion.h"
 #include "soundmanager.h"
 #include "Global.h"
+extern int cellSize;
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)

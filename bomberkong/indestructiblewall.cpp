@@ -1,6 +1,7 @@
 #include "indestructiblewall.h"
 #include "explosion.h"
 #include "Global.h"
+extern int cellSize;
 
 IndestructibleWall::IndestructibleWall(int posX, int posY)
     : Entity(posX, posY)

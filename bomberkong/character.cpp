@@ -2,6 +2,7 @@
 #include "character.h"
 
 #include "Global.h"
+extern int cellSize;
 #include "soundmanager.h"
 
 Character::Character(int posX, int posY)

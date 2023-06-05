@@ -2,6 +2,7 @@
 
 #include "explosion.h"
 #include "Global.h"
+extern int cellSize;
 
 Wall::Wall(int posX, int posY)
     : Entity(posX, posY)

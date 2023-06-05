@@ -3,6 +3,7 @@
 #include "playercharacter.h"
 #include <QTimer>
 #include "Global.h"
+extern int cellSize;
 #include "widget.h"
 
 

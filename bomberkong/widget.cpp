@@ -15,7 +15,7 @@
 #include "soundmanager.h"
 
 #include "Global.h"
-
+extern int cellSize;
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)

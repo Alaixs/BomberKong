@@ -5,6 +5,7 @@
 #include "widget.h"
 #include <random>
 #include "Global.h"
+extern int cellSize;
 
 DonkeyKong::DonkeyKong(int posX, int posY)
     : Entity(posX, posY)

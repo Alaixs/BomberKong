@@ -1,6 +1,7 @@
 #include "explosion.h"
 #include <QSoundEffect>
 #include "Global.h"
+extern int cellSize;
 
 Explosion::Explosion(int posX, int posY)
     : Entity(posX, posY)

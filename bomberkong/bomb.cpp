@@ -7,6 +7,7 @@
 #include "wall.h"
 #include "indestructiblewall.h"
 #include "Global.h"
+extern int cellSize;
 
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
