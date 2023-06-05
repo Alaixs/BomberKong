@@ -6,7 +6,9 @@
 #include "coordinate.h"
 #include "wall.h"
 #include "indestructiblewall.h"
-#include "Global.h"
+#include "global.h"
+
+
 extern const int cellSize;
 
 Bomb::Bomb(int posX, int posY)

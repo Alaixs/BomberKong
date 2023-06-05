@@ -13,6 +13,8 @@
 #include "donkeykong.h"
 #include <QSoundEffect>
 #include "soundmanager.h"
+#include "guielement.h"
+#include "pressstartlabel.h"
 
 #include "global.h"
 extern const int cellSize;
@@ -67,7 +69,7 @@ void Widget::start(){
 
     char block;
 
-    // Skip Until the goop map
+    // Skip Until the right map
     for(int i=0;i<wMap;i++){
         while(levelDataFile >> block && block != '!'){};
     }
@@ -208,6 +210,9 @@ void Widget::paintEvent(QPaintEvent *)
         (*it)->draw(&painter);
         it++;
     }
+
+    PressStartLabel label(Coordinate(100, 400));
+    label.draw(&painter);
 }
 
 
