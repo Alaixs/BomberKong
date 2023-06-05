@@ -221,7 +221,7 @@ void Widget::paintEvent(QPaintEvent *)
         (*it)->draw(&painter);
         it++;
     }
-
+    painter.end();
 
     std::list<GUIElement*>::iterator gui_it = gui.begin();
     while (gui_it != gui.end())
@@ -237,6 +237,7 @@ void Widget::paintEvent(QPaintEvent *)
         Coordinate start(100,400);
         PressStartLabel label(start);
         label.draw(startPainter);
+        startPainter->end();
     }
 
 }
