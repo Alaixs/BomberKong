@@ -25,13 +25,21 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 
 void DonkeyKong::update()
 {
+
     animation.update();
-    timer--;    
+    timer--;
+
     if(timer < 0){
-        int random = rand() % 18;
-        pos.x = cellSize + (random * cellSize);
         dynamic_cast<Widget*>(parent)->createEntity(new Barrel(pos.x,pos.y+cellSize));
-        timer = 62;
+        int random = rand() % 18;
+        newPos = random * cellSize + cellSize;
+        dist = newPos - pos.x;
+        timer = 100;
+    }
+
+    if(pos.x != newPos)
+    {
+        pos.x += dist/100;
     }
 }
 

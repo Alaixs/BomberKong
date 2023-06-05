@@ -18,6 +18,9 @@ private:
     QPixmap sprite;
     int timer=0;
     AnimationManager animation;
+
+    int newPos;
+    int dist;
 };
 
 #endif // DONKEYKONG_H
