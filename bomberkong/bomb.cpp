@@ -52,24 +52,16 @@ void Bomb::collisionEvent(Entity * body){
     if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB)))
     {
         if(body->getPos().x > pos.x){
-            if(dynamic_cast<Wall*>(parent)->getPos().x != pos.x - cellSize){
-                pos.x -= cellSize;
-            }
+            pos.x -= cellSize;
         }
         else if(body->getPos().x < pos.x){
-            if(dynamic_cast<Wall*>(parent)->getPos().x != pos.x + cellSize){
-                pos.x += cellSize;
-            }
+            pos.x += cellSize;
         }
         else if(body->getPos().y > pos.y){
-            if(dynamic_cast<Wall*>(parent)->getPos().y != pos.y - cellSize){
-                pos.y -= cellSize;
-            }
+            pos.y -= cellSize;
         }
         else{
-            if(dynamic_cast<Wall*>(parent)->getPos().y != pos.y + cellSize){
-                pos.y += cellSize;
-            }
+            pos.y += cellSize;
         }
     }
 }
