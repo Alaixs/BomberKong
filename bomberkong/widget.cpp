@@ -24,7 +24,7 @@ Widget::Widget(QWidget *parent)
 ui->setupUi(this);
 
 
-    int height = 25 * cellSize;
+    int height = 26 * cellSize;
     int width = 20 * cellSize;
     setFixedSize(width, height);
 
@@ -98,9 +98,9 @@ void Widget::start(){
 
     levelDataFile.close();
 
-    createEntity(new PlayerCharacter(10.5 * cellSize, 22 * cellSize));
+    createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
 
-    createEntity(new BomberGirl(10.5 * cellSize, 6 * cellSize));
+    createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
 
     createEntity(new DonkeyKong(9.5 * cellSize, 0));
 
@@ -178,7 +178,7 @@ void Widget::paintEvent(QPaintEvent *)
     // Fill the background with a color
     int width = cellSize;
     for(int i = 0; i < 20; i++){
-        for(int j = 0; j < 11; j++){
+        for(int j = 0; j < 13; j++){
             painter.fillRect(
                 width*2*i, width*2*j, width, width,
                 QBrush(QColor(0, 161, 30))

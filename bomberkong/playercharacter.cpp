@@ -161,5 +161,5 @@ void PlayerCharacter::winThemeSfx()
 
 QRect PlayerCharacter::getRect()
 {
-    return QRect(pos.x + 6, pos.y, 35, cellSize);
+    return QRect(pos.x , pos.y, cellSize - 2, cellSize);
 }

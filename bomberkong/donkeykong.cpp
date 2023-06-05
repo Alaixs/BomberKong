@@ -39,7 +39,7 @@ void DonkeyKong::update()
 void DonkeyKong::draw(QPainter * painter)
 {
     painter->drawPixmap(
-        QRect(pos.x, pos.y, 192, 192),
+        QRect(pos.x, pos.y, 4 * cellSize, 4 * cellSize),
         sprite,
         QRect(animation.getFrame()* 64,0, 64, 64)
 
@@ -49,5 +49,5 @@ void DonkeyKong::draw(QPainter * painter)
 
 QRect DonkeyKong::getRect()
 {
-    return QRect(pos.x, pos.y, 192, 192);
+    return QRect(pos.x, pos.y, 4 * cellSize, 4 * cellSize);
 }
