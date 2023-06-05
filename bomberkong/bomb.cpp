@@ -6,7 +6,7 @@
 #include "coordinate.h"
 #include "wall.h"
 #include "indestructiblewall.h"
-#include "global.h"
+#include "Global.h"
 extern const int cellSize;
 
 Bomb::Bomb(int posX, int posY)
@@ -49,21 +49,27 @@ void Bomb::update()
 
 void Bomb::collisionEvent(Entity * body){
     // Is pushed away when colliding with walls or the player
-    if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB))
-        || dynamic_cast<Wall*>(body) != nullptr
-        || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+    if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB)))
     {
         if(body->getPos().x > pos.x){
-            pos.x -= cellSize;
+            if(dynamic_cast<Wall*>(parent)->getPos().x != pos.x - cellSize){
+                pos.x -= cellSize;
+            }
         }
         else if(body->getPos().x < pos.x){
-            pos.x += cellSize;
+            if(dynamic_cast<Wall*>(parent)->getPos().x != pos.x + cellSize){
+                pos.x += cellSize;
+            }
         }
         else if(body->getPos().y > pos.y){
-            pos.y -= cellSize;
+            if(dynamic_cast<Wall*>(parent)->getPos().y != pos.y - cellSize){
+                pos.y -= cellSize;
+            }
         }
         else{
-            pos.y += cellSize;
+            if(dynamic_cast<Wall*>(parent)->getPos().y != pos.y + cellSize){
+                pos.y += cellSize;
+            }
         }
     }
 }
