@@ -53,8 +53,6 @@ public:
 
     void win();
 
-    void defeat();
-
     SoundManager* soundManager;
 
 private:

@@ -18,6 +18,7 @@ SOURCES += \
     demicharacter.cpp \
     donkeykong.cpp \
     explosion.cpp \
+    gameover.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 
 HEADERS += \
     demicharacter.h \
+    gameover.h \
     global.h \
     animationmanager.h \
     barrel.h \

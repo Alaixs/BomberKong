@@ -100,18 +100,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
     }
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
 
-        if(dynamic_cast<Widget*>(parent)->nbLive == 0)
-        {
-            dynamic_cast<Widget*>(parent)->defeat();
-        }
-        //obliger sinon il reetourne au début du niveau
-        else{
-            pos.x = 456;
-            pos.y = 912;
-            dynamic_cast<Widget*>(parent)->nbLive--;
-            dynamic_cast<Widget*>(parent)->deleteEntities();
-            dynamic_cast<Widget*>(parent)->initLevel1();
-        }
+
+        pos.x = 456;
+        pos.y = 912;
+        dynamic_cast<Widget*>(parent)->nbLive--;
+        dynamic_cast<Widget*>(parent)->deleteEntities();
+        dynamic_cast<Widget*>(parent)->initLevel1();
+
     }
 }
 
