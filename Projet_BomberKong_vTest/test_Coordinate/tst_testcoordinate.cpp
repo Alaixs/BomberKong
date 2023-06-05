@@ -43,7 +43,11 @@ testCoordinate::~testCoordinate()
 
 }
 
-// tests operators add
+//=====================================================
+//      Tests des surcharges + & +=
+//=====================================================
+
+//test operator+
 void testCoordinate::test_operatorAdd()
 {
     // création des variables utiles
@@ -69,6 +73,7 @@ void testCoordinate::test_operatorAdd()
     delete aFinalCoordinate;
 }
 
+//test operator +=
 void testCoordinate::test_operatorAddEqual()
 {
     // création des variables utiles
@@ -99,7 +104,12 @@ void testCoordinate::test_operatorAddEqual()
     delete aCoordinate4;
 }
 
-// tests operators minus
+
+//=====================================================
+//      Tests des surcharges - & -=
+//=====================================================
+
+// test operator -
 void testCoordinate::test_operatorMinus()
 {
     // création des variables utiles
@@ -137,6 +147,7 @@ void testCoordinate::test_operatorMinus()
     delete aFinalCoordinate;
 }
 
+//test operator -=
 void testCoordinate::test_operatorMinusEqual()
 {
     // création des variables utiles
@@ -167,7 +178,11 @@ void testCoordinate::test_operatorMinusEqual()
     delete aCoordinate4;
 }
 
-// tests operators multi
+
+//=====================================================
+//      Tests des surcharges * & *=
+//=====================================================
+// test operator *
 void testCoordinate::test_operatorMulti()
 {
     // création des variables utiles
@@ -194,6 +209,7 @@ void testCoordinate::test_operatorMulti()
     delete aFinalCoordinate;
 }
 
+//test operator *=
 void testCoordinate::test_operatorMultiEqual()
 {
     // création des variables utiles
@@ -226,7 +242,12 @@ void testCoordinate::test_operatorMultiEqual()
     delete aFinalCoordinate;
 }
 
-// tests operators div
+
+//=====================================================
+//      Tests des surcharges / & /=
+//=====================================================
+
+// test operator /
 void testCoordinate::test_operatorDiv()
 {
 
@@ -254,6 +275,7 @@ void testCoordinate::test_operatorDiv()
     delete aFinalCoordinate;
 }
 
+//test operator /
 void testCoordinate::test_operatorDivEqual()
 {
     // création des variables utiles
@@ -286,7 +308,12 @@ void testCoordinate::test_operatorDivEqual()
     delete aFinalCoordinate;
 }
 
-//tests operators equal
+
+//=====================================================
+//      Tests de surcharge ==
+//=====================================================
+
+//test operator ==
 void testCoordinate::test_operatorEqualEqual()
 {
     // création des variables utiles
