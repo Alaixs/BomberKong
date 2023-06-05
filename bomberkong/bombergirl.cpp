@@ -42,11 +42,7 @@ void BomberGirl::collisionEvent(Entity * body)
 {
     if (dynamic_cast<PlayerCharacter*>(body) != nullptr)
     {
-        QMessageBox * winPopup = new QMessageBox();
-        winPopup->setFixedSize(500,100);
-        winPopup->setText("Congrats, You've won");
-        winPopup->show();
-        dynamic_cast<Widget*>(parent)->timer.stop();
+        dynamic_cast<Widget*>(parent)->win();
     }
 }
 

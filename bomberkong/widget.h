@@ -41,6 +41,10 @@ public:
 
     void deleteEntities();
 
+    void win();
+
+    void defeat();
+
     SoundManager* soundManager;
 
 private:

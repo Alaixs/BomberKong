@@ -5,6 +5,7 @@
 #include <fstream>
 #include "input.h"
 #include "playercharacter.h"
+#include "character.h"
 #include "wall.h"
 #include "indestructiblewall.h"
 #include "explosion.h"
@@ -12,6 +13,9 @@
 #include "donkeykong.h"
 #include <QSoundEffect>
 #include "soundmanager.h"
+#include "Global.h"
+
+extern int cellSize;
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -21,7 +25,7 @@ ui->setupUi(this);
 
 
 
-    int height = 1056;
+    int height = 1152;
     int width = 960;
     setFixedSize(width, height);
 
@@ -69,7 +73,7 @@ void Widget::start(){
         while(levelDataFile >> block && block != '!'){};
     }
 
-    int yPos = 96;
+    int yPos = 192;
     int xPos = 0;
     while (levelDataFile >> block && block != '!')
     {
@@ -107,6 +111,17 @@ void Widget::deleteEntities(){
     while(entities.size() != 0){
         entities.pop_back();
     }
+}
+
+void Widget::win(){
+    deleteEntities();
+    createEntity(new BomberGirl(504,528));
+    createEntity(new Character(456,528));
+}
+
+void Widget::defeat(){
+    deleteEntities();
+    createEntity(new DonkeyKong(480,528));
 }
 
 // Updating the Input class states
