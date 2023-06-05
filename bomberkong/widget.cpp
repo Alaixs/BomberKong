@@ -15,6 +15,7 @@
 #include "soundmanager.h"
 #include "guielement.h"
 #include "pressstartlabel.h"
+#include "logo.h"
 
 #include "global.h"
 extern const int cellSize;
@@ -42,7 +43,7 @@ ui->setupUi(this);
      SoundManager::getInstance().loadSound("://assets/sounds/sfx_loseTheme.wav");
      SoundManager::getInstance().loadSound("://assets/sounds/sfx_winTheme.wav");
 
-    start();
+    initMainMenu();
     //play main theme
     SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03);
 
@@ -56,7 +57,15 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::start(){
+
+void Widget::initMainMenu()
+{
+    gui.push_back(new Logo(Coordinate(82, 240)));
+    gui.push_back(new PressStartLabel(Coordinate(140, 520)));
+}
+
+
+void Widget::initLevel1(){
 
     // Create level from file
     std::ifstream levelDataFile;
@@ -211,6 +220,15 @@ void Widget::paintEvent(QPaintEvent *)
         // Draw the entity
         (*it)->draw(&painter);
         it++;
+    }
+
+
+    std::list<GUIElement*>::iterator gui_it = gui.begin();
+    while (gui_it != gui.end())
+    {
+        // Draw the entity
+        (*gui_it)->draw(&painter);
+        gui_it++;
     }
 
 

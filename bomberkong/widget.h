@@ -8,6 +8,7 @@
 
 #include "entity.h"
 #include "soundmanager.h"
+#include "guielement.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -37,7 +38,9 @@ public:
 
     void createExplosion(int posX, int posY);
 
-    void start();
+    // Scenes
+    void initMainMenu();
+    void initLevel1();
 
     void deleteEntities();
 
@@ -50,6 +53,7 @@ public:
 private:
     Ui::Widget *ui;
     std::list<Entity*> entities; ///< A vector toring all entities active in the game world
+    std::list<GUIElement*> gui;
 
 private slots:
     /**

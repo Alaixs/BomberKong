@@ -114,7 +114,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
             pos.y = 912;
             dynamic_cast<Widget*>(parent)->nbLive--;
             dynamic_cast<Widget*>(parent)->deleteEntities();
-            dynamic_cast<Widget*>(parent)->start();
+            dynamic_cast<Widget*>(parent)->initMainMenu();
         }
     }
 }

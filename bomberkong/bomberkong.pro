@@ -21,6 +21,7 @@ SOURCES += \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
+    logo.cpp \
     main.cpp \
     playercharacter.cpp \
     pressstartlabel.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     guielement.h \
     indestructiblewall.h \
     input.h \
+    logo.h \
     playercharacter.h \
     pressstartlabel.h \
     soundmanager.h \
