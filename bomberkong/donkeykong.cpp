@@ -4,7 +4,7 @@
 #include "barrel.h"
 #include "widget.h"
 #include <random>
-
+#include "Global.h"
 
 DonkeyKong::DonkeyKong(int posX, int posY)
     : Entity(posX, posY)
@@ -28,8 +28,8 @@ void DonkeyKong::update()
     timer--;    
     if(timer < 0){
         int random = rand() % 18;
-        pos.x = 48 + (random * 48);
-        dynamic_cast<Widget*>(parent)->createEntity(new Barrel(pos.x,pos.y+48));
+        pos.x = cellSize + (random * cellSize);
+        dynamic_cast<Widget*>(parent)->createEntity(new Barrel(pos.x,pos.y+cellSize));
         timer = 62;
     }
 }

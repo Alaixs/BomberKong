@@ -1,6 +1,6 @@
 #include "indestructiblewall.h"
 #include "explosion.h"
-
+#include "Global.h"
 
 IndestructibleWall::IndestructibleWall(int posX, int posY)
     : Entity(posX, posY)
@@ -25,7 +25,7 @@ void IndestructibleWall::update()
 void IndestructibleWall::draw(QPainter * painter)
 {
     painter->drawPixmap(
-        QRect(pos.x, pos.y, 48, 48),
+        QRect(pos.x, pos.y, cellSize, cellSize),
         sprite,
         QRect(0, 0, 16, 16)
     );
@@ -34,5 +34,5 @@ void IndestructibleWall::draw(QPainter * painter)
 
 QRect IndestructibleWall::getRect()
 {
-    return QRect(pos.x, pos.y, 48, 48);
+    return QRect(pos.x, pos.y, cellSize, cellSize);
 }

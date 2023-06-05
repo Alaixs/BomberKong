@@ -13,9 +13,9 @@
 #include "donkeykong.h"
 #include <QSoundEffect>
 #include "soundmanager.h"
+
 #include "Global.h"
 
-extern int cellSize;
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -24,9 +24,8 @@ Widget::Widget(QWidget *parent)
 ui->setupUi(this);
 
 
-
-    int height = 1152;
-    int width = 960;
+    int height = 25 * cellSize;
+    int width = 20 * cellSize;
     setFixedSize(width, height);
 
     srand(time(nullptr));
@@ -73,13 +72,13 @@ void Widget::start(){
         while(levelDataFile >> block && block != '!'){};
     }
 
-    int yPos = 192;
+    int yPos = 4 * cellSize;
     int xPos = 0;
     while (levelDataFile >> block && block != '!')
     {
         if (block == ';')
         {
-            yPos += 48;
+            yPos += cellSize;
             xPos = 0;
 
         }
@@ -93,17 +92,17 @@ void Widget::start(){
             {
                 createEntity(new IndestructibleWall(xPos, yPos));
             }
-            xPos += 48;
+            xPos += cellSize;
         }
     }
 
     levelDataFile.close();
 
-    createEntity(new PlayerCharacter(456, 912));
+    createEntity(new PlayerCharacter(10.5 * cellSize, 22 * cellSize));
 
-    createEntity(new BomberGirl(456,192));
+    createEntity(new BomberGirl(10.5 * cellSize, 6 * cellSize));
 
-    createEntity(new DonkeyKong(492,0));
+    createEntity(new DonkeyKong(9.5 * cellSize, 0));
 
 }
 
@@ -121,7 +120,7 @@ void Widget::win(){
 
 void Widget::defeat(){
     deleteEntities();
-    createEntity(new DonkeyKong(480,528));
+    createEntity(new DonkeyKong(cellSize,528));
 }
 
 // Updating the Input class states
@@ -177,7 +176,7 @@ void Widget::paintEvent(QPaintEvent *)
     QPainter painter(this);
 
     // Fill the background with a color
-    int width = 48;
+    int width = cellSize;
     for(int i = 0; i < 20; i++){
         for(int j = 0; j < 11; j++){
             painter.fillRect(
@@ -186,17 +185,17 @@ void Widget::paintEvent(QPaintEvent *)
                 );
 
             painter.fillRect(
-                width*2*i+48, width*2*j+48, width, width,
+                width*2*i+cellSize, width*2*j+cellSize, width, width,
                 QBrush(QColor(0, 161, 30))
                 );
 
             painter.fillRect(
-                width*2*i+48, width*2*j, width, width,
+                width*2*i+cellSize, width*2*j, width, width,
                 QBrush(QColor(1, 133, 21))
                 );
 
             painter.fillRect(
-                width*2*i, width*2*j+48, width, width,
+                width*2*i, width*2*j+cellSize, width, width,
                 QBrush(QColor(1, 133, 21))
                 );
         }

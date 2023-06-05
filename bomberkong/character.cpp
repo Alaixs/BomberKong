@@ -1,7 +1,7 @@
 
 #include "character.h"
 
-#include <QMessageBox>
+#include "Global.h"
 #include "soundmanager.h"
 
 Character::Character(int posX, int posY)
@@ -31,7 +31,7 @@ void Character::draw(QPainter * painter)
 
     // Draw the normal sprite
     painter->drawPixmap(
-        QRect(pos.x, pos.y, 48, 48),
+        QRect(pos.x, pos.y, cellSize, cellSize),
         sprite,
         QRect(animation.getFrame() * 16, 0, 16, 16)
         );
@@ -46,5 +46,5 @@ void Character::loseThemeSfx()
 
 QRect Character::getRect()
 {
-    return QRect(pos.x + 6, pos.y, 35, 48);
+    return QRect(pos.x + 6, pos.y, 35, cellSize);
 }

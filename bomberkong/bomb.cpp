@@ -6,7 +6,7 @@
 #include "coordinate.h"
 #include "wall.h"
 #include "indestructiblewall.h"
-
+#include "Global.h"
 
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
@@ -35,10 +35,10 @@ void Bomb::update()
     if (timer == 0)
     {
         dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x + 48, pos.y);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x - 48, pos.y);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y + 48);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y - 48);
+        dynamic_cast<Widget*>(parent)->createExplosion(pos.x + cellSize, pos.y);
+        dynamic_cast<Widget*>(parent)->createExplosion(pos.x - cellSize, pos.y);
+        dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y + cellSize);
+        dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y - cellSize);
 
         deleteEntity();
         explosionSfx();
@@ -53,16 +53,16 @@ void Bomb::collisionEvent(Entity * body){
         || dynamic_cast<IndestructibleWall*>(body) != nullptr)
     {
         if(body->getPos().x > pos.x){
-            pos.x -= 48;
+            pos.x -= cellSize;
         }
         else if(body->getPos().x < pos.x){
-            pos.x += 48;
+            pos.x += cellSize;
         }
         else if(body->getPos().y > pos.y){
-            pos.y -= 48;
+            pos.y -= cellSize;
         }
         else{
-            pos.y += 48;
+            pos.y += cellSize;
         }
     }
 }
@@ -71,7 +71,7 @@ void Bomb::collisionEvent(Entity * body){
 void Bomb::draw(QPainter * painter)
 {
     painter->drawPixmap(
-        QRect(pos.x, pos.y, 48, 48),
+        QRect(pos.x, pos.y, cellSize, cellSize),
         sprite,
         QRect(animation.getFrame() * 16, 0, 16, 16)
     );
@@ -86,5 +86,5 @@ void Bomb::explosionSfx()
 
 QRect Bomb::getRect()
 {
-    return QRect(pos.x, pos.y, 48, 48);
+    return QRect(pos.x, pos.y, cellSize, cellSize);
 }

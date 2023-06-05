@@ -1,5 +1,5 @@
 #include "barrel.h"
-
+#include "Global.h"
 
 Barrel::Barrel(int posX, int posY)
     : Entity(posX, posY)
@@ -33,7 +33,7 @@ void Barrel::update()
 void Barrel::draw(QPainter * painter)
 {
     painter->drawPixmap(
-        QRect(pos.x, pos.y, 48, 48),
+        QRect(pos.x, pos.y, cellSize, cellSize),
         sprite,
         QRect(animation.getFrame() * 16, 0, 16, 16)
     );
@@ -42,5 +42,5 @@ void Barrel::draw(QPainter * painter)
 
 QRect Barrel::getRect()
 {
-    return QRect(pos.x, pos.y, 48, 48);
+    return QRect(pos.x, pos.y, cellSize, cellSize);
 }

@@ -2,7 +2,7 @@
 
 #include "playercharacter.h"
 #include <QTimer>
-#include "qmessagebox.h"
+#include "Global.h"
 #include "widget.h"
 
 
@@ -31,7 +31,7 @@ void BomberGirl::update()
 void BomberGirl::draw(QPainter * painter)
 {
     painter->drawPixmap(
-        QRect(pos.x, pos.y, 48, 48),
+        QRect(pos.x, pos.y, cellSize, cellSize),
         sprite,
         QRect(animation.getFrame() * 16, 0, 16, 16)
     );
@@ -49,5 +49,5 @@ void BomberGirl::collisionEvent(Entity * body)
 
 QRect BomberGirl::getRect()
 {
-    return QRect(pos.x, pos.y, 48, 48);
+    return QRect(pos.x, pos.y, cellSize, cellSize);
 }

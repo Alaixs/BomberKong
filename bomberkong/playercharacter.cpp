@@ -10,6 +10,7 @@
 #include "barrel.h"
 #include "explosion.h"
 #include "soundmanager.h"
+#include "Global.h"
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -44,14 +45,14 @@ void PlayerCharacter::update()
         if(timer < 0)
         {
             Coordinate bombPos(pos);
-            bombPos.x = ((bombPos.x + 48 / 2) / 48) * 48;
-            bombPos.y = ((bombPos.y + 48 / 2) / 48) * 48;
+            bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
+            bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
             dynamic_cast<Widget*>(parent)->createEntity(new Bomb(bombPos));
             timer = 200;
         }
     }
 
-    if(pos.y > 1104){
+    if(pos.y > 25 * cellSize){
 
         QMessageBox * anotherWay = new QMessageBox();
         anotherWay->setFixedSize(500,100);
@@ -124,7 +125,7 @@ void PlayerCharacter::draw(QPainter * painter)
     {
         // Draw the normal sprite
         painter->drawPixmap(
-            QRect(pos.x, pos.y, 48, 48),
+            QRect(pos.x, pos.y, cellSize, cellSize),
             sprite,
             QRect(animation.getFrame() * 16, 0, 16, 16)
         );
@@ -133,7 +134,7 @@ void PlayerCharacter::draw(QPainter * painter)
     {
         // Draw the flipped sprite
         painter->drawPixmap(
-            QRect(pos.x, pos.y, 48, 48),
+            QRect(pos.x, pos.y, cellSize, cellSize),
             sprite.transformed(QTransform().scale(-1, 1)),
             QRect((10 - animation.getFrame()) * 16, 0, 16, 16)
         );
@@ -159,5 +160,5 @@ void PlayerCharacter::winThemeSfx()
 
 QRect PlayerCharacter::getRect()
 {
-    return QRect(pos.x + 6, pos.y, 35, 48);
+    return QRect(pos.x + 6, pos.y, 35, cellSize);
 }
