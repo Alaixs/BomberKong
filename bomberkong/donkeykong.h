@@ -20,18 +20,30 @@ public:
      */
     DonkeyKong(Coordinate pos);
 
+    /**
+     * @brief update the Donkey Kong (position, sprite, etc)
+     */
     void update();
+
+    /**
+     * @brief Display the actual DK
+     * @param painter : the tools to display
+     */
     void draw(QPainter * painter);
 
+    /**
+     * @brief create the hitboxe
+     * @return the hitboxe
+     */
     QRect getRect();
 
 private:
-    QPixmap sprite;
-    int timer=0;
-    AnimationManager animation;
+    QPixmap sprite;///< The actual Sprite
+    int timer=0;///< init timer
+    AnimationManager animation;///< The actual animation
 
-    int newPos;
-    int dist;
+    int newPos; ///< Pose where the DK send the next barrel
+    int dist;   ///< Distance to the next x where DK send barrel
 };
 
 #endif // DONKEYKONG_H

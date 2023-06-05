@@ -139,32 +139,34 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 
 void Widget::gameUpdate()
 {
-    std::list<Entity*>::iterator it = entities.begin();
-    while (it != entities.end())
-    {
-        if ((*it)->isActive())
+    if(Input::isActionPressed(PAUSE) == false){
+        std::list<Entity*>::iterator it = entities.begin();
+        while (it != entities.end())
         {
-            (*it)->update();
-
-            // Collisions
-            std::list<Entity*>::iterator collider;
-            for (collider = entities.begin(); collider != entities.end(); ++collider)
+            if ((*it)->isActive())
             {
-                if (it != collider)
+                (*it)->update();
+
+                // Collisions
+                std::list<Entity*>::iterator collider;
+                for (collider = entities.begin(); collider != entities.end(); ++collider)
                 {
-                    if ((*it)->getRect().intersects((*collider)->getRect()))
+                    if (it != collider)
                     {
-                        (*it)->collisionEvent(*collider);
+                        if ((*it)->getRect().intersects((*collider)->getRect()))
+                        {
+                            (*it)->collisionEvent(*collider);
+                        }
                     }
                 }
-            }
 
-            ++it;
-        }
-        else
-        {
-            //delete *it;
-            it = entities.erase(it);
+                ++it;
+            }
+            else
+            {
+                //delete *it;
+                it = entities.erase(it);
+            }
         }
     }
 
@@ -211,8 +213,14 @@ void Widget::paintEvent(QPaintEvent *)
         it++;
     }
 
-    PressStartLabel label(Coordinate(100, 400));
-    label.draw(&painter);
+
+    if(Input::isActionPressed(PAUSE) == true){
+        QPainter * startPainter = new QPainter(this);
+        Coordinate start(100,400);
+        PressStartLabel label(start);
+        label.draw(startPainter);
+    }
+
 }
 
 

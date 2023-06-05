@@ -17,7 +17,8 @@ enum Actions {
     MOVE_LEFT,
     MOVE_RIGHT,
     PLACE_BOMB,
-    PUSH_BOMB
+    PUSH_BOMB,
+    PAUSE
 };
 
 

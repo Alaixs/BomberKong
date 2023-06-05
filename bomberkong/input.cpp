@@ -1,4 +1,5 @@
 #include "input.h"
+#include "widget.h"
 
 
 bool moveUp = false;
@@ -7,6 +8,7 @@ bool moveLeft = false;
 bool moveRight = false;
 bool placeBomb = false;
 bool pushBomb = false;
+bool isPaused = false;
 
 
 void Input::keyPressedEvent(QKeyEvent * event)
@@ -35,6 +37,15 @@ void Input::keyPressedEvent(QKeyEvent * event)
 
         case Qt::Key_L:
             pushBomb = true;
+            break;
+
+        case Qt::Key_Escape:
+            if(isPaused == false)
+            {
+                isPaused = true;
+                break;
+            }
+            isPaused = false;
             break;
     }
 }
@@ -97,6 +108,10 @@ bool Input::isActionPressed(Actions action)
 
         case PUSH_BOMB:
             return pushBomb;
+            break;
+
+        case PAUSE:
+            return isPaused;
             break;
     }
 }

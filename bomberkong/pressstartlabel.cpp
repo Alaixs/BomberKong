@@ -1,4 +1,5 @@
 #include "pressstartlabel.h"
+#include "input.h"
 
 PressStartLabel::PressStartLabel(Coordinate position)
     : GUIElement(position)

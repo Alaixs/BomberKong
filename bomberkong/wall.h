@@ -23,15 +23,31 @@ public:
      */
     Wall(Coordinate pos);
 
+    /**
+     * @brief update the wall (position, sprite, etc)
+     */
     void update();
+
+    /**
+     * @brief Display the actual bomberman
+     * @param painter : the tools to display
+     */
     void draw(QPainter * painter);
 
+    /**
+     * @brief Detect and react for the collision with other entities
+     * @param body : the coordinate of the other entities
+     */
     void collisionEvent(Entity * body);
 
+    /**
+     * @brief create the hitboxe
+     * @return the hitboxe
+     */
     QRect getRect();
 
 private:
-    QPixmap sprite;
+    QPixmap sprite;///< The actual Sprite
 
 };
 

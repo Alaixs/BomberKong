@@ -55,7 +55,7 @@ public:
 
 private:
     QPixmap sprite;///< The actual Sprite
-    AnimationManager animation;
+    AnimationManager animation; ///< The actual animation
     int timer=0; ///< init timer
 };
 
