@@ -212,13 +212,14 @@ void Widget::paintEvent(QPaintEvent *)
         (*it)->draw(&painter);
         it++;
     }
-
+    painter.end();
 
     if(Input::isActionPressed(PAUSE) == true){
         QPainter * startPainter = new QPainter(this);
         Coordinate start(100,400);
         PressStartLabel label(start);
         label.draw(startPainter);
+        startPainter->end();
     }
 
 }

@@ -39,7 +39,7 @@ void Input::keyPressedEvent(QKeyEvent * event)
             pushBomb = true;
             break;
 
-        case Qt::Key_Escape:
+        case Qt::Key_P:
             if(isPaused == false)
             {
                 isPaused = true;
