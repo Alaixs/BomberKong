@@ -48,22 +48,56 @@ void Bomb::update()
 
 
 void Bomb::collisionEvent(Entity * body){
+    Coordinate lastPos = pos;
     // Is pushed away when colliding with walls or the player
     if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB)))
     {
-        if(body->getPos().x > pos.x){
-            pos.x -= cellSize;
+        int distX = pos.x - body->getPos().x;
+        int distY = pos.y - body->getPos().y;
+
+        if (abs(distX) > abs(distY))
+        {
+            pos.x += (distX / abs(distX)) * dynamic_cast<PlayerCharacter*>(body)->speed ;
         }
-        else if(body->getPos().x < pos.x){
-            pos.x += cellSize;
-        }
-        else if(body->getPos().y > pos.y){
-            pos.y -= cellSize;
-        }
-        else{
-            pos.y += cellSize;
+        else
+        {
+            pos.y += (distY / abs(distY)) * dynamic_cast<PlayerCharacter*>(body)->speed;
+
         }
     }
+
+    if(dynamic_cast<Wall*>(body) != nullptr )
+    {
+        int distX = pos.x - body->getPos().x ;
+        int distY = pos.y - body->getPos().y;
+
+        if (abs(distX) > abs(distY))
+        {
+            pos.x += (distX / abs(distX)) * 2;
+        }
+        else
+        {
+            pos.y += (distY / abs(distY)) * 2;
+        }
+    }
+
+    if(dynamic_cast<IndestructibleWall*>(body) != nullptr )
+    {
+        int distX = pos.x - body->getPos().x ;
+        int distY = pos.y - body->getPos().y;
+
+        if (abs(distX) > abs(distY))
+        {
+            pos.x += (distX / abs(distX)) * 2;
+        }
+        else
+        {
+            pos.y += (distY / abs(distY)) * 2;
+
+        }
+    }
+
+
 }
 
 

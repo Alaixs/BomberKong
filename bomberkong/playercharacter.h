@@ -24,6 +24,7 @@ public:
     void stopAllSounds();
     SoundManager* soundManager;
 
+    int speed = 2; ///< The number of pixels traveled each frame
 
     QRect getRect();
 
@@ -31,7 +32,7 @@ private:
     QPixmap sprite;
     Coordinate motion;
     AnimationManager animation;
-    int speed = 4; ///< The number of pixels traveled each frame
+
     bool flipped;
     int timer=0;
 
