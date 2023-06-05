@@ -40,7 +40,7 @@ public:
 
 private:
 
-    int timer = 187; ///< The number of frame the barrel will stay
+    int timer ; ///< The number of frame the barrel will stay
 
     QPixmap sprite; ///< The actual Sprite
 

@@ -64,7 +64,7 @@ public:
 
     SoundManager* soundManager;///< All the sound use by this class
 
-    int speed = 2; ///< The number of pixels traveled each frame
+    int speed; ///< The number of pixels traveled each frame
 
     /**
      * @brief create the hitboxe
@@ -78,7 +78,7 @@ private:
     AnimationManager animation;///< The actual animation ( the range in the sprite image)
 
     bool flipped; ///< False = left, True = false
-    int timer=0; ///< init timer
+    int timer; ///< init timer
 
 };
 

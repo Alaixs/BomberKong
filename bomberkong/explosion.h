@@ -43,7 +43,7 @@ public:
 private:
     QPixmap sprite;///< The actual Sprite
     AnimationManager animation;///< The actual animation
-    int timer = 12;///< explosion duration
+    int timer ;///< explosion duration
 
 };
 

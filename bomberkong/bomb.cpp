@@ -16,6 +16,7 @@ Bomb::Bomb(int posX, int posY)
 {
     sprite.load("://assets/sprites/t_bomb.png");
     animation.play(0, 2);
+    timer = 187;
 }
 
 
@@ -24,6 +25,7 @@ Bomb::Bomb(Coordinate position)
 {
     sprite.load("://assets/sprites/t_bomb.png");
     animation.play(0, 2);
+    timer = 187;
 }
 
 

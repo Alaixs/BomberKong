@@ -18,6 +18,8 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
     animation.play(0, 4);
+    speed = 2;
+    timer = 0;
 }
 
 
@@ -26,6 +28,8 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
     animation.play(0, 4);
+    speed = 2;
+    timer = 0;
 }
 
 
@@ -130,7 +134,7 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
+   // SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
 }
 
 

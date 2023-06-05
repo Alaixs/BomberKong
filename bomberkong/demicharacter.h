@@ -56,7 +56,7 @@ public:
 private:
     QPixmap sprite;///< The actual Sprite
     AnimationManager animation; ///< The actual animation
-    int timer=0; ///< init timer
+    int timer; ///< init timer
 };
 
 #endif // DEMICHARACTER_H

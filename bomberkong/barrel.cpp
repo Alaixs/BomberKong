@@ -7,6 +7,7 @@ Barrel::Barrel(int posX, int posY)
 {
     sprite.load("://assets/sprites/t_barrel.png");
     animation.play(0, 3);
+    timer = 187;
 }
 
 
@@ -15,6 +16,7 @@ Barrel::Barrel(Coordinate position)
 {
     sprite.load("://assets/sprites/t_barrel.png");
     animation.play(0, 3);
+    timer = 187;
 }
 
 

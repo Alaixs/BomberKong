@@ -12,6 +12,7 @@ DonkeyKong::DonkeyKong(int posX, int posY)
 {
     sprite.load("://assets/sprites/t_donkeykong.png");
     animation.play(0, 6);
+    timer = 0;
 }
 
 
@@ -20,6 +21,7 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 {
     sprite.load("://assets/sprites/t_donkeykong.png");
     animation.play(0, 6);
+    timer = 0;
 }
 
 
