@@ -55,12 +55,7 @@ void PlayerCharacter::update()
 
     if(pos.y > 25 * cellSize){
 
-        QMessageBox * anotherWay = new QMessageBox();
-        anotherWay->setFixedSize(500,100);
-        anotherWay->setText("You get on another way and decide to let Donkey Kong with Bomber Girl."
-                            "You will never see her again.");
-        anotherWay->show();
-        dynamic_cast<Widget*>(parent)->timer.stop();
+        dynamic_cast<Widget*>(parent)->win();
     }
 
     pos += motion * speed;

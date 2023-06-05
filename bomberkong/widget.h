@@ -59,6 +59,7 @@ private:
     Ui::Widget *ui;
     std::list<Entity*> entities; ///< A vector toring all entities active in the game world
     std::list<GUIElement*> gui;
+    bool isWin = false;
 
 private slots:
     /**

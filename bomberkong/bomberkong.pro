@@ -30,6 +30,7 @@ SOURCES += \
     widget.cpp \
     entity.cpp \
     wall.cpp \
+    youwin.cpp
 
 HEADERS += \
     demicharacter.h \
@@ -52,6 +53,7 @@ HEADERS += \
     entity.h \
     coordinate.h \
     wall.h \
+    youwin.h
 
 FORMS += \
     widget.ui

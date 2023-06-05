@@ -17,6 +17,7 @@
 #include "pressstartlabel.h"
 #include "logo.h"
 #include "gameover.h"
+#include "youwin.h"
 
 #include "global.h"
 extern const int cellSize;
@@ -128,8 +129,10 @@ void Widget::deleteEntities(){
 
 void Widget::win(){
     deleteEntities();
-    createEntity(new BomberGirl(504,528));
-    createEntity(new Character(456,528));
+    createEntity(new Character(10 * cellSize, 13 * cellSize));
+    createEntity(new BomberGirl(9 * cellSize, 13 * cellSize));
+    isWin = true;
+
 }
 
 // Updating the Input class states
@@ -156,13 +159,16 @@ void Widget::gameUpdate()
             initLevel1();
         }
     }
-    else if(state == RUNNING && nbLive < 0)
+    else if(state == RUNNING && nbLive == -1)
         {
             deleteEntities();
 
-            gui.push_front(new GameOver(Coordinate(82, 240)));
+
 
             createEntity(new DonkeyKong(8.5*cellSize,528));
+
+            nbLive--;
+
         }
     else if(Input::isActionPressed(PAUSE) == false){
         std::list<Entity*>::iterator it = entities.begin();
@@ -249,10 +255,14 @@ void Widget::paintEvent(QPaintEvent *)
         }
 
         if(nbLive < 0){
-            std::list<GUIElement *>::iterator it = gui.begin();
-            it++;
-            it++;
-            (*it)->draw(&painter);
+            GameOver go (Coordinate(82, 240));
+            go.draw(&painter);
+            (*entities.begin())->draw(&painter);
+        }
+
+        if(isWin){
+            YouWin win (Coordinate(82, 240));
+            win.draw(&painter);
         }
 
         painter.end();
@@ -266,7 +276,7 @@ void Widget::paintEvent(QPaintEvent *)
     }
 
 
-    if(Input::isActionPressed(PAUSE) == true && state != MENU && nbLive > 0){
+    if(Input::isActionPressed(PAUSE) == true && state != MENU && nbLive > -1){
         QPainter * startPainter = new QPainter(this);
         Coordinate start(100,400);
         PressStartLabel label(start);
