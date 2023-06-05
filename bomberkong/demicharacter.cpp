@@ -1,5 +1,5 @@
 
-#include "character.h"
+#include "demicharacter.h"
 
 #include "global.h"
 #include "soundmanager.h"

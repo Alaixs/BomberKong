@@ -5,7 +5,7 @@
 #include <fstream>
 #include "input.h"
 #include "playercharacter.h"
-#include "character.h"
+#include "demicharacter.h"
 #include "wall.h"
 #include "indestructiblewall.h"
 #include "explosion.h"

@@ -14,8 +14,8 @@ SOURCES += \
     barrel.cpp \
     bomb.cpp \
     bombergirl.cpp \
-    character.cpp \
     coordinate.cpp \
+    demicharacter.cpp \
     donkeykong.cpp \
     explosion.cpp \
     indestructiblewall.cpp \
@@ -28,12 +28,12 @@ SOURCES += \
     wall.cpp \
 
 HEADERS += \
+    demicharacter.h \
     global.h \
     animationmanager.h \
     barrel.h \
     bomb.h \
     bombergirl.h \
-    character.h \
     donkeykong.h \
     explosion.h \
     indestructiblewall.h \

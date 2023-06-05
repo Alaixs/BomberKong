@@ -8,7 +8,19 @@ class Wall : public Entity
 {
 
 public:
+
+    /**
+     * @brief Create a no playable wall
+     * @param posX : position on x axes
+     * @param posY : position on y axes
+     */
     Wall(int posX, int posY);
+
+    /**
+     * @brief Create a no playable wall
+     * @param posX : position on x axes
+     * @param posY : position on y axes
+     */
     Wall(Coordinate pos);
 
     void update();
