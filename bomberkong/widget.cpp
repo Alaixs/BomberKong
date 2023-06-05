@@ -50,6 +50,8 @@ ui->setupUi(this);
     // updates the game every 16ms
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
     timer.start(16);
+
+    initMainMenu();
 }
 
 Widget::~Widget()
@@ -148,7 +150,16 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 
 void Widget::gameUpdate()
 {
-    if(Input::isActionPressed(PAUSE) == false){
+    if(state == MENU)
+    {
+        if(Input::isActionPressed(PAUSE) == false)
+        {
+            state = RUNNING;
+            deleteEntities();
+            initLevel1();
+        }
+    }
+    else if(Input::isActionPressed(PAUSE) == false){
         std::list<Entity*>::iterator it = entities.begin();
         while (it != entities.end())
         {
@@ -214,15 +225,25 @@ void Widget::paintEvent(QPaintEvent *)
         }
     }
 
-    std::list<Entity*>::iterator it = entities.begin();
-    while (it != entities.end())
+    if(state == MENU)
     {
-        // Draw the entity
-        (*it)->draw(&painter);
-        it++;
+        std::list<GUIElement *>::iterator it = gui.begin();
+            while (it != gui.end()){
+            (*it)->draw(&painter);
+            it++;
+        }
     }
-    painter.end();
-
+    else if(state == RUNNING)
+    {
+        std::list<Entity*>::iterator it = entities.begin();
+        while (it != entities.end())
+        {
+            // Draw the entity
+            (*it)->draw(&painter);
+            it++;
+        }
+        painter.end();
+    }
     std::list<GUIElement*>::iterator gui_it = gui.begin();
     while (gui_it != gui.end())
     {
@@ -232,7 +253,7 @@ void Widget::paintEvent(QPaintEvent *)
     }
 
 
-    if(Input::isActionPressed(PAUSE) == true){
+    if(Input::isActionPressed(PAUSE) == true && state != MENU){
         QPainter * startPainter = new QPainter(this);
         Coordinate start(100,400);
         PressStartLabel label(start);

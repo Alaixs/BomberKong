@@ -15,6 +15,12 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
+enum gameState{
+    MENU,
+    RUNNING,
+    PAUSED
+};
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -29,6 +35,7 @@ public:
     void keyReleaseEvent(QKeyEvent * ev);
     int wMap;
     int nbLive = 2;
+    gameState state = MENU;
 
     /**
      * @brief Create an entity, sets it parent to `this` and adds it to the entities list

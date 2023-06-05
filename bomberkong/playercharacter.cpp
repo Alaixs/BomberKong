@@ -102,11 +102,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
         if(dynamic_cast<Widget*>(parent)->nbLive == 0)
         {
-            QMessageBox * losePopup = new QMessageBox();
-            losePopup->setFixedSize(500, 100);
-            losePopup->setText("You lose");
-            losePopup->show();
-            dynamic_cast<Widget*>(parent)->timer.stop();
+            dynamic_cast<Widget*>(parent)->defeat();
         }
         //obliger sinon il reetourne au début du niveau
         else{
@@ -114,7 +110,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
             pos.y = 912;
             dynamic_cast<Widget*>(parent)->nbLive--;
             dynamic_cast<Widget*>(parent)->deleteEntities();
-            dynamic_cast<Widget*>(parent)->initMainMenu();
+            dynamic_cast<Widget*>(parent)->initLevel1();
         }
     }
 }

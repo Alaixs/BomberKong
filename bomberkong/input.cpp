@@ -8,7 +8,7 @@ bool moveLeft = false;
 bool moveRight = false;
 bool placeBomb = false;
 bool pushBomb = false;
-bool isPaused = false;
+bool isPaused = true;
 
 
 void Input::keyPressedEvent(QKeyEvent * event)
