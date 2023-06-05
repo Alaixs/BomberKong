@@ -15,5 +15,6 @@
         <file>assets/sprites/t_donkeykong.png</file>
         <file>assets/sprites/you_win.png</file>
         <file>assets/sprites/game_over</file>
+        <file>assets/sprites/t_press_start.png</file>
     </qresource>
 </RCC>

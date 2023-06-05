@@ -18,10 +18,12 @@ SOURCES += \
     coordinate.cpp \
     donkeykong.cpp \
     explosion.cpp \
+    guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
     main.cpp \
     playercharacter.cpp \
+    pressstartlabel.cpp \
     soundmanager.cpp \
     widget.cpp \
     entity.cpp \
@@ -36,9 +38,11 @@ HEADERS += \
     character.h \
     donkeykong.h \
     explosion.h \
+    guielement.h \
     indestructiblewall.h \
     input.h \
     playercharacter.h \
+    pressstartlabel.h \
     soundmanager.h \
     widget.h \
     entity.h \
