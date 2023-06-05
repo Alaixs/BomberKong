@@ -28,7 +28,7 @@ SOURCES += \
     wall.cpp \
 
 HEADERS += \
-    Global.h \
+    global.h \
     animationmanager.h \
     barrel.h \
     bomb.h \

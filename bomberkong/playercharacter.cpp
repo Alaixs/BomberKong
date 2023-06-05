@@ -10,8 +10,8 @@
 #include "barrel.h"
 #include "explosion.h"
 #include "soundmanager.h"
-#include "Global.h"
-extern int cellSize;
+#include "global.h"
+extern const int cellSize;
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)

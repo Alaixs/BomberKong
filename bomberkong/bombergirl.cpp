@@ -2,10 +2,10 @@
 
 #include "playercharacter.h"
 #include <QTimer>
-#include "Global.h"
-extern int cellSize;
+#include "global.h"
 #include "widget.h"
 
+extern const int cellSize;
 
 BomberGirl::BomberGirl(int posX, int posY)
     : Entity(posX, posY)

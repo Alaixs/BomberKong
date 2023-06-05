@@ -4,8 +4,8 @@
 #include "barrel.h"
 #include "widget.h"
 #include <random>
-#include "Global.h"
-extern int cellSize;
+#include "global.h"
+extern const int cellSize;
 
 DonkeyKong::DonkeyKong(int posX, int posY)
     : Entity(posX, posY)

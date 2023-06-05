@@ -1,9 +1,10 @@
 
 #include "character.h"
 
-#include "Global.h"
-extern int cellSize;
+#include "global.h"
 #include "soundmanager.h"
+
+extern const int cellSize;
 
 Character::Character(int posX, int posY)
     : Entity(posX, posY)
