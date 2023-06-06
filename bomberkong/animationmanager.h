@@ -9,11 +9,11 @@ class AnimationManager
 {
 
 private:
-    int frameInterval;
-    int timer;
-    int frame;
-    int startFrame;
-    int endFrame;
+    int frameInterval; ///< Range of the used interval
+    int timer;        ///< frame timer
+    int frame;        ///< actual frame
+    int startFrame;   ///< Starting Frame
+    int endFrame;     ///< Ending Frame
 
 public:
     AnimationManager();

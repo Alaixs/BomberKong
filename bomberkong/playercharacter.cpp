@@ -18,6 +18,8 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
     animation.play(0, 4);
+    speed = 2;
+    timer = 0;
 }
 
 
@@ -26,6 +28,8 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
     animation.play(0, 4);
+    speed = 2;
+    timer = 0;
 }
 
 
@@ -55,12 +59,7 @@ void PlayerCharacter::update()
 
     if(pos.y > 25 * cellSize){
 
-        QMessageBox * anotherWay = new QMessageBox();
-        anotherWay->setFixedSize(500,100);
-        anotherWay->setText("You get on another way and decide to let Donkey Kong with Bomber Girl."
-                            "You will never see her again.");
-        anotherWay->show();
-        dynamic_cast<Widget*>(parent)->timer.stop();
+        dynamic_cast<Widget*>(parent)->win();
     }
 
     pos += motion * speed;
@@ -100,18 +99,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
     }
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
 
-        if(dynamic_cast<Widget*>(parent)->nbLive == 0)
-        {
-            dynamic_cast<Widget*>(parent)->defeat();
-        }
-        //obliger sinon il reetourne au début du niveau
-        else{
-            pos.x = 456;
-            pos.y = 912;
-            dynamic_cast<Widget*>(parent)->nbLive--;
-            dynamic_cast<Widget*>(parent)->deleteEntities();
-            dynamic_cast<Widget*>(parent)->initLevel1();
-        }
+
+        pos.x = 456;
+        pos.y = 912;
+        dynamic_cast<Widget*>(parent)->nbLive--;
+        dynamic_cast<Widget*>(parent)->deleteEntities();
+        dynamic_cast<Widget*>(parent)->initLevel1();
+
     }
 }
 
@@ -140,7 +134,7 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
+   // SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
 }
 
 

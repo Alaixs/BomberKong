@@ -39,7 +39,7 @@ public:
 
 private:
     QPixmap sprite;///< The actual Sprite
-    int timer=0;///< init timer
+    int timer;///< init timer
     AnimationManager animation;///< The actual animation
 
     int newPos; ///< Pose where the DK send the next barrel

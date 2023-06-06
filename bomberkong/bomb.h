@@ -56,7 +56,7 @@ public:
 
 private:
 
-    int timer = 187; ///< The number of frame the bomb will stay, also use to switch frame and explode
+    int timer ; ///< The number of frame the bomb will stay, also use to switch frame and explode
     QPixmap sprite; ///< The actual Sprite
     AnimationManager animation; ///< The actual animation ( the range in the sprite image)
 

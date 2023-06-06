@@ -18,6 +18,7 @@ SOURCES += \
     demicharacter.cpp \
     donkeykong.cpp \
     explosion.cpp \
+    gameover.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
@@ -29,9 +30,11 @@ SOURCES += \
     widget.cpp \
     entity.cpp \
     wall.cpp \
+    youwin.cpp
 
 HEADERS += \
     demicharacter.h \
+    gameover.h \
     global.h \
     animationmanager.h \
     barrel.h \
@@ -50,6 +53,7 @@ HEADERS += \
     entity.h \
     coordinate.h \
     wall.h \
+    youwin.h
 
 FORMS += \
     widget.ui

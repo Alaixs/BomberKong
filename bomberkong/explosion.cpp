@@ -9,6 +9,7 @@ Explosion::Explosion(int posX, int posY)
     sprite.load("://assets/sprites/t_explosion.png");
     animation.setInterval(2);
     animation.play(0, 6);
+    timer = 12;
 }
 
 
@@ -18,6 +19,7 @@ Explosion::Explosion(Coordinate position)
     sprite.load("://assets/sprites/t_explosion.png");
     animation.setInterval(2);
     animation.play(0, 6);
+    timer = 12;
 }
 
 

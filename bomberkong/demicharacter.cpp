@@ -11,6 +11,7 @@ Character::Character(int posX, int posY)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
     animation.play(0, 4);
+    timer = 0;
 }
 
 
@@ -19,6 +20,7 @@ Character::Character(Coordinate pos)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
     animation.play(0, 4);
+    timer = 0;;
 }
 
 

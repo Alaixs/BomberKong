@@ -14,8 +14,8 @@
         <file>assets/maps/Map.bkmap</file>
         <file>assets/sprites/t_donkeykong.png</file>
         <file>assets/sprites/you_win.png</file>
-        <file>assets/sprites/game_over</file>
         <file>assets/sprites/t_press_start.png</file>
         <file>assets/sprites/t_logo.png</file>
+        <file>assets/sprites/t_game_over.png</file>
     </qresource>
 </RCC>
