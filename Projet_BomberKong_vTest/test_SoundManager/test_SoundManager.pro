@@ -1,9 +1,10 @@
 QT += testlib
-QT -= gui
+QT += gui
+QT += multimedia
+CONFIG += qt warn_on depend_includepath testcase
 
-CONFIG += qt console warn_on depend_includepath testcase
-CONFIG -= app_bundle
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 
 TEMPLATE = app
-
 SOURCES +=  tst_testsoundmanager.cpp
