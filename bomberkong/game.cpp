@@ -11,6 +11,7 @@
 #include "indestructiblewall.h"
 #include "explosion.h"
 #include "global.h"
+#include "widget.h"
 
 
 Game::Game(QWidget* widget)
@@ -80,7 +81,6 @@ void Game::update()
             (*it)->update();
 
             std::list<Entity*>::iterator collider;
-
             for (collider = entities.begin(); collider != entities.end(); ++collider)
             {
                 if (it != collider)
@@ -150,9 +150,12 @@ void Game::createEntity(Entity* entity)
 
 void Game::win()
 {
-    qDebug() << "gg";
+    dynamic_cast<Widget*>(root)->switchScene(3);
 }
 
+void Game::loose()
+{ dynamic_cast<Widget*>(root)->switchScene(3);
+}
 
 void Game::createExplosion(int posX, int posY)
 {

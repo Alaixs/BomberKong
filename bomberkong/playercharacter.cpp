@@ -23,6 +23,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
+    nbLive = 0;
 }
 
 
@@ -33,6 +34,7 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
+    nbLive = 2;
 }
 
 
@@ -100,17 +102,48 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
         }
     }
-    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
 
+    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
+    {
+        pos.x = 9.5 * cellSize;
+        pos.y = 21 * cellSize;
+        nbLive--;
 
-        pos.x = 456;
-        pos.y = 912;
+        qDebug() << nbLive;
+
+        if(nbLive == -1)
+        {
+            dynamic_cast<Game*>(parent)->loose();
+        }
+
         //dynamic_cast<Widget*>(parent)->nbLive--;
         //dynamic_cast<Widget*>(parent)->deleteEntities();
         //dynamic_cast<Widget*>(parent)->initLevel1();
 
     }
+
+    if(dynamic_cast<Bomb*>(body) != nullptr)
+    {
+        if(Input::isActionPressed(PUSH_BOMB) == false)
+        {
+            // Offsets the player away from the collider
+            int distX = pos.x - body->getPos().x;
+            int distY = pos.y - body->getPos().y;
+
+            if (abs(distX) > abs(distY))
+            {
+                pos.x += (distX / abs(distX)) * speed;
+            }
+            else
+            {
+                pos.y += (distY / abs(distY)) * speed;
+
+            }
+        }
+    }
 }
+
+
 
 
 void PlayerCharacter::draw(QPainter * painter)

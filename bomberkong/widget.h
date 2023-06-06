@@ -40,7 +40,6 @@ public:
     void keyReleaseEvent(QKeyEvent * ev);
 
     int wMap;
-    int nbLive = 2;
 
     gameState state = MENU;
 

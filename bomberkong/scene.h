@@ -19,7 +19,7 @@ protected:
     QWidget* root;
 
 //protected:
-//    std::list<Entity*> entities;
+    //std::list<Entity*> entities;
 
 };
 

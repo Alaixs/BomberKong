@@ -5,6 +5,7 @@
 #include "global.h"
 
 // includes the necessary header files
+#include "loose.h"
 #include "widget.h"
 #include "ui_widget.h"
 #include "input.h"
@@ -99,6 +100,10 @@ void Widget::switchScene(int sceneId)
 
         case 1:
             currentScene = new Game(this);
+        break;
+
+        case 3:
+            currentScene = new Loose(this);
         break;
     }
 }
