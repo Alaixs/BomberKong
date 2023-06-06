@@ -10,15 +10,17 @@ class GUIElement
 
 protected:
     Coordinate pos;
+    Coordinate size;
+    QPixmap texture;
     bool isSelected;
 
 public:
-    GUIElement(Coordinate position);
+    GUIElement(Coordinate position, Coordinate newSize, QString source);
     GUIElement(int posX, int posY);
 
     Coordinate getPos();
 
-    virtual void draw(QPainter * painter) = 0;
+    virtual void draw(QPainter * painter);
     virtual void select();
     virtual void deselect();
 

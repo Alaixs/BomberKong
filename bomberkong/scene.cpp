@@ -1,6 +1,6 @@
 #include "scene.h"
 
-Scene::Scene()
+Scene::Scene(QWidget* widget)
 {
-
+    root = widget;
 }

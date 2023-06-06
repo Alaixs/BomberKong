@@ -17,11 +17,8 @@
 #include "donkeykong.h"
 #include "soundmanager.h"
 #include "guielement.h"
-#include "pressstartlabel.h"
-#include "logo.h"
-#include "gameover.h"
-#include "youwin.h"
 #include "game.h"
+#include "mainmenu.h"
 
 // Include the global variable
 
@@ -61,7 +58,7 @@ ui->setupUi(this);
     //play main theme
     SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03);
 
-    currentScene = new Game();
+    currentScene = new MainMenu(this);
 
     // Link The timer
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
@@ -76,15 +73,7 @@ Widget::~Widget()
     delete ui;
 }
 
-// Initiliase the main menu and all of his attribute/entities
-void Widget::initMainMenu()
-{
-    // Add the Logo to the list
-    gui.push_back(new Logo(Coordinate(82, 240)));
 
-    // Add the press start label in the list
-    gui.push_back(new PressStartLabel(Coordinate(140, 520)));
-}
 
 
 // Delete all the actual entities
@@ -128,4 +117,21 @@ void Widget::paintEvent(QPaintEvent *)
     QPainter painter(this);
 
     currentScene->draw(&painter);
+}
+
+
+void Widget::switchScene(int sceneId)
+{
+    delete currentScene;
+
+    switch (sceneId)
+    {
+        case 0:
+            currentScene = new MainMenu(this);
+        break;
+
+        case 1:
+            currentScene = new Game(this);
+        break;
+    }
 }

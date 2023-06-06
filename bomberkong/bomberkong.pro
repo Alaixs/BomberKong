@@ -19,25 +19,21 @@ SOURCES += \
     donkeykong.cpp \
     explosion.cpp \
     game.cpp \
-    gameover.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
-    logo.cpp \
     main.cpp \
+    mainmenu.cpp \
     playercharacter.cpp \
-    pressstartlabel.cpp \
     scene.cpp \
     soundmanager.cpp \
     widget.cpp \
     entity.cpp \
-    wall.cpp \
-    youwin.cpp
+    wall.cpp
 
 HEADERS += \
     demicharacter.h \
     game.h \
-    gameover.h \
     global.h \
     animationmanager.h \
     barrel.h \
@@ -49,15 +45,14 @@ HEADERS += \
     indestructiblewall.h \
     input.h \
     logo.h \
+    mainmenu.h \
     playercharacter.h \
-    pressstartlabel.h \
     scene.h \
     soundmanager.h \
     widget.h \
     entity.h \
     coordinate.h \
-    wall.h \
-    youwin.h
+    wall.h
 
 FORMS += \
     widget.ui

@@ -10,12 +10,12 @@ class Scene
 {
 
 public:
-    Scene();
+    Scene(QWidget* widget);
 
     virtual void update() = 0;
     virtual void draw(QPainter* painter) = 0;
 
-private:
+protected:
     QWidget* root;
 
 //protected:

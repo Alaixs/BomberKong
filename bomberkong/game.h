@@ -4,13 +4,14 @@
 #include "scene.h"
 #include "entity.h"
 #include <list>
+#include <QWidget>
 
 
 class Game : public Scene
 {
 
 public:
-    Game();
+    Game(QWidget* widget);
     void update();
     void draw(QPainter* painter);
     void createEntity(Entity* entity);

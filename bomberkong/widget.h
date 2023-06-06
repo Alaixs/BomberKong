@@ -21,6 +21,11 @@ enum gameState{
     PAUSED
 };
 
+enum Scenes {
+    MAIN_MENU,
+    LEVEL1
+};
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -40,11 +45,12 @@ public:
     void createExplosion(int posX, int posY);
 
     // Scenes
-    void initMainMenu();
 
     void deleteEntities();
 
     SoundManager* soundManager;
+
+    void switchScene(int sceneId);
 
 private:
     Ui::Widget *ui;

@@ -1,9 +1,13 @@
 #include "guielement.h"
 
 
-GUIElement::GUIElement(Coordinate position)
+GUIElement::GUIElement(Coordinate position, Coordinate newSize, QString source)
 {
     pos = position;
+    size = newSize;
+
+    texture.load(source);
+
     isSelected = false;
 }
 
@@ -36,5 +40,8 @@ void GUIElement::deselect()
 
 void GUIElement::draw(QPainter * painter)
 {
-
+    painter->drawPixmap(
+        QRect(pos.x, pos.y, size.x, size.y),
+        texture
+    );
 }

@@ -17,5 +17,6 @@
         <file>assets/sprites/t_press_start.png</file>
         <file>assets/sprites/t_logo.png</file>
         <file>assets/sprites/t_game_over.png</file>
+        <file>assets/sprites/t_menu_bg.png</file>
     </qresource>
 </RCC>

@@ -13,7 +13,8 @@
 #include "global.h"
 
 
-Game::Game()
+Game::Game(QWidget* widget)
+    : Scene(widget)
 {
     int wMap = rand() % 3;
 
@@ -134,7 +135,6 @@ void Game::draw(QPainter* painter)
     std::list<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
     {
-        qDebug() << entities.size();
         (*it)->draw(painter);
         it++;
     }
