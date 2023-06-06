@@ -18,6 +18,7 @@ private:
     int timer;
     std::list<GUIElement*> gui;
 
+    GUIElement* bg;
     GUIElement* logo;
     GUIElement* pressStart;
 

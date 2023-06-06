@@ -12,6 +12,7 @@ class Game : public Scene
 
 public:
     Game(QWidget* widget);
+
     void update();
     void draw(QPainter* painter);
     void createEntity(Entity* entity);
