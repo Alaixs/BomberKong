@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html{
+    background-color: #4c7c78;
+}
+
+canvas {
+    background-color: #F7E7BE;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    color : #F7E7BE;
+}
+
+canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#top-bar {
+    margin: 0;
+    width: 100vw;
+    padding: 16px;
+    font-family: 'Nunito';
+}
+
+#side-bar {
+    float: left;
+    width: 64px;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    margin: 0 8px;
+}
+
+#block-preview {
+    position: absolute;
+    display: none;
+    pointer-events: none; /* Ignorer les événements de la souris */
+  }
+  
+
+.selected-tool {
+    border: 5px solid white;
+  }
+  
+  #filename {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #save {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #save:hover {
+    background-color: #45a049;
+  }
+  
+  .upload-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #fileInput {
+    display: none;
+  }
+  
+  #fileName {
+    margin-left: 10px;
+  }
+  
+  #fileInput:focus + .upload-button {
+    outline: 2px solid #2196F3;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .grid-label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-left: 5px;
+  }
+  
+  
