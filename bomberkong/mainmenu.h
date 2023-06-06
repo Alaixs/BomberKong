@@ -18,6 +18,9 @@ private:
     int timer;
     std::list<GUIElement*> gui;
 
+    GUIElement* logo;
+    GUIElement* pressStart;
+
 };
 
 #endif // MAINMENU_H

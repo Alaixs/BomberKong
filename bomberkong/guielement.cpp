@@ -9,6 +9,7 @@ GUIElement::GUIElement(Coordinate position, Coordinate newSize, QString source)
     texture.load(source);
 
     isSelected = false;
+    isVisible = true;
 }
 
 
@@ -17,6 +18,7 @@ GUIElement::GUIElement(int posX, int posY)
     pos.x = posX;
     pos.y = posY;
     isSelected = false;
+    isVisible = true;
 }
 
 
@@ -40,8 +42,24 @@ void GUIElement::deselect()
 
 void GUIElement::draw(QPainter * painter)
 {
-    painter->drawPixmap(
-        QRect(pos.x, pos.y, size.x, size.y),
-        texture
-    );
+    if (isVisible)
+    {
+        painter->drawPixmap(
+            QRect(pos.x, pos.y, size.x, size.y),
+            texture
+        );
+    }
+}
+
+
+void GUIElement::move(int trX, int trY)
+{
+    pos.x += trX;
+    pos.y += trY;
+}
+
+
+void GUIElement::move(Coordinate translation)
+{
+    pos += translation;
 }
