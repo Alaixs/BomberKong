@@ -16,6 +16,7 @@ DonkeyKong::DonkeyKong(int posX, int posY)
     sprite.load("://assets/sprites/t_donkeykong.png");
     animation.play(0, 6);
     timer = 0;
+    isThrowing = false;
 }
 
 
@@ -25,6 +26,7 @@ DonkeyKong::DonkeyKong(Coordinate pos)
     sprite.load("://assets/sprites/t_donkeykong.png");
     animation.play(0, 6);
     timer = 0;
+    isThrowing = false;
 }
 
 
@@ -35,16 +37,31 @@ void DonkeyKong::update()
     timer--;
 
     if(timer < 0){
-        dynamic_cast<Game*>(parent)->createEntity(new Barrel(pos.x,pos.y+cellSize));
+        dynamic_cast<Game*>(parent)->createEntity(new Barrel(pos.x + 1.5 * cellSize,pos.y + cellSize));
         int random = rand() % 18;
         newPos = random * cellSize + cellSize;
         dist = newPos - pos.x;
         timer = 100;
+        isThrowing = false;
     }
 
     if(pos.x != newPos)
     {
         pos.x += dist/100;
+    }
+
+    if(timer == 10)
+    {
+        isThrowing = true;
+    }
+
+    if(isThrowing)
+    {
+        animation.play(6,9);
+    }
+    else
+    {
+        animation.play(0,6);
     }
 }
 

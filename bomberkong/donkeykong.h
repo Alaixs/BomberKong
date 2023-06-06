@@ -44,6 +44,7 @@ private:
 
     int newPos; ///< Pose where the DK send the next barrel
     int dist;   ///< Distance to the next x where DK send barrel
+    bool isThrowing; ///< Is DK actally throwing a barrel
 };
 
 #endif // DONKEYKONG_H

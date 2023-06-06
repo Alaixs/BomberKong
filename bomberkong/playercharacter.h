@@ -79,6 +79,7 @@ private:
 
     bool flipped; ///< False = left, True = false
     int timer; ///< init timer
+    int nbLive;
 
 };
 

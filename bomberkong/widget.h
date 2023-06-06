@@ -39,7 +39,6 @@ public:
     void keyPressEvent(QKeyEvent * ev);
     void keyReleaseEvent(QKeyEvent * ev);
     int wMap;
-    int nbLive = 2;
     gameState state = MENU;
 
     void createExplosion(int posX, int posY);

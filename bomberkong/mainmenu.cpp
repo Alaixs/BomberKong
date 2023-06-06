@@ -48,7 +48,7 @@ void MainMenu::update()
 
     if (timer == 60) { timer = 0; }
 
-    if (Input::isActionPressed(MOVE_DOWN))
+    if (Input::isActionPressed(PAUSE) == false)
     {
         dynamic_cast<Widget*>(root)->switchScene(1);
     }
