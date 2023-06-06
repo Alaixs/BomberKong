@@ -18,6 +18,7 @@ SOURCES += \
     demicharacter.cpp \
     donkeykong.cpp \
     explosion.cpp \
+    game.cpp \
     gameover.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     main.cpp \
     playercharacter.cpp \
     pressstartlabel.cpp \
+    scene.cpp \
     soundmanager.cpp \
     widget.cpp \
     entity.cpp \
@@ -34,6 +36,7 @@ SOURCES += \
 
 HEADERS += \
     demicharacter.h \
+    game.h \
     gameover.h \
     global.h \
     animationmanager.h \
@@ -48,6 +51,7 @@ HEADERS += \
     logo.h \
     playercharacter.h \
     pressstartlabel.h \
+    scene.h \
     soundmanager.h \
     widget.h \
     entity.h \

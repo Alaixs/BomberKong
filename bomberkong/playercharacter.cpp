@@ -11,7 +11,10 @@
 #include "explosion.h"
 #include "soundmanager.h"
 #include "global.h"
-extern const int cellSize;
+#include "game.h"
+
+
+//extern const int cellSize;
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -52,14 +55,14 @@ void PlayerCharacter::update()
             Coordinate bombPos(pos);
             bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
             bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
-            dynamic_cast<Widget*>(parent)->createEntity(new Bomb(bombPos));
+            dynamic_cast<Game*>(parent)->createEntity(new Bomb(bombPos));
             timer = 200;
         }
     }
 
     if(pos.y > 25 * cellSize){
 
-        dynamic_cast<Widget*>(parent)->win();
+        dynamic_cast<Game*>(parent)->win();
     }
 
     pos += motion * speed;
@@ -102,9 +105,9 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
         pos.x = 456;
         pos.y = 912;
-        dynamic_cast<Widget*>(parent)->nbLive--;
-        dynamic_cast<Widget*>(parent)->deleteEntities();
-        dynamic_cast<Widget*>(parent)->initLevel1();
+        //dynamic_cast<Widget*>(parent)->nbLive--;
+        //dynamic_cast<Widget*>(parent)->deleteEntities();
+        //dynamic_cast<Widget*>(parent)->initLevel1();
 
     }
 }

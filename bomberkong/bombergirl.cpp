@@ -4,8 +4,9 @@
 #include <QTimer>
 #include "global.h"
 #include "widget.h"
+#include "game.h"
 
-extern const int cellSize;
+//extern const int cellSize;
 
 BomberGirl::BomberGirl(int posX, int posY)
     : Entity(posX, posY)
@@ -43,7 +44,7 @@ void BomberGirl::collisionEvent(Entity * body)
 {
     if (dynamic_cast<PlayerCharacter*>(body) != nullptr)
     {
-        dynamic_cast<Widget*>(parent)->win();
+        dynamic_cast<Game*>(parent)->win();
     }
 }
 

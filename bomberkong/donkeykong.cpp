@@ -5,7 +5,10 @@
 #include "widget.h"
 #include <random>
 #include "global.h"
-extern const int cellSize;
+#include "game.h"
+
+
+//extern const int cellSize;
 
 DonkeyKong::DonkeyKong(int posX, int posY)
     : Entity(posX, posY)
@@ -32,7 +35,7 @@ void DonkeyKong::update()
     timer--;
 
     if(timer < 0){
-        dynamic_cast<Widget*>(parent)->createEntity(new Barrel(pos.x,pos.y+cellSize));
+        dynamic_cast<Game*>(parent)->createEntity(new Barrel(pos.x,pos.y+cellSize));
         int random = rand() % 18;
         newPos = random * cellSize + cellSize;
         dist = newPos - pos.x;

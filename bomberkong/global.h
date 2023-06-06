@@ -6,7 +6,7 @@ using namespace std;
 
 // define the cell size
 // define here to allow all other class to get this
-const int cellSize = 32 ;
+extern int cellSize;
 
 
 

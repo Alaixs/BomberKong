@@ -1,6 +1,7 @@
 #include "barrel.h"
 #include "global.h"
-extern const int cellSize;
+
+//int cellSize;
 
 Barrel::Barrel(int posX, int posY)
     : Entity(posX, posY)

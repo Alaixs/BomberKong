@@ -4,7 +4,7 @@
 #include "global.h"
 #include "soundmanager.h"
 
-extern const int cellSize;
+//extern const int cellSize;
 
 Character::Character(int posX, int posY)
     : Entity(posX, posY)

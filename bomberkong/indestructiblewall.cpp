@@ -1,6 +1,6 @@
 #include "indestructiblewall.h"
 #include "global.h"
-extern const int cellSize;
+//extern const int cellSize;
 
 IndestructibleWall::IndestructibleWall(int posX, int posY)
     : Entity(posX, posY)

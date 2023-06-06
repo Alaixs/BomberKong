@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "scene.h"
 
 
 Entity::Entity(int x, int y) : pos(x, y), active(true)
@@ -11,7 +12,7 @@ Entity::Entity(Coordinate pos) : pos(pos), active(true)
 
 }
 
-void Entity::setParent(QWidget * newParent)
+void Entity::setParent(Scene* newParent)
 {
     parent = newParent;
 }

@@ -7,9 +7,10 @@
 #include "wall.h"
 #include "indestructiblewall.h"
 #include "global.h"
+#include "game.h"
 
 
-extern const int cellSize;
+int cellSize;
 
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
@@ -39,11 +40,11 @@ void Bomb::update()
     }
     if (timer == 0)
     {
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x + cellSize, pos.y);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x - cellSize, pos.y);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y + cellSize);
-        dynamic_cast<Widget*>(parent)->createExplosion(pos.x, pos.y - cellSize);
+        dynamic_cast<Game*>(parent)->createExplosion(pos.x, pos.y);
+        dynamic_cast<Game*>(parent)->createExplosion(pos.x + cellSize, pos.y);
+        dynamic_cast<Game*>(parent)->createExplosion(pos.x - cellSize, pos.y);
+        dynamic_cast<Game*>(parent)->createExplosion(pos.x, pos.y + cellSize);
+        dynamic_cast<Game*>(parent)->createExplosion(pos.x, pos.y - cellSize);
 
         deleteEntity();
         explosionSfx();

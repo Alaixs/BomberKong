@@ -8,6 +8,7 @@
 #include "entity.h"
 #include "soundmanager.h"
 #include "guielement.h"
+#include "scene.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -36,21 +37,12 @@ public:
     int nbLive = 2;
     gameState state = MENU;
 
-    /**
-     * @brief Create an entity, sets it parent to `this` and adds it to the entities list
-     * @param entity
-     */
-    void createEntity(Entity * entity);
-
     void createExplosion(int posX, int posY);
 
     // Scenes
     void initMainMenu();
-    void initLevel1();
 
     void deleteEntities();
-
-    void win();
 
     SoundManager* soundManager;
 
@@ -59,6 +51,8 @@ private:
     std::list<Entity*> entities; ///< A vector toring all entities active in the game world
     std::list<GUIElement*> gui;
     bool isWin = false;
+
+    Scene* currentScene;
 
 private slots:
     /**

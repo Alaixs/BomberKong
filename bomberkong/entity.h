@@ -2,6 +2,7 @@
 #define ENTITY_H
 #include "coordinate.h"
 #include <QPainter>
+#include "scene.h"
 
 
 /**
@@ -22,7 +23,7 @@ private:
 
 protected:
     Coordinate pos; ///< The coordinate of the entity
-    QWidget * parent; ///< The main widget, used to call method from it.
+    Scene* parent; ///< The main widget, used to call method from it.
 
 public:
 
@@ -43,7 +44,7 @@ public:
      * @brief Set the parent property to a pointer to the main widget
      * @param parent The main widget
      */
-    void setParent(QWidget * newParent);
+    void setParent(Scene* newParent);
 
     /**
      * @brief getter of the coordinate
@@ -72,13 +73,13 @@ public:
      * @brief draw the entity on the screen
      * @param painter the painter of the game
      */
-    virtual void draw(QPainter * painter);
+    virtual void draw(QPainter* painter);
 
     /**
      * @brief collisionEvent
      * @param body the entity that collide with the current entity
      */
-    virtual void collisionEvent(Entity * body);
+    virtual void collisionEvent(Entity* body);
 
     /**
      * @brief getRect get the rectangle of the entity
