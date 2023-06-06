@@ -148,6 +148,7 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
     Input::keyReleasedEvent(ev);
 }
 
+
 void Widget::gameUpdate()
 {
     if(state == MENU)

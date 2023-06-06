@@ -5,7 +5,6 @@
 #include <QTimer>
 #include <QPainter>
 #include <vector>
-
 #include "entity.h"
 #include "soundmanager.h"
 #include "guielement.h"
