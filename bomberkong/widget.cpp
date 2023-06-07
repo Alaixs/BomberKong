@@ -24,7 +24,6 @@ Widget::Widget(QWidget *parent)
 ui->setupUi(this);
 
     cellSize = 32;
-    isPaused = false;
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -57,19 +56,6 @@ Widget::~Widget()
     delete ui;
 }
 
-<<<<<<< HEAD
-// Delete all the actual entities
-void Widget::deleteEntities(){
-    // start a loop with a duration while the vector entities isn't void
-    /*while(entities.size() != 0){
-        // delete the actual last entities
-        entities.pop_back();
-    }*/
-}
-
-=======
->>>>>>> b0c16029fa8c3708a236a486d2db051be62ca586
-
 // Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
 { Input::keyPressedEvent(ev); }
@@ -81,15 +67,10 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 // Updating the entities and the game
 void Widget::gameUpdate()
 {
-    if (!isPaused)
-    {
-        currentScene->update();
+    currentScene->update();
 
-        // Draw a frame
-        repaint(0, 0, 1532, 1056);
-
-        Input::resetFLInputs();
-    }
+    // Draw a frame
+    repaint(0, 0, 1532, 1056);
 }
 
 // Draw a single frame

@@ -28,7 +28,7 @@ public:
     /**
      * @brief Destructor for a Character object
      */
-    ~Character();
+    ~Dummy();
 
     /**
      * @brief update the bomberman (position, sprite, etc)

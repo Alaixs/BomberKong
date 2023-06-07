@@ -23,16 +23,12 @@ public:
     Wall(Coordinate pos);
 
     /**
-<<<<<<< HEAD
      * @brief Destructor for a Wall object
      */
     ~Wall();
 
     /**
      * @brief update the wall (position, sprite, etc)
-=======
-     * @brief Update the wall (position, sprite, etc)
->>>>>>> b0c16029fa8c3708a236a486d2db051be62ca586
      */
     void update();
 

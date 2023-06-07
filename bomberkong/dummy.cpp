@@ -23,7 +23,7 @@ Dummy::Dummy(Coordinate pos)
     timer = 0;;
 }
 
-Character::~Character()
+Dummy::~Dummy()
 {
     qDebug() << "Destructeur Character appelé";
 }
