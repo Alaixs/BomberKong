@@ -4,6 +4,9 @@
 #include "animationmanager.h"
 #include "entity.h"
 
+/**
+ * @brief The class of explosion, explosion will spawn after explosion of bomb
+ */
 class Explosion : public Entity
 {
 
@@ -18,8 +21,7 @@ public:
 
     /**
      * @brief Create an explosion
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     * @param pos : location coordinates
      */
     Explosion(Coordinate position);
 

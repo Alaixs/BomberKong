@@ -40,7 +40,7 @@ public:
      * This method is called whenever the user presses a key.
      * It then updates the state of the corresponding key
      *
-     * @param event the QKeyEvent created by the event in the main class
+     * @param event : the QKeyEvent created by the event in the main class
      */
     static void keyPressedEvent(QKeyEvent * event);
 
@@ -51,7 +51,7 @@ public:
      * This method is called whenever the user releases a key.
      * It then updates the state of the corresponding key
      *
-     * @param event the QKeyEvent created by the event in the main class
+     * @param event : the QKeyEvent created by the event in the main class
      */
     static void keyReleasedEvent(QKeyEvent * event);
 
@@ -67,7 +67,7 @@ public:
      *     // Do stuff...
      * }
      *
-     * @param action
+     * @param action : the button pressed
      * @return is the action currently pressed
      */
     static bool isActionPressed(Actions action);

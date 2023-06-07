@@ -20,8 +20,8 @@ public:
 
     /**
      * @brief Sets the start and end frame of the animation
-     * @param frameStart the start frame
-     * @param frameEnd the end frame
+     * @param frameStart : the start frame
+     * @param frameEnd : the end frame
      */
     void play(int frameStart, int frameEnd);
 

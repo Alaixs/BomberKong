@@ -5,6 +5,9 @@
 #include "animationmanager.h"
 #include "soundmanager.h"
 
+/**
+ * @brief The class of Dummy entiy, the entity you can see but who have no move
+ */
 class Dummy : public Entity
 {
 public:
@@ -18,8 +21,7 @@ public:
 
     /**
      * @brief Create a no playable Bomberman
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     * @param pos : location coordinates
      */
     Dummy(Coordinate pos);
 
