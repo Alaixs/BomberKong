@@ -134,14 +134,7 @@ void Game::loose()
 }
 
 
-<<<<<<< HEAD
-void Game::alternative()
-{
-    dynamic_cast<Widget*>(root)->switchScene(4);
-}
 
-=======
->>>>>>> a831c46ed6d9c2e60c714ce8bad9a583040ec4eb
 
 void Game::restart()
 {
