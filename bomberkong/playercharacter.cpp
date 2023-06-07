@@ -61,7 +61,7 @@ void PlayerCharacter::update()
             bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
             bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
             dynamic_cast<Game*>(parent)->createEntity(new Bomb(bombPos));
-            qDebug() << "coubeh";
+            //qDebug() << "coubeh";
             timer = 200;
         }
     }
