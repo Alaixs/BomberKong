@@ -42,10 +42,7 @@ void BomberGirl::draw(QPainter * painter)
 
 void BomberGirl::collisionEvent(Entity * body)
 {
-    if (dynamic_cast<PlayerCharacter*>(body) != nullptr)
-    {
-        dynamic_cast<Game*>(parent)->win();
-    }
+
 }
 
 

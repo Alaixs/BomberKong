@@ -2,6 +2,7 @@
 #include "playercharacter.h"
 
 #include <QMessageBox>
+#include "bombergirl.h"
 #include "widget.h"
 #include "indestructiblewall.h"
 #include "input.h"
@@ -24,6 +25,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     speed = 2;
     timer = 0;
     nbLive = 0;
+    isKO = false;
 }
 
 
@@ -35,12 +37,16 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     speed = 2;
     timer = 0;
     nbLive = 2;
+    isKO = false;
 }
 
 
 void PlayerCharacter::update()
 {
     animation.update();
+
+    if (!isKO)
+    {
 
     if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1; flipped = true; footstepsSfx(); }
     else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -1; flipped = false; footstepsSfx(); }
@@ -80,6 +86,21 @@ void PlayerCharacter::update()
         animation.play(0, 4);
     }
 
+    }
+    else
+    {
+
+    animation.play(10, 12);
+
+    if (Input::isActionPressed(MOVE_DOWN))
+    {
+        pos.x = 9.5 * cellSize;
+        pos.y = 21 * cellSize;
+        isKO = false;
+    }
+
+
+    }
 
 }
 
@@ -105,21 +126,20 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
     {
-        pos.x = 9.5 * cellSize;
-        pos.y = 21 * cellSize;
         nbLive--;
+        isKO = true;
 
         qDebug() << nbLive;
 
         if(nbLive == -1)
         {
-            dynamic_cast<Game*>(parent)->loose();
+            //dynamic_cast<Game*>(parent)->loose();
         }
+    }
 
-        //dynamic_cast<Widget*>(parent)->nbLive--;
-        //dynamic_cast<Widget*>(parent)->deleteEntities();
-        //dynamic_cast<Widget*>(parent)->initLevel1();
-
+    if (dynamic_cast<BomberGirl*>(body) != nullptr)
+    {
+        dynamic_cast<Game*>(parent)->win();
     }
 
     if(dynamic_cast<Bomb*>(body) != nullptr)

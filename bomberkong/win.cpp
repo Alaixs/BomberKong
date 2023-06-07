@@ -1,26 +1,23 @@
-#include "loose.h"
-#include "widget.h"
+#include "win.h"
 #include "global.h"
+#include "widget.h"
 
-
-Loose::Loose(QWidget* widget) : Scene(widget)
+Win::Win(QWidget * widget) : Scene(widget)
 {
-    dk = new DonkeyKong(8.5 * cellSize, 528);
-    go = new GUIElement(Coordinate(70, 200),
+    bomberman = new Character(9 * cellSize , 16 * cellSize);
+    bombergirl = new BomberGirl(10 * cellSize, 16 * cellSize);
+    winLabel = new GUIElement(Coordinate(70, 200),
                         Coordinate(500,100),
-                        "://assets/sprites/t_game_over.png");
-    qDebug() << "coubeh";
+                        "://assets/sprites/you_win.png");
 }
 
-
-void Loose::update()
+void Win::update()
 {
-    dk->update();
-    dk->timer++;
+    bomberman->update();
+    bombergirl->update();
 }
 
-
-void Loose::draw(QPainter * painter)
+void Win::draw(QPainter * painter)
 {
     painter->fillRect(QRect(0, 0, 50, 50), QBrush(QColor(255, 0, 0)));
 
@@ -30,26 +27,27 @@ void Loose::draw(QPainter * painter)
         for(int j = 0; j < 13; j++){
             painter->fillRect(
                 width*2*i, width*2*j, width, width,
-                QBrush(QColor(255, 0, 0))
+                QBrush(QColor(250, 250, 0))
                 );
 
             painter->fillRect(
                 width*2*i+cellSize, width*2*j+cellSize, width, width,
-                QBrush(QColor(255, 0, 0))
+                QBrush(QColor(250, 250, 0))
                 );
 
             painter->fillRect(
                 width*2*i+cellSize, width*2*j, width, width,
-                QBrush(QColor(200, 0, 0))
+                QBrush(QColor(200, 200, 0))
                 );
 
             painter->fillRect(
                 width*2*i, width*2*j+cellSize, width, width,
-                QBrush(QColor(200, 0, 0))
+                QBrush(QColor(200, 200, 0))
                 );
         }
     }
 
-    dk->draw(painter);
-    go->draw(painter);
+    bomberman->draw(painter);
+    bombergirl->draw(painter);
+    winLabel->draw(painter);
 }

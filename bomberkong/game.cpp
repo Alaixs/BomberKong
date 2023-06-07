@@ -4,6 +4,7 @@
 
 #include <fstream>
 
+#include "input.h"
 #include "wall.h"
 #include "bombergirl.h"
 #include "playercharacter.h"
@@ -68,35 +69,42 @@ Game::Game(QWidget* widget)
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
     createEntity(new DonkeyKong(9 * cellSize, 0));
+
+    startLabel = new GUIElement(Coordinate(140, 620),
+                           Coordinate(350, 30),
+                                QString("://assets/sprites/t_press_start.png"));
 }
 
 
 void Game::update()
 {
-    std::list<Entity*>::iterator it = entities.begin();
-    while (it != entities.end())
+    if(Input::isActionPressed(PAUSE) == false)
     {
-        if ((*it)->isActive())
+        std::list<Entity*>::iterator it = entities.begin();
+        while (it != entities.end())
         {
-            (*it)->update();
-
-            std::list<Entity*>::iterator collider;
-            for (collider = entities.begin(); collider != entities.end(); ++collider)
+            if ((*it)->isActive())
             {
-                if (it != collider)
+                (*it)->update();
+
+                std::list<Entity*>::iterator collider;
+                for (collider = entities.begin(); collider != entities.end(); ++collider)
                 {
-                    if ((*it)->getRect().intersects((*collider)->getRect()))
+                    if (it != collider)
                     {
-                        (*it)->collisionEvent(*collider);
+                        if ((*it)->getRect().intersects((*collider)->getRect()))
+                        {
+                            (*it)->collisionEvent(*collider);
+                        }
                     }
                 }
-            }
 
-            ++it;
-        }
-        else
-        {
-            it = entities.erase(it);
+                ++it;
+            }
+            else
+            {
+                it = entities.erase(it);
+            }
         }
     }
 }
@@ -138,6 +146,11 @@ void Game::draw(QPainter* painter)
         (*it)->draw(painter);
         it++;
     }
+
+    if(Input::isActionPressed(PAUSE) == true)
+    {
+        startLabel->draw(painter);
+    }
 }
 
 
@@ -150,7 +163,7 @@ void Game::createEntity(Entity* entity)
 
 void Game::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3);
+    dynamic_cast<Widget*>(root)->switchScene(2);
 }
 
 void Game::loose()

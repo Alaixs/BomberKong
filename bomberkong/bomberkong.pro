@@ -30,7 +30,8 @@ SOURCES += \
     soundmanager.cpp \
     widget.cpp \
     entity.cpp \
-    wall.cpp
+    wall.cpp \
+    win.cpp
 
 HEADERS += \
     demicharacter.h \
@@ -54,7 +55,8 @@ HEADERS += \
     widget.h \
     entity.h \
     coordinate.h \
-    wall.h
+    wall.h \
+    win.h
 
 FORMS += \
     widget.ui

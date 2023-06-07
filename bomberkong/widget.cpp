@@ -20,6 +20,7 @@
 #include "guielement.h"
 #include "game.h"
 #include "mainmenu.h"
+#include "win.h"
 
 
 Widget::Widget(QWidget *parent)
@@ -62,7 +63,7 @@ Widget::~Widget()
 }
 
 
-// Updates the Input class status
+// Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
 { Input::keyPressedEvent(ev); }
 
@@ -90,7 +91,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::switchScene(int sceneId)
 {
-    delete currentScene;
+    //delete currentScene;
 
     switch (sceneId)
     {
@@ -100,6 +101,10 @@ void Widget::switchScene(int sceneId)
 
         case 1:
             currentScene = new Game(this);
+        break;
+
+        case 2:
+            currentScene = new Win(this);
         break;
 
         case 3:
