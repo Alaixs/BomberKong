@@ -7,7 +7,7 @@ using namespace std;
 // define the cell size
 // define here to allow all other class to get this
 extern int cellSize;
-
+extern bool isPaused;
 
 
 #endif // GLOBAL_H

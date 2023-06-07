@@ -7,8 +7,10 @@
 
 
 // [Arrow Keys] : Move character
-// [K] : Place bomb
-// [L] : Push bomb
+// [W] : Place bomb
+// [X] : Push bomb
+// [SPACE] : Start
+// [ESC] : Pause
 
 
 enum Actions {
@@ -18,6 +20,7 @@ enum Actions {
     MOVE_RIGHT,
     PLACE_BOMB,
     PUSH_BOMB,
+    START,
     PAUSE
 };
 
@@ -67,10 +70,24 @@ public:
      *     // Do stuff...
      * }
      *
-     * @param action : the button pressed
+     * @param action : the action to check
      * @return is the action currently pressed
      */
     static bool isActionPressed(Actions action);
+
+
+    /**
+     * @brief Returns the state of the desired input IN THIS FRAME ONLY
+     *
+     * Return true if the input was pressedin this exact tick.
+     *
+     * @param action : the action to check
+     * @return was the action pressed during this tick
+     */
+    static bool isActionJustPressed(Actions action);
+
+
+    static void resetFLInputs();
 
 };
 

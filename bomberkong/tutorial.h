@@ -35,7 +35,7 @@ public:
      * @brief Display the actual Tutorial screen
      * @param painter : the tools to display
      */
-    void draw(QPainter * painter);
+    //void draw(QPainter * painter);
 
 
     /**

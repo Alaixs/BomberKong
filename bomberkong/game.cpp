@@ -47,33 +47,30 @@ Game::~Game()
 
 void Game::update()
 {
-    if(Input::isActionPressed(PAUSE) == false)
+    std::list<Entity*>::iterator it = entities.begin();
+    while (it != entities.end())
     {
-        std::list<Entity*>::iterator it = entities.begin();
-        while (it != entities.end())
+        if ((*it)->isActive())
         {
-            if ((*it)->isActive())
-            {
-                (*it)->update();
+            (*it)->update();
 
-                std::list<Entity*>::iterator collider;
-                for (collider = entities.begin(); collider != entities.end(); ++collider)
+            std::list<Entity*>::iterator collider;
+            for (collider = entities.begin(); collider != entities.end(); ++collider)
+            {
+                if (it != collider)
                 {
-                    if (it != collider)
+                    if ((*it)->getRect().intersects((*collider)->getRect()))
                     {
-                        if ((*it)->getRect().intersects((*collider)->getRect()))
-                        {
-                            (*it)->collisionEvent(*collider);
-                        }
+                        (*it)->collisionEvent(*collider);
                     }
                 }
+            }
 
-                ++it;
-            }
-            else
-            {
-                it = entities.erase(it);
-            }
+            ++it;
+        }
+        else
+        {
+            it = entities.erase(it);
         }
     }
 }
@@ -119,7 +116,6 @@ void Game::draw(QPainter* painter)
     std::list<GUIElement*>::iterator gui_it = gui.begin();
     while (gui_it != gui.end())
     {
-        qDebug() << "gui";
         (*gui_it)->draw(painter);
         gui_it++;
     }
