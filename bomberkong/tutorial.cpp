@@ -22,6 +22,10 @@ Tutorial::Tutorial(QWidget* widget)
     restart();
 }
 
+Tutorial::~Tutorial()
+{
+
+}
 
 void Tutorial::update()
 {
