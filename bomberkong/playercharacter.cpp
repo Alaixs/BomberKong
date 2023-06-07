@@ -14,8 +14,6 @@
 #include "game.h"
 
 
-//extern const int cellSize;
-
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
 {
@@ -63,13 +61,14 @@ void PlayerCharacter::update()
             bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
             bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
             dynamic_cast<Game*>(parent)->createEntity(new Bomb(bombPos));
+            qDebug() << "coubeh";
             timer = 200;
         }
     }
 
     if(pos.y > 25 * cellSize){
 
-        dynamic_cast<Game*>(parent)->alternative();
+        //dynamic_cast<Game*>(parent)->alternative();
     }
 
     pos += motion * speed;

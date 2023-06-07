@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QWidget>
 
+
 /**
  * @brief The class of any scene on the game (pause, mainmenu, win, loose, ...)
  */

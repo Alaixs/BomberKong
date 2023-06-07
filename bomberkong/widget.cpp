@@ -14,6 +14,7 @@
 #include "game.h"
 #include "mainmenu.h"
 #include "win.h"
+#include "tutorial.h"
 
 
 Widget::Widget(QWidget *parent)
@@ -93,7 +94,7 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 1:
-            currentScene = new Game(this);
+            currentScene = new Tutorial(this);
         break;
 
         case 2:

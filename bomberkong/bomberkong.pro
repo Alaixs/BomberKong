@@ -29,6 +29,7 @@ SOURCES += \
     playercharacter.cpp \
     scene.cpp \
     soundmanager.cpp \
+    tutorial.cpp \
     widget.cpp \
     entity.cpp \
     wall.cpp \
@@ -54,6 +55,7 @@ HEADERS += \
     playercharacter.h \
     scene.h \
     soundmanager.h \
+    tutorial.h \
     widget.h \
     entity.h \
     coordinate.h \

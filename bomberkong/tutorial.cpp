@@ -1,4 +1,4 @@
-#include "game.h"
+#include "tutorial.h"
 
 #include <QDebug>
 
@@ -15,28 +15,15 @@
 #include "widget.h"
 
 
-Game::Game(QWidget* widget)
-    : Scene(widget)
+Tutorial::Tutorial(QWidget* widget)
+    : Game(widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
-
-    wMap = rand() % 3;
-
     restart();
 }
 
 
-Game::~Game()
-{
-    while (entities.size() != 0)
-    {
-        delete entities.back();
-        entities.pop_back();
-    }
-}
-
-
-void Game::update()
+void Tutorial::update()
 {
     if(Input::isActionPressed(PAUSE) == false)
     {
@@ -70,7 +57,7 @@ void Game::update()
 }
 
 
-void Game::draw(QPainter* painter)
+void Tutorial::draw(QPainter* painter)
 {
     painter->fillRect(QRect(0, 0, 50, 50), QBrush(QColor(255, 0, 0)));
 
@@ -114,13 +101,14 @@ void Game::draw(QPainter* painter)
 }
 
 
-void Game::createEntity(Entity* entity)
+void Tutorial::createEntity(Entity* entity)
 {
     entity->setParent(this);
     entities.push_back(entity);
 }
 
-void Game::deleteAllEntity()
+
+void Tutorial::deleteAllEntity()
 {
     // start a loop with a duration while the vector entities isn't void
     while(entities.size() != 1)
@@ -131,25 +119,25 @@ void Game::deleteAllEntity()
 }
 
 
-void Game::win()
+void Tutorial::win()
 {
     dynamic_cast<Widget*>(root)->switchScene(2);
 }
 
 
-void Game::loose()
+void Tutorial::loose()
 {
     dynamic_cast<Widget*>(root)->switchScene(3);
 }
 
 
 
-void Game::restart()
+void Tutorial::restart()
 {
     deleteAllEntity();
 
     std::ifstream levelDataFile;
-    levelDataFile.open("../bomberkong/assets/maps/Map.bkmap");
+    levelDataFile.open("../bomberkong/assets/maps/tutorial.bkmap");
 
     if (!levelDataFile.is_open())
         qDebug() << "Could not open the file";
@@ -158,11 +146,6 @@ void Game::restart()
     // Iterate on every character of the file and place the corresponding block,
     // Goes on the next line when encountering a semicolon;
     char block;
-
-    for(int i = 0; i < wMap; i++)
-    {
-        while(levelDataFile >> block && block != '!'){};
-    }
 
     int yPos = 4 * cellSize;
     int xPos = 0;
@@ -205,7 +188,7 @@ void Game::restart()
 }
 
 
-void Game::createExplosion(int posX, int posY)
+void Tutorial::createExplosion(int posX, int posY)
 {
     createEntity(new Explosion(posX, posY));
 }
