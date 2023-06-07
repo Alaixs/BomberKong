@@ -22,6 +22,14 @@ Game::Game(QWidget* widget)
 
     wMap = rand() % 3;
 
+    pauseLabel = new GUIElement(
+        Coordinate(10, 100),
+        Coordinate(200, 40),
+        "://assets/sprites/t_press_start.png"
+    );
+    pauseLabel->isVisible = false;
+    gui.push_back(pauseLabel);
+
     restart();
 }
 
@@ -36,7 +44,18 @@ Game::~Game()
 
 void Game::update()
 {
-    if(Input::isActionPressed(PAUSE) == false)
+    if (isPaused)
+    {
+        pauseLabel->isVisible = true;
+        return;
+    }
+    else
+    {
+        pauseLabel->isVisible = false;
+    }
+
+    std::list<Entity*>::iterator it = entities.begin();
+    while (it != entities.end())
     {
         std::list<Entity*>::iterator it = entities.begin();
         while (it != entities.end())
@@ -70,7 +89,7 @@ void Game::update()
 
 void Game::draw(QPainter* painter)
 {
-    painter->fillRect(QRect(0, 0, 50, 50), QBrush(QColor(255, 0, 0)));
+    //painter->fillRect(QRect(0, 0, 50, 50), QBrush(QColor(255, 0, 0)));
 
     int width = cellSize;
     for(int i = 0; i < 20; i++)
@@ -110,11 +129,6 @@ void Game::draw(QPainter* painter)
     {
         (*gui_it)->draw(painter);
         gui_it++;
-    }
-
-    if(Input::isActionPressed(PAUSE) == true)
-    {
-        startLabel->draw(painter);
     }
 }
 
@@ -207,13 +221,6 @@ void Game::restart()
 
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
     createEntity(new DonkeyKong(9 * cellSize, 0));
-
-    startLabel = new GUIElement(Coordinate(140, 620),
-                                Coordinate(350, 30),
-                                QString("://assets/sprites/t_press_start.png"));
-
-
-
 }
 
 

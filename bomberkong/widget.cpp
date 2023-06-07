@@ -16,6 +16,7 @@
 #include "win.h"
 #include "tutorial.h"
 
+bool isPaused;
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -26,7 +27,6 @@ ui->setupUi(this);
     cellSize = 32;
     isPaused = false;
     wLvl = 0;
-
 
 
     // Screen dimensions
@@ -62,7 +62,13 @@ Widget::~Widget()
 
 // Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
-{ Input::keyPressedEvent(ev); }
+{
+    Input::keyPressedEvent(ev);
+    if (ev->key() == Qt::Key_Escape)
+    {
+        isPaused = !isPaused;
+    }
+}
 
 void Widget::keyReleaseEvent(QKeyEvent *ev)
 {Input::keyReleasedEvent(ev); }
@@ -75,6 +81,8 @@ void Widget::gameUpdate()
 
     // Draw a frame
     repaint(0, 0, 1532, 1056);
+
+    Input::resetFLInputs();
 }
 
 // Draw a single frame

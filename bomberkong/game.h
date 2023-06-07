@@ -34,7 +34,7 @@ protected:
     std::list<GUIElement*> gui;
 
 public:
-    GUIElement * startLabel;
+    GUIElement* pauseLabel;
 
 };
 
