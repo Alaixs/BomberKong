@@ -18,5 +18,7 @@
         <file>assets/sprites/t_logo.png</file>
         <file>assets/sprites/t_game_over.png</file>
         <file>assets/sprites/t_menu_bg.png</file>
+        <file>assets/sprites/t_move_controls.png</file>
+        <file>assets/sprites/t_bomb_controls.png</file>
     </qresource>
 </RCC>

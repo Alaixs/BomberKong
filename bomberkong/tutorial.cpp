@@ -57,50 +57,6 @@ void Tutorial::update()
 }
 
 
-void Tutorial::draw(QPainter* painter)
-{
-    painter->fillRect(QRect(0, 0, 50, 50), QBrush(QColor(255, 0, 0)));
-
-    int width = cellSize;
-    for(int i = 0; i < 20; i++)
-    {
-        for(int j = 0; j < 13; j++){
-            painter->fillRect(
-                width*2*i, width*2*j, width, width,
-                QBrush(QColor(0, 161, 30))
-                );
-
-            painter->fillRect(
-                width*2*i+cellSize, width*2*j+cellSize, width, width,
-                QBrush(QColor(0, 161, 30))
-                );
-
-            painter->fillRect(
-                width*2*i+cellSize, width*2*j, width, width,
-                QBrush(QColor(1, 133, 21))
-                );
-
-            painter->fillRect(
-                width*2*i, width*2*j+cellSize, width, width,
-                QBrush(QColor(1, 133, 21))
-                );
-        }
-    }
-
-    std::list<Entity*>::iterator it = entities.begin();
-    while (it != entities.end())
-    {
-        (*it)->draw(painter);
-        it++;
-    }
-
-    if(Input::isActionPressed(PAUSE) == true)
-    {
-        startLabel->draw(painter);
-    }
-}
-
-
 void Tutorial::createEntity(Entity* entity)
 {
     entity->setParent(this);
@@ -184,6 +140,17 @@ void Tutorial::restart()
     startLabel = new GUIElement(Coordinate(140, 620),
                                 Coordinate(350, 30),
                                 QString("://assets/sprites/t_press_start.png"));
+
+    gui.push_back(new GUIElement(
+        Coordinate(450, 645),
+        Coordinate(144, 96),
+        QString("://assets/sprites/t_move_controls.png")
+        ));
+    gui.push_back(new GUIElement(
+        Coordinate(40, 140),
+        Coordinate(96, 48),
+        QString("://assets/sprites/t_bomb_controls.png")
+        ));
 
 }
 

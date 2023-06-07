@@ -17,7 +17,6 @@ public:
     ~Tutorial();
 
     void update();
-    void draw(QPainter* painter);
 
     void createEntity(Entity* entity);
     void deleteAllEntity();
@@ -31,7 +30,6 @@ public:
     int wMap;
 
 public:
-    //std::list<Entity*> entities;
     GUIElement * startLabel;
 
 };

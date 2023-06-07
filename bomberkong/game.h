@@ -31,6 +31,7 @@ public:
 
 protected:
     std::list<Entity*> entities;
+    std::list<GUIElement*> gui;
 
 public:
     GUIElement * startLabel;

@@ -107,6 +107,14 @@ void Game::draw(QPainter* painter)
         it++;
     }
 
+    std::list<GUIElement*>::iterator gui_it = gui.begin();
+    while (gui_it != gui.end())
+    {
+        qDebug() << "gui";
+        (*gui_it)->draw(painter);
+        gui_it++;
+    }
+
     if(Input::isActionPressed(PAUSE) == true)
     {
         startLabel->draw(painter);
@@ -206,6 +214,8 @@ void Game::restart()
     startLabel = new GUIElement(Coordinate(140, 620),
                                 Coordinate(350, 30),
                                 QString("://assets/sprites/t_press_start.png"));
+
+
 
 }
 
