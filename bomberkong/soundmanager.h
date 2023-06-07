@@ -16,11 +16,11 @@ public:
     void playSound(const QString& soundFilePath, qreal volume);
     void stopAllSounds();
 
+
 private:
     SoundManager();
     ~SoundManager();
     void playSoundInThread(QSoundEffect* soundEffect, qreal volume);
-
     QMap<QString, QSoundEffect*> soundMap;
 };
 

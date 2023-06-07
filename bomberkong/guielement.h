@@ -19,6 +19,7 @@ public:
 
     GUIElement(Coordinate position, Coordinate newSize, QString source);
     GUIElement(int posX, int posY);
+    virtual ~GUIElement();
 
     Coordinate getPos();
 

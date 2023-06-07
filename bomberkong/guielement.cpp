@@ -21,6 +21,10 @@ GUIElement::GUIElement(int posX, int posY)
     isVisible = true;
 }
 
+GUIElement::~GUIElement()
+{
+
+}
 
 Coordinate GUIElement::getPos()
 {

@@ -25,6 +25,11 @@ public:
     Bomb(Coordinate position);
 
     /**
+     * @brief Destructor for a Bomb object
+     */
+    ~Bomb();
+
+    /**
      * @brief update the bomb (position, sprite, etc)
      */
     void update();

@@ -24,6 +24,11 @@ public:
     Wall(Coordinate pos);
 
     /**
+     * @brief Destructor for a Wall object
+     */
+    ~Wall();
+
+    /**
      * @brief update the wall (position, sprite, etc)
      */
     void update();

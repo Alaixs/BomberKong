@@ -11,6 +11,7 @@ class Scene
 
 public:
     Scene(QWidget* widget);
+    virtual ~Scene();
 
     virtual void update() = 0;
     virtual void draw(QPainter* painter) = 0;

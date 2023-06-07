@@ -11,8 +11,10 @@ class MainMenu : public Scene
 
 public:
     MainMenu(QWidget* widget);
+    ~MainMenu();
     void update();
     void draw(QPainter* painter);
+
 
 private:
     int timer;

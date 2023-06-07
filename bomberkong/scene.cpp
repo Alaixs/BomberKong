@@ -4,3 +4,8 @@ Scene::Scene(QWidget* widget)
 {
     root = widget;
 }
+
+Scene::~Scene()
+{
+
+}

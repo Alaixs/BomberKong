@@ -23,6 +23,10 @@ Character::Character(Coordinate pos)
     timer = 0;;
 }
 
+Character::~Character()
+{
+    qDebug() << "Destructeur Character appelé";
+}
 
 void Character::update()
 {

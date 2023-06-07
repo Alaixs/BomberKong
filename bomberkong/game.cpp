@@ -75,6 +75,15 @@ Game::Game(QWidget* widget)
                                 QString("://assets/sprites/t_press_start.png"));
 }
 
+#include <typeinfo>
+
+Game::~Game()
+{
+    for (std::list<Entity*>::iterator it = entities.begin(); it != entities.end(); ++it)
+    {
+        //delete (*it);
+    }
+}
 
 void Game::update()
 {

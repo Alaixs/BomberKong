@@ -9,6 +9,7 @@ class Loose : public Scene
 {
 public:
     Loose(QWidget* widget);
+    ~Loose();
 
     void update();
     void draw(QPainter* painter);

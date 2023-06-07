@@ -21,6 +21,11 @@ public:
     DonkeyKong(Coordinate pos);
 
     /**
+     * @brief Destructor for a DonkeyKong object
+     */
+    ~DonkeyKong();
+
+    /**
      * @brief update the Donkey Kong (position, sprite, etc)
      */
     void update();

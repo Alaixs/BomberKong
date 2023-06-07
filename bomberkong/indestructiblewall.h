@@ -22,6 +22,11 @@ public:
     IndestructibleWall(Coordinate pos);
 
     /**
+     * @brief Destructor for an IndestructibleWall object
+     */
+    ~IndestructibleWall();
+
+    /**
      * @brief update the Indestructible wall (position, sprite, etc)
      */
     void update();

@@ -10,6 +10,7 @@ class Win : public Scene
 {
 public:
     Win(QWidget * widget);
+    ~Win();
 
     void update();
     void draw(QPainter * painter);

@@ -38,6 +38,10 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     nbLive=2;
 }
 
+PlayerCharacter::~PlayerCharacter()
+{
+
+}
 
 void PlayerCharacter::update()
 {
@@ -175,7 +179,7 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-   // SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
+    //SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
 }
 
 
@@ -188,7 +192,6 @@ void PlayerCharacter::winThemeSfx()
 {
     SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5);
 }
-
 
 QRect PlayerCharacter::getRect()
 {

@@ -78,10 +78,10 @@ Widget::~Widget()
 // Delete all the actual entities
 void Widget::deleteEntities(){
     // start a loop with a duration while the vector entities isn't void
-    while(entities.size() != 0){
+    /*while(entities.size() != 0){
         // delete the actual last entities
         entities.pop_back();
-    }
+    }*/
 }
 
 
@@ -121,7 +121,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::switchScene(int sceneId)
 {
-    //delete currentScene;
+    Scene * temp = currentScene;
 
     switch (sceneId)
     {
@@ -141,4 +141,6 @@ void Widget::switchScene(int sceneId)
             currentScene = new Loose(this);
         break;
     }
+
+    delete temp;
 }
