@@ -10,6 +10,12 @@
  */
 class MainMenu : public Scene
 {
+    int timer;
+    std::list<GUIElement*> gui;
+
+    GUIElement* bg;
+    GUIElement* logo;
+    GUIElement* pressStart;
 
 public:
     /**
@@ -33,15 +39,6 @@ public:
      * @param painter : the tools to display
      */
     void draw(QPainter* painter);
-
-
-private:
-    int timer;
-    std::list<GUIElement*> gui;
-
-    GUIElement* bg;
-    GUIElement* logo;
-    GUIElement* pressStart;
 
 };
 

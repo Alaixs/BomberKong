@@ -73,7 +73,7 @@ void PlayerCharacter::update()
 
     if(pos.y > 25 * cellSize){
 
-        //dynamic_cast<Game*>(parent)->alternative();
+        dynamic_cast<Game*>(parent)->alternative();
     }
 
     pos += motion * speed;

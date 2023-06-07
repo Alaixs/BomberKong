@@ -11,14 +11,21 @@
  */
 class Win : public Scene
 {
+    Dummy * bomberman;
+    BomberGirl * bombergirl;
+    GUIElement * winLabel;
+
 public:
     /**
      * @brief Create a new win screen
      * @param widget : the main widget
      */
     Win(QWidget * widget);
-    ~Win();
 
+    /**
+     * @brief Destructor for a Win object
+     */
+    ~Win();
 
     /**
      * @brief Update the Loose screen
@@ -30,10 +37,6 @@ public:
      * @param painter : the tools to display
      */
     void draw(QPainter* painter);
-
-    Dummy * bomberman;
-    BomberGirl * bombergirl;
-    GUIElement * winLabel;
 };
 
 #endif // WIN_H

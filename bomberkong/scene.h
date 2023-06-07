@@ -11,6 +11,11 @@
  */
 class Scene
 {
+protected:
+    QWidget* root;
+
+    //protected:
+    //std::list<Entity*> entities;
 
 public:
     /**
@@ -18,8 +23,11 @@ public:
      * @param widget : the reference of widget class
      */
     Scene(QWidget* widget);
-    virtual ~Scene();
 
+    /**
+     * @brief Destructor for a Scene object
+     */
+    virtual ~Scene();
 
     /**
      * @brief Update the scene
@@ -31,12 +39,6 @@ public:
      * @param painter : the tools to display
      */
     virtual void draw(QPainter* painter) = 0;
-
-protected:
-    QWidget* root;
-
-//protected:
-    //std::list<Entity*> entities;
 
 };
 

@@ -9,6 +9,9 @@
  */
 class Explosion : public Entity
 {
+    QPixmap sprite; ///< The actual Sprite
+    AnimationManager animation; ///< The actual animation
+    int timer; ///< explosion duration
 
 public:
 
@@ -46,11 +49,6 @@ public:
      * @return the hitboxe
      */
     QRect getRect();
-
-private:
-    QPixmap sprite;///< The actual Sprite
-    AnimationManager animation;///< The actual animation
-    int timer ;///< explosion duration
 
 };
 

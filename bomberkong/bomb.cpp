@@ -1,11 +1,11 @@
 #include "bomb.h"
 
+#include "global.h"
 #include "input.h"
-#include "playercharacter.h"
 #include "coordinate.h"
+#include "playercharacter.h"
 #include "wall.h"
 #include "indestructiblewall.h"
-#include "global.h"
 #include "game.h"
 
 
@@ -28,10 +28,12 @@ Bomb::Bomb(Coordinate position)
     timer = 187;
 }
 
+
 Bomb::~Bomb()
 {
 
 }
+
 
 void Bomb::update()
 {

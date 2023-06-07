@@ -8,8 +8,11 @@
  */
 class Barrel : public Entity
 {
-public:
+    int timer ; ///< The number of frame the barrel will stay
+    QPixmap sprite; ///< The actual Sprite
+    AnimationManager animation; ///< The actual animation ( the range in the sprite image)
 
+public:
     /**
      * @brief Create a Barrel
      * @param posX : position on x axes
@@ -46,13 +49,6 @@ public:
      */
     QRect getRect();
 
-private:
-
-    int timer ; ///< The number of frame the barrel will stay
-
-    QPixmap sprite; ///< The actual Sprite
-
-    AnimationManager animation; ///< The actual animation ( the range in the sprite image)
 };
 
 #endif // BARREL_H

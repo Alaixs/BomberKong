@@ -8,6 +8,12 @@
  */
 class DonkeyKong : public Entity
 {
+    QPixmap sprite; ///< The actual Sprite
+    AnimationManager animation; ///< The actual animation
+    int newPos; ///< Pose where the DK send the next barrel
+    int dist; ///< Distance to the next x where DK send barrel
+    bool isThrowing; ///< Is DK actally throwing a barrel
+
 public:
     /**
      * @brief Create a DK
@@ -44,17 +50,8 @@ public:
      */
     QRect getRect();
 
-     int timer;///< init timer
-     int throwingRate;
-
-private:
-    QPixmap sprite;///< The actual Sprite
-
-    AnimationManager animation;///< The actual animation
-
-    int newPos; ///< Pose where the DK send the next barrel
-    int dist;   ///< Distance to the next x where DK send barrel
-    bool isThrowing; ///< Is DK actally throwing a barrel
+    int timer;///< init timer
+    int throwingRate;
 
 };
 

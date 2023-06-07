@@ -6,9 +6,9 @@
 
 class Wall : public Entity
 {
+    QPixmap sprite;///< The actual Sprite
 
 public:
-
     /**
      * @brief Create a no playable wall
      * @param posX : position on x axes
@@ -49,9 +49,6 @@ public:
      * @return the hitboxe
      */
     QRect getRect();
-
-private:
-    QPixmap sprite;///< The actual Sprite
 
 };
 

@@ -1,7 +1,7 @@
 #include "barrel.h"
+
 #include "global.h"
 
-//int cellSize;
 
 Barrel::Barrel(int posX, int posY)
     : Entity(posX, posY)
@@ -20,10 +20,12 @@ Barrel::Barrel(Coordinate position)
     timer = 187;
 }
 
+
 Barrel::~Barrel()
 {
 
 }
+
 
 void Barrel::update()
 {
@@ -50,5 +52,5 @@ void Barrel::draw(QPainter * painter)
 
 QRect Barrel::getRect()
 {
-    return QRect(pos.x, pos.y, cellSize, cellSize);
+    return QRect(pos.x + 3, pos.y + 3, cellSize - 6, cellSize - 4);
 }

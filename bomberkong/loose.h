@@ -11,13 +11,19 @@
 class Loose : public Scene
 {
 public:
+    DonkeyKong* dk;
+    GUIElement* go;
+
     /**
      * @brief Create a Loose screen
      * @param widget : the widget of loose scene
      */
     Loose(QWidget* widget);
-    ~Loose();
 
+    /**
+     * @brief Destructor for a Loose object
+     */
+    ~Loose();
 
     /**
      * @brief Update the Loose screen
@@ -30,8 +36,6 @@ public:
      */
     void draw(QPainter* painter);
 
-    DonkeyKong* dk;
-    GUIElement* go;
 };
 
 #endif // LOOSE_H

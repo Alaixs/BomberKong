@@ -7,8 +7,6 @@
  */
 class AnimationManager
 {
-
-private:
     int frameInterval; ///< Range of the used interval
     int timer;        ///< frame timer
     int frame;        ///< actual frame
@@ -16,6 +14,9 @@ private:
     int endFrame;     ///< Ending Frame
 
 public:
+    /**
+     * @brief A constructor for an AnimationManager
+     */
     AnimationManager();
 
     /**
