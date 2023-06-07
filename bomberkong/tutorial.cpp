@@ -160,13 +160,13 @@ void Tutorial::restart()
                                 QString("://assets/sprites/t_press_start.png"));
 
     gui.push_back(new GUIElement(
-        Coordinate(450, 645),
-        Coordinate(144, 96),
+        Coordinate(425, 600),
+        Coordinate(208, 128),
         QString("://assets/sprites/t_move_controls.png")
         ));
     gui.push_back(new GUIElement(
         Coordinate(40, 140),
-        Coordinate(96, 48),
+        Coordinate(132, 140),
         QString("://assets/sprites/t_bomb_controls.png")
         ));
 
