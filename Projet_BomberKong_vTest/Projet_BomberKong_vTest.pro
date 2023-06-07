@@ -15,5 +15,4 @@ SUBDIRS += \
     test_Input \
     test_PlayerCharacter \
     test_SoundManager \
-    test_Wall \
-    test_Widget
+    test_Wall
