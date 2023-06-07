@@ -6,11 +6,8 @@
 #include <QSoundEffect>
 #include <QWidget>
 #include <QPainter>
-#include "../../../../SAE-final/bomber-kong/build-bomberkong-Desktop-Debug/ui_widget.h"
 #include "../../../../SAE-final/bomber-kong/bomberkong/entity.h"
 #include "../../../../SAE-final/bomber-kong/bomberkong/entity.cpp"
-#include "../../../../SAE-final/bomber-kong/bomberkong/widget.h"
-#include "../../../../SAE-final/bomber-kong/bomberkong/widget.cpp"
 #include "../../../../SAE-final/bomber-kong/bomberkong/animationmanager.h"
 #include "../../../../SAE-final/bomber-kong/bomberkong/animationmanager.cpp"
 #include "../../../../SAE-final/bomber-kong/bomberkong/barrel.h"
@@ -39,8 +36,6 @@
 #include "../../../../SAE-final/bomber-kong/bomberkong/playercharacter.cpp"
 #include "../../../../SAE-final/bomber-kong/bomberkong/soundmanager.h"
 #include "../../../../SAE-final/bomber-kong/bomberkong/soundmanager.cpp"
-#include "../../../../SAE-final/bomber-kong/bomberkong/wall.h"
-#include "../../../../SAE-final/bomber-kong/bomberkong/wall.cpp"
 
 // add necessary includes here
 
