@@ -134,6 +134,7 @@ void Game::loose()
 }
 
 
+
 void Game::restart()
 {
     deleteAllEntity();

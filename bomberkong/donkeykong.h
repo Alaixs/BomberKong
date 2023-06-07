@@ -3,6 +3,9 @@
 #include "entity.h"
 #include "animationmanager.h"
 
+/**
+ * @brief The class of DonkeyKong, the game's boss
+ */
 class DonkeyKong : public Entity
 {
 public:
@@ -15,8 +18,7 @@ public:
 
     /**
      * @brief Create a DK
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     * @param pos : location coordinates
      */
     DonkeyKong(Coordinate pos);
 
