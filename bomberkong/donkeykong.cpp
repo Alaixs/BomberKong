@@ -30,10 +30,8 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 
 void DonkeyKong::update()
 {
-
     animation.update();
     timer--;
-
     if(timer <= 0){
         dynamic_cast<Game*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize,pos.y + cellSize));
         int random = rand() % 18;
@@ -64,13 +62,12 @@ void DonkeyKong::update()
 }
 
 
-void DonkeyKong::draw(QPainter * painter)
+void DonkeyKong::draw(QPainter* painter)
 {
     painter->drawPixmap(
         QRect(pos.x, pos.y, 4 * cellSize, 4 * cellSize),
         sprite,
-        QRect(animation.getFrame()* 64,0, 64, 64)
-
+        QRect(animation.getFrame() * 64, 0, 64, 64)
     );
 }
 

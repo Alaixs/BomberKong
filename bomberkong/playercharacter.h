@@ -79,6 +79,7 @@ private:
     AnimationManager animation;///< The actual animation ( the range in the sprite image)
 
     bool flipped; ///< False = left, True = false
+    bool isKO; ///< is the character KO, he is not controllable if true
     int timer; ///< init timer
     int nbLive;
 

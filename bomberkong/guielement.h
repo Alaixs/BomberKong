@@ -37,15 +37,14 @@ public:
 
 
     /**
-     * @brief Get the position of the element
-     * @return the position of the element
+     * @brief Returns the position of the element
+     * @return the position as a Coordinate
      */
     Coordinate getPos();
 
-
     /**
-     * @brief Display the actual GUI element
-     * @param painter : the tools to display
+     * @brief Displays the element
+     * @param painter The QPainter class
      */
     virtual void draw(QPainter * painter);
 

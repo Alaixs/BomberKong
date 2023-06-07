@@ -9,12 +9,11 @@ MainMenu::MainMenu(QWidget* widget)
 {
     timer = 0;
 
-    gui.push_back(
-        new GUIElement(Coordinate(0, 0),
-                       Coordinate(832, 832),
-                       QString("://assets/sprites/t_menu_bg.png")
-        )
-    );
+    bg = new GUIElement(Coordinate(0, 0),
+                            Coordinate(832, 832),
+                            QString("://assets/sprites/t_menu_bg.png")
+                        );
+    gui.push_back(bg);
 
     logo = new GUIElement(Coordinate(100, 300),
                             Coordinate(440, 210),
@@ -34,19 +33,22 @@ MainMenu::MainMenu(QWidget* widget)
 void MainMenu::update()
 {
     timer++;
-    if (timer <= 30)
+
+    if (timer <= 40)
     {
         logo->move(0, -2);
         pressStart->isVisible = true;
-
     }
+
     else
     {
         logo->move(0, 2);
         pressStart->isVisible = false;
     }
 
-    if (timer == 60) { timer = 0; }
+    if (timer == 80) { timer = 0; }
+
+
 
     if (Input::isActionPressed(PAUSE) == false)
     {

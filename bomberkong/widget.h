@@ -65,7 +65,9 @@ public:
      * @param ev : the QKeyEvent created by the event in the main class
      */
     void keyReleaseEvent(QKeyEvent * ev);
+
     int wMap;
+
     gameState state = MENU;
 
     /**
@@ -75,12 +77,6 @@ public:
      */
     void createExplosion(int posX, int posY);
 
-    // Scenes
-
-    /**
-     * @brief Delete all Widget's Entities
-     */
-    void deleteEntities();
 
     SoundManager* soundManager;
 
@@ -96,7 +92,7 @@ private:
     std::list<GUIElement*> gui;
     bool isWin = false;
 
-    Scene* currentScene;
+    Scene* currentScene; ///< The actuel active scene
 
 private slots:
     /**
