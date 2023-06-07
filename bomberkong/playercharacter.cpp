@@ -42,6 +42,11 @@ void PlayerCharacter::update()
 {
     animation.update();
 
+    if (Input::isActionJustPressed(START))
+    {
+        qDebug() << "Ratio aleks";
+    }
+
     if (!isKO)
     {
 
@@ -158,7 +163,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
             else
             {
                 pos.y += (distY / abs(distY)) * speed;
-
             }
         }
     }

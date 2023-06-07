@@ -8,6 +8,9 @@ bool moveLeft = false;
 bool moveRight = false;
 bool placeBomb = false;
 bool pushBomb = false;
+bool start = false;
+
+bool fl_start = false; // FL = Frame limited
 bool isPaused = true;
 
 
@@ -40,12 +43,7 @@ void Input::keyPressedEvent(QKeyEvent * event)
             break;
 
         case Qt::Key_Space:
-            if(isPaused == false)
-            {
-                isPaused = true;
-                break;
-            }
-            isPaused = false;
+            fl_start = true;
             break;
     }
 }
@@ -77,6 +75,10 @@ void Input::keyReleasedEvent(QKeyEvent * event)
 
         case Qt::Key_X:
             pushBomb = false;
+            break;
+
+        case Qt::Key_Space:
+            fl_start = false;
             break;
     }
 }
@@ -114,4 +116,21 @@ bool Input::isActionPressed(Actions action)
             return isPaused;
             break;
     }
+}
+
+
+bool Input::isActionJustPressed(Actions action)
+{
+    switch (action)
+    {
+        case START:
+            return fl_start;
+            break;
+    }
+}
+
+
+void Input::resetFLInputs()
+{
+    fl_start = false;
 }

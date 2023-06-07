@@ -24,6 +24,7 @@ Widget::Widget(QWidget *parent)
 ui->setupUi(this);
 
     cellSize = 32;
+    isPaused = false;
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -68,10 +69,15 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 // Updating the entities and the game
 void Widget::gameUpdate()
 {
-    currentScene->update();
+    if (!isPaused)
+    {
+        currentScene->update();
 
-    // Draw a frame
-    repaint(0, 0, 1532, 1056);
+        // Draw a frame
+        repaint(0, 0, 1532, 1056);
+
+        Input::resetFLInputs();
+    }
 }
 
 // Draw a single frame
