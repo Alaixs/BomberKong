@@ -133,7 +133,10 @@ void Game::loose()
     dynamic_cast<Widget*>(root)->switchScene(3);
 }
 
-
+void Game::alternative()
+{
+    dynamic_cast<Widget*>(root)->switchScene(4);
+}
 
 
 void Game::restart()
