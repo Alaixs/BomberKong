@@ -18,13 +18,12 @@ public:
 
     /**
      * @brief Create a no playable wall
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     * @param pos : location coordinates
      */
     Wall(Coordinate pos);
 
     /**
-     * @brief update the wall (position, sprite, etc)
+     * @brief Update the wall (position, sprite, etc)
      */
     void update();
 
@@ -41,7 +40,7 @@ public:
     void collisionEvent(Entity * body);
 
     /**
-     * @brief create the hitboxe
+     * @brief Create the hitboxe
      * @return the hitboxe
      */
     QRect getRect();
