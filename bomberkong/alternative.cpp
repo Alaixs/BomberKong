@@ -1,4 +1,5 @@
 #include "alternative.h"
+
 #include "global.h"
 
 Alternative::Alternative(QWidget * widget) : Scene(widget)
