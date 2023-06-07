@@ -24,7 +24,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive = 2;
+    nbLive = 0;
     isKO = false;
 }
 
@@ -94,7 +94,17 @@ void PlayerCharacter::update()
 
     if (Input::isActionPressed(MOVE_DOWN))
     {
-        dynamic_cast<Game*>(parent)->restart();
+        if (nbLive > -1)
+        {
+            dynamic_cast<Game*>(parent)->restart();
+            pos.x = 9.5 * cellSize;
+            pos.y = 21 * cellSize;
+            isKO = false;
+        }
+        else
+        {
+            dynamic_cast<Game*>(parent)->loose();
+        }
     }
 
     }
@@ -126,6 +136,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
         if (isKO) { return; }
 
         nbLive--;
+
         isKO = true;
     }
 

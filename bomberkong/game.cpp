@@ -18,9 +18,12 @@
 Game::Game(QWidget* widget)
     : Scene(widget)
 {
+    createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+
     wMap = rand() % 3;
 
     restart();
+
 }
 
 
@@ -110,7 +113,8 @@ void Game::createEntity(Entity* entity)
 
 void Game::deleteAllEntity()
 {
-    while(entities.size() != 0)
+    // start a loop with a duration while the vector entities isn't void
+    while(entities.size() != 1)
     {
         delete entities.back();
         entities.pop_back();
@@ -180,7 +184,7 @@ void Game::restart()
     levelDataFile.close();
 
     // Create characters at their spawn points
-    createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
     createEntity(new DonkeyKong(9 * cellSize, 0));
 
