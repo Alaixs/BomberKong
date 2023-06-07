@@ -3,7 +3,6 @@
 
 #include <QMessageBox>
 #include "bombergirl.h"
-#include "widget.h"
 #include "indestructiblewall.h"
 #include "input.h"
 #include "wall.h"
@@ -65,7 +64,7 @@ void PlayerCharacter::update()
 
     if(pos.y > 25 * cellSize){
 
-        dynamic_cast<Game*>(parent)->win();
+        dynamic_cast<Game*>(parent)->alternative();
     }
 
     pos += motion * speed;

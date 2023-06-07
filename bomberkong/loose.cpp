@@ -1,5 +1,4 @@
 #include "loose.h"
-#include "widget.h"
 #include "global.h"
 
 

@@ -21,6 +21,7 @@ public:
 
     void win();
     void loose();
+    void alternative();
     void createExplosion(int posX, int posY);
     void restart();
 
