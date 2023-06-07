@@ -1,12 +1,12 @@
 #include "loose.h"
-#include "widget.h"
 #include "global.h"
 
 
-Loose::Loose(QWidget * widget) : Scene(widget)
+Loose::Loose(QWidget* widget) : Scene(widget)
 {
-    dk = new DonkeyKong(8.5*cellSize,528);
+    dk = new DonkeyKong(8.5 * cellSize, 528);
     go = new GUIElement(Coordinate(70, 200),
+<<<<<<< HEAD
                                     Coordinate(500,100),
                                     "://assets/sprites/t_game_over.png");
 }
@@ -15,13 +15,20 @@ Loose::~Loose()
 {
     delete dk;
     delete go;
+=======
+                        Coordinate(500,100),
+                        "://assets/sprites/t_game_over.png");
+    //qDebug() << "coubeh";
+>>>>>>> b0c16029fa8c3708a236a486d2db051be62ca586
 }
+
 
 void Loose::update()
 {
     dk->update();
     dk->timer++;
 }
+
 
 void Loose::draw(QPainter * painter)
 {

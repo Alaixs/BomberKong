@@ -1,0 +1,173 @@
+\hypertarget{classCharacter}{}\doxysection{Character Class Reference}
+\label{classCharacter}\index{Character@{Character}}
+
+
+Entities you want to see but can\textquotesingle{}t move.  
+
+
+
+
+{\ttfamily \#include $<$demicharacter.\+h$>$}
+
+Inheritance diagram for Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCharacter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCharacter_a7cc2d11555dfd3b87a1777974b310aa6}{Character}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create a no playable Bomberman. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCharacter_a3dfe2933a2e8275bbe5631c6f4568d54}{Character}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Create a no playable Bomberman. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCharacter_ab9168412ef9b2c8726b0de4dfb63e604}{update}} ()
+\begin{DoxyCompactList}\small\item\em update the bomberman (position, sprite, etc) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCharacter_a370092ffba8c1a3ffa7a5033a431651e}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual bomberman. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCharacter_aa270c79bd6a1a2fbaacf73a7e78fa6d5}\label{classCharacter_aa270c79bd6a1a2fbaacf73a7e78fa6d5}} 
+void {\bfseries lose\+Theme\+Sfx} ()
+\begin{DoxyCompactList}\small\item\em make a sound for the defeat \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCharacter_a0e385d824b4084442d73beaa0f51c711}\label{classCharacter_a0e385d824b4084442d73beaa0f51c711}} 
+void {\bfseries stop\+All\+Sounds} ()
+\begin{DoxyCompactList}\small\item\em Stop all the Sound. \end{DoxyCompactList}\item 
+QRect \mbox{\hyperlink{classCharacter_a6da5b9362f389bceeb13929cc5420b82}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em create the hitboxe \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity_a9da14c9f90c382c963a90afd58c36fcd}{Entity}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEntity_a3da5b17c38cd1b97b5357c347746242e}{set\+Parent}} (QWidget $\ast$new\+Parent)
+\begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em getter of the coordinate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_a29601f50527cca46e471d8933c8bddd5}\label{classEntity_a29601f50527cca46e471d8933c8bddd5}} 
+void {\bfseries delete\+Entity} ()
+\begin{DoxyCompactList}\small\item\em delete the entity \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em is\+Alive \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em update the entity (move, change direction, etc.) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em draw the entity on the screen \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
+\begin{DoxyCompactList}\small\item\em collision\+Event \end{DoxyCompactList}\item 
+virtual QRect \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em get\+Rect get the rectangle of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCharacter_ab249b2f1147ae06cb3ac14d0084283c5}\label{classCharacter_ab249b2f1147ae06cb3ac14d0084283c5}} 
+\mbox{\hyperlink{classSoundManager}{Sound\+Manager}} $\ast$ {\bfseries sound\+Manager}
+\begin{DoxyCompactList}\small\item\em The defeat\textquotesingle{}s sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntity_ac135006c51fb3384b5b4624224d6e375}\label{classEntity_ac135006c51fb3384b5b4624224d6e375}} 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} {\bfseries pos}
+\begin{DoxyCompactList}\small\item\em The coordinate of the entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_ae5d21bd3063581c1b86ed19755045bd2}\label{classEntity_ae5d21bd3063581c1b86ed19755045bd2}} 
+QWidget $\ast$ {\bfseries parent}
+\begin{DoxyCompactList}\small\item\em The main widget, used to call method from it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entities you want to see but can\textquotesingle{}t move. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCharacter_a7cc2d11555dfd3b87a1777974b310aa6}\label{classCharacter_a7cc2d11555dfd3b87a1777974b310aa6}} 
+\index{Character@{Character}!Character@{Character}}
+\index{Character@{Character}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Character()}{Character()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Character\+::\+Character (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create a no playable Bomberman. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: position on x axes \\
+\hline
+{\em posY} & \+: position on y axes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCharacter_a3dfe2933a2e8275bbe5631c6f4568d54}\label{classCharacter_a3dfe2933a2e8275bbe5631c6f4568d54}} 
+\index{Character@{Character}!Character@{Character}}
+\index{Character@{Character}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Character()}{Character()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Character\+::\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{pos }\end{DoxyParamCaption})}
+
+
+
+Create a no playable Bomberman. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \+: coordinate where would you place \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCharacter_a370092ffba8c1a3ffa7a5033a431651e}\label{classCharacter_a370092ffba8c1a3ffa7a5033a431651e}} 
+\index{Character@{Character}!draw@{draw}}
+\index{draw@{draw}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Character\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display the actual bomberman. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{Entity}}.
+
+\mbox{\Hypertarget{classCharacter_a6da5b9362f389bceeb13929cc5420b82}\label{classCharacter_a6da5b9362f389bceeb13929cc5420b82}} 
+\index{Character@{Character}!getRect@{getRect}}
+\index{getRect@{getRect}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getRect()}{getRect()}}
+{\footnotesize\ttfamily QRect Character\+::get\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+create the hitboxe 
+
+\begin{DoxyReturn}{Returns}
+the hitboxe 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{Entity}}.
+
+\mbox{\Hypertarget{classCharacter_ab9168412ef9b2c8726b0de4dfb63e604}\label{classCharacter_ab9168412ef9b2c8726b0de4dfb63e604}} 
+\index{Character@{Character}!update@{update}}
+\index{update@{update}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Character\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+update the bomberman (position, sprite, etc) 
+
+
+
+Implements \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+demicharacter.\+h\item 
+demicharacter.\+cpp\end{DoxyCompactItemize}

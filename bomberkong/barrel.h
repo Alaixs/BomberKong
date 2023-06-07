@@ -3,6 +3,9 @@
 #include "animationmanager.h"
 #include "entity.h"
 
+/**
+ * @brief The class of barrel throw by Donkey Kong
+ */
 class Barrel : public Entity
 {
 public:

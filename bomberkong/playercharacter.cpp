@@ -3,7 +3,6 @@
 
 #include <QMessageBox>
 #include "bombergirl.h"
-#include "widget.h"
 #include "indestructiblewall.h"
 #include "input.h"
 #include "wall.h"
@@ -15,8 +14,6 @@
 #include "game.h"
 
 
-//extern const int cellSize;
-
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
 {
@@ -24,7 +21,8 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive=2;
+    nbLive = 2;
+    isKO = false;
 }
 
 
@@ -35,7 +33,8 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive=2;
+    nbLive = 2;
+    isKO = false;
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -46,6 +45,9 @@ PlayerCharacter::~PlayerCharacter()
 void PlayerCharacter::update()
 {
     animation.update();
+
+    if (!isKO)
+    {
 
     if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1; flipped = true; footstepsSfx(); }
     else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -1; flipped = false; footstepsSfx(); }
@@ -63,17 +65,18 @@ void PlayerCharacter::update()
             bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
             bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
             dynamic_cast<Game*>(parent)->createEntity(new Bomb(bombPos));
+            //qDebug() << "coubeh";
             timer = 200;
         }
     }
 
     if(pos.y > 25 * cellSize){
 
-        dynamic_cast<Game*>(parent)->win();
+        //dynamic_cast<Game*>(parent)->alternative();
     }
 
     pos += motion * speed;
-    if(timer >= -1)
+    if(timer >= 0)
         timer--;
 
     if (abs(motion.x) > 0 || abs(motion.y) > 0)
@@ -85,6 +88,28 @@ void PlayerCharacter::update()
         animation.play(0, 4);
     }
 
+    }
+    else
+    {
+
+    animation.play(10, 12);
+
+    if (Input::isActionPressed(MOVE_DOWN))
+    {
+        if (nbLive > -1)
+        {
+            dynamic_cast<Game*>(parent)->restart();
+            pos.x = 9.5 * cellSize;
+            pos.y = 21 * cellSize;
+            isKO = false;
+        }
+        else
+        {
+            dynamic_cast<Game*>(parent)->loose();
+        }
+    }
+
+    }
 
 }
 
@@ -108,22 +133,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
     }
 
-    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr){
+    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
+    {
+        if (isKO) { return; }
 
-
-        pos.x = 9.5 * cellSize;
-        pos.y = 21 * cellSize;
         nbLive--;
 
-        if(nbLive == -1)
-        {
-            dynamic_cast<Game*>(parent)->loose();
-        }
-
-        //dynamic_cast<Widget*>(parent)->nbLive--;
-        //dynamic_cast<Widget*>(parent)->deleteEntities();
-        //dynamic_cast<Widget*>(parent)->initLevel1();
-
+        isKO = true;
     }
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
@@ -133,7 +149,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if(dynamic_cast<Bomb*>(body) != nullptr)
     {
-        if(dynamic_cast<Input*>(parent)->isActionPressed(PUSH_BOMB) == false)
+        if(Input::isActionPressed(PUSH_BOMB) == false)
         {
             // Offsets the player away from the collider
             int distX = pos.x - body->getPos().x;
@@ -172,7 +188,7 @@ void PlayerCharacter::draw(QPainter * painter)
         painter->drawPixmap(
             QRect(pos.x, pos.y, cellSize, cellSize),
             sprite.transformed(QTransform().scale(-1, 1)),
-            QRect((10 - animation.getFrame()) * 16, 0, 16, 16)
+            QRect((11 - animation.getFrame()) * 16, 0, 16, 16)
         );
     }
 }
@@ -181,7 +197,6 @@ void PlayerCharacter::footstepsSfx()
 {
     //SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
 }
-
 
 void PlayerCharacter::loseThemeSfx()
 {

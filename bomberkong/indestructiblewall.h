@@ -3,6 +3,9 @@
 
 #include "entity.h"
 
+/**
+ * @brief The class of Indestructible Wall
+ */
 class IndestructibleWall : public Entity
 {
 public:
@@ -16,8 +19,7 @@ public:
 
     /**
      * @brief Create a Indestructible wall
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     * @param pos : location coordinates
      */
     IndestructibleWall(Coordinate pos);
 

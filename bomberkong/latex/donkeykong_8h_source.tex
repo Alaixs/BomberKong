@@ -1,0 +1,36 @@
+\hypertarget{donkeykong_8h_source}{}\doxysection{donkeykong.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DONKEYKONG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DONKEYKONG\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDonkeyKong}{DonkeyKong}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classDonkeyKong}{DonkeyKong}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classDonkeyKong}{DonkeyKong}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDonkeyKong_a6a84e5f014068905756577d703669ead}{update}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDonkeyKong_a7ac09dc931eebad6fe092343ee4239c3}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ QRect\ \mbox{\hyperlink{classDonkeyKong_afadb888f55a6b46f16077d10790f3090}{getRect}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDonkeyKong_a24e26a72a3f679f8ae259c38f4e71656}{timer}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ QPixmap\ sprite;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}\ animation;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ newPos;\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ dist;\ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ isThrowing;\ }
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DONKEYKONG\_H}}
+
+\end{DoxyCode}

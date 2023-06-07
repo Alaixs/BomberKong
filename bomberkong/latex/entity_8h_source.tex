@@ -1,0 +1,50 @@
+\hypertarget{entity_8h_source}{}\doxysection{entity.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENTITY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENTITY\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}coordinate.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QPainter>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}scene.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ active;\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}};\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classScene}{Scene}}*\ \mbox{\hyperlink{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}{parent}};\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{setParent}}(\mbox{\hyperlink{classScene}{Scene}}*\ newParent);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{getPos}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_a29601f50527cca46e471d8933c8bddd5}{deleteEntity}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}{isActive}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{update}}()\ =\ 0;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{draw}}(QPainter*\ painter);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{collisionEvent}}(\mbox{\hyperlink{classEntity}{Entity}}*\ body);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{virtual}\ QRect\ \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{getRect}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ENTITY\_H}}
+
+\end{DoxyCode}

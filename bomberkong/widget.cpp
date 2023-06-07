@@ -2,6 +2,7 @@
 #include <fstream>
 #include <QSoundEffect>
 
+#include "alternative.h"
 #include "global.h"
 
 // includes the necessary header files
@@ -9,25 +10,13 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "input.h"
-#include "playercharacter.h"
-#include "demicharacter.h"
-#include "wall.h"
-#include "indestructiblewall.h"
-#include "explosion.h"
-#include "bombergirl.h"
-#include "donkeykong.h"
 #include "soundmanager.h"
-#include "guielement.h"
 #include "game.h"
 #include "mainmenu.h"
 #include "win.h"
+#include "tutorial.h"
 
-// Include the global variable
 
-//extern const int cellSize;
-
-// Widget initialiser
-// Initialise all that are gonne use in widget class
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
 , ui(new Ui::Widget)
@@ -36,19 +25,13 @@ ui->setupUi(this);
 
     cellSize = 32;
 
-    // Initialise the Height in pixel of the window
+    // Screen dimensions
     int height = 26 * cellSize;
-
-    // Initialise the Width in pixel of the window
     int width = 20 * cellSize;
 
-    // Set the permanent size of the window
-    // No modification possible by user
     setFixedSize(width, height);
 
-    // Set a new rand sequences, use time for more random
     srand(time(nullptr));
-
 
     // preload sounds (avoid lag)
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_explosion.wav");
@@ -60,21 +43,20 @@ ui->setupUi(this);
     //play main theme
     SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03);
 
+    // Set the first scene to be the main menu
     currentScene = new MainMenu(this);
 
-    // Link The timer
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
-
-    // Start the timer to have a frame each 16 ms
-    timer.start(16);
+    timer.start(16); // Approx. 16ms
 }
 
-// Destructor
+
 Widget::~Widget()
 {
     delete ui;
 }
 
+<<<<<<< HEAD
 // Delete all the actual entities
 void Widget::deleteEntities(){
     // start a loop with a duration while the vector entities isn't void
@@ -84,21 +66,15 @@ void Widget::deleteEntities(){
     }*/
 }
 
+=======
+>>>>>>> b0c16029fa8c3708a236a486d2db051be62ca586
 
 // Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
-{
-    // Check the keypress event of Input class
-    Input::keyPressedEvent(ev);
-}
+{ Input::keyPressedEvent(ev); }
 
-
-// Updating the Input class states
 void Widget::keyReleaseEvent(QKeyEvent *ev)
-{
-    // Check the release event of Input class
-    Input::keyReleasedEvent(ev);
-}
+{Input::keyReleasedEvent(ev); }
 
 
 // Updating the entities and the game
@@ -110,7 +86,7 @@ void Widget::gameUpdate()
     repaint(0, 0, 1532, 1056);
 }
 
-// Updating the screening display
+// Draw a single frame
 void Widget::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
@@ -130,7 +106,7 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 1:
-            currentScene = new Game(this);
+            currentScene = new Tutorial(this);
         break;
 
         case 2:
@@ -139,6 +115,10 @@ void Widget::switchScene(int sceneId)
 
         case 3:
             currentScene = new Loose(this);
+        break;
+
+        case 4:
+            currentScene = new Alternative(this);
         break;
     }
 

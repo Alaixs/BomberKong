@@ -26,29 +26,64 @@ enum Scenes {
     LEVEL1
 };
 
+/**
+ * @brief The Widget class, the class to make the window of the game
+ */
 class Widget : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Create a Widget
+     * @param parent : the parent of the widget
+     */
     Widget(QWidget *parent = nullptr);
+    /**
+     * @brief Destructor of Widget
+     */
     ~Widget();
 
     QTimer timer; ///< Main timer, used to call game ticks
 
+    /**
+     * @brief Called when the user presses a key
+     *
+     * This method is called whenever the user presses a key.
+     * It then updates the state of the corresponding key
+     *
+     * @param ev : the QKeyEvent created by the event in the main class
+     */
     void keyPressEvent(QKeyEvent * ev);
+
+    /**
+     * @brief Called when the user releases a key
+     *
+     * This method is called whenever the user releases a key.
+     * It then updates the state of the corresponding key
+     *
+     * @param ev : the QKeyEvent created by the event in the main class
+     */
     void keyReleaseEvent(QKeyEvent * ev);
+
     int wMap;
+
     gameState state = MENU;
 
+    /**
+     * @brief Create a new explosion
+     * @param posX : the x value
+     * @param posY : the y value
+     */
     void createExplosion(int posX, int posY);
 
-    // Scenes
-
-    void deleteEntities();
 
     SoundManager* soundManager;
 
+    /**
+     * @brief Switch the actual scene
+     * @param sceneId : the id of the scene
+     */
     void switchScene(int sceneId);
 
 private:
@@ -57,7 +92,7 @@ private:
     std::list<GUIElement*> gui;
     bool isWin = false;
 
-    Scene* currentScene;
+    Scene* currentScene; ///< The actuel active scene
 
 private slots:
     /**

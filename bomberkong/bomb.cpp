@@ -1,7 +1,6 @@
 #include "bomb.h"
 
 #include "input.h"
-#include "widget.h"
 #include "playercharacter.h"
 #include "coordinate.h"
 #include "wall.h"
@@ -57,8 +56,7 @@ void Bomb::update()
 
 
 void Bomb::collisionEvent(Entity * body){
-    Coordinate lastPos = pos;
-    // Is pushed away when colliding with walls or the player
+   // Is pushed away when colliding with walls or the player
     if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB)))
     {
         int distX = pos.x - body->getPos().x;

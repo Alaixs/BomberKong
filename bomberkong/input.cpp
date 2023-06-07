@@ -15,31 +15,31 @@ void Input::keyPressedEvent(QKeyEvent * event)
 {
     switch (event->key())
     {
-        case Qt::Key_Z:
+        case Qt::Key_Up:
             moveUp = true;
             break;
 
-        case Qt::Key_S:
+        case Qt::Key_Down:
             moveDown = true;
             break;
 
-        case Qt::Key_Q:
+        case Qt::Key_Left:
             moveLeft = true;
             break;
 
-        case Qt::Key_D:
+        case Qt::Key_Right:
             moveRight = true;
             break;
 
-        case Qt::Key_K:
+        case Qt::Key_W:
             placeBomb = true;
             break;
 
-        case Qt::Key_L:
+        case Qt::Key_X:
             pushBomb = true;
             break;
 
-        case Qt::Key_P:
+        case Qt::Key_Space:
             if(isPaused == false)
             {
                 isPaused = true;
@@ -55,27 +55,27 @@ void Input::keyReleasedEvent(QKeyEvent * event)
 {
     switch (event->key())
     {
-        case Qt::Key_Z:
+        case Qt::Key_Up:
             moveUp = false;
             break;
 
-        case Qt::Key_S:
+        case Qt::Key_Down:
             moveDown = false;
             break;
 
-        case Qt::Key_Q:
+        case Qt::Key_Left:
             moveLeft = false;
             break;
 
-        case Qt::Key_D:
+        case Qt::Key_Right:
             moveRight = false;
             break;
 
-        case Qt::Key_K:
+        case Qt::Key_W:
             placeBomb = false;
             break;
 
-        case Qt::Key_L:
+        case Qt::Key_X:
             pushBomb = false;
             break;
     }

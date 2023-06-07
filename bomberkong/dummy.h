@@ -1,11 +1,14 @@
-#ifndef DEMICHARACTER_H
-#define DEMICHARACTER_H
+#ifndef DUMMY_H
+#define DUMMY_H
 
 #include "entity.h"
 #include "animationmanager.h"
 #include "soundmanager.h"
 
-class Character : public Entity
+/**
+ * @brief The class of Dummy entiy, the entity you can see but who have no move
+ */
+class Dummy : public Entity
 {
 public:
 
@@ -14,14 +17,13 @@ public:
      * @param posX : position on x axes
      * @param posY : position on y axes
      */
-    Character(int posX, int posY);
+    Dummy(int posX, int posY);
 
     /**
      * @brief Create a no playable Bomberman
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     * @param pos : location coordinates
      */
-    Character(Coordinate pos);
+    Dummy(Coordinate pos);
 
     /**
      * @brief Destructor for a Character object
@@ -64,4 +66,4 @@ private:
     int timer; ///< init timer
 };
 
-#endif // DEMICHARACTER_H
+#endif // DUMMY_H

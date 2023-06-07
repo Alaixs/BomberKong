@@ -14,15 +14,26 @@ class Game : public Scene
 public:
     Game(QWidget* widget);
     ~Game();
+
     void update();
     void draw(QPainter* painter);
+
     void createEntity(Entity* entity);
+    void deleteAllEntity();
+
     void win();
     void loose();
+    void alternative();
     void createExplosion(int posX, int posY);
+    void restart();
+
+    int wMap;
+
+protected:
+    std::list<Entity*> entities;
+    std::list<GUIElement*> gui;
 
 public:
-    std::list<Entity*> entities;
     GUIElement * startLabel;
 
 };

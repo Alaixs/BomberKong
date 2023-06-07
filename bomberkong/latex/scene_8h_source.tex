@@ -1,0 +1,32 @@
+\hypertarget{scene_8h_source}{}\doxysection{scene.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SCENE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SCENE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QPainter>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScene}{Scene}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classScene}{Scene}}(QWidget*\ widget);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{update}}()\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{draw}}(QPainter*\ painter)\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \ \ \ \ QWidget*\ root;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//protected:}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//std::list<Entity*>\ entities;}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SCENE\_H}}
+
+\end{DoxyCode}

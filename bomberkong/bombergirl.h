@@ -39,12 +39,6 @@ public:
     void draw(QPainter * painter);
 
     /**
-     * @brief Detect and react for the collision with other entities
-     * @param body : the coordinate of the other entities
-     */
-    void collisionEvent(Entity * body);
-
-    /**
      * @brief create the hitboxe
      * @return the hitboxe
      */

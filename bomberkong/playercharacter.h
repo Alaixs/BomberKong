@@ -5,7 +5,9 @@
 #include "animationmanager.h"
 #include "soundmanager.h"
 
-
+/**
+ * @brief The class of the Player's Character
+ */
 class PlayerCharacter : public Entity
 {
 
@@ -20,18 +22,21 @@ public:
 
     /**
      * @brief Create a playable character
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     * @param pos : location coordinates
      */
     PlayerCharacter(Coordinate pos);
 
     /**
+<<<<<<< HEAD
      * @brief Destructor for a PlayerCharacter object
      */
     ~PlayerCharacter();
 
     /**
      * @brief update bomberman (position, sprite, etc)
+=======
+     * @brief Update bomberman (position, sprite, etc)
+>>>>>>> b0c16029fa8c3708a236a486d2db051be62ca586
      */
     void update();
 
@@ -63,7 +68,7 @@ public:
     void winThemeSfx();
 
     /**
-     * @brief stopAllSounds
+     * @brief StopAllSounds
      */
     void stopAllSounds();
 
@@ -72,7 +77,7 @@ public:
     int speed; ///< The number of pixels traveled each frame
 
     /**
-     * @brief create the hitboxe
+     * @brief Create the hitboxe
      * @return the hitboxe
      */
     QRect getRect();
@@ -83,6 +88,7 @@ private:
     AnimationManager animation;///< The actual animation ( the range in the sprite image)
 
     bool flipped; ///< False = left, True = false
+    bool isKO; ///< is the character KO, he is not controllable if true
     int timer; ///< init timer
     int nbLive;
 

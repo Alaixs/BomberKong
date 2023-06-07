@@ -10,13 +10,14 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    alternative.cpp \
     animationmanager.cpp \
     barrel.cpp \
     bomb.cpp \
     bombergirl.cpp \
     coordinate.cpp \
-    demicharacter.cpp \
     donkeykong.cpp \
+    dummy.cpp \
     explosion.cpp \
     game.cpp \
     guielement.cpp \
@@ -28,13 +29,15 @@ SOURCES += \
     playercharacter.cpp \
     scene.cpp \
     soundmanager.cpp \
+    tutorial.cpp \
     widget.cpp \
     entity.cpp \
     wall.cpp \
     win.cpp
 
 HEADERS += \
-    demicharacter.h \
+    alternative.h \
+    dummy.h \
     game.h \
     global.h \
     animationmanager.h \
@@ -52,6 +55,7 @@ HEADERS += \
     playercharacter.h \
     scene.h \
     soundmanager.h \
+    tutorial.h \
     widget.h \
     entity.h \
     coordinate.h \

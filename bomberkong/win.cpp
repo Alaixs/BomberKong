@@ -1,10 +1,9 @@
 #include "win.h"
 #include "global.h"
-#include "widget.h"
 
 Win::Win(QWidget * widget) : Scene(widget)
 {
-    bomberman = new Character(9 * cellSize , 16 * cellSize);
+    bomberman = new Dummy(9 * cellSize , 16 * cellSize);
     bombergirl = new BomberGirl(10 * cellSize, 16 * cellSize);
     winLabel = new GUIElement(Coordinate(70, 200),
                         Coordinate(500,100),
@@ -34,22 +33,22 @@ void Win::draw(QPainter * painter)
         for(int j = 0; j < 13; j++){
             painter->fillRect(
                 width*2*i, width*2*j, width, width,
-                QBrush(QColor(250, 250, 0))
+                QBrush(QColor(255, 215, 0))
                 );
 
             painter->fillRect(
                 width*2*i+cellSize, width*2*j+cellSize, width, width,
-                QBrush(QColor(250, 250, 0))
+                QBrush(QColor(255, 215, 0))
                 );
 
             painter->fillRect(
                 width*2*i+cellSize, width*2*j, width, width,
-                QBrush(QColor(200, 200, 0))
+                QBrush(QColor(230, 198, 25))
                 );
 
             painter->fillRect(
                 width*2*i, width*2*j+cellSize, width, width,
-                QBrush(QColor(200, 200, 0))
+                QBrush(QColor(230, 198, 25))
                 );
         }
     }

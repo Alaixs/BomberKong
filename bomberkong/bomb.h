@@ -5,6 +5,9 @@
 #include "animationmanager.h"
 #include "soundmanager.h"
 
+/**
+ * @brief The class of bomb place by BomberMan
+ */
 class Bomb : public Entity
 {
 

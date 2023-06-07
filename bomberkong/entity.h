@@ -29,14 +29,14 @@ public:
 
     /**
      * @brief Construct a new Entity object
-     * @param x the x coordinate
-     * @param y the y coordinate
+     * @param x : the x coordinate
+     * @param y : the y coordinate
      */
     Entity(int x, int y);
 
     /**
      * @brief Construct a new Entity object
-     * @param pos the coordinate of the entity
+     * @param pos : location coordinates
      */
     Entity(Coordinate pos);
 
@@ -47,7 +47,7 @@ public:
 
     /**
      * @brief Set the parent property to a pointer to the main widget
-     * @param parent The main widget
+     * @param newParent : The main widget
      */
     void setParent(Scene* newParent);
 
@@ -65,7 +65,7 @@ public:
 
     /**
      * @brief isAlive
-     * @return is the entity active
+     * @return if the entity is active
      */
     bool isActive();
 
@@ -76,13 +76,13 @@ public:
 
     /**
      * @brief draw the entity on the screen
-     * @param painter the painter of the game
+     * @param painter : the painter of the game
      */
     virtual void draw(QPainter* painter);
 
     /**
      * @brief collisionEvent
-     * @param body the entity that collide with the current entity
+     * @param body : the entity that collide with the current entity
      */
     virtual void collisionEvent(Entity* body);
 

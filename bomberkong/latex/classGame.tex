@@ -1,0 +1,109 @@
+\hypertarget{classGame}{}\doxysection{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGame}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a06dd89fcd362c161f19ee2ad28c62d96}\label{classGame_a06dd89fcd362c161f19ee2ad28c62d96}} 
+{\bfseries Game} (QWidget $\ast$widget)
+\item 
+void \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ad31fd2049121bc16060ac65bbc20ef51}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}\label{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}} 
+void {\bfseries create\+Entity} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$entity)
+\item 
+\mbox{\Hypertarget{classGame_aa8655918fea9f36caaaef6ffdfc4190b}\label{classGame_aa8655918fea9f36caaaef6ffdfc4190b}} 
+void {\bfseries delete\+All\+Entity} ()
+\item 
+\mbox{\Hypertarget{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}\label{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}} 
+void {\bfseries win} ()
+\item 
+\mbox{\Hypertarget{classGame_ae4d19c6393074490bbcf88780946a1ea}\label{classGame_ae4d19c6393074490bbcf88780946a1ea}} 
+void {\bfseries loose} ()
+\item 
+\mbox{\Hypertarget{classGame_ad3b78673fd148ef9731f00a9d82ebcd3}\label{classGame_ad3b78673fd148ef9731f00a9d82ebcd3}} 
+void {\bfseries alternative} ()
+\item 
+\mbox{\Hypertarget{classGame_a8b08f09f1faa16cc843930870afe4912}\label{classGame_a8b08f09f1faa16cc843930870afe4912}} 
+void {\bfseries create\+Explosion} (int posX, int posY)
+\item 
+\mbox{\Hypertarget{classGame_aeb468737e1495cfcfbf512cfdc751117}\label{classGame_aeb468737e1495cfcfbf512cfdc751117}} 
+void {\bfseries restart} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScene_a98e9e3e2780cf760b36e048af46479fd}{Scene}} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Update the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{draw}} (QPainter $\ast$painter)=0
+\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a29ec85a35f774cb58a9d9b6a1e0182b8}\label{classGame_a29ec85a35f774cb58a9d9b6a1e0182b8}} 
+int {\bfseries w\+Map}
+\item 
+\mbox{\Hypertarget{classGame_a5d59cd1bf853573993583ce674a6cf17}\label{classGame_a5d59cd1bf853573993583ce674a6cf17}} 
+std\+::list$<$ \mbox{\hyperlink{classEntity}{Entity}} $\ast$ $>$ {\bfseries entities}
+\item 
+\mbox{\Hypertarget{classGame_a7bd72531d0306b1dd0716e12b8f43471}\label{classGame_a7bd72531d0306b1dd0716e12b8f43471}} 
+\mbox{\hyperlink{classGUIElement}{GUIElement}} $\ast$ {\bfseries start\+Label}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScene_ac920aafddda151d755df19ea0ab57c5a}\label{classScene_ac920aafddda151d755df19ea0ab57c5a}} 
+QWidget $\ast$ {\bfseries root}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_ad31fd2049121bc16060ac65bbc20ef51}\label{classGame_ad31fd2049121bc16060ac65bbc20ef51}} 
+\index{Game@{Game}!draw@{draw}}
+\index{draw@{draw}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display the actual \mbox{\hyperlink{classScene}{Scene}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{Scene}}.
+
+\mbox{\Hypertarget{classGame_a79df6376b332d63c9eca0dcee30305c3}\label{classGame_a79df6376b332d63c9eca0dcee30305c3}} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update the scene. 
+
+
+
+Implements \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{Scene}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game.\+h\item 
+game.\+cpp\end{DoxyCompactItemize}

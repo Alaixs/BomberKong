@@ -1,0 +1,89 @@
+\hypertarget{classSoundManager}{}\doxysection{Sound\+Manager Class Reference}
+\label{classSoundManager}\index{SoundManager@{SoundManager}}
+
+
+The class to manage any sound on game.  
+
+
+
+
+{\ttfamily \#include $<$soundmanager.\+h$>$}
+
+Inheritance diagram for Sound\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSoundManager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSoundManager_a04866878bed6309bfb1082fd400bed58}{load\+Sound}} (const QString \&sound\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Load a Sound. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSoundManager_ab4e7e1d5e392721d4a0d0035a2a5e960}{play\+Sound}} (const QString \&sound\+File\+Path, qreal volume)
+\begin{DoxyCompactList}\small\item\em Play a Sound. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSoundManager_ae1838019fe2b6407ef697b81527ae3a8}\label{classSoundManager_ae1838019fe2b6407ef697b81527ae3a8}} 
+void {\bfseries stop\+All\+Sounds} ()
+\begin{DoxyCompactList}\small\item\em Stop All Sounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classSoundManager}{Sound\+Manager}} \& \mbox{\hyperlink{classSoundManager_aadaeb09bdf7785d3ac9c5fcfa9acf0ac}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get an instance of \mbox{\hyperlink{classSoundManager}{Sound\+Manager}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class to manage any sound on game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSoundManager_aadaeb09bdf7785d3ac9c5fcfa9acf0ac}\label{classSoundManager_aadaeb09bdf7785d3ac9c5fcfa9acf0ac}} 
+\index{SoundManager@{SoundManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!SoundManager@{SoundManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSoundManager}{Sound\+Manager}} \& Sound\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get an instance of \mbox{\hyperlink{classSoundManager}{Sound\+Manager}}. 
+
+\begin{DoxyReturn}{Returns}
+the instance of Sound Manager 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSoundManager_a04866878bed6309bfb1082fd400bed58}\label{classSoundManager_a04866878bed6309bfb1082fd400bed58}} 
+\index{SoundManager@{SoundManager}!loadSound@{loadSound}}
+\index{loadSound@{loadSound}!SoundManager@{SoundManager}}
+\doxysubsubsection{\texorpdfstring{loadSound()}{loadSound()}}
+{\footnotesize\ttfamily void Sound\+Manager\+::load\+Sound (\begin{DoxyParamCaption}\item[{const QString \&}]{sound\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Load a Sound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+File\+Path} & \+: path of the sound file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSoundManager_ab4e7e1d5e392721d4a0d0035a2a5e960}\label{classSoundManager_ab4e7e1d5e392721d4a0d0035a2a5e960}} 
+\index{SoundManager@{SoundManager}!playSound@{playSound}}
+\index{playSound@{playSound}!SoundManager@{SoundManager}}
+\doxysubsubsection{\texorpdfstring{playSound()}{playSound()}}
+{\footnotesize\ttfamily void Sound\+Manager\+::play\+Sound (\begin{DoxyParamCaption}\item[{const QString \&}]{sound\+File\+Path,  }\item[{qreal}]{volume }\end{DoxyParamCaption})}
+
+
+
+Play a Sound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+File\+Path} & \+: path of the sound file \\
+\hline
+{\em volume} & \+: the volume choose \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+soundmanager.\+h\item 
+soundmanager.\+cpp\end{DoxyCompactItemize}
