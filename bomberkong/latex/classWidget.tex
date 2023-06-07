@@ -1,0 +1,144 @@
+\hypertarget{classWidget}{}\doxysection{Widget Class Reference}
+\label{classWidget}\index{Widget@{Widget}}
+
+
+The \mbox{\hyperlink{classWidget}{Widget}} class, the class to make the window of the game.  
+
+
+
+
+{\ttfamily \#include $<$widget.\+h$>$}
+
+Inheritance diagram for Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWidget_ace1aa23652eb4425355a81760b39fd37}{Widget}} (QWidget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classWidget}{Widget}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWidget_aa24f66bcbaaec6d458b0980e8c8eae65}\label{classWidget_aa24f66bcbaaec6d458b0980e8c8eae65}} 
+{\bfseries $\sim$\+Widget} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \mbox{\hyperlink{classWidget}{Widget}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWidget_ade67ec18ce1f19544e59dc2a45e643ea}{key\+Press\+Event}} (QKey\+Event $\ast$ev)
+\begin{DoxyCompactList}\small\item\em Called when the user presses a key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWidget_a30c1cadb7882d7b0376aae739cd67ecf}{key\+Release\+Event}} (QKey\+Event $\ast$ev)
+\begin{DoxyCompactList}\small\item\em Called when the user releases a key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWidget_a9681ad5c4f8c7d5a6d0e33c7958b156f}{create\+Explosion}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create a new explosion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWidget_a7199689a3f6f6c6f2854b284b899b085}{switch\+Scene}} (int scene\+Id)
+\begin{DoxyCompactList}\small\item\em Switch the actual scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWidget_a1e340126e183972073e6086090b483b6}\label{classWidget_a1e340126e183972073e6086090b483b6}} 
+QTimer {\bfseries timer}
+\begin{DoxyCompactList}\small\item\em Main timer, used to call game ticks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWidget_aa6649d745311afdbe446a81aeb78f7b4}\label{classWidget_aa6649d745311afdbe446a81aeb78f7b4}} 
+int {\bfseries w\+Map}
+\item 
+\mbox{\Hypertarget{classWidget_aafe52dc34fd405542c225bc2f475d6a6}\label{classWidget_aafe52dc34fd405542c225bc2f475d6a6}} 
+game\+State {\bfseries state} = MENU
+\item 
+\mbox{\Hypertarget{classWidget_a791817bd004d8fd58ba4fc172f92a6ea}\label{classWidget_a791817bd004d8fd58ba4fc172f92a6ea}} 
+\mbox{\hyperlink{classSoundManager}{Sound\+Manager}} $\ast$ {\bfseries sound\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classWidget}{Widget}} class, the class to make the window of the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWidget_ace1aa23652eb4425355a81760b39fd37}\label{classWidget_ace1aa23652eb4425355a81760b39fd37}} 
+\index{Widget@{Widget}!Widget@{Widget}}
+\index{Widget@{Widget}!Widget@{Widget}}
+\doxysubsubsection{\texorpdfstring{Widget()}{Widget()}}
+{\footnotesize\ttfamily Widget\+::\+Widget (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classWidget}{Widget}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \+: the parent of the widget \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWidget_a9681ad5c4f8c7d5a6d0e33c7958b156f}\label{classWidget_a9681ad5c4f8c7d5a6d0e33c7958b156f}} 
+\index{Widget@{Widget}!createExplosion@{createExplosion}}
+\index{createExplosion@{createExplosion}!Widget@{Widget}}
+\doxysubsubsection{\texorpdfstring{createExplosion()}{createExplosion()}}
+{\footnotesize\ttfamily void Widget\+::create\+Explosion (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create a new explosion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: the x value \\
+\hline
+{\em posY} & \+: the y value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWidget_ade67ec18ce1f19544e59dc2a45e643ea}\label{classWidget_ade67ec18ce1f19544e59dc2a45e643ea}} 
+\index{Widget@{Widget}!keyPressEvent@{keyPressEvent}}
+\index{keyPressEvent@{keyPressEvent}!Widget@{Widget}}
+\doxysubsubsection{\texorpdfstring{keyPressEvent()}{keyPressEvent()}}
+{\footnotesize\ttfamily void Widget\+::key\+Press\+Event (\begin{DoxyParamCaption}\item[{QKey\+Event $\ast$}]{ev }\end{DoxyParamCaption})}
+
+
+
+Called when the user presses a key. 
+
+This method is called whenever the user presses a key. It then updates the state of the corresponding key
+
+
+\begin{DoxyParams}{Parameters}
+{\em ev} & \+: the QKey\+Event created by the event in the main class \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWidget_a30c1cadb7882d7b0376aae739cd67ecf}\label{classWidget_a30c1cadb7882d7b0376aae739cd67ecf}} 
+\index{Widget@{Widget}!keyReleaseEvent@{keyReleaseEvent}}
+\index{keyReleaseEvent@{keyReleaseEvent}!Widget@{Widget}}
+\doxysubsubsection{\texorpdfstring{keyReleaseEvent()}{keyReleaseEvent()}}
+{\footnotesize\ttfamily void Widget\+::key\+Release\+Event (\begin{DoxyParamCaption}\item[{QKey\+Event $\ast$}]{ev }\end{DoxyParamCaption})}
+
+
+
+Called when the user releases a key. 
+
+This method is called whenever the user releases a key. It then updates the state of the corresponding key
+
+
+\begin{DoxyParams}{Parameters}
+{\em ev} & \+: the QKey\+Event created by the event in the main class \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWidget_a7199689a3f6f6c6f2854b284b899b085}\label{classWidget_a7199689a3f6f6c6f2854b284b899b085}} 
+\index{Widget@{Widget}!switchScene@{switchScene}}
+\index{switchScene@{switchScene}!Widget@{Widget}}
+\doxysubsubsection{\texorpdfstring{switchScene()}{switchScene()}}
+{\footnotesize\ttfamily void Widget\+::switch\+Scene (\begin{DoxyParamCaption}\item[{int}]{scene\+Id }\end{DoxyParamCaption})}
+
+
+
+Switch the actual scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\+Id} & \+: the id of the scene \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+widget.\+h\item 
+widget.\+cpp\end{DoxyCompactItemize}

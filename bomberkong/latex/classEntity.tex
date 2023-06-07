@@ -1,0 +1,209 @@
+\hypertarget{classEntity}{}\doxysection{Entity Class Reference}
+\label{classEntity}\index{Entity@{Entity}}
+
+
+An entity present in the game world.  
+
+
+
+
+{\ttfamily \#include $<$entity.\+h$>$}
+
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{classEntity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity_a9da14c9f90c382c963a90afd58c36fcd}{Entity}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
+\begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em getter of the coordinate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_a29601f50527cca46e471d8933c8bddd5}\label{classEntity_a29601f50527cca46e471d8933c8bddd5}} 
+void {\bfseries delete\+Entity} ()
+\begin{DoxyCompactList}\small\item\em delete the entity \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em is\+Alive \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em update the entity (move, change direction, etc.) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em draw the entity on the screen \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
+\begin{DoxyCompactList}\small\item\em collision\+Event \end{DoxyCompactList}\item 
+virtual QRect \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em get\+Rect get the rectangle of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntity_ac135006c51fb3384b5b4624224d6e375}\label{classEntity_ac135006c51fb3384b5b4624224d6e375}} 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} {\bfseries pos}
+\begin{DoxyCompactList}\small\item\em The coordinate of the entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}\label{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}} 
+\mbox{\hyperlink{classScene}{Scene}} $\ast$ {\bfseries parent}
+\begin{DoxyCompactList}\small\item\em The main widget, used to call method from it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An entity present in the game world. 
+
+An entity with a position, a sprite and an optional collision box. Every entity in the main widget {\ttfamily entities} vector will be updated each tick (i.\+e. it\textquotesingle{}s {\ttfamily update} method will be called). Entities HAVE to be spawned in the game world using {\ttfamily create\+Entity} method of the {\ttfamily widget} class, otherwise, the {\ttfamily parent} property won\textquotesingle{}t be correctly set. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEntity_a9da14c9f90c382c963a90afd58c36fcd}\label{classEntity_a9da14c9f90c382c963a90afd58c36fcd}} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \+: the x coordinate \\
+\hline
+{\em y} & \+: the y coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}\label{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{pos }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \+: location coordinates \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}\label{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}} 
+\index{Entity@{Entity}!collisionEvent@{collisionEvent}}
+\index{collisionEvent@{collisionEvent}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{collisionEvent()}{collisionEvent()}}
+{\footnotesize\ttfamily void Entity\+::collision\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+collision\+Event 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & \+: the entity that collide with the current entity \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classBomb_a9277edfd464eca3b53e8baf4b00ae028}{Bomb}}, \mbox{\hyperlink{classPlayerCharacter_a6dd871613ddefc988569724edc6cbc2d}{Player\+Character}}, and \mbox{\hyperlink{classWall_a5257984919ce328a49630174b77da4f5}{Wall}}.
+
+\mbox{\Hypertarget{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}\label{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}} 
+\index{Entity@{Entity}!draw@{draw}}
+\index{draw@{draw}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Entity\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+draw the entity on the screen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the painter of the game \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classBarrel_a062fd88fd955ab83b213fcbf0f8b1dd1}{Barrel}}, \mbox{\hyperlink{classBomb_af83966c06693c17461f6368d1423fbe2}{Bomb}}, \mbox{\hyperlink{classBomberGirl_a4dc67b800315a2b8e9dcf084d4b62b32}{Bomber\+Girl}}, \mbox{\hyperlink{classDonkeyKong_a7ac09dc931eebad6fe092343ee4239c3}{Donkey\+Kong}}, \mbox{\hyperlink{classDummy_afafbadf3e3d722b0177a77f235af3501}{Dummy}}, \mbox{\hyperlink{classExplosion_a4d7a36e5766b1fd97767f6a45dac8965}{Explosion}}, \mbox{\hyperlink{classIndestructibleWall_a49193fc5648d5979d73f1ecfeea8d87e}{Indestructible\+Wall}}, \mbox{\hyperlink{classPlayerCharacter_a398f7fafa4bacc5be50759b6f8094e9f}{Player\+Character}}, and \mbox{\hyperlink{classWall_ac7833daaaeff6cad4a4be7ed08a0a66c}{Wall}}.
+
+\mbox{\Hypertarget{classEntity_ac01658c75058bfc83db5e3294a78b16d}\label{classEntity_ac01658c75058bfc83db5e3294a78b16d}} 
+\index{Entity@{Entity}!getPos@{getPos}}
+\index{getPos@{getPos}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinate}{Coordinate}} Entity\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the coordinate 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classCoordinate}{Coordinate}} the coordinate of the entity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntity_a5795f0a16b73c98365c7811d4052682e}\label{classEntity_a5795f0a16b73c98365c7811d4052682e}} 
+\index{Entity@{Entity}!getRect@{getRect}}
+\index{getRect@{getRect}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getRect()}{getRect()}}
+{\footnotesize\ttfamily QRect Entity\+::get\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+get\+Rect get the rectangle of the entity 
+
+\begin{DoxyReturn}{Returns}
+QRect the rectangle of the entity 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classBarrel_a897bd5bc3e022bf4cb080837940b227d}{Barrel}}, \mbox{\hyperlink{classBomb_a3f4f324bfe0725f4d0c5d5d3439dc86d}{Bomb}}, \mbox{\hyperlink{classBomberGirl_a1086bce547a3fb215627a14bf84ace54}{Bomber\+Girl}}, \mbox{\hyperlink{classDonkeyKong_afadb888f55a6b46f16077d10790f3090}{Donkey\+Kong}}, \mbox{\hyperlink{classDummy_a9d316f0b758eb094b01febf59f15208d}{Dummy}}, \mbox{\hyperlink{classExplosion_a7b4bf50a69a0078aa85f3e965b1a0f77}{Explosion}}, \mbox{\hyperlink{classIndestructibleWall_a23969380cd126f158fa25f595724943b}{Indestructible\+Wall}}, \mbox{\hyperlink{classPlayerCharacter_a093f145232e5c1820ae1b31caea0a319}{Player\+Character}}, and \mbox{\hyperlink{classWall_a064f420d42c8372f7ee470c37f92c757}{Wall}}.
+
+\mbox{\Hypertarget{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}\label{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}} 
+\index{Entity@{Entity}!isActive@{isActive}}
+\index{isActive@{isActive}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool Entity\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is\+Alive 
+
+\begin{DoxyReturn}{Returns}
+if the entity is active 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}\label{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}} 
+\index{Entity@{Entity}!setParent@{setParent}}
+\index{setParent@{setParent}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setParent()}{setParent()}}
+{\footnotesize\ttfamily void Entity\+::set\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classScene}{Scene}} $\ast$}]{new\+Parent }\end{DoxyParamCaption})}
+
+
+
+Set the parent property to a pointer to the main widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Parent} & \+: The main widget \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEntity_a59a29d9b7474baf13c9c76859242287d}\label{classEntity_a59a29d9b7474baf13c9c76859242287d}} 
+\index{Entity@{Entity}!update@{update}}
+\index{update@{update}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Entity\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+update the entity (move, change direction, etc.) 
+
+
+
+Implemented in \mbox{\hyperlink{classBarrel_a8bfe8eeb51338bca08e3a18cb2e21460}{Barrel}}, \mbox{\hyperlink{classBomb_a6fa3577a6653276f456aff457062fbc1}{Bomb}}, \mbox{\hyperlink{classBomberGirl_ab98aa1e05121dab16976a87bff013b76}{Bomber\+Girl}}, \mbox{\hyperlink{classDonkeyKong_a6a84e5f014068905756577d703669ead}{Donkey\+Kong}}, \mbox{\hyperlink{classDummy_a17bf3ea64fe39533b524e5f79808041d}{Dummy}}, \mbox{\hyperlink{classExplosion_af67e5ab127b69a90b9bf1dad03c56ca4}{Explosion}}, \mbox{\hyperlink{classIndestructibleWall_a498bde1784ad783da7e3c973774a3cd1}{Indestructible\+Wall}}, \mbox{\hyperlink{classPlayerCharacter_a6a0338ab611988c7ace3f14d82bad13e}{Player\+Character}}, and \mbox{\hyperlink{classWall_a0b3d01b870002231711036a0a3bed06d}{Wall}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+entity.\+h\item 
+entity.\+cpp\end{DoxyCompactItemize}

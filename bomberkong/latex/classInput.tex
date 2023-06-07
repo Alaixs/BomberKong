@@ -1,0 +1,88 @@
+\hypertarget{classInput}{}\doxysection{Input Class Reference}
+\label{classInput}\index{Input@{Input}}
+
+
+The \mbox{\hyperlink{classInput}{Input}} class manages and stores the states of every key used in the game.  
+
+
+
+
+{\ttfamily \#include $<$input.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classInput_aced8800671730f14076d0dd0bb3d5d0c}{key\+Pressed\+Event}} (QKey\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Called when the user presses a key. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classInput_a3ffd61df052aef66d2e67d281b51943c}{key\+Released\+Event}} (QKey\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Called when the user releases a key. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classInput_a8399b3cdd264207654f2dbdd26c96133}{is\+Action\+Pressed}} (Actions action)
+\begin{DoxyCompactList}\small\item\em Returns the state of the desired input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classInput}{Input}} class manages and stores the states of every key used in the game. 
+
+This static class tracks the status of every key used in the game. it is updated at every key event in {\ttfamily widget.\+cpp} and can be used to know if a given key is pressed or not. It is also used to bind keys to specific actions (movements, placing a bomb, etc.) 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInput_a8399b3cdd264207654f2dbdd26c96133}\label{classInput_a8399b3cdd264207654f2dbdd26c96133}} 
+\index{Input@{Input}!isActionPressed@{isActionPressed}}
+\index{isActionPressed@{isActionPressed}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{isActionPressed()}{isActionPressed()}}
+{\footnotesize\ttfamily bool Input\+::is\+Action\+Pressed (\begin{DoxyParamCaption}\item[{Actions}]{action }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the state of the desired input. 
+
+Returns the state of the desired action (true if pressed, false otherwise). This method is used in every script where keyboard inputs are needed. e.\+g. if (Input\+::is\+Action\+Pressed(\+MOVE\+\_\+\+UP)) \{ // Do stuff... \}
+
+
+\begin{DoxyParams}{Parameters}
+{\em action} & \+: the button pressed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is the action currently pressed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInput_aced8800671730f14076d0dd0bb3d5d0c}\label{classInput_aced8800671730f14076d0dd0bb3d5d0c}} 
+\index{Input@{Input}!keyPressedEvent@{keyPressedEvent}}
+\index{keyPressedEvent@{keyPressedEvent}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{keyPressedEvent()}{keyPressedEvent()}}
+{\footnotesize\ttfamily void Input\+::key\+Pressed\+Event (\begin{DoxyParamCaption}\item[{QKey\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Called when the user presses a key. 
+
+This method is called whenever the user presses a key. It then updates the state of the corresponding key
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \+: the QKey\+Event created by the event in the main class \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInput_a3ffd61df052aef66d2e67d281b51943c}\label{classInput_a3ffd61df052aef66d2e67d281b51943c}} 
+\index{Input@{Input}!keyReleasedEvent@{keyReleasedEvent}}
+\index{keyReleasedEvent@{keyReleasedEvent}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{keyReleasedEvent()}{keyReleasedEvent()}}
+{\footnotesize\ttfamily void Input\+::key\+Released\+Event (\begin{DoxyParamCaption}\item[{QKey\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Called when the user releases a key. 
+
+This method is called whenever the user releases a key. It then updates the state of the corresponding key
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \+: the QKey\+Event created by the event in the main class \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+input.\+h\item 
+input.\+cpp\end{DoxyCompactItemize}
