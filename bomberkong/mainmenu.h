@@ -19,6 +19,11 @@ public:
     MainMenu(QWidget* widget);
 
     /**
+     * @brief Destructor for a MainMenu object
+     */
+    ~MainMenu();
+
+    /**
      * @brief Update the Main Menu
      */
     void update();
@@ -28,6 +33,7 @@ public:
      * @param painter : the tools to display
      */
     void draw(QPainter* painter);
+
 
 private:
     int timer;

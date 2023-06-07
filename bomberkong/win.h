@@ -17,6 +17,7 @@ public:
      * @param widget : the main widget
      */
     Win(QWidget * widget);
+    ~Win();
 
 
     /**

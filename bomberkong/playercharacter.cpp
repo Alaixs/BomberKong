@@ -5,6 +5,7 @@
 #include "bombergirl.h"
 #include "indestructiblewall.h"
 #include "input.h"
+#include "tutorial.h"
 #include "wall.h"
 #include "bomb.h"
 #include "barrel.h"
@@ -12,7 +13,7 @@
 #include "soundmanager.h"
 #include "global.h"
 #include "game.h"
-
+int wLvl;
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -37,6 +38,10 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     isKO = false;
 }
 
+PlayerCharacter::~PlayerCharacter()
+{
+
+}
 
 void PlayerCharacter::update()
 {
@@ -140,7 +145,15 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
-        dynamic_cast<Game*>(parent)->win();
+        if( wLvl == 1)
+        {
+            dynamic_cast<Game*>(parent)->win();
+        }
+        else
+        {
+            wLvl = 1;
+            dynamic_cast<Tutorial*>(parent)->nextLvl();
+        }
     }
 
     if(dynamic_cast<Bomb*>(body) != nullptr)
@@ -190,7 +203,7 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-   // SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
+    //SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
 }
 
 void PlayerCharacter::loseThemeSfx()
@@ -202,7 +215,6 @@ void PlayerCharacter::winThemeSfx()
 {
     SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5);
 }
-
 
 QRect PlayerCharacter::getRect()
 {

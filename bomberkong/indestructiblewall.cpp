@@ -15,6 +15,11 @@ IndestructibleWall::IndestructibleWall(Coordinate pos)
     sprite.load("://assets/sprites/t_walls.png");
 }
 
+IndestructibleWall::~IndestructibleWall()
+{
+
+}
+
 
 void IndestructibleWall::update()
 {

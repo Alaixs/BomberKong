@@ -41,6 +41,11 @@ public:
     Entity(Coordinate pos);
 
     /**
+     * @brief Destructor an Entity object
+     */
+    virtual ~Entity();
+
+    /**
      * @brief Set the parent property to a pointer to the main widget
      * @param newParent : The main widget
      */

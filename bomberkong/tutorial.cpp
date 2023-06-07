@@ -22,6 +22,10 @@ Tutorial::Tutorial(QWidget* widget)
     restart();
 }
 
+Tutorial::~Tutorial()
+{
+
+}
 
 void Tutorial::update()
 {
@@ -145,7 +149,11 @@ void Tutorial::restart()
     // Create characters at their spawn points
 
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-    createEntity(new DonkeyKong(9 * cellSize, 0));
+
+    DonkeyKong * dk = new DonkeyKong(9 * cellSize, 0);
+    dk->setParent(this);
+    dk->throwingRate = 200;
+    entities.push_back(dk);
 
     startLabel = new GUIElement(Coordinate(140, 620),
                                 Coordinate(350, 30),
@@ -168,4 +176,9 @@ void Tutorial::restart()
 void Tutorial::createExplosion(int posX, int posY)
 {
     createEntity(new Explosion(posX, posY));
+}
+
+void Tutorial::nextLvl()
+{
+    dynamic_cast<Widget*>(root)->switchScene(2);
 }

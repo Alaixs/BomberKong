@@ -13,7 +13,8 @@ DonkeyKong::DonkeyKong(int posX, int posY)
 {
     sprite.load("://assets/sprites/t_donkeykong.png");
     animation.play(0, 6);
-    timer = 100;
+    throwingRate = 100;
+    timer = throwingRate;
     isThrowing = false;
 }
 
@@ -23,10 +24,15 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 {
     sprite.load("://assets/sprites/t_donkeykong.png");
     animation.play(0, 6);
-    timer =100;
+    throwingRate = 100;
+    timer = throwingRate;
     isThrowing = false;
 }
 
+DonkeyKong::~DonkeyKong()
+{
+
+}
 
 void DonkeyKong::update()
 {
@@ -37,13 +43,13 @@ void DonkeyKong::update()
         int random = rand() % 18;
         newPos = random * cellSize + cellSize;
         dist = newPos - pos.x;
-        timer = 100;
+        timer = throwingRate;
         isThrowing = false;
     }
 
-    if(pos.x != newPos)
+    if(timer <= cellSize)
     {
-        pos.x += dist/100;
+        pos.x += dist/cellSize;
     }
 
     if(timer == 10)

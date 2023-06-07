@@ -23,6 +23,11 @@ public:
     BomberGirl(Coordinate pos);
 
     /**
+     * @brief Destructor for a BomberGirl object
+     */
+    ~BomberGirl();
+
+    /**
      * @brief update bombergirl (position, sprite, etc)
      */
     void update();

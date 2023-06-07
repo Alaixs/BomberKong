@@ -30,6 +30,15 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(pressStart);
 }
 
+MainMenu::~MainMenu()
+{
+    for (std::list<GUIElement*>::iterator it = gui.begin();
+         it != gui.end(); it++) // Loop to delete every elements inside the gui list
+    {
+        delete (*it); // Delete the current element of the list
+    }
+    gui.clear();
+}
 
 void MainMenu::update()
 {
@@ -56,7 +65,6 @@ void MainMenu::update()
         dynamic_cast<Widget*>(root)->switchScene(1);
     }
 }
-
 
 void MainMenu::draw(QPainter *painter)
 {

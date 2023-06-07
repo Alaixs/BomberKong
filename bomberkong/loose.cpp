@@ -6,9 +6,14 @@ Loose::Loose(QWidget* widget) : Scene(widget)
 {
     dk = new DonkeyKong(8.5 * cellSize, 528);
     go = new GUIElement(Coordinate(70, 200),
-                        Coordinate(500,100),
-                        "://assets/sprites/t_game_over.png");
-    //qDebug() << "coubeh";
+                                    Coordinate(500,100),
+                                    "://assets/sprites/t_game_over.png");
+}
+
+Loose::~Loose()
+{
+    delete dk;
+    delete go;
 }
 
 

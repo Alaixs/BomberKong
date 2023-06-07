@@ -38,6 +38,7 @@ public:
      */
     void stopAllSounds();
 
+
 private:
     /**
      * @brief Create a SoundManager
@@ -55,7 +56,6 @@ private:
      * @param volume : the volume choose
      */
     void playSoundInThread(QSoundEffect* soundEffect, qreal volume);
-
     QMap<QString, QSoundEffect*> soundMap;
 };
 

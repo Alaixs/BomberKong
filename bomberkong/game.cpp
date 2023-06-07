@@ -33,7 +33,6 @@ Game::Game(QWidget* widget)
     restart();
 }
 
-
 Game::~Game()
 {
     while (entities.size() != 0)
@@ -42,7 +41,6 @@ Game::~Game()
         entities.pop_back();
     }
 }
-
 
 void Game::update()
 {
@@ -59,27 +57,31 @@ void Game::update()
     std::list<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
     {
-        if ((*it)->isActive())
+        std::list<Entity*>::iterator it = entities.begin();
+        while (it != entities.end())
         {
-            (*it)->update();
-
-            std::list<Entity*>::iterator collider;
-            for (collider = entities.begin(); collider != entities.end(); ++collider)
+            if ((*it)->isActive())
             {
-                if (it != collider)
+                (*it)->update();
+
+                std::list<Entity*>::iterator collider;
+                for (collider = entities.begin(); collider != entities.end(); ++collider)
                 {
-                    if ((*it)->getRect().intersects((*collider)->getRect()))
+                    if (it != collider)
                     {
-                        (*it)->collisionEvent(*collider);
+                        if ((*it)->getRect().intersects((*collider)->getRect()))
+                        {
+                            (*it)->collisionEvent(*collider);
+                        }
                     }
                 }
-            }
 
-            ++it;
-        }
-        else
-        {
-            it = entities.erase(it);
+                ++it;
+            }
+            else
+            {
+                it = entities.erase(it);
+            }
         }
     }
 }
@@ -125,6 +127,7 @@ void Game::draw(QPainter* painter)
     std::list<GUIElement*>::iterator gui_it = gui.begin();
     while (gui_it != gui.end())
     {
+        qDebug() << "gui";
         (*gui_it)->draw(painter);
         gui_it++;
     }
@@ -151,18 +154,18 @@ void Game::deleteAllEntity()
 
 void Game::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(2);
+    dynamic_cast<Widget*>(root)->switchScene(3);
 }
 
 
 void Game::loose()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3);
+    dynamic_cast<Widget*>(root)->switchScene(4);
 }
 
 void Game::alternative()
 {
-    dynamic_cast<Widget*>(root)->switchScene(4);
+    dynamic_cast<Widget*>(root)->switchScene(5);
 }
 
 

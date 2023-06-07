@@ -19,6 +19,10 @@ Wall::Wall(Coordinate pos)
     sprite.load("://assets/sprites/t_walls.png");
 }
 
+Wall::~Wall()
+{
+
+}
 
 void Wall::update()
 {
