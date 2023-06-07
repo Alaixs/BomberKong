@@ -23,7 +23,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive = 0;
+    nbLive = 2;
     isKO = false;
 }
 
@@ -194,7 +194,6 @@ void PlayerCharacter::footstepsSfx()
 {
    // SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
 }
-
 
 void PlayerCharacter::loseThemeSfx()
 {
