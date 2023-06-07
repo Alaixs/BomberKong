@@ -123,7 +123,6 @@ void PlayerCharacter::update()
 
 }
 
-
 void PlayerCharacter::collisionEvent(Entity * body)
 {
     if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
@@ -184,9 +183,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
     }
 }
-
-
-
 
 void PlayerCharacter::draw(QPainter * painter)
 {

@@ -23,8 +23,8 @@ Game::Game(QWidget* widget)
     wMap = rand() % 3;
 
     pauseLabel = new GUIElement(
-        Coordinate(10, 100),
-        Coordinate(200, 40),
+        Coordinate(140, 620),
+        Coordinate(350, 30),
         "://assets/sprites/t_press_start.png"
     );
     pauseLabel->isVisible = false;
