@@ -49,7 +49,6 @@ HEADERS += \
     guielement.h \
     indestructiblewall.h \
     input.h \
-    logo.h \
     loose.h \
     mainmenu.h \
     playercharacter.h \
