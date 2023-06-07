@@ -16,6 +16,7 @@
 #include "win.h"
 #include "tutorial.h"
 
+bool isPaused;
 
 Widget::Widget(QWidget *parent)
 : QWidget(parent)
@@ -60,7 +61,13 @@ Widget::~Widget()
 
 // Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
-{ Input::keyPressedEvent(ev); }
+{
+    Input::keyPressedEvent(ev);
+    if (ev->key() == Qt::Key_Escape)
+    {
+        isPaused = !isPaused;
+    }
+}
 
 void Widget::keyReleaseEvent(QKeyEvent *ev)
 {Input::keyReleasedEvent(ev); }
@@ -69,15 +76,12 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 // Updating the entities and the game
 void Widget::gameUpdate()
 {
-    if (!isPaused)
-    {
-        currentScene->update();
+    currentScene->update();
 
-        // Draw a frame
-        repaint(0, 0, 1532, 1056);
+    // Draw a frame
+    repaint(0, 0, 1532, 1056);
 
-        Input::resetFLInputs();
-    }
+    Input::resetFLInputs();
 }
 
 // Draw a single frame

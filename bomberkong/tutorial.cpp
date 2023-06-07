@@ -25,6 +25,16 @@ Tutorial::Tutorial(QWidget* widget)
 
 void Tutorial::update()
 {
+    if (isPaused)
+    {
+        pauseLabel->isVisible = true;
+        return;
+    }
+    else
+    {
+        pauseLabel->isVisible = false;
+    }
+
     if(Input::isActionPressed(PAUSE) == false)
     {
         std::list<Entity*>::iterator it = entities.begin();

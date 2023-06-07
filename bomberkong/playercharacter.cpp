@@ -42,11 +42,6 @@ void PlayerCharacter::update()
 {
     animation.update();
 
-    if (Input::isActionJustPressed(START))
-    {
-        qDebug() << "Ratio aleks";
-    }
-
     if (!isKO)
     {
 
@@ -95,7 +90,7 @@ void PlayerCharacter::update()
 
     animation.play(10, 12);
 
-    if (Input::isActionPressed(MOVE_DOWN))
+    if (Input::isActionJustPressed(START))
     {
         if (nbLive > -1)
         {

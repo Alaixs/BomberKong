@@ -11,7 +11,6 @@ bool pushBomb = false;
 bool start = false;
 
 bool fl_start = false; // FL = Frame limited
-bool isPaused = true;
 
 
 void Input::keyPressedEvent(QKeyEvent * event)
@@ -112,8 +111,8 @@ bool Input::isActionPressed(Actions action)
             return pushBomb;
             break;
 
-        case PAUSE:
-            return isPaused;
+        default:
+            return false;
             break;
     }
 }
@@ -125,6 +124,10 @@ bool Input::isActionJustPressed(Actions action)
     {
         case START:
             return fl_start;
+            break;
+
+        default:
+            return false;
             break;
     }
 }
