@@ -25,11 +25,8 @@ Widget::Widget(QWidget *parent)
 ui->setupUi(this);
 
     cellSize = 32;
-<<<<<<< HEAD
     isPaused = false;
     wLvl = 0;
-=======
->>>>>>> d2bd2e30f260b15ebbbc282f8751d39529ad45d4
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -83,11 +80,8 @@ void Widget::gameUpdate()
 
     // Draw a frame
     repaint(0, 0, 1532, 1056);
-<<<<<<< HEAD
 
     Input::resetFLInputs();
-=======
->>>>>>> 204f28b8487947a751731023df200f03dc63dbb2
 }
 
 // Draw a single frame

@@ -127,7 +127,6 @@ void Game::draw(QPainter* painter)
     std::list<GUIElement*>::iterator gui_it = gui.begin();
     while (gui_it != gui.end())
     {
-        qDebug() << "gui";
         (*gui_it)->draw(painter);
         gui_it++;
     }
