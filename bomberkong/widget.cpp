@@ -20,6 +20,7 @@
 #include "guielement.h"
 #include "game.h"
 #include "mainmenu.h"
+#include "win.h"
 
 // Include the global variable
 
@@ -74,9 +75,6 @@ Widget::~Widget()
     delete ui;
 }
 
-
-
-
 // Delete all the actual entities
 void Widget::deleteEntities(){
     // start a loop with a duration while the vector entities isn't void
@@ -123,7 +121,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::switchScene(int sceneId)
 {
-    delete currentScene;
+    //delete currentScene;
 
     switch (sceneId)
     {
@@ -133,6 +131,10 @@ void Widget::switchScene(int sceneId)
 
         case 1:
             currentScene = new Game(this);
+        break;
+
+        case 2:
+            currentScene = new Win(this);
         break;
 
         case 3:

@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "guielement.h"
 #include "scene.h"
 #include "entity.h"
 #include <list>
@@ -21,6 +22,7 @@ public:
 
 public:
     std::list<Entity*> entities;
+    GUIElement * startLabel;
 
 };
 

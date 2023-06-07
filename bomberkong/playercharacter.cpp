@@ -2,6 +2,7 @@
 #include "playercharacter.h"
 
 #include <QMessageBox>
+#include "bombergirl.h"
 #include "widget.h"
 #include "indestructiblewall.h"
 #include "input.h"
@@ -119,6 +120,11 @@ void PlayerCharacter::collisionEvent(Entity * body)
         //dynamic_cast<Widget*>(parent)->deleteEntities();
         //dynamic_cast<Widget*>(parent)->initLevel1();
 
+    }
+
+    if (dynamic_cast<BomberGirl*>(body) != nullptr)
+    {
+        dynamic_cast<Game*>(parent)->win();
     }
 
     if(dynamic_cast<Bomb*>(body) != nullptr)
