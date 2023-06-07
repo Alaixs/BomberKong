@@ -15,6 +15,9 @@ class Tutorial : public Game
 {
 
 public:
+    GUIElement * startLabel;
+    int wMap;
+
     /**
      * @brief Create new Tutorial screen
      * @param widget : the widget of the game
@@ -77,11 +80,6 @@ public:
     void restart();
 
     void nextLvl();
-
-    int wMap;
-
-public:
-    GUIElement * startLabel;
 
 };
 

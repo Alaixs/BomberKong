@@ -11,6 +11,9 @@
 class Coordinate{
 
 public:
+    int x;
+    int y;
+
     /**
      * @brief Create new coordinate with 0,0 by default
      */
@@ -91,9 +94,6 @@ public:
      * @return if c1 and c2 have same value on x and y
      */
     friend bool operator==(const Coordinate& c1, const Coordinate& c2);
-
-    int x;
-    int y;
 
 };
 

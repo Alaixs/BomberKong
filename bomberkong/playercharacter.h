@@ -10,6 +10,14 @@
  */
 class PlayerCharacter : public Entity
 {
+    QPixmap sprite;///< The actual Sprite
+    Coordinate motion;///< direction
+    AnimationManager animation;///< The actual animation ( the range in the sprite image)
+
+    bool flipped; ///< False = left, True = false
+    bool isKO; ///< is the character KO, he is not controllable if true
+    int timer; ///< init timer
+    int nbLive;
 
 public:
 
@@ -77,16 +85,6 @@ public:
      * @return the hitboxe
      */
     QRect getRect();
-
-private:
-    QPixmap sprite;///< The actual Sprite
-    Coordinate motion;///< direction
-    AnimationManager animation;///< The actual animation ( the range in the sprite image)
-
-    bool flipped; ///< False = left, True = false
-    bool isKO; ///< is the character KO, he is not controllable if true
-    int timer; ///< init timer
-    int nbLive;
 
 };
 

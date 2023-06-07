@@ -10,9 +10,12 @@
  */
 class Bomb : public Entity
 {
+    int timer ; ///< The number of frame the bomb will stay, also use to switch frame and explode
+    QPixmap sprite; ///< The actual Sprite
+    AnimationManager animation; ///< The actual animation ( the range in the sprite image)
+    SoundManager* soundManager; ///< The explosion's sound
 
 public:
-
     /**
      * @brief Create a Bomb
      * @param posX : position on x axes
@@ -54,19 +57,11 @@ public:
      */
     void explosionSfx();
 
-    SoundManager* soundManager; ///< The explosion's sound
-
     /**
      * @brief create the hitboxe of the bomb
      * @return the hitboxe
      */
     QRect getRect();
-
-private:
-
-    int timer ; ///< The number of frame the bomb will stay, also use to switch frame and explode
-    QPixmap sprite; ///< The actual Sprite
-    AnimationManager animation; ///< The actual animation ( the range in the sprite image)
 
 };
 

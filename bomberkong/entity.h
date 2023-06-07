@@ -17,7 +17,6 @@
  */
 class Entity
 {
-
 private:
     bool active; ///< Delete the entity if false
 
@@ -62,7 +61,6 @@ public:
      */
     void deleteEntity();
 
-
     /**
      * @brief isAlive
      * @return if the entity is active
@@ -91,8 +89,6 @@ public:
      * @return QRect the rectangle of the entity
      */
     virtual QRect getRect();
-
-
 
 };
 

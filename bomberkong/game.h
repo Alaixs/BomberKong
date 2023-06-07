@@ -7,11 +7,22 @@
 #include <list>
 #include <QWidget>
 
-
+/**
+* @brief The main scene for the level
+*/
 class Game : public Scene
 {
+protected:
+    std::list<Entity*> entities;
+    std::list<GUIElement*> gui;
 
 public:
+    GUIElement* pauseLabel;
+    int wMap;
+
+    /**
+    * @brief The main scene for the level
+    */
     Game(QWidget* widget);
     ~Game();
 
@@ -26,15 +37,6 @@ public:
     void alternative();
     void createExplosion(int posX, int posY);
     void restart();
-
-    int wMap;
-
-protected:
-    std::list<Entity*> entities;
-    std::list<GUIElement*> gui;
-
-public:
-    GUIElement* pauseLabel;
 
 };
 

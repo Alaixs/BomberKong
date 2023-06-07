@@ -10,8 +10,12 @@
  */
 class Dummy : public Entity
 {
-public:
+    QPixmap sprite; ///< The actual Sprite
+    AnimationManager animation; ///< The actual animation
+    int timer; ///< init timer
+    SoundManager* soundManager; ///< The defeat's sound
 
+public:
     /**
      * @brief Create a no playable Bomberman
      * @param posX : position on x axes
@@ -51,19 +55,12 @@ public:
      */
     void stopAllSounds();
 
-
-    SoundManager* soundManager; ///< The defeat's sound
-
     /**
      * @brief create the hitboxe
      * @return the hitboxe
      */
     QRect getRect();
 
-private:
-    QPixmap sprite;///< The actual Sprite
-    AnimationManager animation; ///< The actual animation
-    int timer; ///< init timer
 };
 
 #endif // DUMMY_H
