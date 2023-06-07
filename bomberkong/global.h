@@ -8,6 +8,7 @@ using namespace std;
 // define here to allow all other class to get this
 extern int cellSize;
 extern bool isPaused;
+extern int wLvl;
 
 
 #endif // GLOBAL_H

@@ -138,18 +138,18 @@ void Game::deleteAllEntity()
 
 void Game::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(2);
+    dynamic_cast<Widget*>(root)->switchScene(3);
 }
 
 
 void Game::loose()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3);
+    dynamic_cast<Widget*>(root)->switchScene(4);
 }
 
 void Game::alternative()
 {
-    dynamic_cast<Widget*>(root)->switchScene(4);
+    dynamic_cast<Widget*>(root)->switchScene(5);
 }
 
 

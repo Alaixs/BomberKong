@@ -25,6 +25,7 @@ ui->setupUi(this);
 
     cellSize = 32;
     isPaused = false;
+    wLvl = 0;
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -104,14 +105,18 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 2:
-            currentScene = new Win(this);
+            currentScene = new Game(this);
         break;
 
         case 3:
-            currentScene = new Loose(this);
+            currentScene = new Win(this);
         break;
 
         case 4:
+            currentScene = new Loose(this);
+        break;
+
+        case 5:
             currentScene = new Alternative(this);
         break;
     }

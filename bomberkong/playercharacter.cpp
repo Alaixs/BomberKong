@@ -5,6 +5,7 @@
 #include "bombergirl.h"
 #include "indestructiblewall.h"
 #include "input.h"
+#include "tutorial.h"
 #include "wall.h"
 #include "bomb.h"
 #include "barrel.h"
@@ -12,7 +13,7 @@
 #include "soundmanager.h"
 #include "global.h"
 #include "game.h"
-
+int wLvl;
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -145,7 +146,15 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
-        dynamic_cast<Game*>(parent)->win();
+        if( wLvl == 1)
+        {
+            dynamic_cast<Game*>(parent)->win();
+        }
+        else
+        {
+            wLvl = 1;
+            dynamic_cast<Tutorial*>(parent)->nextLvl();
+        }
     }
 
     if(dynamic_cast<Bomb*>(body) != nullptr)

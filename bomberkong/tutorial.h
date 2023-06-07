@@ -76,6 +76,8 @@ public:
      */
     void restart();
 
+    void nextLvl();
+
     int wMap;
 
 public:
