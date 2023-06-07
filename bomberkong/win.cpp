@@ -1,6 +1,5 @@
 #include "win.h"
 #include "global.h"
-#include "widget.h"
 
 Win::Win(QWidget * widget) : Scene(widget)
 {
@@ -27,22 +26,22 @@ void Win::draw(QPainter * painter)
         for(int j = 0; j < 13; j++){
             painter->fillRect(
                 width*2*i, width*2*j, width, width,
-                QBrush(QColor(250, 250, 0))
+                QBrush(QColor(255, 215, 0))
                 );
 
             painter->fillRect(
                 width*2*i+cellSize, width*2*j+cellSize, width, width,
-                QBrush(QColor(250, 250, 0))
+                QBrush(QColor(255, 215, 0))
                 );
 
             painter->fillRect(
                 width*2*i+cellSize, width*2*j, width, width,
-                QBrush(QColor(200, 200, 0))
+                QBrush(QColor(230, 198, 25))
                 );
 
             painter->fillRect(
                 width*2*i, width*2*j+cellSize, width, width,
-                QBrush(QColor(200, 200, 0))
+                QBrush(QColor(230, 198, 25))
                 );
         }
     }
