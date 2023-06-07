@@ -29,8 +29,10 @@ public:
 
     int wMap;
 
-public:
+protected:
     std::list<Entity*> entities;
+
+public:
     GUIElement * startLabel;
 
 };

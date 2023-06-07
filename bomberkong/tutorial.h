@@ -31,7 +31,7 @@ public:
     int wMap;
 
 public:
-    std::list<Entity*> entities;
+    //std::list<Entity*> entities;
     GUIElement * startLabel;
 
 };

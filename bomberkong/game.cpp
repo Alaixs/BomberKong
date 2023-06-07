@@ -120,6 +120,7 @@ void Game::createEntity(Entity* entity)
     entities.push_back(entity);
 }
 
+
 void Game::deleteAllEntity()
 {
     // start a loop with a duration while the vector entities isn't void
