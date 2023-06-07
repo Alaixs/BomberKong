@@ -10,6 +10,13 @@ Win::Win(QWidget * widget) : Scene(widget)
                         "://assets/sprites/you_win.png");
 }
 
+Win::~Win()
+{
+    delete bomberman;
+    delete bombergirl;
+    delete winLabel;
+}
+
 void Win::update()
 {
     bomberman->update();

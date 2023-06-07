@@ -26,6 +26,11 @@ public:
     Explosion(Coordinate position);
 
     /**
+     * @brief Destructor for an Explosion object
+     */
+    ~Explosion();
+
+    /**
      * @brief update the explosion (position, sprite, etc)
      */
     void update();

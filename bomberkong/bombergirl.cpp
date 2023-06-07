@@ -21,6 +21,10 @@ BomberGirl::BomberGirl(Coordinate pos)
     animation.play(0, 11);
 }
 
+BomberGirl::~BomberGirl()
+{
+
+}
 
 void BomberGirl::update()
 {

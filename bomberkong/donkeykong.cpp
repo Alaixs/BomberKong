@@ -29,6 +29,10 @@ DonkeyKong::DonkeyKong(Coordinate pos)
     isThrowing = false;
 }
 
+DonkeyKong::~DonkeyKong()
+{
+
+}
 
 void DonkeyKong::update()
 {

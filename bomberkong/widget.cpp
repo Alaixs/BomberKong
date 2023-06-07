@@ -24,8 +24,11 @@ Widget::Widget(QWidget *parent)
 ui->setupUi(this);
 
     cellSize = 32;
+<<<<<<< HEAD
     isPaused = false;
     wLvl = 0;
+=======
+>>>>>>> d2bd2e30f260b15ebbbc282f8751d39529ad45d4
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -58,7 +61,6 @@ Widget::~Widget()
     delete ui;
 }
 
-
 // Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
 { Input::keyPressedEvent(ev); }
@@ -70,15 +72,10 @@ void Widget::keyReleaseEvent(QKeyEvent *ev)
 // Updating the entities and the game
 void Widget::gameUpdate()
 {
-    if (!isPaused)
-    {
-        currentScene->update();
+    currentScene->update();
 
-        // Draw a frame
-        repaint(0, 0, 1532, 1056);
-
-        Input::resetFLInputs();
-    }
+    // Draw a frame
+    repaint(0, 0, 1532, 1056);
 }
 
 // Draw a single frame
@@ -92,7 +89,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::switchScene(int sceneId)
 {
-    //delete currentScene;
+    Scene * temp = currentScene;
 
     switch (sceneId)
     {
@@ -120,4 +117,6 @@ void Widget::switchScene(int sceneId)
             currentScene = new Alternative(this);
         break;
     }
+
+    delete temp;
 }

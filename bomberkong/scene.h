@@ -18,6 +18,7 @@ public:
      * @param widget : the reference of widget class
      */
     Scene(QWidget* widget);
+    virtual ~Scene();
 
 
     /**

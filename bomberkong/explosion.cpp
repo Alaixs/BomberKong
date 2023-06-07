@@ -24,6 +24,10 @@ Explosion::Explosion(Coordinate position)
     timer = 12;
 }
 
+Explosion::~Explosion()
+{
+
+}
 
 void Explosion::update()
 {

@@ -25,6 +25,11 @@ public:
     Barrel(Coordinate pos);
 
     /**
+     * @brief Destructor for a Barrel object
+     */
+    ~Barrel();
+
+    /**
      * @brief update the barrel (position, sprite, etc)
      */
     void update();

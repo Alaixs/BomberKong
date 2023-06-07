@@ -16,6 +16,7 @@ public:
      * @param widget : the widget of loose scene
      */
     Loose(QWidget* widget);
+    ~Loose();
 
 
     /**

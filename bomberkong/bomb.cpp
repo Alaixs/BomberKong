@@ -28,6 +28,10 @@ Bomb::Bomb(Coordinate position)
     timer = 187;
 }
 
+Bomb::~Bomb()
+{
+
+}
 
 void Bomb::update()
 {

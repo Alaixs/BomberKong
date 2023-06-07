@@ -20,6 +20,10 @@ Barrel::Barrel(Coordinate position)
     timer = 187;
 }
 
+Barrel::~Barrel()
+{
+
+}
 
 void Barrel::update()
 {

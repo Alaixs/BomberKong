@@ -27,7 +27,12 @@ public:
     PlayerCharacter(Coordinate pos);
 
     /**
-     * @brief Update bomberman (position, sprite, etc)
+     * @brief Destructor for a PlayerCharacter object
+     */
+    ~PlayerCharacter();
+
+    /**
+     * @brief update bomberman (position, sprite, etc)
      */
     void update();
 

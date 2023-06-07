@@ -34,6 +34,7 @@ public:
      * @param posY : the y value
      */
     GUIElement(int posX, int posY);
+    virtual ~GUIElement();
 
 
     /**

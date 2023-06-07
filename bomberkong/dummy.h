@@ -26,6 +26,11 @@ public:
     Dummy(Coordinate pos);
 
     /**
+     * @brief Destructor for a Character object
+     */
+    ~Dummy();
+
+    /**
      * @brief update the bomberman (position, sprite, etc)
      */
     void update();

@@ -1,13 +1,17 @@
 #include "entity.h"
 #include "scene.h"
-
-
+#include <iostream>
 Entity::Entity(int x, int y) : pos(x, y), active(true)
 {
 
 }
 
 Entity::Entity(Coordinate pos) : pos(pos), active(true)
+{
+
+}
+
+Entity::~Entity()
 {
 
 }
