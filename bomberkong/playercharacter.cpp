@@ -24,7 +24,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive = 0;
+    nbLive = 2;
     isKO = false;
 }
 
