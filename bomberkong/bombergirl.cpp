@@ -1,10 +1,8 @@
 #include "bombergirl.h"
 
-#include "playercharacter.h"
 #include <QTimer>
 #include "global.h"
-#include "widget.h"
-#include "game.h"
+
 
 //extern const int cellSize;
 
@@ -37,12 +35,6 @@ void BomberGirl::draw(QPainter * painter)
         sprite,
         QRect(animation.getFrame() * 16, 0, 16, 16)
     );
-}
-
-
-void BomberGirl::collisionEvent(Entity * body)
-{
-
 }
 
 

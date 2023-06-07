@@ -15,8 +15,8 @@ SOURCES += \
     bomb.cpp \
     bombergirl.cpp \
     coordinate.cpp \
-    demicharacter.cpp \
     donkeykong.cpp \
+    dummy.cpp \
     explosion.cpp \
     game.cpp \
     guielement.cpp \
@@ -34,7 +34,7 @@ SOURCES += \
     win.cpp
 
 HEADERS += \
-    demicharacter.h \
+    dummy.h \
     game.h \
     global.h \
     animationmanager.h \

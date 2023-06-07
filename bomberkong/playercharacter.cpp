@@ -110,8 +110,11 @@ void PlayerCharacter::collisionEvent(Entity * body)
         pos.x = 9.5 * cellSize;
         pos.y = 21 * cellSize;
         nbLive--;
-
-        if(nbLive == -1)
+        if(nbLive > -1)
+        {
+            dynamic_cast<Game*>(parent)->restart();
+        }
+        else if(nbLive == -1)
         {
             dynamic_cast<Game*>(parent)->loose();
         }

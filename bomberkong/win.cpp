@@ -4,7 +4,7 @@
 
 Win::Win(QWidget * widget) : Scene(widget)
 {
-    bomberman = new Character(9 * cellSize , 16 * cellSize);
+    bomberman = new Dummy(9 * cellSize , 16 * cellSize);
     bombergirl = new BomberGirl(10 * cellSize, 16 * cellSize);
     winLabel = new GUIElement(Coordinate(70, 200),
                         Coordinate(500,100),

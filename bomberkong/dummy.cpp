@@ -1,12 +1,12 @@
 
-#include "demicharacter.h"
+#include "dummy.h"
 
 #include "global.h"
 #include "soundmanager.h"
 
 //extern const int cellSize;
 
-Character::Character(int posX, int posY)
+Dummy::Dummy(int posX, int posY)
     : Entity(posX, posY)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
@@ -15,7 +15,7 @@ Character::Character(int posX, int posY)
 }
 
 
-Character::Character(Coordinate pos)
+Dummy::Dummy(Coordinate pos)
     : Entity(pos)
 {
     sprite.load("://assets/sprites/t_bomberman.png");
@@ -24,13 +24,13 @@ Character::Character(Coordinate pos)
 }
 
 
-void Character::update()
+void Dummy::update()
 {
     animation.update();
 }
 
 
-void Character::draw(QPainter * painter)
+void Dummy::draw(QPainter * painter)
 {
 
     // Draw the normal sprite
@@ -43,12 +43,12 @@ void Character::draw(QPainter * painter)
 }
 
 
-void Character::loseThemeSfx()
+void Dummy::loseThemeSfx()
 {
     SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5);
 }
 
-QRect Character::getRect()
+QRect Dummy::getRect()
 {
     return QRect(pos.x + 6, pos.y, 35, cellSize);
 }
