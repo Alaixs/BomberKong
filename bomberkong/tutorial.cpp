@@ -121,7 +121,7 @@ void Tutorial::deleteAllEntity()
 
 void Tutorial::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(2);
+    dynamic_cast<Widget*>(root)->switchScene(1);
 }
 
 
