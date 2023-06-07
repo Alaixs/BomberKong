@@ -43,6 +43,9 @@ public:
      */
     Coordinate getPos();
 
+
+    void setPos(Coordinate position);
+
     /**
      * @brief Displays the element
      * @param painter The QPainter class

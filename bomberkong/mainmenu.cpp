@@ -44,20 +44,12 @@ void MainMenu::update()
 {
     timer++;
 
-    if (timer <= 40)
+    if (timer %  40 == 0)
     {
-        logo->move(0, -2);
-        pressStart->isVisible = true;
+        pressStart->isVisible = !(pressStart->isVisible);
     }
 
-    else
-    {
-        logo->move(0, 2);
-        pressStart->isVisible = false;
-    }
-
-    if (timer == 80) { timer = 0; }
-
+    logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*50 + 300));
 
 
     if (Input::isActionJustPressed(START))

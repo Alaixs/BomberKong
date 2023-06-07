@@ -32,6 +32,12 @@ Coordinate GUIElement::getPos()
 }
 
 
+void GUIElement::setPos(Coordinate position)
+{
+    pos = position;
+}
+
+
 void GUIElement::select()
 {
     isSelected = true;
