@@ -2,6 +2,7 @@
 #include <fstream>
 #include <QSoundEffect>
 
+#include "alternative.h"
 #include "global.h"
 
 // includes the necessary header files
@@ -101,6 +102,10 @@ void Widget::switchScene(int sceneId)
 
         case 3:
             currentScene = new Loose(this);
+        break;
+
+        case 4:
+            currentScene = new Alternative(this);
         break;
     }
 }
