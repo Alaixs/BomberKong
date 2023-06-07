@@ -1,0 +1,42 @@
+\hypertarget{bomb_8h_source}{}\doxysection{bomb.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BOMB\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BOMB\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}soundmanager.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBomb}{Bomb}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classBomb}{Bomb}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classBomb}{Bomb}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ position);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_a6fa3577a6653276f456aff457062fbc1}{update}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_af83966c06693c17461f6368d1423fbe2}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_a9277edfd464eca3b53e8baf4b00ae028}{collisionEvent}}(\mbox{\hyperlink{classEntity}{Entity}}\ *\ body);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_afa4b38dde02ea8ff971282dba14651f7}{explosionSfx}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classSoundManager}{SoundManager}}*\ \mbox{\hyperlink{classBomb_a9664533aa5968a88fc440fc052b71a4d}{soundManager}};\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ QRect\ \mbox{\hyperlink{classBomb_a3f4f324bfe0725f4d0c5d5d3439dc86d}{getRect}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ timer\ ;\ }
+\DoxyCodeLine{00063\ \ \ \ \ QPixmap\ sprite;\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}\ animation;\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BOMB\_H}}
+
+\end{DoxyCode}

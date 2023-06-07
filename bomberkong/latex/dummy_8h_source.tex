@@ -1,0 +1,40 @@
+\hypertarget{dummy_8h_source}{}\doxysection{dummy.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DUMMY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DUMMY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}soundmanager.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDummy}{Dummy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classDummy}{Dummy}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classDummy}{Dummy}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDummy_a17bf3ea64fe39533b524e5f79808041d}{update}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDummy_afafbadf3e3d722b0177a77f235af3501}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDummy_ad240a18fb14a3b2a94ab10c360ae0f6b}{loseThemeSfx}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDummy_a3a07b7128289d7824c4c166d47b21ac6}{stopAllSounds}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classSoundManager}{SoundManager}}*\ \mbox{\hyperlink{classDummy_a74f7d4de0a3e2a5ad94b03d54121c4e7}{soundManager}};\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ QRect\ \mbox{\hyperlink{classDummy_a9d316f0b758eb094b01febf59f15208d}{getRect}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ QPixmap\ sprite;}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}\ animation;\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ timer;\ }
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DUMMY\_H}}
+
+\end{DoxyCode}

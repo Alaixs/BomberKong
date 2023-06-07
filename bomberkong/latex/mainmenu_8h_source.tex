@@ -1,0 +1,33 @@
+\hypertarget{mainmenu_8h_source}{}\doxysection{mainmenu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINMENU\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINMENU\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}scene.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}guielement.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMainMenu}{MainMenu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScene}{Scene}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classMainMenu}{MainMenu}}(QWidget*\ widget);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainMenu_a48b4cca0867e474809c7c3ff1cd069f7}{update}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainMenu_a64a91595396b1ce8d5b5318395e5728b}{draw}}(QPainter*\ painter);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ timer;}
+\DoxyCodeLine{00034\ \ \ \ \ std::list<GUIElement*>\ gui;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}*\ bg;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}*\ logo;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}*\ pressStart;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINMENU\_H}}
+
+\end{DoxyCode}

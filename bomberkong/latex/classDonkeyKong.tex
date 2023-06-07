@@ -1,0 +1,167 @@
+\hypertarget{classDonkeyKong}{}\doxysection{Donkey\+Kong Class Reference}
+\label{classDonkeyKong}\index{DonkeyKong@{DonkeyKong}}
+
+
+The class of \mbox{\hyperlink{classDonkeyKong}{Donkey\+Kong}}, the game\textquotesingle{}s boss.  
+
+
+
+
+{\ttfamily \#include $<$donkeykong.\+h$>$}
+
+Inheritance diagram for Donkey\+Kong\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDonkeyKong}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDonkeyKong_a6aef658b2faf50e69a94022af2a1d9fd}{Donkey\+Kong}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create a DK. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDonkeyKong_a0cc3b990953d631bbc64c4853eee5c0c}{Donkey\+Kong}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Create a DK. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDonkeyKong_a6a84e5f014068905756577d703669ead}{update}} ()
+\begin{DoxyCompactList}\small\item\em update the Donkey Kong (position, sprite, etc) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDonkeyKong_a7ac09dc931eebad6fe092343ee4239c3}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual DK. \end{DoxyCompactList}\item 
+QRect \mbox{\hyperlink{classDonkeyKong_afadb888f55a6b46f16077d10790f3090}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em create the hitboxe \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity_a9da14c9f90c382c963a90afd58c36fcd}{Entity}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
+\begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em getter of the coordinate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_a29601f50527cca46e471d8933c8bddd5}\label{classEntity_a29601f50527cca46e471d8933c8bddd5}} 
+void {\bfseries delete\+Entity} ()
+\begin{DoxyCompactList}\small\item\em delete the entity \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em is\+Alive \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em update the entity (move, change direction, etc.) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em draw the entity on the screen \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
+\begin{DoxyCompactList}\small\item\em collision\+Event \end{DoxyCompactList}\item 
+virtual QRect \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em get\+Rect get the rectangle of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDonkeyKong_a24e26a72a3f679f8ae259c38f4e71656}\label{classDonkeyKong_a24e26a72a3f679f8ae259c38f4e71656}} 
+int {\bfseries timer}
+\begin{DoxyCompactList}\small\item\em init timer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntity_ac135006c51fb3384b5b4624224d6e375}\label{classEntity_ac135006c51fb3384b5b4624224d6e375}} 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} {\bfseries pos}
+\begin{DoxyCompactList}\small\item\em The coordinate of the entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}\label{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}} 
+\mbox{\hyperlink{classScene}{Scene}} $\ast$ {\bfseries parent}
+\begin{DoxyCompactList}\small\item\em The main widget, used to call method from it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class of \mbox{\hyperlink{classDonkeyKong}{Donkey\+Kong}}, the game\textquotesingle{}s boss. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDonkeyKong_a6aef658b2faf50e69a94022af2a1d9fd}\label{classDonkeyKong_a6aef658b2faf50e69a94022af2a1d9fd}} 
+\index{DonkeyKong@{DonkeyKong}!DonkeyKong@{DonkeyKong}}
+\index{DonkeyKong@{DonkeyKong}!DonkeyKong@{DonkeyKong}}
+\doxysubsubsection{\texorpdfstring{DonkeyKong()}{DonkeyKong()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Donkey\+Kong\+::\+Donkey\+Kong (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create a DK. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: position on x axes \\
+\hline
+{\em posY} & \+: position on y axes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDonkeyKong_a0cc3b990953d631bbc64c4853eee5c0c}\label{classDonkeyKong_a0cc3b990953d631bbc64c4853eee5c0c}} 
+\index{DonkeyKong@{DonkeyKong}!DonkeyKong@{DonkeyKong}}
+\index{DonkeyKong@{DonkeyKong}!DonkeyKong@{DonkeyKong}}
+\doxysubsubsection{\texorpdfstring{DonkeyKong()}{DonkeyKong()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Donkey\+Kong\+::\+Donkey\+Kong (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{pos }\end{DoxyParamCaption})}
+
+
+
+Create a DK. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \+: location coordinates \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDonkeyKong_a7ac09dc931eebad6fe092343ee4239c3}\label{classDonkeyKong_a7ac09dc931eebad6fe092343ee4239c3}} 
+\index{DonkeyKong@{DonkeyKong}!draw@{draw}}
+\index{draw@{draw}!DonkeyKong@{DonkeyKong}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Donkey\+Kong\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display the actual DK. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{Entity}}.
+
+\mbox{\Hypertarget{classDonkeyKong_afadb888f55a6b46f16077d10790f3090}\label{classDonkeyKong_afadb888f55a6b46f16077d10790f3090}} 
+\index{DonkeyKong@{DonkeyKong}!getRect@{getRect}}
+\index{getRect@{getRect}!DonkeyKong@{DonkeyKong}}
+\doxysubsubsection{\texorpdfstring{getRect()}{getRect()}}
+{\footnotesize\ttfamily QRect Donkey\+Kong\+::get\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+create the hitboxe 
+
+\begin{DoxyReturn}{Returns}
+the hitboxe 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{Entity}}.
+
+\mbox{\Hypertarget{classDonkeyKong_a6a84e5f014068905756577d703669ead}\label{classDonkeyKong_a6a84e5f014068905756577d703669ead}} 
+\index{DonkeyKong@{DonkeyKong}!update@{update}}
+\index{update@{update}!DonkeyKong@{DonkeyKong}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Donkey\+Kong\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+update the Donkey Kong (position, sprite, etc) 
+
+
+
+Implements \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+donkeykong.\+h\item 
+donkeykong.\+cpp\end{DoxyCompactItemize}

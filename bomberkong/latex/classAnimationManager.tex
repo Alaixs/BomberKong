@@ -1,0 +1,80 @@
+\hypertarget{classAnimationManager}{}\doxysection{Animation\+Manager Class Reference}
+\label{classAnimationManager}\index{AnimationManager@{AnimationManager}}
+
+
+The \mbox{\hyperlink{classAnimationManager}{Animation\+Manager}} class is used to track the current frame index in a spritesheet.  
+
+
+
+
+{\ttfamily \#include $<$animationmanager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAnimationManager_a7c6e4f7b3f94383da7b08dbc1e19e205}{play}} (int frame\+Start, int frame\+End)
+\begin{DoxyCompactList}\small\item\em Sets the start and end frame of the animation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAnimationManager_a52fb0b42dc4ef8e9aebd1e8e55d038e1}{get\+Frame}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current frame of the animation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAnimationManager_a62b4e6f7b7f09aa38c5a14f5b2ad15b9}{set\+Interval}} (int interval)
+\begin{DoxyCompactList}\small\item\em Sets the interval between each frame. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAnimationManager_a5711cd6804130aa171f2d5aca3a00239}\label{classAnimationManager_a5711cd6804130aa171f2d5aca3a00239}} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Updates the state of the manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classAnimationManager}{Animation\+Manager}} class is used to track the current frame index in a spritesheet. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAnimationManager_a52fb0b42dc4ef8e9aebd1e8e55d038e1}\label{classAnimationManager_a52fb0b42dc4ef8e9aebd1e8e55d038e1}} 
+\index{AnimationManager@{AnimationManager}!getFrame@{getFrame}}
+\index{getFrame@{getFrame}!AnimationManager@{AnimationManager}}
+\doxysubsubsection{\texorpdfstring{getFrame()}{getFrame()}}
+{\footnotesize\ttfamily int Animation\+Manager\+::get\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current frame of the animation. 
+
+\begin{DoxyReturn}{Returns}
+The current animation frame 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAnimationManager_a7c6e4f7b3f94383da7b08dbc1e19e205}\label{classAnimationManager_a7c6e4f7b3f94383da7b08dbc1e19e205}} 
+\index{AnimationManager@{AnimationManager}!play@{play}}
+\index{play@{play}!AnimationManager@{AnimationManager}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily void Animation\+Manager\+::play (\begin{DoxyParamCaption}\item[{int}]{frame\+Start,  }\item[{int}]{frame\+End }\end{DoxyParamCaption})}
+
+
+
+Sets the start and end frame of the animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+Start} & \+: the start frame \\
+\hline
+{\em frame\+End} & \+: the end frame \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAnimationManager_a62b4e6f7b7f09aa38c5a14f5b2ad15b9}\label{classAnimationManager_a62b4e6f7b7f09aa38c5a14f5b2ad15b9}} 
+\index{AnimationManager@{AnimationManager}!setInterval@{setInterval}}
+\index{setInterval@{setInterval}!AnimationManager@{AnimationManager}}
+\doxysubsubsection{\texorpdfstring{setInterval()}{setInterval()}}
+{\footnotesize\ttfamily void Animation\+Manager\+::set\+Interval (\begin{DoxyParamCaption}\item[{int}]{interval }\end{DoxyParamCaption})}
+
+
+
+Sets the interval between each frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & The interval (in ticks) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+animationmanager.\+h\item 
+animationmanager.\+cpp\end{DoxyCompactItemize}

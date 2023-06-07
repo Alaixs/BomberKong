@@ -194,7 +194,6 @@ void PlayerCharacter::footstepsSfx()
    // SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
 }
 
-
 void PlayerCharacter::loseThemeSfx()
 {
     SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5);
