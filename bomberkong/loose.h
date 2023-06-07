@@ -13,8 +13,8 @@ public:
     void update();
     void draw(QPainter* painter);
 
-    DonkeyKong * dk;
-    GUIElement * go;
+    DonkeyKong* dk;
+    GUIElement* go;
 };
 
 #endif // LOOSE_H

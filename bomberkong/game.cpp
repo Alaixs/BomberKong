@@ -39,7 +39,6 @@ void Game::update()
                 (*it)->update();
 
                 std::list<Entity*>::iterator collider;
-
                 for (collider = entities.begin(); collider != entities.end(); ++collider)
                 {
                     if (it != collider)
@@ -115,27 +114,32 @@ void Game::createEntity(Entity* entity)
 void Game::deleteAllEntity()
 {
     // start a loop with a duration while the vector entities isn't void
-    while(entities.size() != 1){
-
-        // delete the actual last entities
+    while(entities.size() != 1)
+    {
+        delete entities.back();
         entities.pop_back();
     }
 }
+
 
 void Game::win()
 {
     dynamic_cast<Widget*>(root)->switchScene(2);
 }
 
+
 void Game::loose()
 {
     dynamic_cast<Widget*>(root)->switchScene(3);
 }
 
+<<<<<<< HEAD
 void Game::alternative()
 {
     dynamic_cast<Widget*>(root)->switchScene(4);
 }
+=======
+>>>>>>> 6752db91e765a88d698eccf0cd5d3a4b7ad751ca
 
 void Game::restart()
 {
@@ -194,7 +198,9 @@ void Game::restart()
     startLabel = new GUIElement(Coordinate(140, 620),
                                 Coordinate(350, 30),
                                 QString("://assets/sprites/t_press_start.png"));
+
 }
+
 
 void Game::createExplosion(int posX, int posY)
 {

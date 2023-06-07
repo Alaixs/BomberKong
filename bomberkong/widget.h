@@ -38,14 +38,12 @@ public:
 
     void keyPressEvent(QKeyEvent * ev);
     void keyReleaseEvent(QKeyEvent * ev);
+
     int wMap;
+
     gameState state = MENU;
 
     void createExplosion(int posX, int posY);
-
-    // Scenes
-
-    void deleteEntities();
 
     SoundManager* soundManager;
 
@@ -57,7 +55,7 @@ private:
     std::list<GUIElement*> gui;
     bool isWin = false;
 
-    Scene* currentScene;
+    Scene* currentScene; ///< The actuel active scene
 
 private slots:
     /**

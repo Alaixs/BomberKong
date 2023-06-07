@@ -20,8 +20,16 @@ public:
     GUIElement(Coordinate position, Coordinate newSize, QString source);
     GUIElement(int posX, int posY);
 
+    /**
+     * @brief Returns the position of the element
+     * @return the position as a Coordinate
+     */
     Coordinate getPos();
 
+    /**
+     * @brief Displays the element
+     * @param painter The QPainter class
+     */
     virtual void draw(QPainter * painter);
     virtual void select();
     virtual void deselect();
