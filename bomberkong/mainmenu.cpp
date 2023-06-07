@@ -49,7 +49,7 @@ void MainMenu::update()
         pressStart->isVisible = !(pressStart->isVisible);
     }
 
-    logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*50 + 300));
+    logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*50 + 240));
 
 
     if (Input::isActionJustPressed(START))
