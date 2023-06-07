@@ -24,11 +24,10 @@ Widget::Widget(QWidget *parent)
 ui->setupUi(this);
 
     cellSize = 32;
-<<<<<<< HEAD
     isPaused = false;
     wLvl = 0;
-=======
->>>>>>> d2bd2e30f260b15ebbbc282f8751d39529ad45d4
+
+
 
     // Screen dimensions
     int height = 26 * cellSize;
