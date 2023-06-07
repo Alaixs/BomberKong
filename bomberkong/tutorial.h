@@ -8,6 +8,7 @@
 #include <list>
 #include <QWidget>
 
+
 /**
  * @brief The class of tutorial screen
  */
@@ -39,7 +40,6 @@ public:
      * @param painter : the tools to display
      */
     //void draw(QPainter * painter);
-
 
     /**
      * @brief Create new entity on Tutorial screen
@@ -79,6 +79,9 @@ public:
      */
     void restart();
 
+    /**
+     * @brief Switch scene to the next level
+     */
     void nextLvl();
 
 };

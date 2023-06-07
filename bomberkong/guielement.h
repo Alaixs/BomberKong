@@ -4,6 +4,7 @@
 #include <QPainter>
 #include "coordinate.h"
 
+
 /**
  * @brief The GUIElement class, elements of GUI you will see on menu
  */
@@ -19,7 +20,6 @@ protected:
 public:
     bool isVisible;
 
-
     /**
      * @brief Create a GUI element
      * @param position : the coordinate of position on screen
@@ -34,8 +34,8 @@ public:
      * @param posY : the y value
      */
     GUIElement(int posX, int posY);
-    virtual ~GUIElement();
 
+    virtual ~GUIElement();
 
     /**
      * @brief Returns the position of the element
@@ -43,7 +43,10 @@ public:
      */
     Coordinate getPos();
 
-
+    /**
+     * @brief Sets the position of the element.
+     * @param position : the new position of the element
+     */
     void setPos(Coordinate position);
 
     /**

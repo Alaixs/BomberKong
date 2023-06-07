@@ -5,11 +5,14 @@
 #include "guielement.h"
 #include <list>
 
+
 /**
  * @brief The class of Main Menu
  */
 class MainMenu : public Scene
 {
+
+private:
     int timer;
     std::list<GUIElement*> gui;
 

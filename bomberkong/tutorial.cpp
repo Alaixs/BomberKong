@@ -1,18 +1,16 @@
 #include "tutorial.h"
 
 #include <QDebug>
-
 #include <fstream>
-
 #include "input.h"
+#include "global.h"
+#include "widget.h"
 #include "wall.h"
 #include "bombergirl.h"
 #include "playercharacter.h"
 #include "donkeykong.h"
 #include "indestructiblewall.h"
 #include "explosion.h"
-#include "global.h"
-#include "widget.h"
 
 
 Tutorial::Tutorial(QWidget* widget)
@@ -29,6 +27,7 @@ Tutorial::~Tutorial()
 
 void Tutorial::update()
 {
+    // Display the pause GUI if the game is paused
     if (isPaused)
     {
         pauseLabel->isVisible = true;
@@ -48,6 +47,7 @@ void Tutorial::update()
             {
                 (*it)->update();
 
+                // Collision detection
                 std::list<Entity*>::iterator collider;
                 for (collider = entities.begin(); collider != entities.end(); ++collider)
                 {
@@ -80,7 +80,7 @@ void Tutorial::createEntity(Entity* entity)
 
 void Tutorial::deleteAllEntity()
 {
-    // start a loop with a duration while the vector entities isn't void
+    // Delete all the entities axcept the player character
     while(entities.size() != 1)
     {
         delete entities.back();

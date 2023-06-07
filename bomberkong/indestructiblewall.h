@@ -3,13 +3,14 @@
 
 #include "entity.h"
 
+
 /**
  * @brief The class of Indestructible Wall
  */
 class IndestructibleWall : public Entity
 {
-public:
 
+public:
     /**
      * @brief Create a Indestructible wall
      * @param posX : position on x axes
@@ -46,7 +47,7 @@ public:
     QRect getRect();
 
 private:
-    QPixmap sprite;///< The actual Sprite
+    QPixmap sprite; ///< The actual Sprite
 };
 
 #endif // INDESTRUCTIBLEWALL_H

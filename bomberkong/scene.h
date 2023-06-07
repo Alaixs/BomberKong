@@ -11,11 +11,9 @@
  */
 class Scene
 {
+
 protected:
     QWidget* root;
-
-    //protected:
-    //std::list<Entity*> entities;
 
 public:
     /**

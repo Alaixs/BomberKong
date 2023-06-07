@@ -7,6 +7,7 @@
 #include <QMap>
 #include <QThread>
 
+
 /**
  * @brief The class to manage any sound on game
  */
@@ -57,8 +58,8 @@ private:
      */
     void playSoundInThread(QSoundEffect* soundEffect, qreal volume);
     QMap<QString, QSoundEffect*> soundMap;
-};
 
+};
 
 
 #endif

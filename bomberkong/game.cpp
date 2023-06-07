@@ -1,9 +1,8 @@
 #include "game.h"
 
-#include <QDebug>
-
 #include <fstream>
-
+#include "widget.h"
+#include "global.h"
 #include "input.h"
 #include "wall.h"
 #include "bombergirl.h"
@@ -11,8 +10,6 @@
 #include "donkeykong.h"
 #include "indestructiblewall.h"
 #include "explosion.h"
-#include "global.h"
-#include "widget.h"
 
 
 Game::Game(QWidget* widget)
@@ -20,7 +17,7 @@ Game::Game(QWidget* widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
 
-    wMap = rand() % 3;
+    wMap = rand() % 3; // Select a random map
 
     pauseLabel = new GUIElement(
         Coordinate(140, 620),
@@ -30,8 +27,9 @@ Game::Game(QWidget* widget)
     pauseLabel->isVisible = false;
     gui.push_back(pauseLabel);
 
-    restart();
+    restart(); // Initialize the level
 }
+
 
 Game::~Game()
 {
@@ -42,8 +40,10 @@ Game::~Game()
     }
 }
 
+
 void Game::update()
 {
+    // Displays the pause GUI if the game is paused
     if (isPaused)
     {
         pauseLabel->isVisible = true;
@@ -61,10 +61,12 @@ void Game::update()
         {
             (*it)->update();
 
+            // Collision detection made by iterating on every entity and checking if it's
+            // rect intersects with this entity.
             std::list<Entity*>::iterator collider;
             for (collider = entities.begin(); collider != entities.end(); ++collider)
             {
-                if (it != collider)
+                if (it != collider) // So that entities won't collide with themselves
                 {
                     if ((*it)->getRect().intersects((*collider)->getRect()))
                     {
@@ -85,34 +87,33 @@ void Game::update()
 
 void Game::draw(QPainter* painter)
 {
-    //painter->fillRect(QRect(0, 0, 50, 50), QBrush(QColor(255, 0, 0)));
-
-    int width = cellSize;
+    // Draws a background in a checkerboard pattern
     for(int i = 0; i < 20; i++)
     {
         for(int j = 0; j < 13; j++){
             painter->fillRect(
-                width*2*i, width*2*j, width, width,
+                cellSize * 2 * i, cellSize * 2 * j, cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
-                );
+            );
 
             painter->fillRect(
-                width*2*i+cellSize, width*2*j+cellSize, width, width,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize, cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
-                );
+            );
 
             painter->fillRect(
-                width*2*i+cellSize, width*2*j, width, width,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j, cellSize, cellSize,
                 QBrush(QColor(1, 133, 21))
-                );
+            );
 
             painter->fillRect(
-                width*2*i, width*2*j+cellSize, width, width,
+                cellSize * 2 * i, cellSize * 2 * j + cellSize, cellSize, cellSize,
                 QBrush(QColor(1, 133, 21))
-                );
+            );
         }
     }
 
+    // Draws entities below the GUI
     std::list<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
     {
@@ -138,7 +139,7 @@ void Game::createEntity(Entity* entity)
 
 void Game::deleteAllEntity()
 {
-    // start a loop with a duration while the vector entities isn't void
+    // Delete an entity until the list isn't empty (keeps only the player character)
     while(entities.size() != 1)
     {
         delete entities.back();
@@ -149,18 +150,18 @@ void Game::deleteAllEntity()
 
 void Game::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3);
+    dynamic_cast<Widget*>(root)->switchScene(3); // Go to the victory screen
 }
 
 
 void Game::loose()
 {
-    dynamic_cast<Widget*>(root)->switchScene(4);
+    dynamic_cast<Widget*>(root)->switchScene(4); // Go the the game over screen
 }
 
 void Game::alternative()
 {
-    dynamic_cast<Widget*>(root)->switchScene(5);
+    dynamic_cast<Widget*>(root)->switchScene(5); // Go to the alternative ending
 }
 
 
@@ -168,6 +169,7 @@ void Game::restart()
 {
     deleteAllEntity();
 
+    // Loads data from a file
     std::ifstream levelDataFile;
     levelDataFile.open("../bomberkong/assets/maps/Map.bkmap");
 
@@ -214,7 +216,6 @@ void Game::restart()
     levelDataFile.close();
 
     // Create characters at their spawn points
-
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
     createEntity(new DonkeyKong(9 * cellSize, 0));
 }

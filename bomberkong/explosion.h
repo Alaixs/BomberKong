@@ -4,17 +4,19 @@
 #include "animationmanager.h"
 #include "entity.h"
 
+
 /**
  * @brief The class of explosion, explosion will spawn after explosion of bomb
  */
 class Explosion : public Entity
 {
-    QPixmap sprite; ///< The actual Sprite
-    AnimationManager animation; ///< The actual animation
-    int timer; ///< explosion duration
+
+private:
+    QPixmap sprite;              ///< The actual Sprite
+    AnimationManager* animation; ///< The actual animation
+    int timer;                   ///< explosion duration
 
 public:
-
     /**
      * @brief Create an explosion
      * @param posX : position on x axes

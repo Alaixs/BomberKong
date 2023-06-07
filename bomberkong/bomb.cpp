@@ -2,20 +2,19 @@
 
 #include "global.h"
 #include "input.h"
-#include "coordinate.h"
-#include "playercharacter.h"
-#include "wall.h"
-#include "indestructiblewall.h"
 #include "game.h"
+#include "wall.h"
+#include "playercharacter.h"
+#include "coordinate.h"
+#include "indestructiblewall.h"
 
-
-int cellSize;
 
 Bomb::Bomb(int posX, int posY)
     : Entity(posX, posY)
 {
+    animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomb.png");
-    animation.play(0, 2);
+    animation->play(0, 2);
     timer = 187;
 }
 
@@ -23,26 +22,31 @@ Bomb::Bomb(int posX, int posY)
 Bomb::Bomb(Coordinate position)
     : Entity(position)
 {
+    animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomb.png");
-    animation.play(0, 2);
+    animation->play(0, 2);
     timer = 187;
 }
 
 
 Bomb::~Bomb()
 {
-
+    delete animation;
 }
 
 
 void Bomb::update()
 {
-    animation.update();
+    animation->update();
     timer--;
+
+    // Final second, plays the flashing animation
     if (timer == 62)
     {
-        animation.play(2, 4);
+        animation->play(2, 4);
     }
+
+    // Create explosions in a + pattern around the bomb and disappear
     if (timer == 0)
     {
         dynamic_cast<Game*>(parent)->createExplosion(pos.x, pos.y);
@@ -75,7 +79,7 @@ void Bomb::collisionEvent(Entity * body){
         }
     }
 
-    if(dynamic_cast<Wall*>(body) != nullptr )
+    if(dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
     {
         int distX = pos.x - body->getPos().x ;
         int distY = pos.y - body->getPos().y;
@@ -89,24 +93,6 @@ void Bomb::collisionEvent(Entity * body){
             pos.y += (distY / abs(distY)) * 2;
         }
     }
-
-    if(dynamic_cast<IndestructibleWall*>(body) != nullptr )
-    {
-        int distX = pos.x - body->getPos().x ;
-        int distY = pos.y - body->getPos().y;
-
-        if (abs(distX) > abs(distY))
-        {
-            pos.x += (distX / abs(distX)) * 2;
-        }
-        else
-        {
-            pos.y += (distY / abs(distY)) * 2;
-
-        }
-    }
-
-
 }
 
 
@@ -115,7 +101,7 @@ void Bomb::draw(QPainter * painter)
     painter->drawPixmap(
         QRect(pos.x, pos.y, cellSize, cellSize),
         sprite,
-        QRect(animation.getFrame() * 16, 0, 16, 16)
+        QRect(animation->getFrame() * 16, 0, 16, 16)
     );
 }
 

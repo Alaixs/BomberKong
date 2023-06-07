@@ -6,11 +6,14 @@
 #include "guielement.h"
 #include "scene.h"
 
+
 /**
  * @brief The class of the win screen
  */
 class Win : public Scene
 {
+
+private:
     Dummy * bomberman;
     BomberGirl * bombergirl;
     GUIElement * winLabel;
@@ -38,5 +41,6 @@ public:
      */
     void draw(QPainter* painter);
 };
+
 
 #endif // WIN_H

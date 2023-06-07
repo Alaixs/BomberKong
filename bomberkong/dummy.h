@@ -5,15 +5,18 @@
 #include "animationmanager.h"
 #include "soundmanager.h"
 
+
 /**
  * @brief The class of Dummy entiy, the entity you can see but who have no move
  */
 class Dummy : public Entity
 {
-    QPixmap sprite; ///< The actual Sprite
-    AnimationManager animation; ///< The actual animation
-    int timer; ///< init timer
-    SoundManager* soundManager; ///< The defeat's sound
+
+private:
+    QPixmap sprite;              ///< The actual Sprite
+    AnimationManager* animation; ///< The actual animation
+    int timer;                   ///< init timer
+    SoundManager* soundManager;  ///< The defeat's sound
 
 public:
     /**

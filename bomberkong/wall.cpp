@@ -1,10 +1,8 @@
 #include "wall.h"
 
-#include "explosion.h"
 #include "global.h"
+#include "explosion.h"
 
-
-//extern const int cellSize;
 
 Wall::Wall(int posX, int posY)
     : Entity(posX, posY)
@@ -19,15 +17,11 @@ Wall::Wall(Coordinate pos)
     sprite.load("://assets/sprites/t_walls.png");
 }
 
-Wall::~Wall()
-{
 
-}
+Wall::~Wall() {}
 
-void Wall::update()
-{
 
-}
+void Wall::update() {}
 
 
 void Wall::draw(QPainter * painter)

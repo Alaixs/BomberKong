@@ -2,6 +2,7 @@
 #include "widget.h"
 
 
+// The state of every input
 bool moveUp = false;
 bool moveDown = false;
 bool moveLeft = false;
@@ -10,7 +11,8 @@ bool placeBomb = false;
 bool pushBomb = false;
 bool start = false;
 
-bool fl_start = false; // FL = Frame limited
+//Those inputs are not persistent and are reseted at the end of the tick
+bool fl_start = false;
 
 
 void Input::keyPressedEvent(QKeyEvent * event)
