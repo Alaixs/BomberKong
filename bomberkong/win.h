@@ -2,7 +2,7 @@
 #define WIN_H
 
 #include "bombergirl.h"
-#include "demicharacter.h"
+#include "dummy.h"
 #include "guielement.h"
 #include "scene.h"
 
@@ -14,7 +14,7 @@ public:
     void update();
     void draw(QPainter * painter);
 
-    Character * bomberman;
+    Dummy * bomberman;
     BomberGirl * bombergirl;
     GUIElement * winLabel;
 };

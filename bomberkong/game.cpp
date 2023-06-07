@@ -18,61 +18,9 @@
 Game::Game(QWidget* widget)
     : Scene(widget)
 {
-    int wMap = rand() % 3;
+    wMap = rand() % 3;
 
-    std::ifstream levelDataFile;
-    levelDataFile.open("../bomberkong/assets/maps/Map.bkmap");
-
-    if (!levelDataFile.is_open())
-        qDebug() << "Could not open the file";
-
-
-    // Iterate on every character of the file and place the corresponding block,
-    // Goes on the next line when encountering a semicolon;
-    char block;
-
-    for(int i = 0; i < wMap; i++)
-    {
-        while(levelDataFile >> block && block != '!'){};
-    }
-
-    int yPos = 4 * cellSize;
-    int xPos = 0;
-
-    while (levelDataFile >> block && block != '!')
-    {
-        if (block == ';')
-        {
-            // Line break
-            yPos += cellSize;
-            xPos = 0;
-
-        }
-        else
-        {
-            if (block == '2')
-            {
-                createEntity(new Wall(xPos, yPos));
-            }
-            else if (block == '1')
-            {
-                createEntity(new IndestructibleWall(xPos, yPos));
-            }
-
-            xPos += cellSize;
-        }
-    }
-
-    levelDataFile.close();
-
-    // Create characters at their spawn points
-    createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
-    createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-    createEntity(new DonkeyKong(9 * cellSize, 0));
-
-    startLabel = new GUIElement(Coordinate(140, 620),
-                           Coordinate(350, 30),
-                                QString("://assets/sprites/t_press_start.png"));
+    restart();
 }
 
 
@@ -160,15 +108,88 @@ void Game::createEntity(Entity* entity)
     entities.push_back(entity);
 }
 
+void Game::deleteAllEntity()
+{
+    while(entities.size() != 0)
+    {
+        delete entities.back();
+        entities.pop_back();
+    }
+}
+
 
 void Game::win()
 {
     dynamic_cast<Widget*>(root)->switchScene(2);
 }
 
+
 void Game::loose()
-{ dynamic_cast<Widget*>(root)->switchScene(3);
+{
+    dynamic_cast<Widget*>(root)->switchScene(3);
 }
+
+
+void Game::restart()
+{
+    deleteAllEntity();
+
+    std::ifstream levelDataFile;
+    levelDataFile.open("../bomberkong/assets/maps/Map.bkmap");
+
+    if (!levelDataFile.is_open())
+        qDebug() << "Could not open the file";
+
+
+    // Iterate on every character of the file and place the corresponding block,
+    // Goes on the next line when encountering a semicolon;
+    char block;
+
+    for(int i = 0; i < wMap; i++)
+    {
+        while(levelDataFile >> block && block != '!'){};
+    }
+
+    int yPos = 4 * cellSize;
+    int xPos = 0;
+
+    while (levelDataFile >> block && block != '!')
+    {
+        if (block == ';')
+        {
+            // Line break
+            yPos += cellSize;
+            xPos = 0;
+
+        }
+        else
+        {
+            if (block == '2')
+            {
+                createEntity(new Wall(xPos, yPos));
+            }
+            else if (block == '1')
+            {
+                createEntity(new IndestructibleWall(xPos, yPos));
+            }
+
+            xPos += cellSize;
+        }
+    }
+
+    levelDataFile.close();
+
+    // Create characters at their spawn points
+    createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+    createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
+    createEntity(new DonkeyKong(9 * cellSize, 0));
+
+    startLabel = new GUIElement(Coordinate(140, 620),
+                                Coordinate(350, 30),
+                                QString("://assets/sprites/t_press_start.png"));
+
+}
+
 
 void Game::createExplosion(int posX, int posY)
 {

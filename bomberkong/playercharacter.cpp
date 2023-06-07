@@ -24,7 +24,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     animation.play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive = 0;
+    nbLive = 2;
     isKO = false;
 }
 
@@ -74,7 +74,7 @@ void PlayerCharacter::update()
     }
 
     pos += motion * speed;
-    if(timer >= -1)
+    if(timer >= 0)
         timer--;
 
     if (abs(motion.x) > 0 || abs(motion.y) > 0)
@@ -94,11 +94,8 @@ void PlayerCharacter::update()
 
     if (Input::isActionPressed(MOVE_DOWN))
     {
-        pos.x = 9.5 * cellSize;
-        pos.y = 21 * cellSize;
-        isKO = false;
+        dynamic_cast<Game*>(parent)->restart();
     }
-
 
     }
 
@@ -126,15 +123,10 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
     {
+        if (isKO) { return; }
+
         nbLive--;
         isKO = true;
-
-        qDebug() << nbLive;
-
-        if(nbLive == -1)
-        {
-            //dynamic_cast<Game*>(parent)->loose();
-        }
     }
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
@@ -183,7 +175,7 @@ void PlayerCharacter::draw(QPainter * painter)
         painter->drawPixmap(
             QRect(pos.x, pos.y, cellSize, cellSize),
             sprite.transformed(QTransform().scale(-1, 1)),
-            QRect((10 - animation.getFrame()) * 16, 0, 16, 16)
+            QRect((11 - animation.getFrame()) * 16, 0, 16, 16)
         );
     }
 }

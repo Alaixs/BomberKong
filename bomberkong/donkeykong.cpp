@@ -1,8 +1,6 @@
 #include "donkeykong.h"
 
-#include "qwidget.h"
 #include "barrel.h"
-#include "widget.h"
 #include <random>
 #include "global.h"
 #include "game.h"

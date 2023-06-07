@@ -1,11 +1,11 @@
-#ifndef DEMICHARACTER_H
-#define DEMICHARACTER_H
+#ifndef DUMMY_H
+#define DUMMY_H
 
 #include "entity.h"
 #include "animationmanager.h"
 #include "soundmanager.h"
 
-class Character : public Entity
+class Dummy : public Entity
 {
 public:
 
@@ -14,14 +14,14 @@ public:
      * @param posX : position on x axes
      * @param posY : position on y axes
      */
-    Character(int posX, int posY);
+    Dummy(int posX, int posY);
 
     /**
      * @brief Create a no playable Bomberman
      * @param posX : position on x axes
      * @param posY : position on y axes
      */
-    Character(Coordinate pos);
+    Dummy(Coordinate pos);
 
     /**
      * @brief update the bomberman (position, sprite, etc)
@@ -59,4 +59,4 @@ private:
     int timer; ///< init timer
 };
 
-#endif // DEMICHARACTER_H
+#endif // DUMMY_H

@@ -17,10 +17,16 @@ public:
 
     void update();
     void draw(QPainter* painter);
+
     void createEntity(Entity* entity);
+    void deleteAllEntity();
+
     void win();
     void loose();
     void createExplosion(int posX, int posY);
+    void restart();
+
+    int wMap;
 
 public:
     std::list<Entity*> entities;
