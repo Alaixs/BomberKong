@@ -99,7 +99,16 @@ void PlayerCharacter::update()
     {
         if (nbLive > -1)
         {
-            dynamic_cast<Game*>(parent)->restart();
+
+            if( wLvl == 1)
+            {
+                dynamic_cast<Game*>(parent)->restart();
+            }
+            else
+            {
+
+                dynamic_cast<Tutorial*>(parent)->restart();
+            }
             pos.x = 9.5 * cellSize;
             pos.y = 21 * cellSize;
             isKO = false;
