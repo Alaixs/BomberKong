@@ -1,20 +1,18 @@
-﻿// Include the QT file
+﻿#include "loose.h"
+
 #include <fstream>
 #include <QSoundEffect>
-
-#include "alternative.h"
-#include "global.h"
-
-// includes the necessary header files
-#include "loose.h"
-#include "widget.h"
 #include "ui_widget.h"
-#include "input.h"
+#include "global.h"
+#include "widget.h"
 #include "soundmanager.h"
+#include "input.h"
 #include "game.h"
+#include "alternative.h"
 #include "mainmenu.h"
 #include "win.h"
 #include "tutorial.h"
+
 
 bool isPaused;
 
@@ -27,7 +25,6 @@ ui->setupUi(this);
     cellSize = 32;
     isPaused = false;
     wLvl = 0;
-
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -60,13 +57,14 @@ Widget::~Widget()
     delete ui;
 }
 
+
 // Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
 {
     Input::keyPressedEvent(ev);
     if (ev->key() == Qt::Key_Escape)
     {
-        isPaused = !isPaused;
+        isPaused = !isPaused; // Toggle the pause
     }
 }
 
@@ -84,6 +82,7 @@ void Widget::gameUpdate()
 
     Input::resetFLInputs();
 }
+
 
 // Draw a single frame
 void Widget::paintEvent(QPaintEvent *)

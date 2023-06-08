@@ -17,15 +17,15 @@
  */
 class Entity
 {
+
 private:
     bool active; ///< Delete the entity if false
 
 protected:
     Coordinate pos; ///< The coordinate of the entity
-    Scene* parent; ///< The main widget, used to call method from it.
+    Scene* parent;  ///< The main widget, used to call method from it.
 
 public:
-
     /**
      * @brief Construct a new Entity object
      * @param x : the x coordinate

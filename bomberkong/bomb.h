@@ -12,7 +12,7 @@ class Bomb : public Entity
 {
     int timer ; ///< The number of frame the bomb will stay, also use to switch frame and explode
     QPixmap sprite; ///< The actual Sprite
-    AnimationManager animation; ///< The actual animation ( the range in the sprite image)
+    AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
     SoundManager* soundManager; ///< The explosion's sound
 
 public:

@@ -1,16 +1,15 @@
-
 #include "dummy.h"
 
 #include "global.h"
 #include "soundmanager.h"
 
-//extern const int cellSize;
 
 Dummy::Dummy(int posX, int posY)
     : Entity(posX, posY)
 {
+    animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomberman.png");
-    animation.play(0, 4);
+    animation->play(0, 4);
     timer = 0;
 }
 
@@ -18,19 +17,22 @@ Dummy::Dummy(int posX, int posY)
 Dummy::Dummy(Coordinate pos)
     : Entity(pos)
 {
+    animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomberman.png");
-    animation.play(0, 4);
+    animation->play(0, 4);
     timer = 0;;
 }
 
+
 Dummy::~Dummy()
 {
-    qDebug() << "Destructeur Character appelé";
+    delete animation;
 }
+
 
 void Dummy::update()
 {
-    animation.update();
+    animation->update();
 }
 
 
@@ -41,7 +43,7 @@ void Dummy::draw(QPainter * painter)
     painter->drawPixmap(
         QRect(pos.x, pos.y, cellSize, cellSize),
         sprite,
-        QRect(animation.getFrame() * 16, 0, 16, 16)
+        QRect(animation->getFrame() * 16, 0, 16, 16)
         );
 
 }
@@ -51,6 +53,7 @@ void Dummy::loseThemeSfx()
 {
     SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5);
 }
+
 
 QRect Dummy::getRect()
 {

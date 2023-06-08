@@ -3,14 +3,17 @@
 #include "animationmanager.h"
 #include "entity.h"
 
+
 /**
  * @brief The class of barrel throw by Donkey Kong
  */
 class Barrel : public Entity
 {
-    int timer ; ///< The number of frame the barrel will stay
-    QPixmap sprite; ///< The actual Sprite
-    AnimationManager animation; ///< The actual animation ( the range in the sprite image)
+
+private:
+    int timer ;                  ///< The number of frame the barrel will stay
+    QPixmap sprite;              ///< The actual Sprite
+    AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
 
 public:
     /**

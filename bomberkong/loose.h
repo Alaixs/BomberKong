@@ -5,11 +5,13 @@
 #include "guielement.h"
 #include "scene.h"
 
+
 /**
  * @brief The class of loose screen
  */
 class Loose : public Scene
 {
+
 public:
     DonkeyKong* dk;
     GUIElement* go;

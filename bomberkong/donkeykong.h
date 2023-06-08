@@ -3,16 +3,19 @@
 #include "entity.h"
 #include "animationmanager.h"
 
+
 /**
  * @brief The class of DonkeyKong, the game's boss
  */
 class DonkeyKong : public Entity
 {
-    QPixmap sprite; ///< The actual Sprite
-    AnimationManager animation; ///< The actual animation
-    int newPos; ///< Pose where the DK send the next barrel
-    int dist; ///< Distance to the next x where DK send barrel
-    bool isThrowing; ///< Is DK actally throwing a barrel
+
+private:
+    QPixmap sprite;                 ///< The actual Sprite
+    AnimationManager* animation;    ///< The actual animation
+    int newPos;                     ///< Pose where the DK send the next barrel
+    int dist;                       ///< Distance to the next x where DK send barrel
+    bool isThrowing;                ///< Is DK actally throwing a barrel
 
 public:
     /**

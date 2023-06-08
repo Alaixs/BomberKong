@@ -15,16 +15,19 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
+
 enum gameState{
     MENU,
     RUNNING,
     PAUSED
 };
 
+
 enum Scenes {
     MAIN_MENU,
     LEVEL1
 };
+
 
 /**
  * @brief The Widget class, the class to make the window of the game
@@ -77,7 +80,6 @@ public:
      */
     void createExplosion(int posX, int posY);
 
-
     SoundManager* soundManager;
 
     /**
@@ -111,4 +113,6 @@ private slots:
     void paintEvent(QPaintEvent *);
 
 };
+
+
 #endif // WIDGET_H

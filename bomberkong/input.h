@@ -1,7 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-
 #include <QKeyEvent>
 #include <string>
 
@@ -36,7 +35,6 @@ class Input
 {
 
 public:
-
     /**
      * @brief Called when the user presses a key
      *
@@ -58,7 +56,6 @@ public:
      */
     static void keyReleasedEvent(QKeyEvent * event);
 
-
     /**
      * @brief Returns the state of the desired input
      *
@@ -75,7 +72,6 @@ public:
      */
     static bool isActionPressed(Actions action);
 
-
     /**
      * @brief Returns the state of the desired input IN THIS FRAME ONLY
      *
@@ -86,9 +82,7 @@ public:
      */
     static bool isActionJustPressed(Actions action);
 
-
     static void resetFLInputs();
-
 };
 
 #endif // INPUT_H

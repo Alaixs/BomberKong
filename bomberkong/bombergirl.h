@@ -4,13 +4,16 @@
 #include "animationmanager.h"
 #include "entity.h"
 
+
 /**
  * @brief A class for BomberGirl
  */
 class BomberGirl : public Entity
 {
-    QPixmap sprite;///< The actual Sprite
-    AnimationManager animation;///< The actual animation ( the range in the sprite image)
+
+private:
+    QPixmap sprite;              ///< The actual Sprite
+    AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
 
 public:
     /**
