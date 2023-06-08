@@ -41,7 +41,7 @@ void DonkeyKong::update()
     if(timer <= 0){
         dynamic_cast<Game*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize,pos.y + cellSize));
         int random = rand() % 18;
-        newPos = random * cellSize + cellSize;
+        newPos = random * cellSize - cellSize;
         dist = newPos - pos.x;
         timer = throwingRate;
         isThrowing = false;
