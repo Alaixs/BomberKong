@@ -28,6 +28,7 @@ SOURCES += \
     mainmenu.cpp \
     original.cpp \
     playercharacter.cpp \
+    reloaded.cpp \
     scene.cpp \
     soundmanager.cpp \
     tutorial.cpp \
@@ -54,6 +55,7 @@ HEADERS += \
     mainmenu.h \
     original.h \
     playercharacter.h \
+    reloaded.h \
     scene.h \
     soundmanager.h \
     tutorial.h \
