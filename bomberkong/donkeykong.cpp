@@ -2,7 +2,7 @@
 
 #include <random>
 #include "global.h"
-#include "game.h"
+#include "level.h"
 #include "barrel.h"
 
 
@@ -40,7 +40,7 @@ void DonkeyKong::update()
     animation->update();
     timer--;
     if(timer <= 0){
-        dynamic_cast<Game*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
+        dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
         int random = rand() % 18;
         newPos = random * cellSize - cellSize;
         dist = newPos - pos.x;

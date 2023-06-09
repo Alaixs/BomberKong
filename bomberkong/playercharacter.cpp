@@ -71,7 +71,7 @@ void PlayerCharacter::update()
             Coordinate bombPos(pos);
             bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
             bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
-            dynamic_cast<Game*>(parent)->createEntity(new Bomb(bombPos));
+            dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos));
 
             // Reset the cooldown timer
             timer = 200;
@@ -81,7 +81,7 @@ void PlayerCharacter::update()
     if(pos.y > 25 * cellSize)
     {
         // Triggers the alternative ending
-        dynamic_cast<Game*>(parent)->alternative();
+        dynamic_cast<Level*>(parent)->alternative();
     }
 
     pos += motion * speed;
@@ -113,7 +113,7 @@ void PlayerCharacter::update()
             // Go all the way back to the tutorial otherwise
             if( wLvl == 1)
             {
-                dynamic_cast<Game*>(parent)->restart();
+                dynamic_cast<Level*>(parent)->restart();
             }
             else
             {
@@ -125,7 +125,7 @@ void PlayerCharacter::update()
         }
         else
         {
-            dynamic_cast<Game*>(parent)->loose();
+            dynamic_cast<Level*>(parent)->loose();
         }
     }
 
@@ -158,7 +158,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     {
         if( wLvl == 1)
         {
-            dynamic_cast<Game*>(parent)->win();
+            dynamic_cast<Level*>(parent)->win();
         }
         else
         {

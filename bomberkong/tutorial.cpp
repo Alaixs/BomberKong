@@ -14,7 +14,7 @@
 
 
 Tutorial::Tutorial(QWidget* widget)
-    : Game(widget)
+    : Level(widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
     restart();
