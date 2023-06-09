@@ -5,6 +5,7 @@
 #include "scene.h"
 #include "entity.h"
 #include <list>
+#include <vector>
 #include <QWidget>
 
 
@@ -20,7 +21,7 @@ protected:
 
 public:
     GUIElement* pauseLabel;
-    int currentMap; // Which map is currently displayed
+    std::vector<int> currentMap; // Which map is currently displayed
 
     /**
     * @brief The main scene for the level

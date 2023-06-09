@@ -85,6 +85,7 @@ void PlayerCharacter::update()
     }
 
     pos += motion * speed;
+    dynamic_cast<Scene*>(parent)->setCameraOffset(pos);
 
     if(timer >= 0)
         timer--;
@@ -189,8 +190,9 @@ void PlayerCharacter::draw(QPainter * painter)
     if (!flipped)
     {
         // Draw the normal sprite
+        Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
         painter->drawPixmap(
-            QRect(pos.x, pos.y, cellSize, cellSize),
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
             sprite,
             QRect(animation->getFrame() * 16, 0, 16, 16)
         );
@@ -198,8 +200,9 @@ void PlayerCharacter::draw(QPainter * painter)
     else
     {
         // Draw the flipped sprite
+        Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
         painter->drawPixmap(
-            QRect(pos.x, pos.y, cellSize, cellSize),
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
             sprite.transformed(QTransform().scale(-1, 1)),
             QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
         );

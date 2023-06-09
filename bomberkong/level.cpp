@@ -18,7 +18,7 @@ Level::Level(QWidget* widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
 
-    currentMap = rand() % 3; // Select a random map
+    currentMap.push_back(rand() % 3); // Select a random map
 
     // Add 3 hearts inside the GUI list to display them on screen
     int x = 10, y = 10;
@@ -116,22 +116,22 @@ void Level::draw(QPainter* painter)
     {
         for(int j = 0; j < 13; j++){
             painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j, cellSize, cellSize,
+                cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y + 416, cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
             );
 
             painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y + 416, cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
             );
 
             painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j, cellSize, cellSize,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y + 416, cellSize, cellSize,
                 QBrush(QColor(1, 133, 21))
             );
 
             painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y + 416, cellSize, cellSize,
                 QBrush(QColor(1, 133, 21))
             );
         }
@@ -206,7 +206,7 @@ void Level::restart()
     // Goes on the next line when encountering a semicolon;
     char block;
 
-    for(int i = 0; i < currentMap; i++)
+    for(int i = 0; i < currentMap.at(0); i++)
     {
         while(levelDataFile >> block && block != '!'){};
     }
