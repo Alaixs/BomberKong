@@ -33,6 +33,36 @@ for (let i = 0; i < gridSize; i++) {
     }
 }
 
+drawLandmark();
+
+function drawLandmark() {
+  context.strokeStyle = "#FF2020";
+  context.lineWidth = 3; // Épaisseur du trait
+  
+  // Coordonnées des traits
+  const lines = [
+    { startX: 192, startY: 0, endX: 192, endY: 32 },
+    { startX: 224, startY: 0, endX: 224, endY: 32 },
+    { startX: 448, startY: 0, endX: 448, endY: 32 },
+    { startX: 416, startY: 0, endX: 416, endY: 32 },
+    { startX: 192, startY: 640, endX: 192, endY: 608 },
+    { startX: 224, startY: 640, endX: 224, endY: 608 },
+    { startX: 448, startY: 640, endX: 448, endY: 608 },
+    { startX: 416, startY: 640, endX: 416, endY: 608 }
+  ];
+  
+  // Dessiner les traits
+  for (const element of lines) {
+    const line = element;
+    context.beginPath();
+    context.moveTo(line.startX, line.startY);
+    context.lineTo(line.endX, line.endY);
+    context.stroke();
+  }
+  
+}
+
+
 
 function placeElement(e) {
   if (e.buttons) {
@@ -93,6 +123,8 @@ function updateDisplay() {
     {
         drawGrid();
     }
+
+    drawLandmark();
     isSave = false;
 }
 
