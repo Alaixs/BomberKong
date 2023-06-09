@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['deleteallentity_0',['deleteAllEntity',['../classTutorial.html#ace664fc8ca3431b3c4943de6e0f0ba8a',1,'Tutorial']]],
+  ['deleteallentity_0',['deleteAllEntity',['../classGame.html#aa8655918fea9f36caaaef6ffdfc4190b',1,'Game::deleteAllEntity()'],['../classTutorial.html#ace664fc8ca3431b3c4943de6e0f0ba8a',1,'Tutorial::deleteAllEntity()']]],
   ['deleteentity_1',['deleteEntity',['../classEntity.html#a29601f50527cca46e471d8933c8bddd5',1,'Entity']]],
   ['deselect_2',['deselect',['../classGUIElement.html#a3fb463185620179fb4f4cb619d3794f1',1,'GUIElement']]],
   ['donkeykong_3',['DonkeyKong',['../classDonkeyKong.html',1,'DonkeyKong'],['../classDonkeyKong.html#a6aef658b2faf50e69a94022af2a1d9fd',1,'DonkeyKong::DonkeyKong(int posX, int posY)'],['../classDonkeyKong.html#a0cc3b990953d631bbc64c4853eee5c0c',1,'DonkeyKong::DonkeyKong(Coordinate pos)']]],

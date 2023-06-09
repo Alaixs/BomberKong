@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include <fstream>
+#include <QDebug>
 #include "widget.h"
 #include "global.h"
 #include "input.h"

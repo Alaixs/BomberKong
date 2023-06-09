@@ -36,12 +36,6 @@ public:
     void update();
 
     /**
-     * @brief Display the actual Tutorial screen
-     * @param painter : the tools to display
-     */
-    //void draw(QPainter * painter);
-
-    /**
      * @brief Create new entity on Tutorial screen
      * @param entity : the entity to be added
      */

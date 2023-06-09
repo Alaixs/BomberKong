@@ -26,7 +26,7 @@ Inheritance diagram for Tutorial\+:\begin{figure}[H]
 void \mbox{\hyperlink{classTutorial_a79b7dd20a4d1f35e36023a80ce0eec31}{update}} ()
 \begin{DoxyCompactList}\small\item\em Update \mbox{\hyperlink{classTutorial}{Tutorial}} screen (position, sprite, etc) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTutorial_ad42231ae6f444e5ee118bb7ab24c3774}{create\+Entity}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$entity)
-\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classTutorial}{Tutorial}} screen. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Create new entity on \mbox{\hyperlink{classTutorial}{Tutorial}} screen. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classTutorial_ace664fc8ca3431b3c4943de6e0f0ba8a}\label{classTutorial_ace664fc8ca3431b3c4943de6e0f0ba8a}} 
 void {\bfseries delete\+All\+Entity} ()
 \begin{DoxyCompactList}\small\item\em Delete all entities on \mbox{\hyperlink{classTutorial}{Tutorial}} screen. \end{DoxyCompactList}\item 
@@ -64,7 +64,7 @@ void \mbox{\hyperlink{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}{create\+Entit
 \begin{DoxyCompactList}\small\item\em Adds an entity in the list and sets its {\ttfamily parent} property as itself. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classGame_aa8655918fea9f36caaaef6ffdfc4190b}\label{classGame_aa8655918fea9f36caaaef6ffdfc4190b}} 
 void {\bfseries delete\+All\+Entity} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Delete all entities. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}{win}} ()
 \begin{DoxyCompactList}\small\item\em Triggered when the player touches bombergirl. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGame_ae4d19c6393074490bbcf88780946a1ea}{loose}} ()
@@ -155,14 +155,9 @@ Create new \mbox{\hyperlink{classTutorial}{Tutorial}} screen.
 
 
 
-Display the actual \mbox{\hyperlink{classTutorial}{Tutorial}} screen. 
+Create new entity on \mbox{\hyperlink{classTutorial}{Tutorial}} screen. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em painter} & \+: the tools to display\\
-\hline
-\end{DoxyParams}
-Create new entity on \mbox{\hyperlink{classTutorial}{Tutorial}} screen 
 \begin{DoxyParams}{Parameters}
 {\em entity} & \+: the entity to be added \\
 \hline

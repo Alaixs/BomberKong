@@ -1,6 +1,7 @@
 #include "mainmenu.h"
 
 #include <list>
+#include <cmath>
 #include "input.h"
 #include "widget.h"
 #include "global.h"

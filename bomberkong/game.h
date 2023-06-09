@@ -48,6 +48,10 @@ public:
      * @param entity : The entity to create.
      */
     void createEntity(Entity* entity);
+
+    /**
+     * @brief Delete all entities
+     */
     void deleteAllEntity();
 
     /**
