@@ -55,7 +55,7 @@ void MainMenu::update()
         pressStart->isVisible = !(pressStart->isVisible);
     }
 
-    logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*50 + 240));
+    logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*60 + 80));
 
     // Start the tutorial
     if (Input::isActionJustPressed(START))

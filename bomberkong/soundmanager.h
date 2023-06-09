@@ -52,11 +52,13 @@ private:
     ~SoundManager();
 
     /**
-     * @brief Play a Sound In a new Thread
-     * @param soundEffect : the sound choose
-     * @param volume : the volume choose
+     * @brief Play a Sound
+     * @param soundFilePath : path of the sound file
+     * @param volume : the volume to choose
+     * @param looping : flag indicating if the sound should be looped
      */
-    void playSoundInThread(QSoundEffect* soundEffect, qreal volume);
+    void playSound(const QString& soundFilePath, qreal volume, bool looping);
+
     QMap<QString, QSoundEffect*> soundMap;
 
 };
