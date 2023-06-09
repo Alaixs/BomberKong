@@ -27,7 +27,7 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(logo);
 
     // "Press Start" Label
-    pressStart = new GUIElement(Coordinate(140, 620),
+    pressStart = new GUIElement(Coordinate(140, 750),
                                     Coordinate(350, 30),
                                     QString("://assets/sprites/t_press_start.png")
                                 );
@@ -39,6 +39,27 @@ MainMenu::MainMenu(QWidget* widget)
                           QString("://assets/sprites/t_options.png")
                           );
     gui.push_back(options);
+
+    // Tutorial level option
+    choiceTutorial = new GUIElement(Coordinate(190, 400),
+                                Coordinate(256, 64),
+                                QString("://assets/sprites/t_tutorial.png")
+                                );
+    gui.push_back(choiceTutorial);
+
+    // Original level option
+    choiceOriginal = new GUIElement(Coordinate(190, 500),
+                                Coordinate(256, 64),
+                                QString("://assets/sprites/t_original.png")
+                                );
+    gui.push_back(choiceOriginal);
+
+    // Reloaded level option
+    choiceReloaded = new GUIElement(Coordinate(190, 600),
+                                Coordinate(256, 64),
+                                QString("://assets/sprites/t_reloaded.png")
+                                );
+    gui.push_back(choiceReloaded);
 }
 
 MainMenu::~MainMenu()

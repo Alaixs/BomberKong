@@ -16,10 +16,13 @@ private:
     int timer;
     std::list<GUIElement*> gui;
 
-    GUIElement* bg;
-    GUIElement* logo;
-    GUIElement* pressStart;
-    GUIElement* options;
+    GUIElement * bg; ///< The actual Sprite
+    GUIElement * logo; ///< The actual Sprite
+    GUIElement * pressStart; ///< The press start GUI
+    GUIElement * options; ///< The options cogwheel
+    GUIElement * choiceTutorial; ///< The actual Sprite
+    GUIElement * choiceOriginal; ///< The actual Sprite
+    GUIElement * choiceReloaded; ///< The actual Sprite
 
 public:
     /**

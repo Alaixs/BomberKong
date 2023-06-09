@@ -6,7 +6,7 @@
 
 class Wall : public Entity
 {
-    QPixmap sprite;///< The actual Sprite
+    QPixmap sprite; ///< The actual Sprite
 
 public:
     /**
