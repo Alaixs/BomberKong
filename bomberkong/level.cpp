@@ -44,10 +44,6 @@ Level::Level(QWidget* widget)
     gui.push_back(pauseLabel);
 
     restart(); // Initialize the level
-
-    // Set the scrolling limit
-    if (currentLevel == TUTORIAL || currentLevel == ORIGINAL)
-        dynamic_cast<Scene*>(this)->setOffsetLimit(21*cellSize, 21*cellSize);
 }
 
 
@@ -60,6 +56,12 @@ Level::~Level()
     }
 }
 
+void::Level::initScrollingLimit()
+{
+    // Set the scrolling limit
+    if (itsLevelType == TUTORIAL || itsLevelType == ORIGINAL)
+        dynamic_cast<Scene*>(this)->setOffsetLimit(21*cellSize, 21*cellSize);
+}
 
 void Level::update()
 {
@@ -198,7 +200,6 @@ void Level::alternative()
     dynamic_cast<Widget*>(root)->switchScene(5); // Go to the alternative ending
 }
 
-
 void Level::restart()
 {
     deleteAllEntity();
@@ -258,4 +259,15 @@ void Level::restart()
 void Level::createExplosion(int posX, int posY)
 {
     createEntity(new Explosion(posX, posY));
+}
+
+void Level::setItsLevelType(LevelType levelType)
+{
+    itsLevelType = levelType;
+}
+
+
+LevelType Level::getItsLevelType()
+{
+    return itsLevelType;
 }

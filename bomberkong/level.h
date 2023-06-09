@@ -8,6 +8,7 @@
 #include <vector>
 #include <QWidget>
 
+enum LevelType { TUTORIAL, ORIGINAL, RELOADED }; // Enumeration for the different levels type
 
 /**
 * @brief The main scene for the level
@@ -18,6 +19,7 @@ class Level : public Scene
 protected:
     std::list<Entity*> entities;
     std::list<GUIElement*> gui;
+    LevelType itsLevelType;
 
 public:
     GUIElement* pauseLabel;
@@ -93,6 +95,23 @@ public:
      * @param playerLives The number of lives the player currently has
      */
     void updateLivesGUI(int playerLives);
+
+    /**
+     * @brief Set the type of the level
+     * @param levelType A level type
+     */
+    void setItsLevelType(LevelType levelType);
+
+    /**
+     * @brief Getter for the level type
+     * @return The level type
+     */
+    LevelType getItsLevelType();
+
+    /**
+     * @brief Init the scrolling limit based on the level type
+     */
+    void initScrollingLimit();
 
 };
 

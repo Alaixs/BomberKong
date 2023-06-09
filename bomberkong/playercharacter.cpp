@@ -14,8 +14,6 @@
 #include "explosion.h"
 
 
-CURRENT_LVL currentLevel;
-
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
 {
@@ -119,7 +117,7 @@ void PlayerCharacter::update()
         {
             // Restart the current level if the player still have a life
             // Go all the way back to the tutorial otherwise
-            if( currentLevel == ORIGINAL)
+            if(dynamic_cast<Level*>(parent)->getItsLevelType() == ORIGINAL)
             {
                 dynamic_cast<Level*>(parent)->restart();
             }
@@ -166,13 +164,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
-        if(currentLevel == ORIGINAL)
+        if(dynamic_cast<Level*>(parent)->getItsLevelType() == ORIGINAL)
         {
             dynamic_cast<Level*>(parent)->win();
         }
         else
         {
-            currentLevel = TUTORIAL;
+            dynamic_cast<Level*>(parent)->setItsLevelType(ORIGINAL);
             dynamic_cast<Tutorial*>(parent)->nextLvl();
         }
     }

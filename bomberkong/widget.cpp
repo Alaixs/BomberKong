@@ -24,7 +24,6 @@ ui->setupUi(this);
 
     cellSize = 32;
     isPaused = false;
-    currentLevel = TUTORIAL; // Default level choice
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -104,13 +103,15 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 1:
-            currentLevel = TUTORIAL;
             currentScene = new Tutorial(this);
+            dynamic_cast<Level*>(currentScene)->setItsLevelType(TUTORIAL);
+            dynamic_cast<Level*>(currentScene)->initScrollingLimit();
         break;
 
         case 2:
-            currentLevel = ORIGINAL;
             currentScene = new Original(this);
+            dynamic_cast<Level*>(currentScene)->setItsLevelType(ORIGINAL);
+            dynamic_cast<Level*>(currentScene)->initScrollingLimit();
         break;
 
         case 3:

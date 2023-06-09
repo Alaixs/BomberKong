@@ -12,8 +12,4 @@ extern int cellSize;
 
 extern bool isPaused;
 
-enum CURRENT_LVL { TUTORIAL, ORIGINAL, RELOADED }; // Enumeration for the different levels
-
-extern CURRENT_LVL currentLevel;
-
 #endif // GLOBAL_H
