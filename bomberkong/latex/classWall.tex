@@ -13,8 +13,11 @@ Inheritance diagram for Wall\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Create a no playable wall. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classWall_aae355af030ba7122aaa7c1f0744261bb}{Wall}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
 \begin{DoxyCompactList}\small\item\em Create a no playable wall. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWall_a9a2992f2b533e1c160513d1e719f920c}\label{classWall_a9a2992f2b533e1c160513d1e719f920c}} 
+{\bfseries $\sim$\+Wall} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classWall}{Wall}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWall_a0b3d01b870002231711036a0a3bed06d}{update}} ()
-\begin{DoxyCompactList}\small\item\em Update the wall (position, sprite, etc) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em update the wall (position, sprite, etc) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWall_ac7833daaaeff6cad4a4be7ed08a0a66c}{draw}} (QPainter $\ast$painter)
 \begin{DoxyCompactList}\small\item\em Display the actual bomberman. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWall_a5257984919ce328a49630174b77da4f5}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
@@ -28,6 +31,9 @@ QRect \mbox{\hyperlink{classWall_a064f420d42c8372f7ee470c37f92c757}{get\+Rect}} 
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}} 
+virtual {\bfseries $\sim$\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Destructor an \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
 \begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
@@ -156,7 +162,7 @@ Reimplemented from \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682
 
 
 
-Update the wall (position, sprite, etc) 
+update the wall (position, sprite, etc) 
 
 
 

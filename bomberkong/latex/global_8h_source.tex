@@ -1,18 +1,23 @@
 \hypertarget{global_8h_source}{}\doxysection{global.\+h}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00002\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GLOBAL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GLOBAL\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ GLOBAL\_H}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ GLOBAL\_H}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{comment}{//\ define\ the\ cell\ size}}
-\DoxyCodeLine{00008\ \textcolor{comment}{//\ define\ here\ to\ allow\ all\ other\ class\ to\ get\ this}}
-\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ cellSize;}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ define\ the\ cell\ size}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ define\ here\ to\ allow\ all\ other\ class\ to\ get\ this}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ cellSize;}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GLOBAL\_H}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ isPaused;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ wLvl;\ \textcolor{comment}{//\ The\ current\ level}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GLOBAL\_H}}
 
 \end{DoxyCode}

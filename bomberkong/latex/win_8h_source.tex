@@ -9,21 +9,26 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}guielement.h"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}scene.h"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWin}{Win}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScene}{Scene}}}
-\DoxyCodeLine{00013\ \{}
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classWin}{Win}}(QWidget\ *\ widget);}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWin}{Win}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScene}{Scene}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classDummy}{Dummy}}\ *\ bomberman;}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classBomberGirl}{BomberGirl}}\ *\ bombergirl;}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}\ *\ winLabel;}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWin_af8a4e5ed1a092bcd520239d4c3e36cca}{update}}();}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWin_a94023a63b7918bcc6f02e788125e38ef}{draw}}(QPainter*\ painter);}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classWin}{Win}}(QWidget\ *\ widget);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classWin_a2a356df5290c18b5636cbf2a584557c2}{\string~Win}}();}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classDummy}{Dummy}}\ *\ bomberman;}
-\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classBomberGirl}{BomberGirl}}\ *\ bombergirl;}
-\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}\ *\ winLabel;}
-\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWin_af8a4e5ed1a092bcd520239d4c3e36cca}{update}}();}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WIN\_H}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWin_a94023a63b7918bcc6f02e788125e38ef}{draw}}(QPainter*\ painter);}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WIN\_H}}
 
 \end{DoxyCode}

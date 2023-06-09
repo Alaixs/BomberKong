@@ -17,7 +17,12 @@ static void \mbox{\hyperlink{classInput_aced8800671730f14076d0dd0bb3d5d0c}{key\+
 static void \mbox{\hyperlink{classInput_a3ffd61df052aef66d2e67d281b51943c}{key\+Released\+Event}} (QKey\+Event $\ast$event)
 \begin{DoxyCompactList}\small\item\em Called when the user releases a key. \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{classInput_a8399b3cdd264207654f2dbdd26c96133}{is\+Action\+Pressed}} (Actions action)
-\begin{DoxyCompactList}\small\item\em Returns the state of the desired input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the state of the desired input. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classInput_a3ddcca367de3572fe760da2ad881c60d}{is\+Action\+Just\+Pressed}} (Actions action)
+\begin{DoxyCompactList}\small\item\em Returns the state of the desired input IN THIS FRAME ONLY. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInput_afaa3f2c182e4dc8c882ef2a50c99d4c4}\label{classInput_afaa3f2c182e4dc8c882ef2a50c99d4c4}} 
+static void {\bfseries reset\+FLInputs} ()
+\begin{DoxyCompactList}\small\item\em Reset not persistant inputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -26,6 +31,26 @@ The \mbox{\hyperlink{classInput}{Input}} class manages and stores the states of 
 This static class tracks the status of every key used in the game. it is updated at every key event in {\ttfamily widget.\+cpp} and can be used to know if a given key is pressed or not. It is also used to bind keys to specific actions (movements, placing a bomb, etc.) 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInput_a3ddcca367de3572fe760da2ad881c60d}\label{classInput_a3ddcca367de3572fe760da2ad881c60d}} 
+\index{Input@{Input}!isActionJustPressed@{isActionJustPressed}}
+\index{isActionJustPressed@{isActionJustPressed}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{isActionJustPressed()}{isActionJustPressed()}}
+{\footnotesize\ttfamily bool Input\+::is\+Action\+Just\+Pressed (\begin{DoxyParamCaption}\item[{Actions}]{action }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the state of the desired input IN THIS FRAME ONLY. 
+
+Return true if the input was pressedin this exact tick.
+
+
+\begin{DoxyParams}{Parameters}
+{\em action} & \+: the action to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+was the action pressed during this tick 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classInput_a8399b3cdd264207654f2dbdd26c96133}\label{classInput_a8399b3cdd264207654f2dbdd26c96133}} 
 \index{Input@{Input}!isActionPressed@{isActionPressed}}
 \index{isActionPressed@{isActionPressed}!Input@{Input}}
@@ -40,7 +65,7 @@ Returns the state of the desired action (true if pressed, false otherwise). This
 
 
 \begin{DoxyParams}{Parameters}
-{\em action} & \+: the button pressed \\
+{\em action} & \+: the action to check \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

@@ -79,46 +79,48 @@ $(function() {
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;animationmanager.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;soundmanager.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classDummy.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classDummy.html">Dummy</a> : <span class="keyword">public</span> <a class="code hl_class" href="classEntity.html">Entity</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classDummy.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classDummy.html">Dummy</a> : <span class="keyword">public</span> <a class="code hl_class" href="classEntity.html">Entity</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="classDummy.html">Dummy</a>(<span class="keywordtype">int</span> posX, <span class="keywordtype">int</span> posY);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="classDummy.html">Dummy</a>(<a class="code hl_class" href="classCoordinate.html">Coordinate</a> <a class="code hl_variable" href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">pos</a>);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#a17bf3ea64fe39533b524e5f79808041d">update</a>();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#afafbadf3e3d722b0177a77f235af3501">draw</a>(QPainter * painter);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#ad240a18fb14a3b2a94ab10c360ae0f6b">loseThemeSfx</a>();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classDummy.html#a3a07b7128289d7824c4c166d47b21ac6">   47</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#a3a07b7128289d7824c4c166d47b21ac6">stopAllSounds</a>();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classDummy.html#a74f7d4de0a3e2a5ad94b03d54121c4e7">   50</a></span>    <a class="code hl_class" href="classSoundManager.html">SoundManager</a>* <a class="code hl_variable" href="classDummy.html#a74f7d4de0a3e2a5ad94b03d54121c4e7">soundManager</a>; </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    QRect <a class="code hl_function" href="classDummy.html#a9d316f0b758eb094b01febf59f15208d">getRect</a>();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    QPixmap sprite;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classAnimationManager.html">AnimationManager</a> animation; </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">int</span> timer; </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">// DUMMY_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    QPixmap sprite;              </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="classAnimationManager.html">AnimationManager</a>* animation; </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> timer;                   </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="classSoundManager.html">SoundManager</a>* soundManager;  </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="classDummy.html">Dummy</a>(<span class="keywordtype">int</span> posX, <span class="keywordtype">int</span> posY);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="classDummy.html">Dummy</a>(<a class="code hl_class" href="classCoordinate.html">Coordinate</a> <a class="code hl_variable" href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">pos</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="classDummy.html#a88fb47ca786c06692deb9602b1724ff3">~Dummy</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#a17bf3ea64fe39533b524e5f79808041d">update</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#afafbadf3e3d722b0177a77f235af3501">draw</a>(QPainter * painter);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#ad240a18fb14a3b2a94ab10c360ae0f6b">loseThemeSfx</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classDummy.html#a3a07b7128289d7824c4c166d47b21ac6">   59</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDummy.html#a3a07b7128289d7824c4c166d47b21ac6">stopAllSounds</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    QRect <a class="code hl_function" href="classDummy.html#a9d316f0b758eb094b01febf59f15208d">getRect</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">// DUMMY_H</span></div>
 <div class="ttc" id="aclassAnimationManager_html"><div class="ttname"><a href="classAnimationManager.html">AnimationManager</a></div><div class="ttdoc">The AnimationManager class is used to track the current frame index in a spritesheet.</div><div class="ttdef"><b>Definition:</b> animationmanager.h:9</div></div>
 <div class="ttc" id="aclassCoordinate_html"><div class="ttname"><a href="classCoordinate.html">Coordinate</a></div><div class="ttdoc">The Coordinate class, stores a value for both X and Y axis.</div><div class="ttdef"><b>Definition:</b> coordinate.h:11</div></div>
-<div class="ttc" id="aclassDummy_html"><div class="ttname"><a href="classDummy.html">Dummy</a></div><div class="ttdoc">The class of Dummy entiy, the entity you can see but who have no move.</div><div class="ttdef"><b>Definition:</b> dummy.h:12</div></div>
-<div class="ttc" id="aclassDummy_html_a17bf3ea64fe39533b524e5f79808041d"><div class="ttname"><a href="classDummy.html#a17bf3ea64fe39533b524e5f79808041d">Dummy::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">update the bomberman (position, sprite, etc)</div><div class="ttdef"><b>Definition:</b> dummy.cpp:27</div></div>
+<div class="ttc" id="aclassDummy_html"><div class="ttname"><a href="classDummy.html">Dummy</a></div><div class="ttdoc">The class of Dummy entiy, the entity you can see but who have no move.</div><div class="ttdef"><b>Definition:</b> dummy.h:13</div></div>
+<div class="ttc" id="aclassDummy_html_a17bf3ea64fe39533b524e5f79808041d"><div class="ttname"><a href="classDummy.html#a17bf3ea64fe39533b524e5f79808041d">Dummy::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">update the bomberman (position, sprite, etc)</div><div class="ttdef"><b>Definition:</b> dummy.cpp:33</div></div>
 <div class="ttc" id="aclassDummy_html_a3a07b7128289d7824c4c166d47b21ac6"><div class="ttname"><a href="classDummy.html#a3a07b7128289d7824c4c166d47b21ac6">Dummy::stopAllSounds</a></div><div class="ttdeci">void stopAllSounds()</div><div class="ttdoc">Stop all the Sound.</div></div>
-<div class="ttc" id="aclassDummy_html_a74f7d4de0a3e2a5ad94b03d54121c4e7"><div class="ttname"><a href="classDummy.html#a74f7d4de0a3e2a5ad94b03d54121c4e7">Dummy::soundManager</a></div><div class="ttdeci">SoundManager * soundManager</div><div class="ttdoc">The defeat's sound.</div><div class="ttdef"><b>Definition:</b> dummy.h:50</div></div>
-<div class="ttc" id="aclassDummy_html_a9d316f0b758eb094b01febf59f15208d"><div class="ttname"><a href="classDummy.html#a9d316f0b758eb094b01febf59f15208d">Dummy::getRect</a></div><div class="ttdeci">QRect getRect()</div><div class="ttdoc">create the hitboxe</div><div class="ttdef"><b>Definition:</b> dummy.cpp:51</div></div>
-<div class="ttc" id="aclassDummy_html_ad240a18fb14a3b2a94ab10c360ae0f6b"><div class="ttname"><a href="classDummy.html#ad240a18fb14a3b2a94ab10c360ae0f6b">Dummy::loseThemeSfx</a></div><div class="ttdeci">void loseThemeSfx()</div><div class="ttdoc">make a sound for the defeat</div><div class="ttdef"><b>Definition:</b> dummy.cpp:46</div></div>
-<div class="ttc" id="aclassDummy_html_afafbadf3e3d722b0177a77f235af3501"><div class="ttname"><a href="classDummy.html#afafbadf3e3d722b0177a77f235af3501">Dummy::draw</a></div><div class="ttdeci">void draw(QPainter *painter)</div><div class="ttdoc">Display the actual bomberman.</div><div class="ttdef"><b>Definition:</b> dummy.cpp:33</div></div>
+<div class="ttc" id="aclassDummy_html_a88fb47ca786c06692deb9602b1724ff3"><div class="ttname"><a href="classDummy.html#a88fb47ca786c06692deb9602b1724ff3">Dummy::~Dummy</a></div><div class="ttdeci">~Dummy()</div><div class="ttdoc">Destructor for a Character object.</div><div class="ttdef"><b>Definition:</b> dummy.cpp:27</div></div>
+<div class="ttc" id="aclassDummy_html_a9d316f0b758eb094b01febf59f15208d"><div class="ttname"><a href="classDummy.html#a9d316f0b758eb094b01febf59f15208d">Dummy::getRect</a></div><div class="ttdeci">QRect getRect()</div><div class="ttdoc">create the hitboxe</div><div class="ttdef"><b>Definition:</b> dummy.cpp:58</div></div>
+<div class="ttc" id="aclassDummy_html_ad240a18fb14a3b2a94ab10c360ae0f6b"><div class="ttname"><a href="classDummy.html#ad240a18fb14a3b2a94ab10c360ae0f6b">Dummy::loseThemeSfx</a></div><div class="ttdeci">void loseThemeSfx()</div><div class="ttdoc">make a sound for the defeat</div><div class="ttdef"><b>Definition:</b> dummy.cpp:52</div></div>
+<div class="ttc" id="aclassDummy_html_afafbadf3e3d722b0177a77f235af3501"><div class="ttname"><a href="classDummy.html#afafbadf3e3d722b0177a77f235af3501">Dummy::draw</a></div><div class="ttdeci">void draw(QPainter *painter)</div><div class="ttdoc">Display the actual bomberman.</div><div class="ttdef"><b>Definition:</b> dummy.cpp:39</div></div>
 <div class="ttc" id="aclassEntity_html"><div class="ttname"><a href="classEntity.html">Entity</a></div><div class="ttdoc">An entity present in the game world.</div><div class="ttdef"><b>Definition:</b> entity.h:19</div></div>
 <div class="ttc" id="aclassEntity_html_ac135006c51fb3384b5b4624224d6e375"><div class="ttname"><a href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">Entity::pos</a></div><div class="ttdeci">Coordinate pos</div><div class="ttdoc">The coordinate of the entity.</div><div class="ttdef"><b>Definition:</b> entity.h:25</div></div>
-<div class="ttc" id="aclassSoundManager_html"><div class="ttname"><a href="classSoundManager.html">SoundManager</a></div><div class="ttdoc">The class to manage any sound on game.</div><div class="ttdef"><b>Definition:</b> soundmanager.h:13</div></div>
+<div class="ttc" id="aclassSoundManager_html"><div class="ttname"><a href="classSoundManager.html">SoundManager</a></div><div class="ttdoc">The class to manage any sound on game.</div><div class="ttdef"><b>Definition:</b> soundmanager.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

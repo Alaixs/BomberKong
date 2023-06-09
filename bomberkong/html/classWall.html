@@ -93,8 +93,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aae355af030ba7122aaa7c1f0744261bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWall.html#aae355af030ba7122aaa7c1f0744261bb">Wall</a> (<a class="el" href="classCoordinate.html">Coordinate</a> <a class="el" href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">pos</a>)</td></tr>
 <tr class="memdesc:aae355af030ba7122aaa7c1f0744261bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a no playable wall.  <br /></td></tr>
 <tr class="separator:aae355af030ba7122aaa7c1f0744261bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a2992f2b533e1c160513d1e719f920c"><td class="memItemLeft" align="right" valign="top"><a id="a9a2992f2b533e1c160513d1e719f920c" name="a9a2992f2b533e1c160513d1e719f920c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~Wall</b> ()</td></tr>
+<tr class="memdesc:a9a2992f2b533e1c160513d1e719f920c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for a <a class="el" href="classWall.html">Wall</a> object. <br /></td></tr>
+<tr class="separator:a9a2992f2b533e1c160513d1e719f920c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3d01b870002231711036a0a3bed06d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWall.html#a0b3d01b870002231711036a0a3bed06d">update</a> ()</td></tr>
-<tr class="memdesc:a0b3d01b870002231711036a0a3bed06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the wall (position, sprite, etc)  <br /></td></tr>
+<tr class="memdesc:a0b3d01b870002231711036a0a3bed06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the wall (position, sprite, etc)  <br /></td></tr>
 <tr class="separator:a0b3d01b870002231711036a0a3bed06d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7833daaaeff6cad4a4be7ed08a0a66c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWall.html#ac7833daaaeff6cad4a4be7ed08a0a66c">draw</a> (QPainter *painter)</td></tr>
 <tr class="memdesc:ac7833daaaeff6cad4a4be7ed08a0a66c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the actual bomberman.  <br /></td></tr>
@@ -112,6 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3420da33ab4810a9216aaf4d495cdd2 inherit pub_methods_classEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEntity.html#ae3420da33ab4810a9216aaf4d495cdd2">Entity</a> (<a class="el" href="classCoordinate.html">Coordinate</a> <a class="el" href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">pos</a>)</td></tr>
 <tr class="memdesc:ae3420da33ab4810a9216aaf4d495cdd2 inherit pub_methods_classEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classEntity.html" title="An entity present in the game world.">Entity</a> object.  <br /></td></tr>
 <tr class="separator:ae3420da33ab4810a9216aaf4d495cdd2 inherit pub_methods_classEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_classEntity"><td class="memItemLeft" align="right" valign="top"><a id="adf6d3f7cb1b2ba029b6b048a395cc8ae" name="adf6d3f7cb1b2ba029b6b048a395cc8ae"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Entity</b> ()</td></tr>
+<tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_classEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor an <a class="el" href="classEntity.html" title="An entity present in the game world.">Entity</a> object. <br /></td></tr>
+<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_classEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf6c7c31d2206c51dbc7bf30d80e225f inherit pub_methods_classEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEntity.html#aaf6c7c31d2206c51dbc7bf30d80e225f">setParent</a> (<a class="el" href="classScene.html">Scene</a> *newParent)</td></tr>
 <tr class="memdesc:aaf6c7c31d2206c51dbc7bf30d80e225f inherit pub_methods_classEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the parent property to a pointer to the main widget.  <br /></td></tr>
 <tr class="separator:aaf6c7c31d2206c51dbc7bf30d80e225f inherit pub_methods_classEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -340,7 +348,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Update the wall (position, sprite, etc) </p>
+<p>update the wall (position, sprite, etc) </p>
 
 <p>Implements <a class="el" href="classEntity.html#a59a29d9b7474baf13c9c76859242287d">Entity</a>.</p>
 

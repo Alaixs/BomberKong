@@ -15,14 +15,18 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
-
+/**
+ * @brief The enum of game's state
+ */
 enum gameState{
     MENU,
     RUNNING,
     PAUSED
 };
 
-
+/**
+ * @brief The enum of scene
+ */
 enum Scenes {
     MAIN_MENU,
     LEVEL1

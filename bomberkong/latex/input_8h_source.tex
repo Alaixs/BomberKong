@@ -4,42 +4,44 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INPUT\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INPUT\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QKeyEvent>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QKeyEvent>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{comment}{//\ [Arrow\ Keys]\ :\ Move\ character}}
-\DoxyCodeLine{00010\ \textcolor{comment}{//\ [K]\ :\ Place\ bomb}}
-\DoxyCodeLine{00011\ \textcolor{comment}{//\ [L]\ :\ Push\ bomb}}
-\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ [Arrow\ Keys]\ :\ Move\ character}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ [W]\ :\ Place\ bomb}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ [X]\ :\ Push\ bomb}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ [SPACE]\ :\ Start}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ [ESC]\ :\ Pause}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{enum}\ Actions\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ MOVE\_UP,}
-\DoxyCodeLine{00016\ \ \ \ \ MOVE\_DOWN,}
-\DoxyCodeLine{00017\ \ \ \ \ MOVE\_LEFT,}
-\DoxyCodeLine{00018\ \ \ \ \ MOVE\_RIGHT,}
-\DoxyCodeLine{00019\ \ \ \ \ PLACE\_BOMB,}
-\DoxyCodeLine{00020\ \ \ \ \ PUSH\_BOMB,}
-\DoxyCodeLine{00021\ \ \ \ \ PAUSE}
-\DoxyCodeLine{00022\ \};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classInput}{Input}}}
-\DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInput_aced8800671730f14076d0dd0bb3d5d0c}{keyPressedEvent}}(QKeyEvent\ *\ event);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInput_a3ffd61df052aef66d2e67d281b51943c}{keyReleasedEvent}}(QKeyEvent\ *\ event);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInput_a8399b3cdd264207654f2dbdd26c96133}{isActionPressed}}(Actions\ action);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{enum}\ Actions\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ MOVE\_UP,}
+\DoxyCodeLine{00019\ \ \ \ \ MOVE\_DOWN,}
+\DoxyCodeLine{00020\ \ \ \ \ MOVE\_LEFT,}
+\DoxyCodeLine{00021\ \ \ \ \ MOVE\_RIGHT,}
+\DoxyCodeLine{00022\ \ \ \ \ PLACE\_BOMB,}
+\DoxyCodeLine{00023\ \ \ \ \ PUSH\_BOMB,}
+\DoxyCodeLine{00024\ \ \ \ \ START,}
+\DoxyCodeLine{00025\ \ \ \ \ PAUSE}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classInput}{Input}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInput_aced8800671730f14076d0dd0bb3d5d0c}{keyPressedEvent}}(QKeyEvent\ *\ event);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInput_a3ffd61df052aef66d2e67d281b51943c}{keyReleasedEvent}}(QKeyEvent\ *\ event);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInput_a8399b3cdd264207654f2dbdd26c96133}{isActionPressed}}(Actions\ action);}
 \DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INPUT\_H}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInput_a3ddcca367de3572fe760da2ad881c60d}{isActionJustPressed}}(Actions\ action);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInput_afaa3f2c182e4dc8c882ef2a50c99d4c4}{resetFLInputs}}();}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INPUT\_H}}
 
 \end{DoxyCode}

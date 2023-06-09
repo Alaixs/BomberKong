@@ -92,11 +92,54 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8399b3cdd264207654f2dbdd26c96133"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a8399b3cdd264207654f2dbdd26c96133">isActionPressed</a> (Actions action)</td></tr>
 <tr class="memdesc:a8399b3cdd264207654f2dbdd26c96133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the desired input.  <br /></td></tr>
 <tr class="separator:a8399b3cdd264207654f2dbdd26c96133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ddcca367de3572fe760da2ad881c60d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInput.html#a3ddcca367de3572fe760da2ad881c60d">isActionJustPressed</a> (Actions action)</td></tr>
+<tr class="memdesc:a3ddcca367de3572fe760da2ad881c60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the desired input IN THIS FRAME ONLY.  <br /></td></tr>
+<tr class="separator:a3ddcca367de3572fe760da2ad881c60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa3f2c182e4dc8c882ef2a50c99d4c4"><td class="memItemLeft" align="right" valign="top"><a id="afaa3f2c182e4dc8c882ef2a50c99d4c4" name="afaa3f2c182e4dc8c882ef2a50c99d4c4"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>resetFLInputs</b> ()</td></tr>
+<tr class="memdesc:afaa3f2c182e4dc8c882ef2a50c99d4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset not persistant inputs. <br /></td></tr>
+<tr class="separator:afaa3f2c182e4dc8c882ef2a50c99d4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classInput.html" title="The Input class manages and stores the states of every key used in the game.">Input</a> class manages and stores the states of every key used in the game. </p>
 <p>This static class tracks the status of every key used in the game. it is updated at every key event in <code>widget.cpp</code> and can be used to know if a given key is pressed or not. It is also used to bind keys to specific actions (movements, placing a bomb, etc.) </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3ddcca367de3572fe760da2ad881c60d" name="a3ddcca367de3572fe760da2ad881c60d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ddcca367de3572fe760da2ad881c60d">&#9670;&#160;</a></span>isActionJustPressed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Input::isActionJustPressed </td>
+          <td>(</td>
+          <td class="paramtype">Actions&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the state of the desired input IN THIS FRAME ONLY. </p>
+<p>Return true if the input was pressedin this exact tick.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>: the action to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>was the action pressed during this tick </dd></dl>
+
+</div>
+</div>
 <a id="a8399b3cdd264207654f2dbdd26c96133" name="a8399b3cdd264207654f2dbdd26c96133"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8399b3cdd264207654f2dbdd26c96133">&#9670;&#160;</a></span>isActionPressed()</h2>
 
@@ -125,7 +168,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns the state of the desired action (true if pressed, false otherwise). This method is used in every script where keyboard inputs are needed. e.g. if (Input::isActionPressed(MOVE_UP)) { // Do stuff... }</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">action</td><td>: the button pressed </td></tr>
+    <tr><td class="paramname">action</td><td>: the action to check </td></tr>
   </table>
   </dd>
 </dl>

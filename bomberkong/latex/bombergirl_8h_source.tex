@@ -7,25 +7,29 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBomberGirl}{BomberGirl}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
-\DoxyCodeLine{00008\ \{}
-\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classBomberGirl}{BomberGirl}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBomberGirl}{BomberGirl}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ QPixmap\ sprite;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}*\ animation;\ }
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classBomberGirl}{BomberGirl}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}});}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomberGirl_ab98aa1e05121dab16976a87bff013b76}{update}}();}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomberGirl_a4dc67b800315a2b8e9dcf084d4b62b32}{draw}}(QPainter\ *\ painter);}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00040\ \ \ \ \ QRect\ \mbox{\hyperlink{classBomberGirl_a1086bce547a3fb215627a14bf84ace54}{getRect}}();}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00043\ \ \ \ \ QPixmap\ sprite;}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}\ animation;}
-\DoxyCodeLine{00045\ \};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BOMBERGIRL\_H}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classBomberGirl}{BomberGirl}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classBomberGirl}{BomberGirl}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classBomberGirl_ae80eb3f2ce5d326ad5c5f88f2a245efa}{\string~BomberGirl}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomberGirl_ab98aa1e05121dab16976a87bff013b76}{update}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomberGirl_a4dc67b800315a2b8e9dcf084d4b62b32}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ QRect\ \mbox{\hyperlink{classBomberGirl_a1086bce547a3fb215627a14bf84ace54}{getRect}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BOMBERGIRL\_H}}
 
 \end{DoxyCode}

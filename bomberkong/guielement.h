@@ -35,6 +35,9 @@ public:
      */
     GUIElement(int posX, int posY);
 
+    /**
+     * @brief Virtual destructor for GUI elements
+     */
     virtual ~GUIElement();
 
     /**

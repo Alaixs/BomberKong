@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['loadsound_0',['loadSound',['../classSoundManager.html#a04866878bed6309bfb1082fd400bed58',1,'SoundManager']]],
-  ['loose_1',['Loose',['../classLoose.html#aebcd8742b60e8b205b3cc49a7117979d',1,'Loose']]],
-  ['losethemesfx_2',['loseThemeSfx',['../classDummy.html#ad240a18fb14a3b2a94ab10c360ae0f6b',1,'Dummy::loseThemeSfx()'],['../classPlayerCharacter.html#a7e11d41a98984400beb01b9594e51c7d',1,'PlayerCharacter::loseThemeSfx()']]]
+  ['keypressedevent_0',['keyPressedEvent',['../classInput.html#aced8800671730f14076d0dd0bb3d5d0c',1,'Input']]],
+  ['keypressevent_1',['keyPressEvent',['../classWidget.html#ade67ec18ce1f19544e59dc2a45e643ea',1,'Widget']]],
+  ['keyreleasedevent_2',['keyReleasedEvent',['../classInput.html#a3ffd61df052aef66d2e67d281b51943c',1,'Input']]],
+  ['keyreleaseevent_3',['keyReleaseEvent',['../classWidget.html#a30c1cadb7882d7b0376aae739cd67ecf',1,'Widget']]]
 ];

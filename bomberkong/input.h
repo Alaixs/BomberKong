@@ -11,7 +11,9 @@
 // [SPACE] : Start
 // [ESC] : Pause
 
-
+/**
+ * @brief The enum of button press
+ */
 enum Actions {
     MOVE_UP,
     MOVE_DOWN,
@@ -82,6 +84,9 @@ public:
      */
     static bool isActionJustPressed(Actions action);
 
+    /**
+     * @brief Reset not persistant inputs
+     */
     static void resetFLInputs();
 };
 

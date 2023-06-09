@@ -71,7 +71,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classDummy-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Dummy Class Reference</div></div>
 </div><!--header-->
@@ -99,6 +98,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0ad6e1860e88398eaae300b025861f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDummy.html#ac0ad6e1860e88398eaae300b025861f4">Dummy</a> (<a class="el" href="classCoordinate.html">Coordinate</a> <a class="el" href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">pos</a>)</td></tr>
 <tr class="memdesc:ac0ad6e1860e88398eaae300b025861f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a no playable Bomberman.  <br /></td></tr>
 <tr class="separator:ac0ad6e1860e88398eaae300b025861f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88fb47ca786c06692deb9602b1724ff3"><td class="memItemLeft" align="right" valign="top"><a id="a88fb47ca786c06692deb9602b1724ff3" name="a88fb47ca786c06692deb9602b1724ff3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~Dummy</b> ()</td></tr>
+<tr class="memdesc:a88fb47ca786c06692deb9602b1724ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for a Character object. <br /></td></tr>
+<tr class="separator:a88fb47ca786c06692deb9602b1724ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17bf3ea64fe39533b524e5f79808041d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDummy.html#a17bf3ea64fe39533b524e5f79808041d">update</a> ()</td></tr>
 <tr class="memdesc:a17bf3ea64fe39533b524e5f79808041d"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the bomberman (position, sprite, etc)  <br /></td></tr>
 <tr class="separator:a17bf3ea64fe39533b524e5f79808041d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,6 +126,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>stopAllSounds</b> ()<
 <tr class="memitem:ae3420da33ab4810a9216aaf4d495cdd2 inherit pub_methods_classEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEntity.html#ae3420da33ab4810a9216aaf4d495cdd2">Entity</a> (<a class="el" href="classCoordinate.html">Coordinate</a> <a class="el" href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">pos</a>)</td></tr>
 <tr class="memdesc:ae3420da33ab4810a9216aaf4d495cdd2 inherit pub_methods_classEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classEntity.html" title="An entity present in the game world.">Entity</a> object.  <br /></td></tr>
 <tr class="separator:ae3420da33ab4810a9216aaf4d495cdd2 inherit pub_methods_classEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_classEntity"><td class="memItemLeft" align="right" valign="top"><a id="adf6d3f7cb1b2ba029b6b048a395cc8ae" name="adf6d3f7cb1b2ba029b6b048a395cc8ae"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Entity</b> ()</td></tr>
+<tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_classEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor an <a class="el" href="classEntity.html" title="An entity present in the game world.">Entity</a> object. <br /></td></tr>
+<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_classEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf6c7c31d2206c51dbc7bf30d80e225f inherit pub_methods_classEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEntity.html#aaf6c7c31d2206c51dbc7bf30d80e225f">setParent</a> (<a class="el" href="classScene.html">Scene</a> *newParent)</td></tr>
 <tr class="memdesc:aaf6c7c31d2206c51dbc7bf30d80e225f inherit pub_methods_classEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the parent property to a pointer to the main widget.  <br /></td></tr>
 <tr class="separator:aaf6c7c31d2206c51dbc7bf30d80e225f inherit pub_methods_classEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,13 +155,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteEntity</b> ()</
 <tr class="memitem:a5795f0a16b73c98365c7811d4052682e inherit pub_methods_classEntity"><td class="memItemLeft" align="right" valign="top">virtual QRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEntity.html#a5795f0a16b73c98365c7811d4052682e">getRect</a> ()</td></tr>
 <tr class="memdesc:a5795f0a16b73c98365c7811d4052682e inherit pub_methods_classEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">getRect get the rectangle of the entity  <br /></td></tr>
 <tr class="separator:a5795f0a16b73c98365c7811d4052682e inherit pub_methods_classEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a74f7d4de0a3e2a5ad94b03d54121c4e7"><td class="memItemLeft" align="right" valign="top"><a id="a74f7d4de0a3e2a5ad94b03d54121c4e7" name="a74f7d4de0a3e2a5ad94b03d54121c4e7"></a>
-<a class="el" href="classSoundManager.html">SoundManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>soundManager</b></td></tr>
-<tr class="memdesc:a74f7d4de0a3e2a5ad94b03d54121c4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The defeat's sound. <br /></td></tr>
-<tr class="separator:a74f7d4de0a3e2a5ad94b03d54121c4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>

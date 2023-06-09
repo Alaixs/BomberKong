@@ -80,35 +80,35 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classWall.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classWall.html">Wall</a> : <span class="keyword">public</span> <a class="code hl_class" href="classEntity.html">Entity</a></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    QPixmap sprite;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="classWall.html">Wall</a>(<span class="keywordtype">int</span> posX, <span class="keywordtype">int</span> posY);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="classWall.html">Wall</a>(<a class="code hl_class" href="classCoordinate.html">Coordinate</a> <a class="code hl_variable" href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">pos</a>);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWall.html#a0b3d01b870002231711036a0a3bed06d">update</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="classWall.html#a9a2992f2b533e1c160513d1e719f920c">~Wall</a>();</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWall.html#ac7833daaaeff6cad4a4be7ed08a0a66c">draw</a>(QPainter * painter);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWall.html#a5257984919ce328a49630174b77da4f5">collisionEvent</a>(<a class="code hl_class" href="classEntity.html">Entity</a> * body);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    QRect <a class="code hl_function" href="classWall.html#a064f420d42c8372f7ee470c37f92c757">getRect</a>();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    QPixmap sprite;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWall.html#a0b3d01b870002231711036a0a3bed06d">update</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWall.html#ac7833daaaeff6cad4a4be7ed08a0a66c">draw</a>(QPainter * painter);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classWall.html#a5257984919ce328a49630174b77da4f5">collisionEvent</a>(<a class="code hl_class" href="classEntity.html">Entity</a> * body);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    QRect <a class="code hl_function" href="classWall.html#a064f420d42c8372f7ee470c37f92c757">getRect</a>();</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif </span><span class="comment">// WALL_H</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif </span><span class="comment">// WALL_H</span></div>
 <div class="ttc" id="aclassCoordinate_html"><div class="ttname"><a href="classCoordinate.html">Coordinate</a></div><div class="ttdoc">The Coordinate class, stores a value for both X and Y axis.</div><div class="ttdef"><b>Definition:</b> coordinate.h:11</div></div>
 <div class="ttc" id="aclassEntity_html"><div class="ttname"><a href="classEntity.html">Entity</a></div><div class="ttdoc">An entity present in the game world.</div><div class="ttdef"><b>Definition:</b> entity.h:19</div></div>
 <div class="ttc" id="aclassEntity_html_ac135006c51fb3384b5b4624224d6e375"><div class="ttname"><a href="classEntity.html#ac135006c51fb3384b5b4624224d6e375">Entity::pos</a></div><div class="ttdeci">Coordinate pos</div><div class="ttdoc">The coordinate of the entity.</div><div class="ttdef"><b>Definition:</b> entity.h:25</div></div>
 <div class="ttc" id="aclassWall_html"><div class="ttname"><a href="classWall.html">Wall</a></div><div class="ttdef"><b>Definition:</b> wall.h:8</div></div>
-<div class="ttc" id="aclassWall_html_a064f420d42c8372f7ee470c37f92c757"><div class="ttname"><a href="classWall.html#a064f420d42c8372f7ee470c37f92c757">Wall::getRect</a></div><div class="ttdeci">QRect getRect()</div><div class="ttdoc">Create the hitboxe.</div><div class="ttdef"><b>Definition:</b> wall.cpp:48</div></div>
-<div class="ttc" id="aclassWall_html_a0b3d01b870002231711036a0a3bed06d"><div class="ttname"><a href="classWall.html#a0b3d01b870002231711036a0a3bed06d">Wall::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Update the wall (position, sprite, etc)</div><div class="ttdef"><b>Definition:</b> wall.cpp:23</div></div>
-<div class="ttc" id="aclassWall_html_a5257984919ce328a49630174b77da4f5"><div class="ttname"><a href="classWall.html#a5257984919ce328a49630174b77da4f5">Wall::collisionEvent</a></div><div class="ttdeci">void collisionEvent(Entity *body)</div><div class="ttdoc">Detect and react for the collision with other entities.</div><div class="ttdef"><b>Definition:</b> wall.cpp:39</div></div>
-<div class="ttc" id="aclassWall_html_ac7833daaaeff6cad4a4be7ed08a0a66c"><div class="ttname"><a href="classWall.html#ac7833daaaeff6cad4a4be7ed08a0a66c">Wall::draw</a></div><div class="ttdeci">void draw(QPainter *painter)</div><div class="ttdoc">Display the actual bomberman.</div><div class="ttdef"><b>Definition:</b> wall.cpp:29</div></div>
+<div class="ttc" id="aclassWall_html_a064f420d42c8372f7ee470c37f92c757"><div class="ttname"><a href="classWall.html#a064f420d42c8372f7ee470c37f92c757">Wall::getRect</a></div><div class="ttdeci">QRect getRect()</div><div class="ttdoc">Create the hitboxe.</div><div class="ttdef"><b>Definition:</b> wall.cpp:46</div></div>
+<div class="ttc" id="aclassWall_html_a0b3d01b870002231711036a0a3bed06d"><div class="ttname"><a href="classWall.html#a0b3d01b870002231711036a0a3bed06d">Wall::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">update the wall (position, sprite, etc)</div><div class="ttdef"><b>Definition:</b> wall.cpp:24</div></div>
+<div class="ttc" id="aclassWall_html_a5257984919ce328a49630174b77da4f5"><div class="ttname"><a href="classWall.html#a5257984919ce328a49630174b77da4f5">Wall::collisionEvent</a></div><div class="ttdeci">void collisionEvent(Entity *body)</div><div class="ttdoc">Detect and react for the collision with other entities.</div><div class="ttdef"><b>Definition:</b> wall.cpp:37</div></div>
+<div class="ttc" id="aclassWall_html_a9a2992f2b533e1c160513d1e719f920c"><div class="ttname"><a href="classWall.html#a9a2992f2b533e1c160513d1e719f920c">Wall::~Wall</a></div><div class="ttdeci">~Wall()</div><div class="ttdoc">Destructor for a Wall object.</div><div class="ttdef"><b>Definition:</b> wall.cpp:21</div></div>
+<div class="ttc" id="aclassWall_html_ac7833daaaeff6cad4a4be7ed08a0a66c"><div class="ttname"><a href="classWall.html#ac7833daaaeff6cad4a4be7ed08a0a66c">Wall::draw</a></div><div class="ttdeci">void draw(QPainter *painter)</div><div class="ttdoc">Display the actual bomberman.</div><div class="ttdef"><b>Definition:</b> wall.cpp:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

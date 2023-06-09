@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../classScene.html#a98e9e3e2780cf760b36e048af46479fd',1,'Scene']]],
-  ['select_1',['select',['../classGUIElement.html#a17c2be2f463c3e7e6ae4f629b575f3f5',1,'GUIElement']]],
-  ['setinterval_2',['setInterval',['../classAnimationManager.html#a62b4e6f7b7f09aa38c5a14f5b2ad15b9',1,'AnimationManager']]],
-  ['setparent_3',['setParent',['../classEntity.html#aaf6c7c31d2206c51dbc7bf30d80e225f',1,'Entity']]],
-  ['stopallsounds_4',['stopAllSounds',['../classDummy.html#a3a07b7128289d7824c4c166d47b21ac6',1,'Dummy::stopAllSounds()'],['../classPlayerCharacter.html#a26f58375871edba379f5200faf0945bb',1,'PlayerCharacter::stopAllSounds()'],['../classSoundManager.html#ae1838019fe2b6407ef697b81527ae3a8',1,'SoundManager::stopAllSounds()']]],
-  ['switchscene_5',['switchScene',['../classWidget.html#a7199689a3f6f6c6f2854b284b899b085',1,'Widget']]]
+  ['operator_2a_0',['operator*',['../classCoordinate.html#a33b3450dbf20b35b966fffbe1f0581d5',1,'Coordinate']]],
+  ['operator_2a_3d_1',['operator*=',['../classCoordinate.html#ab1154178cb2eeda88245a666cd8580d0',1,'Coordinate']]],
+  ['operator_2b_2',['operator+',['../classCoordinate.html#add33de8f6ad9c6aee33002a7db09b9b0',1,'Coordinate']]],
+  ['operator_2b_3d_3',['operator+=',['../classCoordinate.html#abc50c33c8dc62b98e2dfd5ba6bf8e3b0',1,'Coordinate']]],
+  ['operator_2d_4',['operator-',['../classCoordinate.html#a09288887530d6823afc312d941e9317f',1,'Coordinate']]],
+  ['operator_2d_3d_5',['operator-=',['../classCoordinate.html#a632b4accdcddf1efa733757d4e4bfcdd',1,'Coordinate']]],
+  ['operator_2f_6',['operator/',['../classCoordinate.html#aaf4f20c18f828f42a8297c68b6a81e60',1,'Coordinate']]],
+  ['operator_2f_3d_7',['operator/=',['../classCoordinate.html#a72464f892cef1af4e9469d102f0d9819',1,'Coordinate']]]
 ];

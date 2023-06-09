@@ -16,8 +16,13 @@ The \mbox{\hyperlink{classGUIElement}{GUIElement}} class, elements of GUI you wi
 \begin{DoxyCompactList}\small\item\em Create a GUI element. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGUIElement_a40d6ec2128e6a9cba5aa43ea9eaecbde}{GUIElement}} (int posX, int posY)
 \begin{DoxyCompactList}\small\item\em Create a GUI element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGUIElement_a96d6728fa2a9e92a5a0fe6481dfcae15}\label{classGUIElement_a96d6728fa2a9e92a5a0fe6481dfcae15}} 
+virtual {\bfseries $\sim$\+GUIElement} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for GUI elements. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classGUIElement_aaa34316b857056faebb10b9c2a62a8da}{get\+Pos}} ()
 \begin{DoxyCompactList}\small\item\em Returns the position of the element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGUIElement_a37456848dcdbd23734604fa49f8c0268}{set\+Pos}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the element. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classGUIElement_ae1b4959c0f202ce99d8150e6123a1ef6}{draw}} (QPainter $\ast$painter)
 \begin{DoxyCompactList}\small\item\em Displays the element. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classGUIElement_a17c2be2f463c3e7e6ae4f629b575f3f5}\label{classGUIElement_a17c2be2f463c3e7e6ae4f629b575f3f5}} 
@@ -154,6 +159,21 @@ Move the element on the screen.
 {\em trX} & \+: the x value to move \\
 \hline
 {\em trY} & \+: the y value to move \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGUIElement_a37456848dcdbd23734604fa49f8c0268}\label{classGUIElement_a37456848dcdbd23734604fa49f8c0268}} 
+\index{GUIElement@{GUIElement}!setPos@{setPos}}
+\index{setPos@{setPos}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}}
+{\footnotesize\ttfamily void GUIElement\+::set\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Sets the position of the element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \+: the new position of the element \\
 \hline
 \end{DoxyParams}
 

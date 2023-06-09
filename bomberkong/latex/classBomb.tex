@@ -22,6 +22,9 @@ Inheritance diagram for Bomb\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classBomb}{Bomb}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classBomb_a3b76c1e91411128e8e534e0d93f6378b}{Bomb}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} position)
 \begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classBomb}{Bomb}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBomb_acbb47327cfb2fa429887774ef3597965}\label{classBomb_acbb47327cfb2fa429887774ef3597965}} 
+{\bfseries $\sim$\+Bomb} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classBomb}{Bomb}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBomb_a6fa3577a6653276f456aff457062fbc1}{update}} ()
 \begin{DoxyCompactList}\small\item\em update the bomb (position, sprite, etc) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBomb_af83966c06693c17461f6368d1423fbe2}{draw}} (QPainter $\ast$painter)
@@ -40,6 +43,9 @@ QRect \mbox{\hyperlink{classBomb_a3f4f324bfe0725f4d0c5d5d3439dc86d}{get\+Rect}} 
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}} 
+virtual {\bfseries $\sim$\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Destructor an \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
 \begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
@@ -57,12 +63,6 @@ virtual void \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{col
 \begin{DoxyCompactList}\small\item\em collision\+Event \end{DoxyCompactList}\item 
 virtual QRect \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{get\+Rect}} ()
 \begin{DoxyCompactList}\small\item\em get\+Rect get the rectangle of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classBomb_a9664533aa5968a88fc440fc052b71a4d}\label{classBomb_a9664533aa5968a88fc440fc052b71a4d}} 
-\mbox{\hyperlink{classSoundManager}{Sound\+Manager}} $\ast$ {\bfseries sound\+Manager}
-\begin{DoxyCompactList}\small\item\em The explosion\textquotesingle{}s sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classEntity}{Entity}}}
 \begin{DoxyCompactItemize}

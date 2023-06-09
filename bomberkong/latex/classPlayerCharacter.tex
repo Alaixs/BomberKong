@@ -22,8 +22,11 @@ Inheritance diagram for Player\+Character\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Create a playable character. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPlayerCharacter_a321f91e515267e8af6ee9bfa01cadab4}{Player\+Character}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
 \begin{DoxyCompactList}\small\item\em Create a playable character. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayerCharacter_a4915330a9f743156b6860a97e6d68e28}\label{classPlayerCharacter_a4915330a9f743156b6860a97e6d68e28}} 
+{\bfseries $\sim$\+Player\+Character} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classPlayerCharacter}{Player\+Character}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlayerCharacter_a6a0338ab611988c7ace3f14d82bad13e}{update}} ()
-\begin{DoxyCompactList}\small\item\em Update bomberman (position, sprite, etc) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em update bomberman (position, sprite, etc) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlayerCharacter_a398f7fafa4bacc5be50759b6f8094e9f}{draw}} (QPainter $\ast$painter)
 \begin{DoxyCompactList}\small\item\em Display the actual Bomberman\textquotesingle{}s sprite. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlayerCharacter_a6dd871613ddefc988569724edc6cbc2d}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
@@ -49,6 +52,9 @@ QRect \mbox{\hyperlink{classPlayerCharacter_a093f145232e5c1820ae1b31caea0a319}{g
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}} 
+virtual {\bfseries $\sim$\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Destructor an \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
 \begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
@@ -189,7 +195,7 @@ Reimplemented from \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682
 
 
 
-Update bomberman (position, sprite, etc) 
+update bomberman (position, sprite, etc) 
 
 
 

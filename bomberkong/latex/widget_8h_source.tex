@@ -18,56 +18,58 @@
 \DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }Ui\ \{\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWidget}{Widget}};\ \}}
 \DoxyCodeLine{00016\ QT\_END\_NAMESPACE}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{enum}\ gameState\{}
-\DoxyCodeLine{00019\ \ \ \ \ MENU,}
-\DoxyCodeLine{00020\ \ \ \ \ RUNNING,}
-\DoxyCodeLine{00021\ \ \ \ \ PAUSED}
-\DoxyCodeLine{00022\ \};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{enum}\ Scenes\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ MAIN\_MENU,}
-\DoxyCodeLine{00026\ \ \ \ \ LEVEL1}
-\DoxyCodeLine{00027\ \};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWidget}{Widget}}\ :\ \textcolor{keyword}{public}\ QWidget}
-\DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00021\ \textcolor{keyword}{enum}\ gameState\{}
+\DoxyCodeLine{00022\ \ \ \ \ MENU,}
+\DoxyCodeLine{00023\ \ \ \ \ RUNNING,}
+\DoxyCodeLine{00024\ \ \ \ \ PAUSED}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{enum}\ Scenes\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ MAIN\_MENU,}
+\DoxyCodeLine{00032\ \ \ \ \ LEVEL1}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classWidget}{Widget}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classWidget_aa24f66bcbaaec6d458b0980e8c8eae65}{\string~Widget}}();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ QTimer\ \mbox{\hyperlink{classWidget_a1e340126e183972073e6086090b483b6}{timer}};\ }
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_ade67ec18ce1f19544e59dc2a45e643ea}{keyPressEvent}}(QKeyEvent\ *\ ev);}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_a30c1cadb7882d7b0376aae739cd67ecf}{keyReleaseEvent}}(QKeyEvent\ *\ ev);}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ wMap;}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ gameState\ state\ =\ MENU;}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_a9681ad5c4f8c7d5a6d0e33c7958b156f}{createExplosion}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWidget}{Widget}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classWidget}{Widget}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classWidget_aa24f66bcbaaec6d458b0980e8c8eae65}{\string~Widget}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ QTimer\ \mbox{\hyperlink{classWidget_a1e340126e183972073e6086090b483b6}{timer}};\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_ade67ec18ce1f19544e59dc2a45e643ea}{keyPressEvent}}(QKeyEvent\ *\ ev);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_a30c1cadb7882d7b0376aae739cd67ecf}{keyReleaseEvent}}(QKeyEvent\ *\ ev);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ wMap;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ gameState\ state\ =\ MENU;}
 \DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classSoundManager}{SoundManager}}*\ soundManager;}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_a7199689a3f6f6c6f2854b284b899b085}{switchScene}}(\textcolor{keywordtype}{int}\ sceneId);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_a9681ad5c4f8c7d5a6d0e33c7958b156f}{createExplosion}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classSoundManager}{SoundManager}}*\ soundManager;}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00090\ \ \ \ \ Ui::Widget\ *ui;}
-\DoxyCodeLine{00091\ \ \ \ \ std::list<Entity*>\ entities;\ }
-\DoxyCodeLine{00092\ \ \ \ \ std::list<GUIElement*>\ gui;}
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ isWin\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWidget_a7199689a3f6f6c6f2854b284b899b085}{switchScene}}(\textcolor{keywordtype}{int}\ sceneId);}
 \DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classScene}{Scene}}*\ currentScene;\ }
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{keyword}{private}\ slots:}
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ gameUpdate();}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ paintEvent(QPaintEvent\ *);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \};}
-\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WIDGET\_H}}
+\DoxyCodeLine{00095\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ \ \ \ \ Ui::Widget\ *ui;}
+\DoxyCodeLine{00097\ \ \ \ \ std::list<Entity*>\ entities;\ }
+\DoxyCodeLine{00098\ \ \ \ \ std::list<GUIElement*>\ gui;}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ isWin\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classScene}{Scene}}*\ currentScene;\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ gameUpdate();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ paintEvent(QPaintEvent\ *);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WIDGET\_H}}
 
 \end{DoxyCode}

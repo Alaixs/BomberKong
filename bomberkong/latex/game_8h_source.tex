@@ -11,33 +11,40 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QWidget>}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGame}{Game}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScene}{Scene}}}
-\DoxyCodeLine{00012\ \{}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classGame}{Game}}(QWidget*\ widget);}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classGame}{\string~Game}}();}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{update}}();}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_ad31fd2049121bc16060ac65bbc20ef51}{draw}}(QPainter*\ painter);}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGame}{Game}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScene}{Scene}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::list<Entity*>\ entities;}
+\DoxyCodeLine{00019\ \ \ \ \ std::list<GUIElement*>\ gui;}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ createEntity(\mbox{\hyperlink{classEntity}{Entity}}*\ entity);}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteAllEntity();}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ win();}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ loose();}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ alternative();}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ createExplosion(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ restart();}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}*\ pauseLabel;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ wMap;\ \textcolor{comment}{//\ Which\ map\ is\ currently\ displayed}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classGame}{Game}}(QWidget*\ widget);}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ wMap;}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \ \ std::list<Entity*>\ entities;}
-\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}\ *\ startLabel;}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAME\_H}}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classGame_ae3d112ca6e0e55150d2fdbc704474530}{\string~Game}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{update}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_ad31fd2049121bc16060ac65bbc20ef51}{draw}}(QPainter*\ painter);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}{createEntity}}(\mbox{\hyperlink{classEntity}{Entity}}*\ entity);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteAllEntity();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}{win}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_ae4d19c6393074490bbcf88780946a1ea}{loose}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_ad3b78673fd148ef9731f00a9d82ebcd3}{alternative}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a8b08f09f1faa16cc843930870afe4912}{createExplosion}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_aeb468737e1495cfcfbf512cfdc751117}{restart}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAME\_H}}
 
 \end{DoxyCode}

@@ -22,6 +22,9 @@ Inheritance diagram for Dummy\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Create a no playable Bomberman. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classDummy_ac0ad6e1860e88398eaae300b025861f4}{Dummy}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
 \begin{DoxyCompactList}\small\item\em Create a no playable Bomberman. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDummy_a88fb47ca786c06692deb9602b1724ff3}\label{classDummy_a88fb47ca786c06692deb9602b1724ff3}} 
+{\bfseries $\sim$\+Dummy} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a Character object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classDummy_a17bf3ea64fe39533b524e5f79808041d}{update}} ()
 \begin{DoxyCompactList}\small\item\em update the bomberman (position, sprite, etc) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classDummy_afafbadf3e3d722b0177a77f235af3501}{draw}} (QPainter $\ast$painter)
@@ -41,6 +44,9 @@ QRect \mbox{\hyperlink{classDummy_a9d316f0b758eb094b01febf59f15208d}{get\+Rect}}
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}} 
+virtual {\bfseries $\sim$\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Destructor an \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
 \begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
@@ -58,12 +64,6 @@ virtual void \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{col
 \begin{DoxyCompactList}\small\item\em collision\+Event \end{DoxyCompactList}\item 
 virtual QRect \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{get\+Rect}} ()
 \begin{DoxyCompactList}\small\item\em get\+Rect get the rectangle of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classDummy_a74f7d4de0a3e2a5ad94b03d54121c4e7}\label{classDummy_a74f7d4de0a3e2a5ad94b03d54121c4e7}} 
-\mbox{\hyperlink{classSoundManager}{Sound\+Manager}} $\ast$ {\bfseries sound\+Manager}
-\begin{DoxyCompactList}\small\item\em The defeat\textquotesingle{}s sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classEntity}{Entity}}}
 \begin{DoxyCompactItemize}

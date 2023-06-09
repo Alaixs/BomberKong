@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timer_0',['timer',['../classDonkeyKong.html#a24e26a72a3f679f8ae259c38f4e71656',1,'DonkeyKong::timer()'],['../classWidget.html#a1e340126e183972073e6086090b483b6',1,'Widget::timer()']]]
+  ['resetflinputs_0',['resetFLInputs',['../classInput.html#afaa3f2c182e4dc8c882ef2a50c99d4c4',1,'Input']]],
+  ['restart_1',['restart',['../classGame.html#aeb468737e1495cfcfbf512cfdc751117',1,'Game::restart()'],['../classTutorial.html#af297a33959c8899b6d82ee7ae0de89fc',1,'Tutorial::restart()']]]
 ];

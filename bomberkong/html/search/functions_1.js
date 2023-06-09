@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['collisionevent_0',['collisionEvent',['../classBomb.html#a9277edfd464eca3b53e8baf4b00ae028',1,'Bomb::collisionEvent()'],['../classEntity.html#aa2f2a18cc35fb6c1a159b12efe715d8b',1,'Entity::collisionEvent()'],['../classPlayerCharacter.html#a6dd871613ddefc988569724edc6cbc2d',1,'PlayerCharacter::collisionEvent()'],['../classWall.html#a5257984919ce328a49630174b77da4f5',1,'Wall::collisionEvent()']]],
-  ['coordinate_1',['Coordinate',['../classCoordinate.html#aac6f323a685fc1e88fbea9c86f1e600d',1,'Coordinate::Coordinate()'],['../classCoordinate.html#a18eba5ba5d28f4410955e514124c8b19',1,'Coordinate::Coordinate(int xVal, int yVal)']]],
-  ['createexplosion_2',['createExplosion',['../classWidget.html#a9681ad5c4f8c7d5a6d0e33c7958b156f',1,'Widget']]]
+  ['barrel_0',['Barrel',['../classBarrel.html#a3c3832eef4b25a725b7c125a6efe5c53',1,'Barrel::Barrel(int posX, int posY)'],['../classBarrel.html#a3310e09e06a80c1d5f1c2cbb9982b55b',1,'Barrel::Barrel(Coordinate pos)']]],
+  ['bomb_1',['Bomb',['../classBomb.html#a9999be51f7aad1c43b8fe3527b7c1f5b',1,'Bomb::Bomb(int posX, int posY)'],['../classBomb.html#a3b76c1e91411128e8e534e0d93f6378b',1,'Bomb::Bomb(Coordinate position)']]],
+  ['bombergirl_2',['BomberGirl',['../classBomberGirl.html#abef0cb564ba1733a12369bbe4b3c76f1',1,'BomberGirl::BomberGirl(int posX, int posY)'],['../classBomberGirl.html#a13f22f07b9916df6341afc7212f3bf5d',1,'BomberGirl::BomberGirl(Coordinate pos)']]]
 ];

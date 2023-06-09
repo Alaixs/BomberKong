@@ -26,9 +26,21 @@ public:
     * @brief The main scene for the level
     */
     Game(QWidget* widget);
+
+    /**
+     * @brief Destructor of the level
+     */
     ~Game();
 
+    /**
+     * @brief Update the level's items
+     */
     void update();
+
+    /**
+     * @brief Display the actual barrel
+     * @param painter : the tools to display
+     */
     void draw(QPainter* painter);
 
     /**
