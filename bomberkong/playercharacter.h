@@ -19,7 +19,7 @@ private:
     bool flipped;                ///< False = left, True = false
     bool isKO;                   ///< is the character KO, he is not controllable if true
     int timer;                   ///< init timer
-    int nbLive;
+    int nbLives;                 ///< The player's current lives count
 
 public:
     /**

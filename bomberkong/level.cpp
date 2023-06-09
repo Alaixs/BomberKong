@@ -20,6 +20,21 @@ Level::Level(QWidget* widget)
 
     currentMap = rand() % 3; // Select a random map
 
+    // Add 3 hearts inside the GUI list to display them on screen
+    int x = 10, y = 10;
+    for (int i = 0; i != 3; i++)
+    {
+        gui.push_back
+            (
+                new GUIElement(
+                Coordinate(x, y),
+                Coordinate(32, 32),
+                "://assets/sprites/t_full_heart.png"
+            )
+        );
+        x += 40;
+    }
+
     pauseLabel = new GUIElement(
         Coordinate(140, 620),
         Coordinate(350, 30),
@@ -85,6 +100,14 @@ void Level::update()
     }
 }
 
+void Level::updateLivesGUI(int playerLives)
+{
+    qDebug("Called !");
+    for (int i = 0; i != 3; i++)
+    {
+
+    }
+}
 
 void Level::draw(QPainter* painter)
 {
@@ -114,7 +137,7 @@ void Level::draw(QPainter* painter)
         }
     }
 
-    // Draws entities below the GUI
+    // Draws all the entities on screen
     std::list<Entity*>::iterator it = entities.begin();
     while (it != entities.end())
     {
@@ -122,6 +145,7 @@ void Level::draw(QPainter* painter)
         it++;
     }
 
+    // Draws every GUI elements on the screen
     std::list<GUIElement*>::iterator gui_it = gui.begin();
     while (gui_it != gui.end())
     {

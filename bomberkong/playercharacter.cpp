@@ -24,7 +24,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     animation->play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive = 2;
+    nbLives = 2;
     isKO = false;
 }
 
@@ -37,7 +37,7 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     animation->play(0, 4);
     speed = 2;
     timer = 0;
-    nbLive = 2;
+    nbLives = 2;
     isKO = false;
 }
 
@@ -107,7 +107,7 @@ void PlayerCharacter::update()
 
     if (Input::isActionJustPressed(START))
     {
-        if (nbLive > -1)
+        if (nbLives > -1)
         {
             // Restart the current level if the player still have a life
             // Go all the way back to the tutorial otherwise
@@ -150,8 +150,9 @@ void PlayerCharacter::collisionEvent(Entity * body)
     {
         if (isKO) { return; } // Doesn't take damage if already KO
 
-        nbLive--;
+        nbLives--;
         isKO = true;
+        dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives);
     }
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)

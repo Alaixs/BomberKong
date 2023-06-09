@@ -23,5 +23,7 @@
         <file>assets/maps/BAS_Reloaded.bkmap</file>
         <file>assets/maps/MILIEU_Reloaded.bkmap</file>
         <file>assets/maps/HAUT_Reloaded.bkmap</file>
+        <file>assets/sprites/t_empty_heart.png</file>
+        <file>assets/sprites/t_full_heart.png</file>
     </qresource>
 </RCC>
