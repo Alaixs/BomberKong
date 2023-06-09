@@ -19,13 +19,14 @@ SOURCES += \
     donkeykong.cpp \
     dummy.cpp \
     explosion.cpp \
-    game.cpp \
+    level.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
     loose.cpp \
     main.cpp \
     mainmenu.cpp \
+    original.cpp \
     playercharacter.cpp \
     scene.cpp \
     soundmanager.cpp \
@@ -38,7 +39,7 @@ SOURCES += \
 HEADERS += \
     alternative.h \
     dummy.h \
-    game.h \
+    level.h \
     global.h \
     animationmanager.h \
     barrel.h \
@@ -51,6 +52,7 @@ HEADERS += \
     input.h \
     loose.h \
     mainmenu.h \
+    original.h \
     playercharacter.h \
     scene.h \
     soundmanager.h \

@@ -1,4 +1,4 @@
-#include "game.h"
+#include "level.h"
 
 #include <fstream>
 #include <QDebug>
@@ -13,7 +13,7 @@
 #include "explosion.h"
 
 
-Original::Original(QWidget* widget)
+Level::Level(QWidget* widget)
     : Scene(widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
@@ -32,19 +32,17 @@ Original::Original(QWidget* widget)
 }
 
 
-Game::~Game()
+Level::~Level()
 {
-    /*
     while (entities.size() != 0)
     {
         delete entities.back();
         entities.pop_back();
     }
-    */
 }
 
 
-void Game::update()
+void Level::update()
 {
     // Displays the pause GUI if the game is paused
     if (isPaused)
@@ -88,7 +86,7 @@ void Game::update()
 }
 
 
-void Game::draw(QPainter* painter)
+void Level::draw(QPainter* painter)
 {
     // Draws a background in a checkerboard pattern
     for(int i = 0; i < 20; i++)
@@ -133,14 +131,14 @@ void Game::draw(QPainter* painter)
 }
 
 
-void Game::createEntity(Entity* entity)
+void Level::createEntity(Entity* entity)
 {
     entity->setParent(this);
     entities.push_back(entity);
 }
 
 
-void Game::deleteAllEntity()
+void Level::deleteAllEntity()
 {
     // Delete an entity until the list isn't empty (keeps only the player character)
     while(entities.size() != 1)
@@ -151,24 +149,24 @@ void Game::deleteAllEntity()
 }
 
 
-void Game::win()
+void Level::win()
 {
     dynamic_cast<Widget*>(root)->switchScene(3); // Go to the victory screen
 }
 
 
-void Game::loose()
+void Level::loose()
 {
     dynamic_cast<Widget*>(root)->switchScene(4); // Go the the game over screen
 }
 
-void Game::alternative()
+void Level::alternative()
 {
     dynamic_cast<Widget*>(root)->switchScene(5); // Go to the alternative ending
 }
 
 
-void Game::restart()
+void Level::restart()
 {
     deleteAllEntity();
 
@@ -224,7 +222,7 @@ void Game::restart()
 }
 
 
-void Game::createExplosion(int posX, int posY)
+void Level::createExplosion(int posX, int posY)
 {
     createEntity(new Explosion(posX, posY));
 }

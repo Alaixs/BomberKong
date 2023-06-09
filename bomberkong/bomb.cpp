@@ -2,7 +2,7 @@
 
 #include "global.h"
 #include "input.h"
-#include "game.h"
+#include "level.h"
 #include "wall.h"
 #include "playercharacter.h"
 #include "coordinate.h"
@@ -49,11 +49,11 @@ void Bomb::update()
     // Create explosions in a + pattern around the bomb and disappear
     if (timer == 0)
     {
-        dynamic_cast<Game*>(parent)->createExplosion(pos.x, pos.y);
-        dynamic_cast<Game*>(parent)->createExplosion(pos.x + cellSize, pos.y);
-        dynamic_cast<Game*>(parent)->createExplosion(pos.x - cellSize, pos.y);
-        dynamic_cast<Game*>(parent)->createExplosion(pos.x, pos.y + cellSize);
-        dynamic_cast<Game*>(parent)->createExplosion(pos.x, pos.y - cellSize);
+        dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y);
+        dynamic_cast<Level*>(parent)->createExplosion(pos.x + cellSize, pos.y);
+        dynamic_cast<Level*>(parent)->createExplosion(pos.x - cellSize, pos.y);
+        dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y + cellSize);
+        dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y - cellSize);
 
         deleteEntity();
         explosionSfx();

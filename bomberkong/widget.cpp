@@ -95,7 +95,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::switchScene(int sceneId)
 {
-    //Scene * temp = currentScene;
+    Scene * temp = currentScene;
 
     switch (sceneId)
     {
@@ -108,7 +108,7 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 2:
-            currentScene = new Game(this);
+            currentScene = new Level(this);
         break;
 
         case 3:
@@ -124,5 +124,5 @@ void Widget::switchScene(int sceneId)
         break;
     }
 
-    //delete temp;
+    delete temp;
 }

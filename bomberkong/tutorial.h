@@ -4,7 +4,7 @@
 #include "guielement.h"
 #include "scene.h"
 #include "entity.h"
-#include "game.h"
+#include "level.h"
 #include <list>
 #include <QWidget>
 
@@ -12,7 +12,7 @@
 /**
  * @brief The class of tutorial screen
  */
-class Tutorial : public Game
+class Tutorial : public Level
 {
 
 public:

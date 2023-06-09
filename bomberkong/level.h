@@ -15,12 +15,12 @@ class Level : public Scene
 {
 
 protected:
-    std::list<Entity*> entities; ///< The list of the level entity
-    std::list<GUIElement*> gui; ///< Delete the entity if false
+    std::list<Entity*> entities;
+    std::list<GUIElement*> gui;
 
 public:
     GUIElement* pauseLabel;
-    int whichMap; // Which map is currently displayed
+    int wMap; // Which map is currently displayed
 
     /**
     * @brief The main scene for the level
