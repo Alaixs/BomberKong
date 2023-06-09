@@ -56,6 +56,6 @@ void Loose::draw(QPainter * painter)
         }
     }
 
-    dk->draw(painter);
+    //dk->draw(painter);
     go->draw(painter);
 }

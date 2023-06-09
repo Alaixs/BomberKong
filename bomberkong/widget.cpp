@@ -108,7 +108,7 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 2:
-            currentScene = new Original(this);
+            currentScene = new Tutorial(this);
         break;
 
         case 3:

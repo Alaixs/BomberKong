@@ -103,9 +103,10 @@ void Level::update()
 void Level::updateLivesGUI(int playerLives)
 {
     int i = 0;
+    // Iterate the first three elements (the hearts)
     for (std::list<GUIElement*>::iterator it = gui.begin(); it != gui.end() && i < 3; it++)
     {
-        if (i > playerLives)
+        if (i > playerLives) // The player number of lives is less than i
         {
             (*it)->texture.load("://assets/sprites/t_empty_heart.png");
         }

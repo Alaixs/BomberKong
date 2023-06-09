@@ -153,12 +153,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
         nbLives--;
         isKO = true;
-        dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives);
+
+        dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
     }
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
-        if( currentLevel == 1)
+        if(currentLevel == 1)
         {
             dynamic_cast<Level*>(parent)->win();
         }
