@@ -4,7 +4,7 @@
 #include "soundmanager.h"
 #include "input.h"
 #include "global.h"
-#include "game.h"
+#include "level.h"
 #include "bombergirl.h"
 #include "indestructiblewall.h"
 #include "tutorial.h"

@@ -102,10 +102,14 @@ void Level::update()
 
 void Level::updateLivesGUI(int playerLives)
 {
-    qDebug("Called !");
-    for (int i = 0; i != 3; i++)
+    int i = 0;
+    for (std::list<GUIElement*>::iterator it = gui.begin(); it != gui.end() && i < 3; it++)
     {
-
+        if (i > playerLives)
+        {
+            (*it)->texture.load("://assets/sprites/t_empty_heart.png");
+        }
+        i++;
     }
 }
 

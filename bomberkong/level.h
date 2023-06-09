@@ -1,5 +1,5 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef LEVEL_H
+#define LEVEL_H
 
 #include "guielement.h"
 #include "scene.h"
@@ -96,4 +96,4 @@ public:
 
 };
 
-#endif // GAME_H
+#endif // LEVEL_H

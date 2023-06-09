@@ -14,10 +14,10 @@ class GUIElement
 protected:
     Coordinate pos;
     Coordinate size;
-    QPixmap texture;
     bool isSelected;
 
 public:
+    QPixmap texture;
     bool isVisible;
 
     /**
