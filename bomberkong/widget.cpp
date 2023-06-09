@@ -24,7 +24,7 @@ ui->setupUi(this);
 
     cellSize = 32;
     isPaused = false;
-    currentLevel = 0;
+    currentLevel = TUTORIAL; // Default level
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -104,10 +104,12 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 1:
+            currentLevel = TUTORIAL;
             currentScene = new Tutorial(this);
         break;
 
         case 2:
+            currentLevel = ORIGINAL;
             currentScene = new Original(this);
         break;
 

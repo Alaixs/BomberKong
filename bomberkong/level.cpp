@@ -103,7 +103,7 @@ void Level::update()
 void Level::updateLivesGUI(int playerLives)
 {
     int i = 0;
-    // Iterate the first three elements (the hearts)
+    // Iterate the first three elements of the gui list (the hearts)
     for (std::list<GUIElement*>::iterator it = gui.begin(); it != gui.end() && i < 3; it++)
     {
         if (i > playerLives) // The player number of lives is less than i

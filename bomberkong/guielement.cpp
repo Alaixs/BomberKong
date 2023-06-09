@@ -51,6 +51,10 @@ void GUIElement::deselect()
     isSelected = false;
 }
 
+bool GUIElement::isElementSelected()
+{
+    return isSelected;
+}
 
 void GUIElement::draw(QPainter * painter)
 {

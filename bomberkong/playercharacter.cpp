@@ -14,7 +14,7 @@
 #include "explosion.h"
 
 
-int currentLevel;
+CURRENT_LVL currentLevel;
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
@@ -112,7 +112,7 @@ void PlayerCharacter::update()
         {
             // Restart the current level if the player still have a life
             // Go all the way back to the tutorial otherwise
-            if( currentLevel == 1)
+            if( currentLevel == ORIGINAL)
             {
                 dynamic_cast<Level*>(parent)->restart();
             }
@@ -159,13 +159,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
-        if(currentLevel == 1)
+        if(currentLevel == ORIGINAL)
         {
             dynamic_cast<Level*>(parent)->win();
         }
         else
         {
-            currentLevel = 1;
+            currentLevel = TUTORIAL;
             dynamic_cast<Tutorial*>(parent)->nextLvl();
         }
     }
@@ -212,7 +212,7 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
+    //SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
 }
 
 void PlayerCharacter::loseThemeSfx()
