@@ -44,6 +44,10 @@ Level::Level(QWidget* widget)
     gui.push_back(pauseLabel);
 
     restart(); // Initialize the level
+
+    // Set the scrolling limit
+    if (currentLevel == TUTORIAL || currentLevel == ORIGINAL)
+        dynamic_cast<Scene*>(this)->setOffsetLimit(21*cellSize, 21*cellSize);
 }
 
 

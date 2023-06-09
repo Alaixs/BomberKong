@@ -89,49 +89,49 @@ void MainMenu::update()
 
     if (timer %  8 == 0) // Another method should be used to prevent the "super sonic" choice change...
     {
-    if (Input::isActionPressed(MOVE_DOWN))
-    {
-        if (choiceTutorial->isElementSelected())
+        if (Input::isActionPressed(MOVE_DOWN))
         {
-            choiceTutorial->deselect();
-            choiceOriginal->select();
-            qDebug("Original selected");
+            if (choiceTutorial->isElementSelected())
+            {
+                choiceTutorial->deselect();
+                choiceOriginal->select();
+                qDebug("Original selected");
+            }
+            else if (choiceOriginal->isElementSelected())
+            {
+                choiceOriginal->deselect();
+                choiceReloaded->select();
+                qDebug("Reloaded selected");
+            }
+            else if (choiceReloaded->isElementSelected())
+            {
+                choiceReloaded->deselect();
+                choiceTutorial->select();
+                qDebug("Tutorial selected");
+            }
         }
-        else if (choiceOriginal->isElementSelected())
-        {
-            choiceOriginal->deselect();
-            choiceReloaded->select();
-            qDebug("Reloaded selected");
-        }
-        else if (choiceReloaded->isElementSelected())
-        {
-            choiceReloaded->deselect();
-            choiceTutorial->select();
-            qDebug("Tutorial selected");
-        }
-    }
 
-    if (Input::isActionPressed(MOVE_UP))
-    {
-        if (choiceTutorial->isElementSelected())
+        if (Input::isActionPressed(MOVE_UP))
         {
-            choiceTutorial->deselect();
-            choiceReloaded->select();
-            qDebug("Reloaded selected");
+            if (choiceTutorial->isElementSelected())
+            {
+                choiceTutorial->deselect();
+                choiceReloaded->select();
+                qDebug("Reloaded selected");
+            }
+            else if (choiceOriginal->isElementSelected())
+            {
+                choiceOriginal->deselect();
+                choiceTutorial->select();
+                qDebug("Tutorial selected");
+            }
+            else if (choiceReloaded->isElementSelected())
+            {
+                choiceReloaded->deselect();
+                choiceOriginal->select();
+                qDebug("Original selected");
+            }
         }
-        else if (choiceOriginal->isElementSelected())
-        {
-            choiceOriginal->deselect();
-            choiceTutorial->select();
-            qDebug("Tutorial selected");
-        }
-        else if (choiceReloaded->isElementSelected())
-        {
-            choiceReloaded->deselect();
-            choiceOriginal->select();
-            qDebug("Original selected");
-        }
-    }
     }
 
     if (Input::isActionJustPressed(START)) // The player pressed space to start the game

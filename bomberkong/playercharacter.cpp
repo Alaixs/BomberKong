@@ -85,7 +85,14 @@ void PlayerCharacter::update()
     }
 
     pos += motion * speed;
-    dynamic_cast<Scene*>(parent)->setCameraOffset(pos);
+
+
+
+    if (pos.y >= dynamic_cast<Scene*>(parent)->getItsLowerLimit() // Prevent the scrolling from going under
+        && pos.y <= dynamic_cast<Scene*>(parent)->getItsUpperLimit()) // and above the level
+    {
+        dynamic_cast<Scene*>(parent)->setCameraOffset(pos-Coordinate(0,256)); // Manage the scrolling
+    }
 
     if(timer >= 0)
         timer--;

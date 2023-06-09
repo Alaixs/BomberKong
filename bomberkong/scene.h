@@ -16,6 +16,8 @@ class Scene
 protected:
     QWidget* root;
     Coordinate cameraOffset;
+    int itsLowerLimit; ///< The scrolling lower limit
+    int itsUpperLimit; ///< The scrolling upper limit
 
 public:
     /**
@@ -45,6 +47,25 @@ public:
      * @param offset
      */
     void setCameraOffset(Coordinate offset);
+
+    /**
+     * @brief Set the scrolling offset limit
+     * @param lowerLimit The lower offset limit
+     * @param upperLimit The upper offset limit
+     */
+    void setOffsetLimit(int lowerLimit, int upperLimit);
+
+    /**
+     * @brief Getter for the scrolling lower limit
+     * @return The scrolling lower limit
+     */
+    int getItsLowerLimit();
+
+    /**
+     * @brief Getter for the scrolling upper limit
+     * @return The scrolling upper limit
+     */
+    int getItsUpperLimit();
 
     Coordinate getCameraOffset();
 
