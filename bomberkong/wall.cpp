@@ -26,8 +26,9 @@ void Wall::update() {}
 
 void Wall::draw(QPainter * painter)
 {
+    Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
     painter->drawPixmap(
-        QRect(pos.x, pos.y, cellSize, cellSize),
+        QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
         sprite,
         QRect(16, 0, 16, 16)
     );

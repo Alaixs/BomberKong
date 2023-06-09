@@ -71,8 +71,9 @@ void DonkeyKong::update()
 
 void DonkeyKong::draw(QPainter* painter)
 {
+    Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
     painter->drawPixmap(
-        QRect(pos.x, pos.y, 4 * cellSize, 4 * cellSize),
+        QRect(pos.x, pos.y - offset.y + 416, cellSize * 4, cellSize * 4),
         sprite,
         QRect(animation->getFrame() * 64, 0, 64, 64)
     );

@@ -1,6 +1,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include "coordinate.h"
 #include <list>
 #include <QPainter>
 #include <QWidget>
@@ -14,6 +15,7 @@ class Scene
 
 protected:
     QWidget* root;
+    Coordinate cameraOffset;
 
 public:
     /**
@@ -37,6 +39,14 @@ public:
      * @param painter : the tools to display
      */
     virtual void draw(QPainter* painter) = 0;
+
+    /**
+     * @brief setCameraOffset
+     * @param offset
+     */
+    void setCameraOffset(Coordinate offset);
+
+    Coordinate getCameraOffset();
 
 };
 
