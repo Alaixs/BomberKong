@@ -1,0 +1,184 @@
+\hypertarget{classGUIElement}{}\doxysection{GUIElement Class Reference}
+\label{classGUIElement}\index{GUIElement@{GUIElement}}
+
+
+The \mbox{\hyperlink{classGUIElement}{GUIElement}} class, elements of GUI you will see on menu.  
+
+
+
+
+{\ttfamily \#include $<$guielement.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGUIElement_acec2734c4af867df9e8b2a78ba348f3a}{GUIElement}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} position, \mbox{\hyperlink{classCoordinate}{Coordinate}} new\+Size, QString source)
+\begin{DoxyCompactList}\small\item\em Create a GUI element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGUIElement_a40d6ec2128e6a9cba5aa43ea9eaecbde}{GUIElement}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create a GUI element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGUIElement_a96d6728fa2a9e92a5a0fe6481dfcae15}\label{classGUIElement_a96d6728fa2a9e92a5a0fe6481dfcae15}} 
+virtual {\bfseries $\sim$\+GUIElement} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for GUI elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classGUIElement_aaa34316b857056faebb10b9c2a62a8da}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Returns the position of the element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGUIElement_a37456848dcdbd23734604fa49f8c0268}{set\+Pos}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the element. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGUIElement_ae1b4959c0f202ce99d8150e6123a1ef6}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Displays the element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGUIElement_a17c2be2f463c3e7e6ae4f629b575f3f5}\label{classGUIElement_a17c2be2f463c3e7e6ae4f629b575f3f5}} 
+virtual void {\bfseries select} ()
+\begin{DoxyCompactList}\small\item\em Select the element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGUIElement_a3fb463185620179fb4f4cb619d3794f1}\label{classGUIElement_a3fb463185620179fb4f4cb619d3794f1}} 
+virtual void {\bfseries deselect} ()
+\begin{DoxyCompactList}\small\item\em Unselect the element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGUIElement_ae334a1956cd88553ec39f908f1f6521e}{move}} (int trX, int trY)
+\begin{DoxyCompactList}\small\item\em Move the element on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGUIElement_a1410a598205f4eec0da85e619752a587}{move}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} translation)
+\begin{DoxyCompactList}\small\item\em Move the element on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGUIElement_a00ccf2aaa674aa1a62b582f041644041}\label{classGUIElement_a00ccf2aaa674aa1a62b582f041644041}} 
+bool {\bfseries is\+Visible}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGUIElement_a2f0c77b6ae14ac3555ba0604646c4cd7}\label{classGUIElement_a2f0c77b6ae14ac3555ba0604646c4cd7}} 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} {\bfseries pos}
+\item 
+\mbox{\Hypertarget{classGUIElement_a3e348d712cfb46bfa940303d3cf451d1}\label{classGUIElement_a3e348d712cfb46bfa940303d3cf451d1}} 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} {\bfseries size}
+\item 
+\mbox{\Hypertarget{classGUIElement_ad6fab079ae49726389b1d7bf0cb56045}\label{classGUIElement_ad6fab079ae49726389b1d7bf0cb56045}} 
+QPixmap {\bfseries texture}
+\item 
+\mbox{\Hypertarget{classGUIElement_aca2a85f6ee6aeaf0745e2532e9959007}\label{classGUIElement_aca2a85f6ee6aeaf0745e2532e9959007}} 
+bool {\bfseries is\+Selected}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classGUIElement}{GUIElement}} class, elements of GUI you will see on menu. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGUIElement_acec2734c4af867df9e8b2a78ba348f3a}\label{classGUIElement_acec2734c4af867df9e8b2a78ba348f3a}} 
+\index{GUIElement@{GUIElement}!GUIElement@{GUIElement}}
+\index{GUIElement@{GUIElement}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{GUIElement()}{GUIElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily GUIElement\+::\+GUIElement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{position,  }\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{new\+Size,  }\item[{QString}]{source }\end{DoxyParamCaption})}
+
+
+
+Create a GUI element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \+: the coordinate of position on screen \\
+\hline
+{\em new\+Size} & \+: the size of element \\
+\hline
+{\em source} & \+: the path to the file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGUIElement_a40d6ec2128e6a9cba5aa43ea9eaecbde}\label{classGUIElement_a40d6ec2128e6a9cba5aa43ea9eaecbde}} 
+\index{GUIElement@{GUIElement}!GUIElement@{GUIElement}}
+\index{GUIElement@{GUIElement}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{GUIElement()}{GUIElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily GUIElement\+::\+GUIElement (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create a GUI element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: the x value \\
+\hline
+{\em posY} & \+: the y value \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGUIElement_ae1b4959c0f202ce99d8150e6123a1ef6}\label{classGUIElement_ae1b4959c0f202ce99d8150e6123a1ef6}} 
+\index{GUIElement@{GUIElement}!draw@{draw}}
+\index{draw@{draw}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void GUIElement\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Displays the element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & The QPainter class \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGUIElement_aaa34316b857056faebb10b9c2a62a8da}\label{classGUIElement_aaa34316b857056faebb10b9c2a62a8da}} 
+\index{GUIElement@{GUIElement}!getPos@{getPos}}
+\index{getPos@{getPos}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinate}{Coordinate}} GUIElement\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the position of the element. 
+
+\begin{DoxyReturn}{Returns}
+the position as a \mbox{\hyperlink{classCoordinate}{Coordinate}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGUIElement_a1410a598205f4eec0da85e619752a587}\label{classGUIElement_a1410a598205f4eec0da85e619752a587}} 
+\index{GUIElement@{GUIElement}!move@{move}}
+\index{move@{move}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void GUIElement\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{translation }\end{DoxyParamCaption})}
+
+
+
+Move the element on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em translation} & \+: the coordinate to move \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGUIElement_ae334a1956cd88553ec39f908f1f6521e}\label{classGUIElement_ae334a1956cd88553ec39f908f1f6521e}} 
+\index{GUIElement@{GUIElement}!move@{move}}
+\index{move@{move}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void GUIElement\+::move (\begin{DoxyParamCaption}\item[{int}]{trX,  }\item[{int}]{trY }\end{DoxyParamCaption})}
+
+
+
+Move the element on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trX} & \+: the x value to move \\
+\hline
+{\em trY} & \+: the y value to move \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGUIElement_a37456848dcdbd23734604fa49f8c0268}\label{classGUIElement_a37456848dcdbd23734604fa49f8c0268}} 
+\index{GUIElement@{GUIElement}!setPos@{setPos}}
+\index{setPos@{setPos}!GUIElement@{GUIElement}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}}
+{\footnotesize\ttfamily void GUIElement\+::set\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Sets the position of the element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \+: the new position of the element \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+guielement.\+h\item 
+guielement.\+cpp\end{DoxyCompactItemize}

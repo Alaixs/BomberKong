@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/sprites/t_bomberman.png</file>
+        <file>assets/sprites/t_walls.png</file>
+        <file>assets/sprites/t_bomb.png</file>
+        <file>assets/sprites/t_explosion.png</file>
+        <file>assets/sprites/t_bombergirl.png</file>
+        <file>assets/sprites/t_barrel.png</file>
+        <file>assets/sounds/sfx_explosion.wav</file>
+        <file>assets/sounds/sfx_footsteps.wav</file>
+        <file>assets/sounds/sfx_mainTheme.wav</file>
+        <file>assets/sounds/sfx_winTheme.wav</file>
+        <file>assets/sounds/sfx_loseTheme.wav</file>
+        <file>assets/maps/Map.bkmap</file>
+        <file>assets/sprites/t_donkeykong.png</file>
+        <file>assets/sprites/you_win.png</file>
+        <file>assets/sprites/t_press_start.png</file>
+        <file>assets/sprites/t_logo.png</file>
+        <file>assets/sprites/t_game_over.png</file>
+        <file>assets/sprites/t_menu_bg.png</file>
+        <file>assets/sprites/t_move_controls.png</file>
+        <file>assets/sprites/t_bomb_controls.png</file>
+    </qresource>
+</RCC>

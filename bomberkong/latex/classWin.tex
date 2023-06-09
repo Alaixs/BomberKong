@@ -1,0 +1,111 @@
+\hypertarget{classWin}{}\doxysection{Win Class Reference}
+\label{classWin}\index{Win@{Win}}
+
+
+The class of the win screen.  
+
+
+
+
+{\ttfamily \#include $<$win.\+h$>$}
+
+Inheritance diagram for Win\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classWin}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWin_a40daa3ed2cd4214e1557a1393e6e073a}{Win}} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em Create a new win screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWin_a2a356df5290c18b5636cbf2a584557c2}\label{classWin_a2a356df5290c18b5636cbf2a584557c2}} 
+{\bfseries $\sim$\+Win} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classWin}{Win}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWin_af8a4e5ed1a092bcd520239d4c3e36cca}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update the \mbox{\hyperlink{classLoose}{Loose}} screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWin_a94023a63b7918bcc6f02e788125e38ef}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classLoose}{Loose}} screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScene_a98e9e3e2780cf760b36e048af46479fd}{Scene}} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScene_a3b8cec2e32546713915f8c6303c951f1}\label{classScene_a3b8cec2e32546713915f8c6303c951f1}} 
+virtual {\bfseries $\sim$\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classScene}{Scene}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Update the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{draw}} (QPainter $\ast$painter)=0
+\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScene_ac920aafddda151d755df19ea0ab57c5a}\label{classScene_ac920aafddda151d755df19ea0ab57c5a}} 
+QWidget $\ast$ {\bfseries root}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class of the win screen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWin_a40daa3ed2cd4214e1557a1393e6e073a}\label{classWin_a40daa3ed2cd4214e1557a1393e6e073a}} 
+\index{Win@{Win}!Win@{Win}}
+\index{Win@{Win}!Win@{Win}}
+\doxysubsubsection{\texorpdfstring{Win()}{Win()}}
+{\footnotesize\ttfamily Win\+::\+Win (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{widget }\end{DoxyParamCaption})}
+
+
+
+Create a new win screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em widget} & \+: the main widget \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWin_a94023a63b7918bcc6f02e788125e38ef}\label{classWin_a94023a63b7918bcc6f02e788125e38ef}} 
+\index{Win@{Win}!draw@{draw}}
+\index{draw@{draw}!Win@{Win}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Win\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display the actual \mbox{\hyperlink{classLoose}{Loose}} screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{Scene}}.
+
+\mbox{\Hypertarget{classWin_af8a4e5ed1a092bcd520239d4c3e36cca}\label{classWin_af8a4e5ed1a092bcd520239d4c3e36cca}} 
+\index{Win@{Win}!update@{update}}
+\index{update@{update}!Win@{Win}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Win\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update the \mbox{\hyperlink{classLoose}{Loose}} screen. 
+
+
+
+Implements \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{Scene}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+win.\+h\item 
+win.\+cpp\end{DoxyCompactItemize}

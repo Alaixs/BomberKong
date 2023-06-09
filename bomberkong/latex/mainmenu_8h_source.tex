@@ -1,0 +1,36 @@
+\hypertarget{mainmenu_8h_source}{}\doxysection{mainmenu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINMENU\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINMENU\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}scene.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}guielement.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMainMenu}{MainMenu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScene}{Scene}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ timer;}
+\DoxyCodeLine{00017\ \ \ \ \ std::list<GUIElement*>\ gui;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}*\ bg;}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}*\ logo;}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}*\ pressStart;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classMainMenu}{MainMenu}}(QWidget*\ widget);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classMainMenu_a0a19ddba3ac52bf39c09b579171c98f2}{\string~MainMenu}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainMenu_a48b4cca0867e474809c7c3ff1cd069f7}{update}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainMenu_a64a91595396b1ce8d5b5318395e5728b}{draw}}(QPainter*\ painter);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINMENU\_H}}
+
+\end{DoxyCode}

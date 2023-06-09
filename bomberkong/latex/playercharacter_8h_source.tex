@@ -1,0 +1,55 @@
+\hypertarget{playercharacter_8h_source}{}\doxysection{playercharacter.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYERCHARACTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYERCHARACTER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}soundmanager.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPlayerCharacter}{PlayerCharacter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ QPixmap\ sprite;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classCoordinate}{Coordinate}}\ motion;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}*\ animation;\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ flipped;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ isKO;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ timer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ nbLive;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classPlayerCharacter}{PlayerCharacter}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classPlayerCharacter}{PlayerCharacter}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}});}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classPlayerCharacter_a4915330a9f743156b6860a97e6d68e28}{\string~PlayerCharacter}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerCharacter_a6a0338ab611988c7ace3f14d82bad13e}{update}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerCharacter_a398f7fafa4bacc5be50759b6f8094e9f}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerCharacter_a6dd871613ddefc988569724edc6cbc2d}{collisionEvent}}(\mbox{\hyperlink{classEntity}{Entity}}\ *\ body);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerCharacter_a0d8402e13d3a670e250362eaa0d41ac7}{footstepsSfx}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerCharacter_a7e11d41a98984400beb01b9594e51c7d}{loseThemeSfx}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerCharacter_ab3ddc1228b98a1e9176e2167c4152e67}{winThemeSfx}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayerCharacter_a26f58375871edba379f5200faf0945bb}{stopAllSounds}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classSoundManager}{SoundManager}}*\ \mbox{\hyperlink{classPlayerCharacter_a3002644a0acd921ea761c7ad53763808}{soundManager}};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPlayerCharacter_a19eebbe0934232687d426a72b063e852}{speed}};\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \ \ QRect\ \mbox{\hyperlink{classPlayerCharacter_a093f145232e5c1820ae1b31caea0a319}{getRect}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLAYERCHARACTER\_H}}
+
+\end{DoxyCode}

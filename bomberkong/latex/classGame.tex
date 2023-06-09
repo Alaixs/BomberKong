@@ -1,0 +1,184 @@
+\hypertarget{classGame}{}\doxysection{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+
+
+The main scene for the level.  
+
+
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classGame}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a06dd89fcd362c161f19ee2ad28c62d96}\label{classGame_a06dd89fcd362c161f19ee2ad28c62d96}} 
+{\bfseries Game} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em The main scene for the level. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_ae3d112ca6e0e55150d2fdbc704474530}\label{classGame_ae3d112ca6e0e55150d2fdbc704474530}} 
+{\bfseries $\sim$\+Game} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update the level\textquotesingle{}s items. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ad31fd2049121bc16060ac65bbc20ef51}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual barrel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}{create\+Entity}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$entity)
+\begin{DoxyCompactList}\small\item\em Adds an entity in the list and sets its {\ttfamily parent} property as itself. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_aa8655918fea9f36caaaef6ffdfc4190b}\label{classGame_aa8655918fea9f36caaaef6ffdfc4190b}} 
+void {\bfseries delete\+All\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Delete all entities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}{win}} ()
+\begin{DoxyCompactList}\small\item\em Triggered when the player touches bombergirl. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ae4d19c6393074490bbcf88780946a1ea}{loose}} ()
+\begin{DoxyCompactList}\small\item\em Triggered when the player takes damage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_ad3b78673fd148ef9731f00a9d82ebcd3}\label{classGame_ad3b78673fd148ef9731f00a9d82ebcd3}} 
+void {\bfseries alternative} ()
+\begin{DoxyCompactList}\small\item\em Triggered when the player exits the first level at the bottom. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a8b08f09f1faa16cc843930870afe4912}{create\+Explosion}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create an explosion in the world. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_aeb468737e1495cfcfbf512cfdc751117}\label{classGame_aeb468737e1495cfcfbf512cfdc751117}} 
+void {\bfseries restart} ()
+\begin{DoxyCompactList}\small\item\em Reset the level and place the player on the spawn point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScene_a98e9e3e2780cf760b36e048af46479fd}{Scene}} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScene_a3b8cec2e32546713915f8c6303c951f1}\label{classScene_a3b8cec2e32546713915f8c6303c951f1}} 
+virtual {\bfseries $\sim$\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classScene}{Scene}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Update the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{draw}} (QPainter $\ast$painter)=0
+\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_ad8089e103448742778f9491cddbf662c}\label{classGame_ad8089e103448742778f9491cddbf662c}} 
+\mbox{\hyperlink{classGUIElement}{GUIElement}} $\ast$ {\bfseries pause\+Label}
+\item 
+\mbox{\Hypertarget{classGame_a29ec85a35f774cb58a9d9b6a1e0182b8}\label{classGame_a29ec85a35f774cb58a9d9b6a1e0182b8}} 
+int {\bfseries w\+Map}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a5d59cd1bf853573993583ce674a6cf17}\label{classGame_a5d59cd1bf853573993583ce674a6cf17}} 
+std\+::list$<$ \mbox{\hyperlink{classEntity}{Entity}} $\ast$ $>$ {\bfseries entities}
+\item 
+\mbox{\Hypertarget{classGame_a1a8fd7275baa6a1af345cd1482eea209}\label{classGame_a1a8fd7275baa6a1af345cd1482eea209}} 
+std\+::list$<$ \mbox{\hyperlink{classGUIElement}{GUIElement}} $\ast$ $>$ {\bfseries gui}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScene_ac920aafddda151d755df19ea0ab57c5a}\label{classScene_ac920aafddda151d755df19ea0ab57c5a}} 
+QWidget $\ast$ {\bfseries root}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main scene for the level. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}\label{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}} 
+\index{Game@{Game}!createEntity@{createEntity}}
+\index{createEntity@{createEntity}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
+{\footnotesize\ttfamily void Game\+::create\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} $\ast$}]{entity }\end{DoxyParamCaption})}
+
+
+
+Adds an entity in the list and sets its {\ttfamily parent} property as itself. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \+: The entity to create. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_a8b08f09f1faa16cc843930870afe4912}\label{classGame_a8b08f09f1faa16cc843930870afe4912}} 
+\index{Game@{Game}!createExplosion@{createExplosion}}
+\index{createExplosion@{createExplosion}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createExplosion()}{createExplosion()}}
+{\footnotesize\ttfamily void Game\+::create\+Explosion (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create an explosion in the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & the X position of the explosion. \\
+\hline
+{\em posY} & the Y position of the explosion. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_ad31fd2049121bc16060ac65bbc20ef51}\label{classGame_ad31fd2049121bc16060ac65bbc20ef51}} 
+\index{Game@{Game}!draw@{draw}}
+\index{draw@{draw}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display the actual barrel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{Scene}}.
+
+\mbox{\Hypertarget{classGame_ae4d19c6393074490bbcf88780946a1ea}\label{classGame_ae4d19c6393074490bbcf88780946a1ea}} 
+\index{Game@{Game}!loose@{loose}}
+\index{loose@{loose}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{loose()}{loose()}}
+{\footnotesize\ttfamily void Game\+::loose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Triggered when the player takes damage. 
+
+Triggered when the player takes damage. the level is restarted if the player have a remaining life, the scene is switched to the game over screen otherwise. \mbox{\Hypertarget{classGame_a79df6376b332d63c9eca0dcee30305c3}\label{classGame_a79df6376b332d63c9eca0dcee30305c3}} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update the level\textquotesingle{}s items. 
+
+
+
+Implements \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{Scene}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTutorial_a79b7dd20a4d1f35e36023a80ce0eec31}{Tutorial}}.
+
+\mbox{\Hypertarget{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}\label{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}} 
+\index{Game@{Game}!win@{win}}
+\index{win@{win}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{win()}{win()}}
+{\footnotesize\ttfamily void Game\+::win (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Triggered when the player touches bombergirl. 
+
+Triggered when the player touches bombergirl, the scene is then switched to the victory screen. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game.\+h\item 
+game.\+cpp\end{DoxyCompactItemize}

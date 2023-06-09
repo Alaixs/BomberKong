@@ -1,0 +1,40 @@
+\hypertarget{donkeykong_8h_source}{}\doxysection{donkeykong.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DONKEYKONG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DONKEYKONG\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDonkeyKong}{DonkeyKong}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ QPixmap\ sprite;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}*\ animation;\ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ newPos;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ dist;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ isThrowing;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classDonkeyKong}{DonkeyKong}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classDonkeyKong}{DonkeyKong}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classDonkeyKong_aa0f677f5f8b96884670946726c26ee83}{\string~DonkeyKong}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDonkeyKong_a6a84e5f014068905756577d703669ead}{update}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDonkeyKong_a7ac09dc931eebad6fe092343ee4239c3}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ QRect\ \mbox{\hyperlink{classDonkeyKong_afadb888f55a6b46f16077d10790f3090}{getRect}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDonkeyKong_a24e26a72a3f679f8ae259c38f4e71656}{timer}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ throwingRate;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DONKEYKONG\_H}}
+
+\end{DoxyCode}

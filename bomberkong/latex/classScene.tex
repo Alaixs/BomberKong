@@ -1,0 +1,98 @@
+\hypertarget{classScene}{}\doxysection{Scene Class Reference}
+\label{classScene}\index{Scene@{Scene}}
+
+
+The class of any scene on the game (pause, mainmenu, win, loose, ...)  
+
+
+
+
+{\ttfamily \#include $<$scene.\+h$>$}
+
+Inheritance diagram for Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classScene}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScene_a98e9e3e2780cf760b36e048af46479fd}{Scene}} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScene_a3b8cec2e32546713915f8c6303c951f1}\label{classScene_a3b8cec2e32546713915f8c6303c951f1}} 
+virtual {\bfseries $\sim$\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classScene}{Scene}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Update the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{draw}} (QPainter $\ast$painter)=0
+\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScene_ac920aafddda151d755df19ea0ab57c5a}\label{classScene_ac920aafddda151d755df19ea0ab57c5a}} 
+QWidget $\ast$ {\bfseries root}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class of any scene on the game (pause, mainmenu, win, loose, ...) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classScene_a98e9e3e2780cf760b36e048af46479fd}\label{classScene_a98e9e3e2780cf760b36e048af46479fd}} 
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
+{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{widget }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classScene}{Scene}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em widget} & \+: the reference of widget class \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}\label{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}} 
+\index{Scene@{Scene}!draw@{draw}}
+\index{draw@{draw}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void Scene\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Display the actual \mbox{\hyperlink{classScene}{Scene}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classAlternative_a11772193d8f7cd01c9f6a264c6422ecb}{Alternative}}, \mbox{\hyperlink{classGame_ad31fd2049121bc16060ac65bbc20ef51}{Game}}, \mbox{\hyperlink{classLoose_a262281f2c08d02e59377a5fcc707c15a}{Loose}}, \mbox{\hyperlink{classMainMenu_a64a91595396b1ce8d5b5318395e5728b}{Main\+Menu}}, and \mbox{\hyperlink{classWin_a94023a63b7918bcc6f02e788125e38ef}{Win}}.
+
+\mbox{\Hypertarget{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}\label{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}} 
+\index{Scene@{Scene}!update@{update}}
+\index{update@{update}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Scene\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Update the scene. 
+
+
+
+Implemented in \mbox{\hyperlink{classAlternative_a4ce46813dcfefeb8021d67a3bfbe126a}{Alternative}}, \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{Game}}, \mbox{\hyperlink{classLoose_a38d1c987caca43ce0f8e92ae6b02c9a3}{Loose}}, \mbox{\hyperlink{classMainMenu_a48b4cca0867e474809c7c3ff1cd069f7}{Main\+Menu}}, \mbox{\hyperlink{classTutorial_a79b7dd20a4d1f35e36023a80ce0eec31}{Tutorial}}, and \mbox{\hyperlink{classWin_af8a4e5ed1a092bcd520239d4c3e36cca}{Win}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+scene.\+h\item 
+scene.\+cpp\end{DoxyCompactItemize}

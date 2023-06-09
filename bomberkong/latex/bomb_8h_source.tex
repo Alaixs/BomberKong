@@ -1,0 +1,39 @@
+\hypertarget{bomb_8h_source}{}\doxysection{bomb.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BOMB\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BOMB\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}soundmanager.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBomb}{Bomb}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ timer\ ;\ }
+\DoxyCodeLine{00014\ \ \ \ \ QPixmap\ sprite;\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}*\ animation;\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classSoundManager}{SoundManager}}*\ soundManager;\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classBomb}{Bomb}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classBomb}{Bomb}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ position);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classBomb_acbb47327cfb2fa429887774ef3597965}{\string~Bomb}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_a6fa3577a6653276f456aff457062fbc1}{update}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_af83966c06693c17461f6368d1423fbe2}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_a9277edfd464eca3b53e8baf4b00ae028}{collisionEvent}}(\mbox{\hyperlink{classEntity}{Entity}}\ *\ body);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBomb_afa4b38dde02ea8ff971282dba14651f7}{explosionSfx}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ QRect\ \mbox{\hyperlink{classBomb_a3f4f324bfe0725f4d0c5d5d3439dc86d}{getRect}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BOMB\_H}}
+
+\end{DoxyCode}

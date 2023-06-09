@@ -1,0 +1,201 @@
+\hypertarget{classTutorial}{}\doxysection{Tutorial Class Reference}
+\label{classTutorial}\index{Tutorial@{Tutorial}}
+
+
+The class of tutorial screen.  
+
+
+
+
+{\ttfamily \#include $<$tutorial.\+h$>$}
+
+Inheritance diagram for Tutorial\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classTutorial}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTutorial_ab6eb134b5b722be083ffc59cdb885128}{Tutorial}} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em Create new \mbox{\hyperlink{classTutorial}{Tutorial}} screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTutorial_a6a7f12f75952c7d801c12aed8179f510}\label{classTutorial_a6a7f12f75952c7d801c12aed8179f510}} 
+{\bfseries $\sim$\+Tutorial} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \mbox{\hyperlink{classTutorial}{Tutorial}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTutorial_a79b7dd20a4d1f35e36023a80ce0eec31}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update \mbox{\hyperlink{classTutorial}{Tutorial}} screen (position, sprite, etc) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTutorial_ad42231ae6f444e5ee118bb7ab24c3774}{create\+Entity}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$entity)
+\begin{DoxyCompactList}\small\item\em Create new entity on \mbox{\hyperlink{classTutorial}{Tutorial}} screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTutorial_ace664fc8ca3431b3c4943de6e0f0ba8a}\label{classTutorial_ace664fc8ca3431b3c4943de6e0f0ba8a}} 
+void {\bfseries delete\+All\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Delete all entities on \mbox{\hyperlink{classTutorial}{Tutorial}} screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTutorial_a88eaddac2e65df03eae7f46156a3791f}\label{classTutorial_a88eaddac2e65df03eae7f46156a3791f}} 
+void {\bfseries win} ()
+\begin{DoxyCompactList}\small\item\em Switch to win menu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTutorial_ab02e8facd3e3ae9e1448be6b721db6f2}\label{classTutorial_ab02e8facd3e3ae9e1448be6b721db6f2}} 
+void {\bfseries loose} ()
+\begin{DoxyCompactList}\small\item\em Switch to loose menu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTutorial_a8b02a2470d8a59e020c0343eed56813e}\label{classTutorial_a8b02a2470d8a59e020c0343eed56813e}} 
+void {\bfseries alternative} ()
+\begin{DoxyCompactList}\small\item\em Switch to alternative win menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTutorial_aeada95cb1a5e4bb004690c5328442896}{create\+Explosion}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create new explosion. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTutorial_af297a33959c8899b6d82ee7ae0de89fc}\label{classTutorial_af297a33959c8899b6d82ee7ae0de89fc}} 
+void {\bfseries restart} ()
+\begin{DoxyCompactList}\small\item\em Reload the \mbox{\hyperlink{classTutorial}{Tutorial}} menu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTutorial_a1182affd0db3c4798446257bd629cfc3}\label{classTutorial_a1182affd0db3c4798446257bd629cfc3}} 
+void {\bfseries next\+Lvl} ()
+\begin{DoxyCompactList}\small\item\em Switch scene to the next level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGame}{Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a06dd89fcd362c161f19ee2ad28c62d96}\label{classGame_a06dd89fcd362c161f19ee2ad28c62d96}} 
+{\bfseries Game} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em The main scene for the level. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_ae3d112ca6e0e55150d2fdbc704474530}\label{classGame_ae3d112ca6e0e55150d2fdbc704474530}} 
+{\bfseries $\sim$\+Game} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update the level\textquotesingle{}s items. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ad31fd2049121bc16060ac65bbc20ef51}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual barrel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ab0002f1e1305c7fa2a09c7fdfd9d0c52}{create\+Entity}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$entity)
+\begin{DoxyCompactList}\small\item\em Adds an entity in the list and sets its {\ttfamily parent} property as itself. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_aa8655918fea9f36caaaef6ffdfc4190b}\label{classGame_aa8655918fea9f36caaaef6ffdfc4190b}} 
+void {\bfseries delete\+All\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Delete all entities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a4d95b74e7496c0be1c829af66bf1f9f5}{win}} ()
+\begin{DoxyCompactList}\small\item\em Triggered when the player touches bombergirl. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ae4d19c6393074490bbcf88780946a1ea}{loose}} ()
+\begin{DoxyCompactList}\small\item\em Triggered when the player takes damage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_ad3b78673fd148ef9731f00a9d82ebcd3}\label{classGame_ad3b78673fd148ef9731f00a9d82ebcd3}} 
+void {\bfseries alternative} ()
+\begin{DoxyCompactList}\small\item\em Triggered when the player exits the first level at the bottom. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a8b08f09f1faa16cc843930870afe4912}{create\+Explosion}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create an explosion in the world. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame_aeb468737e1495cfcfbf512cfdc751117}\label{classGame_aeb468737e1495cfcfbf512cfdc751117}} 
+void {\bfseries restart} ()
+\begin{DoxyCompactList}\small\item\em Reset the level and place the player on the spawn point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScene_a98e9e3e2780cf760b36e048af46479fd}{Scene}} (QWidget $\ast$widget)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScene_a3b8cec2e32546713915f8c6303c951f1}\label{classScene_a3b8cec2e32546713915f8c6303c951f1}} 
+virtual {\bfseries $\sim$\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classScene}{Scene}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a7faff47f5c1b1ebc986f768c9b9732ec}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Update the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classScene_a93dd98a0abac2fe1bfb7220ad6b846fc}{draw}} (QPainter $\ast$painter)=0
+\begin{DoxyCompactList}\small\item\em Display the actual \mbox{\hyperlink{classScene}{Scene}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTutorial_a43f5170cbaa865723e27cbc3d7d9d38d}\label{classTutorial_a43f5170cbaa865723e27cbc3d7d9d38d}} 
+\mbox{\hyperlink{classGUIElement}{GUIElement}} $\ast$ {\bfseries start\+Label}
+\item 
+\mbox{\Hypertarget{classTutorial_aa6dc4488299cd9a8ab88f6ed51b62df4}\label{classTutorial_aa6dc4488299cd9a8ab88f6ed51b62df4}} 
+int {\bfseries w\+Map}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classGame}{Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_ad8089e103448742778f9491cddbf662c}\label{classGame_ad8089e103448742778f9491cddbf662c}} 
+\mbox{\hyperlink{classGUIElement}{GUIElement}} $\ast$ {\bfseries pause\+Label}
+\item 
+\mbox{\Hypertarget{classGame_a29ec85a35f774cb58a9d9b6a1e0182b8}\label{classGame_a29ec85a35f774cb58a9d9b6a1e0182b8}} 
+int {\bfseries w\+Map}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classGame}{Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a5d59cd1bf853573993583ce674a6cf17}\label{classGame_a5d59cd1bf853573993583ce674a6cf17}} 
+std\+::list$<$ \mbox{\hyperlink{classEntity}{Entity}} $\ast$ $>$ {\bfseries entities}
+\item 
+\mbox{\Hypertarget{classGame_a1a8fd7275baa6a1af345cd1482eea209}\label{classGame_a1a8fd7275baa6a1af345cd1482eea209}} 
+std\+::list$<$ \mbox{\hyperlink{classGUIElement}{GUIElement}} $\ast$ $>$ {\bfseries gui}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classScene}{Scene}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScene_ac920aafddda151d755df19ea0ab57c5a}\label{classScene_ac920aafddda151d755df19ea0ab57c5a}} 
+QWidget $\ast$ {\bfseries root}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class of tutorial screen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTutorial_ab6eb134b5b722be083ffc59cdb885128}\label{classTutorial_ab6eb134b5b722be083ffc59cdb885128}} 
+\index{Tutorial@{Tutorial}!Tutorial@{Tutorial}}
+\index{Tutorial@{Tutorial}!Tutorial@{Tutorial}}
+\doxysubsubsection{\texorpdfstring{Tutorial()}{Tutorial()}}
+{\footnotesize\ttfamily Tutorial\+::\+Tutorial (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{widget }\end{DoxyParamCaption})}
+
+
+
+Create new \mbox{\hyperlink{classTutorial}{Tutorial}} screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em widget} & \+: the widget of the game \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTutorial_ad42231ae6f444e5ee118bb7ab24c3774}\label{classTutorial_ad42231ae6f444e5ee118bb7ab24c3774}} 
+\index{Tutorial@{Tutorial}!createEntity@{createEntity}}
+\index{createEntity@{createEntity}!Tutorial@{Tutorial}}
+\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
+{\footnotesize\ttfamily void Tutorial\+::create\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} $\ast$}]{entity }\end{DoxyParamCaption})}
+
+
+
+Create new entity on \mbox{\hyperlink{classTutorial}{Tutorial}} screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \+: the entity to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTutorial_aeada95cb1a5e4bb004690c5328442896}\label{classTutorial_aeada95cb1a5e4bb004690c5328442896}} 
+\index{Tutorial@{Tutorial}!createExplosion@{createExplosion}}
+\index{createExplosion@{createExplosion}!Tutorial@{Tutorial}}
+\doxysubsubsection{\texorpdfstring{createExplosion()}{createExplosion()}}
+{\footnotesize\ttfamily void Tutorial\+::create\+Explosion (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create new explosion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: the x value \\
+\hline
+{\em posY} & \+: the y value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTutorial_a79b7dd20a4d1f35e36023a80ce0eec31}\label{classTutorial_a79b7dd20a4d1f35e36023a80ce0eec31}} 
+\index{Tutorial@{Tutorial}!update@{update}}
+\index{update@{update}!Tutorial@{Tutorial}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Tutorial\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update \mbox{\hyperlink{classTutorial}{Tutorial}} screen (position, sprite, etc) 
+
+
+
+Reimplemented from \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{Game}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tutorial.\+h\item 
+tutorial.\+cpp\end{DoxyCompactItemize}

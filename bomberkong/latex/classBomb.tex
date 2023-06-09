@@ -1,0 +1,193 @@
+\hypertarget{classBomb}{}\doxysection{Bomb Class Reference}
+\label{classBomb}\index{Bomb@{Bomb}}
+
+
+The class of bomb place by Bomber\+Man.  
+
+
+
+
+{\ttfamily \#include $<$bomb.\+h$>$}
+
+Inheritance diagram for Bomb\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBomb}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBomb_a9999be51f7aad1c43b8fe3527b7c1f5b}{Bomb}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classBomb}{Bomb}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBomb_a3b76c1e91411128e8e534e0d93f6378b}{Bomb}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} position)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classBomb}{Bomb}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBomb_acbb47327cfb2fa429887774ef3597965}\label{classBomb_acbb47327cfb2fa429887774ef3597965}} 
+{\bfseries $\sim$\+Bomb} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classBomb}{Bomb}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBomb_a6fa3577a6653276f456aff457062fbc1}{update}} ()
+\begin{DoxyCompactList}\small\item\em update the bomb (position, sprite, etc) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBomb_af83966c06693c17461f6368d1423fbe2}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual bomb. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBomb_a9277edfd464eca3b53e8baf4b00ae028}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Detect and react for the collision with other entities. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBomb_afa4b38dde02ea8ff971282dba14651f7}\label{classBomb_afa4b38dde02ea8ff971282dba14651f7}} 
+void {\bfseries explosion\+Sfx} ()
+\begin{DoxyCompactList}\small\item\em make a sound for the explosion \end{DoxyCompactList}\item 
+QRect \mbox{\hyperlink{classBomb_a3f4f324bfe0725f4d0c5d5d3439dc86d}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em create the hitboxe of the bomb \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity_a9da14c9f90c382c963a90afd58c36fcd}{Entity}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}} 
+virtual {\bfseries $\sim$\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Destructor an \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
+\begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em getter of the coordinate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_a29601f50527cca46e471d8933c8bddd5}\label{classEntity_a29601f50527cca46e471d8933c8bddd5}} 
+void {\bfseries delete\+Entity} ()
+\begin{DoxyCompactList}\small\item\em delete the entity \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em is\+Alive \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em update the entity (move, change direction, etc.) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em draw the entity on the screen \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
+\begin{DoxyCompactList}\small\item\em collision\+Event \end{DoxyCompactList}\item 
+virtual QRect \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em get\+Rect get the rectangle of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntity_ac135006c51fb3384b5b4624224d6e375}\label{classEntity_ac135006c51fb3384b5b4624224d6e375}} 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} {\bfseries pos}
+\begin{DoxyCompactList}\small\item\em The coordinate of the entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}\label{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}} 
+\mbox{\hyperlink{classScene}{Scene}} $\ast$ {\bfseries parent}
+\begin{DoxyCompactList}\small\item\em The main widget, used to call method from it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class of bomb place by Bomber\+Man. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBomb_a9999be51f7aad1c43b8fe3527b7c1f5b}\label{classBomb_a9999be51f7aad1c43b8fe3527b7c1f5b}} 
+\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\doxysubsubsection{\texorpdfstring{Bomb()}{Bomb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bomb\+::\+Bomb (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classBomb}{Bomb}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: position on x axes \\
+\hline
+{\em posY} & \+: position on y axes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBomb_a3b76c1e91411128e8e534e0d93f6378b}\label{classBomb_a3b76c1e91411128e8e534e0d93f6378b}} 
+\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\doxysubsubsection{\texorpdfstring{Bomb()}{Bomb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bomb\+::\+Bomb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classBomb}{Bomb}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: position on x axes \\
+\hline
+{\em posY} & \+: position on y axes \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBomb_a9277edfd464eca3b53e8baf4b00ae028}\label{classBomb_a9277edfd464eca3b53e8baf4b00ae028}} 
+\index{Bomb@{Bomb}!collisionEvent@{collisionEvent}}
+\index{collisionEvent@{collisionEvent}!Bomb@{Bomb}}
+\doxysubsubsection{\texorpdfstring{collisionEvent()}{collisionEvent()}}
+{\footnotesize\ttfamily void Bomb\+::collision\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Detect and react for the collision with other entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & \+: the coordinate of the other entities \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{Entity}}.
+
+\mbox{\Hypertarget{classBomb_af83966c06693c17461f6368d1423fbe2}\label{classBomb_af83966c06693c17461f6368d1423fbe2}} 
+\index{Bomb@{Bomb}!draw@{draw}}
+\index{draw@{draw}!Bomb@{Bomb}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Bomb\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display the actual bomb. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{Entity}}.
+
+\mbox{\Hypertarget{classBomb_a3f4f324bfe0725f4d0c5d5d3439dc86d}\label{classBomb_a3f4f324bfe0725f4d0c5d5d3439dc86d}} 
+\index{Bomb@{Bomb}!getRect@{getRect}}
+\index{getRect@{getRect}!Bomb@{Bomb}}
+\doxysubsubsection{\texorpdfstring{getRect()}{getRect()}}
+{\footnotesize\ttfamily QRect Bomb\+::get\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+create the hitboxe of the bomb 
+
+\begin{DoxyReturn}{Returns}
+the hitboxe 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{Entity}}.
+
+\mbox{\Hypertarget{classBomb_a6fa3577a6653276f456aff457062fbc1}\label{classBomb_a6fa3577a6653276f456aff457062fbc1}} 
+\index{Bomb@{Bomb}!update@{update}}
+\index{update@{update}!Bomb@{Bomb}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Bomb\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+update the bomb (position, sprite, etc) 
+
+
+
+Implements \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bomb.\+h\item 
+bomb.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,48 @@
+\hypertarget{guielement_8h_source}{}\doxysection{guielement.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GUIELEMENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GUIELEMENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QPainter>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}coordinate.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGUIElement}{GUIElement}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classCoordinate}{Coordinate}}\ pos;}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classCoordinate}{Coordinate}}\ size;}
+\DoxyCodeLine{00017\ \ \ \ \ QPixmap\ texture;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ isSelected;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ isVisible;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ position,\ \mbox{\hyperlink{classCoordinate}{Coordinate}}\ newSize,\ QString\ source);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classGUIElement}{GUIElement}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classGUIElement_a96d6728fa2a9e92a5a0fe6481dfcae15}{\string~GUIElement}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classCoordinate}{Coordinate}}\ \mbox{\hyperlink{classGUIElement_aaa34316b857056faebb10b9c2a62a8da}{getPos}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUIElement_a37456848dcdbd23734604fa49f8c0268}{setPos}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ position);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUIElement_ae1b4959c0f202ce99d8150e6123a1ef6}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUIElement_a17c2be2f463c3e7e6ae4f629b575f3f5}{select}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUIElement_a3fb463185620179fb4f4cb619d3794f1}{deselect}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUIElement_ae334a1956cd88553ec39f908f1f6521e}{move}}(\textcolor{keywordtype}{int}\ trX,\ \textcolor{keywordtype}{int}\ trY);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUIElement_ae334a1956cd88553ec39f908f1f6521e}{move}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ translation);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GUIELEMENT\_H}}
+
+\end{DoxyCode}

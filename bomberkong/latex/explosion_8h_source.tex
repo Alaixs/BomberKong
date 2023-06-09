@@ -1,0 +1,36 @@
+\hypertarget{explosion_8h_source}{}\doxysection{explosion.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EXPLOSION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EXPLOSION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}animationmanager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}entity.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classExplosion}{Explosion}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity}{Entity}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ QPixmap\ sprite;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classAnimationManager}{AnimationManager}}*\ animation;\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ timer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classExplosion}{Explosion}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classExplosion}{Explosion}}(\mbox{\hyperlink{classCoordinate}{Coordinate}}\ position);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classExplosion_ac9c0baa7268ff5b8f4f358074a1326c0}{\string~Explosion}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExplosion_af67e5ab127b69a90b9bf1dad03c56ca4}{update}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExplosion_a4d7a36e5766b1fd97767f6a45dac8965}{draw}}(QPainter\ *\ painter);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ QRect\ \mbox{\hyperlink{classExplosion_a7b4bf50a69a0078aa85f3e965b1a0f77}{getRect}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EXPLOSION\_H}}
+
+\end{DoxyCode}

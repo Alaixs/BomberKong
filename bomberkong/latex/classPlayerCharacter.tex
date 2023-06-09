@@ -1,0 +1,209 @@
+\hypertarget{classPlayerCharacter}{}\doxysection{Player\+Character Class Reference}
+\label{classPlayerCharacter}\index{PlayerCharacter@{PlayerCharacter}}
+
+
+The class of the Player\textquotesingle{}s Character.  
+
+
+
+
+{\ttfamily \#include $<$playercharacter.\+h$>$}
+
+Inheritance diagram for Player\+Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPlayerCharacter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayerCharacter_aa726de4689a3592c70964e9833977392}{Player\+Character}} (int posX, int posY)
+\begin{DoxyCompactList}\small\item\em Create a playable character. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayerCharacter_a321f91e515267e8af6ee9bfa01cadab4}{Player\+Character}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Create a playable character. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayerCharacter_a4915330a9f743156b6860a97e6d68e28}\label{classPlayerCharacter_a4915330a9f743156b6860a97e6d68e28}} 
+{\bfseries $\sim$\+Player\+Character} ()
+\begin{DoxyCompactList}\small\item\em Destructor for a \mbox{\hyperlink{classPlayerCharacter}{Player\+Character}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayerCharacter_a6a0338ab611988c7ace3f14d82bad13e}{update}} ()
+\begin{DoxyCompactList}\small\item\em update bomberman (position, sprite, etc) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayerCharacter_a398f7fafa4bacc5be50759b6f8094e9f}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Display the actual Bomberman\textquotesingle{}s sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayerCharacter_a6dd871613ddefc988569724edc6cbc2d}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Detect and react for the collision with other entities. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayerCharacter_a0d8402e13d3a670e250362eaa0d41ac7}\label{classPlayerCharacter_a0d8402e13d3a670e250362eaa0d41ac7}} 
+void {\bfseries footsteps\+Sfx} ()
+\begin{DoxyCompactList}\small\item\em Play the foot step sound. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayerCharacter_a7e11d41a98984400beb01b9594e51c7d}\label{classPlayerCharacter_a7e11d41a98984400beb01b9594e51c7d}} 
+void {\bfseries lose\+Theme\+Sfx} ()
+\begin{DoxyCompactList}\small\item\em Play the lose sound. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayerCharacter_ab3ddc1228b98a1e9176e2167c4152e67}\label{classPlayerCharacter_ab3ddc1228b98a1e9176e2167c4152e67}} 
+void {\bfseries win\+Theme\+Sfx} ()
+\begin{DoxyCompactList}\small\item\em Play the win sound. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayerCharacter_a26f58375871edba379f5200faf0945bb}\label{classPlayerCharacter_a26f58375871edba379f5200faf0945bb}} 
+void {\bfseries stop\+All\+Sounds} ()
+\begin{DoxyCompactList}\small\item\em Stop\+All\+Sounds. \end{DoxyCompactList}\item 
+QRect \mbox{\hyperlink{classPlayerCharacter_a093f145232e5c1820ae1b31caea0a319}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em Create the hitboxe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity_a9da14c9f90c382c963a90afd58c36fcd}{Entity}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntity_ae3420da33ab4810a9216aaf4d495cdd2}{Entity}} (\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac135006c51fb3384b5b4624224d6e375}{pos}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{classEntity_adf6d3f7cb1b2ba029b6b048a395cc8ae}} 
+virtual {\bfseries $\sim$\+Entity} ()
+\begin{DoxyCompactList}\small\item\em Destructor an \mbox{\hyperlink{classEntity}{Entity}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEntity_aaf6c7c31d2206c51dbc7bf30d80e225f}{set\+Parent}} (\mbox{\hyperlink{classScene}{Scene}} $\ast$new\+Parent)
+\begin{DoxyCompactList}\small\item\em Set the parent property to a pointer to the main widget. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} \mbox{\hyperlink{classEntity_ac01658c75058bfc83db5e3294a78b16d}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em getter of the coordinate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_a29601f50527cca46e471d8933c8bddd5}\label{classEntity_a29601f50527cca46e471d8933c8bddd5}} 
+void {\bfseries delete\+Entity} ()
+\begin{DoxyCompactList}\small\item\em delete the entity \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEntity_a00a0f5a9e9f39be9b9db28d5dbccd20e}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em is\+Alive \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em update the entity (move, change direction, etc.) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{draw}} (QPainter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em draw the entity on the screen \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{collision\+Event}} (\mbox{\hyperlink{classEntity}{Entity}} $\ast$body)
+\begin{DoxyCompactList}\small\item\em collision\+Event \end{DoxyCompactList}\item 
+virtual QRect \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{get\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em get\+Rect get the rectangle of the entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayerCharacter_a3002644a0acd921ea761c7ad53763808}\label{classPlayerCharacter_a3002644a0acd921ea761c7ad53763808}} 
+\mbox{\hyperlink{classSoundManager}{Sound\+Manager}} $\ast$ {\bfseries sound\+Manager}
+\begin{DoxyCompactList}\small\item\em All the sound use by this class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayerCharacter_a19eebbe0934232687d426a72b063e852}\label{classPlayerCharacter_a19eebbe0934232687d426a72b063e852}} 
+int {\bfseries speed}
+\begin{DoxyCompactList}\small\item\em The number of pixels traveled each frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classEntity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntity_ac135006c51fb3384b5b4624224d6e375}\label{classEntity_ac135006c51fb3384b5b4624224d6e375}} 
+\mbox{\hyperlink{classCoordinate}{Coordinate}} {\bfseries pos}
+\begin{DoxyCompactList}\small\item\em The coordinate of the entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}\label{classEntity_ad70d7c253f0a78fd6a69d1ab75e398ee}} 
+\mbox{\hyperlink{classScene}{Scene}} $\ast$ {\bfseries parent}
+\begin{DoxyCompactList}\small\item\em The main widget, used to call method from it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class of the Player\textquotesingle{}s Character. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlayerCharacter_aa726de4689a3592c70964e9833977392}\label{classPlayerCharacter_aa726de4689a3592c70964e9833977392}} 
+\index{PlayerCharacter@{PlayerCharacter}!PlayerCharacter@{PlayerCharacter}}
+\index{PlayerCharacter@{PlayerCharacter}!PlayerCharacter@{PlayerCharacter}}
+\doxysubsubsection{\texorpdfstring{PlayerCharacter()}{PlayerCharacter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Player\+Character\+::\+Player\+Character (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+Create a playable character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & \+: position on x axes \\
+\hline
+{\em posY} & \+: position on y axes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayerCharacter_a321f91e515267e8af6ee9bfa01cadab4}\label{classPlayerCharacter_a321f91e515267e8af6ee9bfa01cadab4}} 
+\index{PlayerCharacter@{PlayerCharacter}!PlayerCharacter@{PlayerCharacter}}
+\index{PlayerCharacter@{PlayerCharacter}!PlayerCharacter@{PlayerCharacter}}
+\doxysubsubsection{\texorpdfstring{PlayerCharacter()}{PlayerCharacter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Player\+Character\+::\+Player\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinate}{Coordinate}}}]{pos }\end{DoxyParamCaption})}
+
+
+
+Create a playable character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \+: location coordinates \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayerCharacter_a6dd871613ddefc988569724edc6cbc2d}\label{classPlayerCharacter_a6dd871613ddefc988569724edc6cbc2d}} 
+\index{PlayerCharacter@{PlayerCharacter}!collisionEvent@{collisionEvent}}
+\index{collisionEvent@{collisionEvent}!PlayerCharacter@{PlayerCharacter}}
+\doxysubsubsection{\texorpdfstring{collisionEvent()}{collisionEvent()}}
+{\footnotesize\ttfamily void Player\+Character\+::collision\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} $\ast$}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Detect and react for the collision with other entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body} & \+: the coordinate of the other entities \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_aa2f2a18cc35fb6c1a159b12efe715d8b}{Entity}}.
+
+\mbox{\Hypertarget{classPlayerCharacter_a398f7fafa4bacc5be50759b6f8094e9f}\label{classPlayerCharacter_a398f7fafa4bacc5be50759b6f8094e9f}} 
+\index{PlayerCharacter@{PlayerCharacter}!draw@{draw}}
+\index{draw@{draw}!PlayerCharacter@{PlayerCharacter}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Player\+Character\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display the actual Bomberman\textquotesingle{}s sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \+: the tools to display \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a1e059b641f53b2a4afeeeb5d0c5cbc2e}{Entity}}.
+
+\mbox{\Hypertarget{classPlayerCharacter_a093f145232e5c1820ae1b31caea0a319}\label{classPlayerCharacter_a093f145232e5c1820ae1b31caea0a319}} 
+\index{PlayerCharacter@{PlayerCharacter}!getRect@{getRect}}
+\index{getRect@{getRect}!PlayerCharacter@{PlayerCharacter}}
+\doxysubsubsection{\texorpdfstring{getRect()}{getRect()}}
+{\footnotesize\ttfamily QRect Player\+Character\+::get\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Create the hitboxe. 
+
+\begin{DoxyReturn}{Returns}
+the hitboxe 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classEntity_a5795f0a16b73c98365c7811d4052682e}{Entity}}.
+
+\mbox{\Hypertarget{classPlayerCharacter_a6a0338ab611988c7ace3f14d82bad13e}\label{classPlayerCharacter_a6a0338ab611988c7ace3f14d82bad13e}} 
+\index{PlayerCharacter@{PlayerCharacter}!update@{update}}
+\index{update@{update}!PlayerCharacter@{PlayerCharacter}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+Character\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+update bomberman (position, sprite, etc) 
+
+
+
+Implements \mbox{\hyperlink{classEntity_a59a29d9b7474baf13c9c76859242287d}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+playercharacter.\+h\item 
+playercharacter.\+cpp\end{DoxyCompactItemize}
