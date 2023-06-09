@@ -73,7 +73,7 @@ public:
      */
     void keyReleaseEvent(QKeyEvent * ev);
 
-    int wMap;
+    int currentMap;
 
     gameState state = MENU;
 

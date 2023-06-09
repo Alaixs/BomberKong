@@ -24,7 +24,7 @@ ui->setupUi(this);
 
     cellSize = 32;
     isPaused = false;
-    wLvl = 0;
+    currentLevel = 0;
 
     // Screen dimensions
     int height = 26 * cellSize;

@@ -17,7 +17,7 @@ class Tutorial : public Level
 
 public:
     GUIElement * startLabel;
-    int wMap;
+    int currentMap;
 
     /**
      * @brief Create new Tutorial screen
