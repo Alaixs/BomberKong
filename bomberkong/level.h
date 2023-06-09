@@ -5,6 +5,7 @@
 #include "scene.h"
 #include "entity.h"
 #include <list>
+#include <vector>
 #include <QWidget>
 
 
@@ -20,7 +21,7 @@ protected:
 
 public:
     GUIElement* pauseLabel;
-    int currentMap; // Which map is currently displayed
+    std::vector<int> currentMap; // Which map is currently displayed
 
     /**
     * @brief The main scene for the level
@@ -35,19 +36,19 @@ public:
     /**
      * @brief Update the level's items
      */
-    virtual void update();
+    void update();
 
     /**
      * @brief Display the actual barrel
      * @param painter : the tools to display
      */
-    virtual void draw(QPainter* painter);
+    void draw(QPainter* painter);
 
     /**
      * @brief Adds an entity in the list and sets its `parent` property as itself.
      * @param entity : The entity to create.
      */
-    virtual void createEntity(Entity* entity);
+    void createEntity(Entity* entity);
 
     /**
      * @brief Delete all entities
@@ -60,7 +61,7 @@ public:
      * Triggered when the player touches bombergirl, the scene is then switched to
      * the victory screen.
      */
-    virtual void win();
+    void win();
 
     /**
      * @brief Triggered when the player takes damage.
@@ -68,7 +69,7 @@ public:
      * Triggered when the player takes damage. the level is restarted if the player
      * have a remaining life, the scene is switched to the game over screen otherwise.
      */
-    virtual void loose();
+    void loose();
 
     /**
      * @brief Triggered when the player exits the first level at the bottom.

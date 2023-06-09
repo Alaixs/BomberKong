@@ -18,7 +18,7 @@ Level::Level(QWidget* widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
 
-    currentMap = rand() % 3; // Select a random map
+    currentMap.push_back(rand() % 3); // Select a random map
 
     pauseLabel = new GUIElement(
         Coordinate(140, 620),
@@ -182,7 +182,7 @@ void Level::restart()
     // Goes on the next line when encountering a semicolon;
     char block;
 
-    for(int i = 0; i < currentMap; i++)
+    for(int i = 0; i < currentMap.at(0); i++)
     {
         while(levelDataFile >> block && block != '!'){};
     }
