@@ -20,5 +20,8 @@
         <file>assets/sprites/t_menu_bg.png</file>
         <file>assets/sprites/t_move_controls.png</file>
         <file>assets/sprites/t_bomb_controls.png</file>
+        <file>assets/maps/BAS_Reloaded.bkmap</file>
+        <file>assets/maps/MILIEU_Reloaded.bkmap</file>
+        <file>assets/maps/HAUT_Reloaded.bkmap</file>
     </qresource>
 </RCC>
