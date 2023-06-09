@@ -19,6 +19,7 @@ private:
     GUIElement* bg;
     GUIElement* logo;
     GUIElement* pressStart;
+    GUIElement* options;
 
 public:
     /**

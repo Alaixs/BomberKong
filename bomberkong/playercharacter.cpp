@@ -212,17 +212,17 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    //SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
 }
 
 void PlayerCharacter::loseThemeSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false);
 }
 
 void PlayerCharacter::winThemeSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5, false);
 }
 
 QRect PlayerCharacter::getRect()

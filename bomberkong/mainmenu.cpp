@@ -32,6 +32,13 @@ MainMenu::MainMenu(QWidget* widget)
                                     QString("://assets/sprites/t_press_start.png")
                                 );
     gui.push_back(pressStart);
+
+    // Options
+    options = new GUIElement(Coordinate(575, 765),
+                          Coordinate(32, 32),
+                          QString("://assets/sprites/t_options.png")
+                          );
+    gui.push_back(options);
 }
 
 MainMenu::~MainMenu()

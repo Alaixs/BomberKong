@@ -42,7 +42,7 @@ ui->setupUi(this);
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_winTheme.wav");
 
     //play main theme
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
 
     // Set the first scene to be the main menu
     currentScene = new MainMenu(this);
@@ -108,7 +108,7 @@ void Widget::switchScene(int sceneId)
         break;
 
         case 2:
-            currentScene = new Tutorial(this);
+            currentScene = new Original(this);
         break;
 
         case 3:
