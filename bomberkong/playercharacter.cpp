@@ -49,6 +49,12 @@ void PlayerCharacter::initBonus()
     explosionRangeBonusNb = 0;
     explosionTimeBonusNb = 0;
     armorOn = false;
+    invincibilityTimer = 0;
+}
+
+void PlayerCharacter::initInvincibility()
+{
+    invincibilityTimer = 200;
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -68,7 +74,6 @@ void PlayerCharacter::update()
 
     if (!isKO) // If the player is controllable
     {
-
 
     if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1+(speedBonusNb*0.20); flipped = true; footstepsSfx(); }
     else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -(1+speedBonusNb*0.20); flipped = false; footstepsSfx(); }
@@ -150,6 +155,11 @@ void PlayerCharacter::update()
     }
 
     }
+
+    if (!armorOn && invincibilityTimer != 0) // Decrease the invincibility time
+    {
+        invincibilityTimer--;
+    }
 }
 
 void PlayerCharacter::collisionEvent(Entity * body)
@@ -206,6 +216,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
             if (!armorOn)
             {
                 armorOn = true;
+                invincibilityTimer = 0;
                 dynamic_cast<PowerUp*>(body)->collected();
                 delete body;
             }
@@ -219,20 +230,24 @@ void PlayerCharacter::collisionEvent(Entity * body)
     // Collision with damaging entities
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
     {
-        if (!armorOn) // The player can't take damage if he's wearing the armor
+        if (invincibilityTimer == 0)
         {
-            if (isKO) { return; } // Doesn't take damage if already KO
+            if (!armorOn) // The player can't take damage if he's wearing the armor or is invincible
+            {
+                if (isKO) { return; } // Doesn't take damage if already KO
 
-            nbLives--;
-            isKO = true;
+                nbLives--;
+                isKO = true;
 
-            dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
-            dynamic_cast<Level*>(parent)->resetBombOnScreenNb(); // Reset the number of bomb on the screen to 0
-            initBonus(); // Reset the player bonuses
-        }
-        else
-        {
-            armorOn = false; // The player looses his armor
+                dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
+                dynamic_cast<Level*>(parent)->resetBombOnScreenNb(); // Reset the number of bomb on the screen to 0
+                initBonus(); // Reset the player bonuses
+            }
+            else
+            {
+                armorOn = false; // The player looses his armor
+                initInvincibility(); // The player has some frames of invincibility
+            }
         }
     }
 

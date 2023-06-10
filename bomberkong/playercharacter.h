@@ -27,6 +27,7 @@ private:
     int explosionRangeBonusNb;      ///< The number of explosion range bonus Power-Up the player currently has
     int explosionTimeBonusNb;       ///< The number of explosion time bonus Power-Up the player currently has
     bool armorOn;                   ///< Bool to check if the player is currently wearing an armor
+    int invincibilityTimer;         ///< A timer for the player invincibility after losing an armor
 
 public:
     /**
@@ -88,6 +89,11 @@ public:
      * @brief Set the player bonus count to 0 for every Power-Up type
      */
     void initBonus();
+
+    /**
+     * @brief Init the player invincibility
+     */
+    void initInvincibility();
 
 };
 
