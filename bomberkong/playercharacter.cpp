@@ -179,7 +179,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
         case SPEED: // Collecting a speed bonus
             speedBonusNb++;
             dynamic_cast<PowerUp*>(body)->collected();
-            delete body;
             break;
 
         case BOMB_NB: // Collecting a max bomb bonus
@@ -193,7 +192,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
             {
                 explosionRangeBonusNb++;
                 dynamic_cast<PowerUp*>(body)->collected();
-                delete body;
             }
             break;
 
@@ -202,7 +200,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
             {
                 explosionTimeBonusNb++;
                 dynamic_cast<PowerUp*>(body)->collected();
-                delete body;
             }
             break;
 
@@ -212,7 +209,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
                 armorOn = true;
                 invincibilityTimer = 0;
                 dynamic_cast<PowerUp*>(body)->collected();
-                delete body;
+
             }
             break;
 
