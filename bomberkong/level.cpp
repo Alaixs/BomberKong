@@ -46,6 +46,8 @@ Level::Level(QWidget* widget)
     itsSceneType = ORIGINAL;
     setOffsetLimit(21*cellSize, 21*cellSize);
 
+    bombOnScreenNb = 0;
+
     restart(); // Initialize the level
 }
 
@@ -255,4 +257,26 @@ void Level::restart()
 void Level::createExplosion(int posX, int posY)
 {
     createEntity(new Explosion(posX, posY));
+}
+
+
+void Level::incrementBombNb()
+{
+    bombOnScreenNb++;
+}
+
+
+void Level::decrementBombNb()
+{
+    bombOnScreenNb--;
+}
+
+void Level::resetBombOnScreenNb()
+{
+    bombOnScreenNb = 0;
+}
+
+int Level::getBombOnScreenNb()
+{
+    return bombOnScreenNb;
 }

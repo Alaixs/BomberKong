@@ -16,8 +16,9 @@ class Level : public Scene
 {
 
 protected:
-    std::list<Entity*> entities;
-    std::list<GUIElement*> gui;
+    std::list<Entity*> entities;    ///< A list of the level entites
+    std::list<GUIElement*> gui;     ///< A list of the level GUI Elements
+    int bombOnScreenNb;               ///< The number on bomb on screen
 
 public:
     GUIElement* pauseLabel;
@@ -93,6 +94,27 @@ public:
      * @param playerLives The number of lives the player currently has
      */
     void updateLivesGUI(int playerLives);
+
+    /**
+     * @brief Increment the number of bomb on the screen
+     */
+    void incrementBombNb();
+
+    /**
+     * @brief Decrement the number of bomb on the screen
+     */
+    void decrementBombNb();
+
+    /**
+     * @brief Set the number of bomb on the screen to 0
+     */
+    void resetBombOnScreenNb();
+
+    /**
+     * @brief Getter for the number of bomb on the screen
+     * @return The number of bomb on the screen
+     */
+    int getBombOnScreenNb();
 
 };
 

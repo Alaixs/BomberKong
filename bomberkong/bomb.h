@@ -10,25 +10,31 @@
  */
 class Bomb : public Entity
 {
-    int timer ; ///< The number of frame the bomb will stay, also use to switch frame and explode
-    QPixmap sprite; ///< The actual Sprite
-    AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
-    SoundManager* soundManager; ///< The explosion's sound
+    int timer;                     ///< The number of frame the bomb will stay, also use to switch frame and explode
+    QPixmap sprite;                 ///< The actual Sprite
+    AnimationManager* animation;    ///< The actual animation ( the range in the sprite image)
+    SoundManager* soundManager;     ///< The explosion's sound
+    int itsExplosionRange;          ///< The range of the explosion
+    int itsExplosionTime;              ///< The time before the bomb explode (NOT in second)
 
 public:
     /**
      * @brief Create a Bomb
      * @param posX : position on x axes
      * @param posY : position on y axes
+     * @param explosionRange : The range of the explosion
+     * @param explosionTime : The time before the bomb explode (NOT in second)
      */
-    Bomb(int posX, int posY);
+    Bomb(int posX, int posY, int explosionRange, int explosionTime);
 
     /**
      * @brief Create a Bomb
      * @param posX : position on x axes
      * @param posY : position on y axes
+     * @param explosionRange : The range of the explosion
+     * @param explosionTime : The time before the bomb explode (NOT in second)
      */
-    Bomb(Coordinate position);
+    Bomb(Coordinate position, int explosionRange, int explosionTime);
 
     /**
      * @brief Destructor for a Bomb object

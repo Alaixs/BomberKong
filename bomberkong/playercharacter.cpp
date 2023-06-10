@@ -24,6 +24,7 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     timer = 0;
     nbLives = 2;
     isKO = false;
+    initBonus();
 }
 
 
@@ -37,42 +38,61 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     timer = 0;
     nbLives = 2;
     isKO = false;
+    initBonus();
 }
 
+void PlayerCharacter::initBonus()
+{
+    speedBonusNb = 0;
+    maxBombBonusNb = 0;
+    explosionRangeBonusNb = 0;
+    explosionTimeBonusNb = 0;
+    armorOn = false;
+}
 
 PlayerCharacter::~PlayerCharacter()
 {
     delete animation;
 }
 
-
 void PlayerCharacter::update()
 {
+    if (pos.y >= dynamic_cast<Scene*>(parent)->getItsLowerLimit() // Prevent the scrolling from going under
+        && pos.y <= dynamic_cast<Scene*>(parent)->getItsUpperLimit()) // and above the level
+    {
+        dynamic_cast<Scene*>(parent)->setCameraOffset(pos-Coordinate(0,256)); // Manage the scrolling
+    }
+
     animation->update();
 
     if (!isKO) // If the player is controllable
     {
 
-    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1; flipped = true; footstepsSfx(); }
-    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -1; flipped = false; footstepsSfx(); }
+    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1+(speedBonusNb*0.1); flipped = true; footstepsSfx(); }
+    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -(1+speedBonusNb*0.1); flipped = false; footstepsSfx(); }
     else { motion.x = 0; }
 
-    if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1; footstepsSfx(); }
-    else if (Input::isActionPressed(MOVE_UP)) { motion.y = -1; footstepsSfx(); }
+    if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1+speedBonusNb*0.1; footstepsSfx(); }
+    else if (Input::isActionPressed(MOVE_UP)) { motion.y = -(1+speedBonusNb*0.1); footstepsSfx(); }
     else { motion.y = 0; }
 
     if(Input::isActionPressed(PLACE_BOMB))
     {
-        if(timer < 0)
+        if(dynamic_cast<Level*>(parent)->getBombOnScreenNb() < 1+maxBombBonusNb)
         {
+            if (timer < 0)
+            {
             // Place the bomb in the center of a cell
             Coordinate bombPos(pos);
             bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
             bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
-            dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos));
+            dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos,1+explosionRangeBonusNb, 1+explosionTimeBonusNb));
 
             // Reset the cooldown timer
-            timer = 200;
+            timer = 20;
+
+            dynamic_cast<Level*>(parent)->incrementBombNb();
+            }
         }
     }
 
@@ -83,12 +103,6 @@ void PlayerCharacter::update()
     }
 
     pos += motion * speed;
-
-    if (pos.y >= dynamic_cast<Scene*>(parent)->getItsLowerLimit() // Prevent the scrolling from going under
-        && pos.y <= dynamic_cast<Scene*>(parent)->getItsUpperLimit()) // and above the level
-    {
-        dynamic_cast<Scene*>(parent)->setCameraOffset(pos-Coordinate(0,256)); // Manage the scrolling
-    }
 
     if(timer >= 0)
         timer--;
@@ -152,12 +166,20 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
     {
-        if (isKO) { return; } // Doesn't take damage if already KO
+        if (!armorOn) // The player can't take damage if he's wearing the armor
+        {
+            if (isKO) { return; } // Doesn't take damage if already KO
 
-        nbLives--;
-        isKO = true;
+            nbLives--;
+            isKO = true;
 
-        dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
+            dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
+            dynamic_cast<Level*>(parent)->resetBombOnScreenNb(); // Reset the number of bomb on the screen to 0
+        }
+        else
+        {
+            armorOn = false; // The player looses his armor
+        }
     }
 
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
