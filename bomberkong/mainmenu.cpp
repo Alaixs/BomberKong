@@ -92,56 +92,54 @@ void MainMenu::update()
 
     logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*60 + 80)); // Animate the logo
 
-    if (timer %  8 == 0) // Another method should be used to prevent the "super sonic" choice change...
+    if (Input::isActionJustPressed(MOVE_DOWN))
     {
-        if (Input::isActionPressed(MOVE_DOWN))
+        qDebug() << "ratio";
+        if (choiceTutorial->isElementSelected())
         {
-            if (choiceTutorial->isElementSelected())
-            {
-                choiceTutorial->deselect();
-                choiceOriginal->select();
-                selected->setPos(Coordinate(100,500));
-                qDebug("Original selected");
-            }
-            else if (choiceOriginal->isElementSelected())
-            {
-                choiceOriginal->deselect();
-                choiceReloaded->select();
-                selected->setPos(Coordinate(100,600));
-                qDebug("Reloaded selected");
-            }
-            else if (choiceReloaded->isElementSelected())
-            {
-                choiceReloaded->deselect();
-                choiceTutorial->select();
-                selected->setPos(Coordinate(100,400));
-                qDebug("Tutorial selected");
-            }
+            choiceTutorial->deselect();
+            choiceOriginal->select();
+            selected->setPos(Coordinate(100,500));
+            qDebug("Original selected");
         }
-
-        if (Input::isActionPressed(MOVE_UP))
+        else if (choiceOriginal->isElementSelected())
         {
-            if (choiceTutorial->isElementSelected())
-            {
-                choiceTutorial->deselect();
-                choiceReloaded->select();
-                selected->setPos(Coordinate(100,600));
-                qDebug("Reloaded selected");
-            }
-            else if (choiceOriginal->isElementSelected())
-            {
-                choiceOriginal->deselect();
-                choiceTutorial->select();
-                selected->setPos(Coordinate(100,400));
-                qDebug("Tutorial selected");
-            }
-            else if (choiceReloaded->isElementSelected())
-            {
-                choiceReloaded->deselect();
-                choiceOriginal->select();
-                selected->setPos(Coordinate(100,500));
-                qDebug("Original selected");
-            }
+            choiceOriginal->deselect();
+            choiceReloaded->select();
+            selected->setPos(Coordinate(100,600));
+            qDebug("Reloaded selected");
+        }
+        else if (choiceReloaded->isElementSelected())
+        {
+            choiceReloaded->deselect();
+            choiceTutorial->select();
+            selected->setPos(Coordinate(100,400));
+            qDebug("Tutorial selected");
+        }
+    }
+
+    if (Input::isActionJustPressed(MOVE_UP))
+    {
+        if (choiceTutorial->isElementSelected())
+        {
+            choiceTutorial->deselect();
+            choiceReloaded->select();
+            selected->setPos(Coordinate(100,600));
+            qDebug("Reloaded selected");
+        }
+        else if (choiceOriginal->isElementSelected())
+        {
+            choiceOriginal->deselect();
+            choiceTutorial->select();
+            selected->setPos(Coordinate(100,400));
+            qDebug("Tutorial selected");
+        }
+        else if (choiceReloaded->isElementSelected())
+        {
+            choiceReloaded->deselect();
+            choiceOriginal->select();
+            selected->setPos(Coordinate(100,500));
+            qDebug("Original selected");
         }
     }
 
