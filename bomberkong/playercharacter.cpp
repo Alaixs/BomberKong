@@ -238,7 +238,7 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    //SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
 }
 
 QRect PlayerCharacter::getRect()
