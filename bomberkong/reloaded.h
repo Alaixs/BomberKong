@@ -6,6 +6,8 @@ class Reloaded : public Level
 {
 public:
     Reloaded(QWidget* widget);
+
+    void restart();
 };
 
 #endif // RELOADED_H

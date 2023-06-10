@@ -6,6 +6,8 @@ class Original : public Level
 {
 public:
     Original(QWidget* widget);
+
+    void restart();
 };
 
 #endif // ORIGINAL_H

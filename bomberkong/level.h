@@ -1,13 +1,22 @@
 #ifndef LEVEL_H
 #define LEVEL_H
-
-#include "guielement.h"
 #include "scene.h"
-#include "entity.h"
+
 #include <list>
 #include <vector>
 #include <QWidget>
+#include <fstream>
+#include <QDebug>
 
+#include "guielement.h"
+#include "entity.h"
+#include "bombergirl.h"
+#include "donkeykong.h"
+#include "wall.h"
+#include "indestructiblewall.h"
+#include "playercharacter.h"
+#include "widget.h"
+#include "global.h"
 
 /**
 * @brief The main scene for the level
@@ -87,7 +96,7 @@ public:
     /**
      * @brief Reset the level and place the player on the spawn point.
      */
-    void restart();
+    virtual void restart() = 0;
 
     /**
      * @brief Update the hearts display based on the player lives

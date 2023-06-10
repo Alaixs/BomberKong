@@ -12,6 +12,7 @@
 #include "mainmenu.h"
 #include "win.h"
 #include "tutorial.h"
+#include "reloaded.h"
 
 
 bool isPaused;
@@ -115,7 +116,7 @@ void Widget::switchScene(SceneType sceneType)
         break;
 
         case RELOADED:
-            // TODO
+            currentScene = new Reloaded(this);
             break;
 
         case WIN_SCREEN:
