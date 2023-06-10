@@ -23,8 +23,8 @@ Win::~Win()
 
 void Win::update()
 {
- //   bomberman->update();
-   // bombergirl->update();
+    bomberman->update();
+    bombergirl->update();
 }
 
 void Win::draw(QPainter * painter)
@@ -56,7 +56,7 @@ void Win::draw(QPainter * painter)
     }
 
     bomberman->draw(painter);
-    bombergirl->draw(painter);
+    //bombergirl->draw(painter);
     winLabel->draw(painter);
 }
 
