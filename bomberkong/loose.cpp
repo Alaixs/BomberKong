@@ -5,8 +5,13 @@
 
 Loose::Loose(QWidget* widget) : Scene(widget)
 {
+    itsSceneType = LOOSE_SCREEN;
+    setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
+
     changeSound();
     dk = new DonkeyKong(8.5 * cellSize, 528);
+    dk->setParent(this);
+
     go = new GUIElement(
                 Coordinate(70, 200),
                 Coordinate(500,100),
@@ -57,7 +62,7 @@ void Loose::draw(QPainter * painter)
         }
     }
 
-    //dk->draw(painter);
+    dk->draw(painter);
     go->draw(painter);
 }
 
