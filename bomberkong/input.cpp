@@ -13,6 +13,8 @@ bool start = false;
 
 //Those inputs are not persistent and are reseted at the end of the tick
 bool fl_start = false;
+bool fl_down = false;
+bool fl_up = false;
 
 
 void Input::keyPressedEvent(QKeyEvent * event)
@@ -21,10 +23,12 @@ void Input::keyPressedEvent(QKeyEvent * event)
     {
         case Qt::Key_Up:
             moveUp = true;
+            fl_up = true;
             break;
 
         case Qt::Key_Down:
             moveDown = true;
+            fl_down = true;
             break;
 
         case Qt::Key_Left:
@@ -128,6 +132,14 @@ bool Input::isActionJustPressed(Actions action)
             return fl_start;
             break;
 
+        case MOVE_UP:
+            return fl_up;
+            break;
+
+        case MOVE_DOWN:
+            return fl_down;
+            break;
+
         default:
             return false;
             break;
@@ -138,4 +150,6 @@ bool Input::isActionJustPressed(Actions action)
 void Input::resetFLInputs()
 {
     fl_start = false;
+    fl_up = false;
+    fl_down = false;
 }
