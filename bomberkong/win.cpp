@@ -23,8 +23,8 @@ Win::~Win()
 
 void Win::update()
 {
-    bomberman->update();
-    bombergirl->update();
+ //   bomberman->update();
+   // bombergirl->update();
 }
 
 void Win::draw(QPainter * painter)
@@ -59,3 +59,10 @@ void Win::draw(QPainter * painter)
     bombergirl->draw(painter);
     winLabel->draw(painter);
 }
+
+void Win::changeSound()
+{
+    SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5, false);
+}
+

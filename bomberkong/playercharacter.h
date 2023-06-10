@@ -63,16 +63,6 @@ public:
     void footstepsSfx();
 
     /**
-     * @brief Play the lose sound
-     */
-    void loseThemeSfx();
-
-    /**
-     * @brief Play the win sound
-     */
-    void winThemeSfx();
-
-    /**
      * @brief StopAllSounds
      */
     void stopAllSounds();

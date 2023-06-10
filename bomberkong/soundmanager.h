@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QSoundEffect>
 #include <QMap>
-#include <QThread>
-
 
 /**
  * @brief The class to manage any sound on game
@@ -36,9 +34,9 @@ public:
     void playSound(const QString& soundFilePath, qreal volume, bool looping);
 
     /**
-     * @brief Stop All Sounds
+     * @brief Stop a sounds who's playing
      */
-    void stopAllSounds();
+    void stopSound(const QString& soundFilePath);
 
 
 private:

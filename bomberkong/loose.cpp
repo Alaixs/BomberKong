@@ -1,10 +1,11 @@
 #include "loose.h"
-
+#include "soundmanager.h"
 #include "global.h"
 
 
 Loose::Loose(QWidget* widget) : Scene(widget)
 {
+    changeSound();
     dk = new DonkeyKong(8.5 * cellSize, 528);
     go = new GUIElement(
                 Coordinate(70, 200),
@@ -58,4 +59,10 @@ void Loose::draw(QPainter * painter)
 
     //dk->draw(painter);
     go->draw(painter);
+}
+
+void Loose::changeSound()
+{
+    SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false);
 }
