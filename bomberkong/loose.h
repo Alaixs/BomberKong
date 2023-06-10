@@ -38,6 +38,11 @@ public:
      */
     void draw(QPainter* painter);
 
+    /**
+     * @brief Stop the main theme music and change for the loose sound
+     */
+    void changeSound();
+
 };
 
 #endif // LOOSE_H

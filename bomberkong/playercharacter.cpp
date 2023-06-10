@@ -69,6 +69,7 @@ void PlayerCharacter::update()
     if (!isKO) // If the player is controllable
     {
 
+
     if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1+(speedBonusNb*0.1); flipped = true; footstepsSfx(); }
     else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -(1+speedBonusNb*0.1); flipped = false; footstepsSfx(); }
     else { motion.x = 0; }
@@ -291,17 +292,7 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    //SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
-}
-
-void PlayerCharacter::loseThemeSfx()
-{
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false);
-}
-
-void PlayerCharacter::winThemeSfx()
-{
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
 }
 
 QRect PlayerCharacter::getRect()
