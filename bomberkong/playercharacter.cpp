@@ -12,6 +12,7 @@
 #include "bomb.h"
 #include "barrel.h"
 #include "explosion.h"
+#include "powerup.h"
 
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
