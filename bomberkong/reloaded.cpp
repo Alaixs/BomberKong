@@ -17,10 +17,12 @@ void Reloaded::restart()
     deleteAllEntity();
 
     // Loads data from a file
-    std::ifstream levelDataFile;
-    levelDataFile.open("../bomberkong/assets/maps/Map.bkmap");
+    std::ifstream levelDataFileBottom, levelDataFileMiddle, levelDataFileTop;
+    levelDataFileBottom.open("../bomberkong/assets/maps/BAS_Reloaded.bkmap");
+    levelDataFileMiddle.open("../bomberkong/assets/maps/MILIEU_Reloaded.bkmap");
+    levelDataFileTop.open("../bomberkong/assets/maps/HAUT_Reloaded.bkmap");
 
-    if (!levelDataFile.is_open())
+    if (!levelDataFileTop.is_open() || !levelDataFileMiddle.is_open() || !levelDataFileBottom.is_open())
         qDebug() << "Could not open the file";
 
 
@@ -30,13 +32,75 @@ void Reloaded::restart()
 
     for(int i = 0; i < currentMap.at(0); i++)
     {
-        while(levelDataFile >> block && block != '!'){};
+        while(levelDataFileBottom >> block && block != '!'){};
     }
 
-    int yPos = 4 * cellSize;
+    for(int i = 0; i < currentMap.at(1); i++)
+    {
+        while(levelDataFileMiddle >> block && block != '!'){};
+    }
+
+    for(int i = 0; i < currentMap.at(2); i++)
+    {
+        while(levelDataFileTop >> block && block != '!'){};
+    }
+
+    int yPos = 8 * cellSize - 22 * 2 * cellSize;
     int xPos = 0;
 
-    while (levelDataFile >> block && block != '!')
+    while (levelDataFileTop >> block && block != '!')
+    {
+        if (block == ';')
+        {
+            // Line break
+            yPos += cellSize;
+            xPos = 0;
+        }
+        else
+        {
+            if (block == '2')
+            {
+                createEntity(new Wall(xPos, yPos));
+            }
+            else if (block == '1')
+            {
+                createEntity(new IndestructibleWall(xPos, yPos));
+            }
+
+            xPos += cellSize;
+        }
+    }
+
+    levelDataFileTop.close();
+
+
+    while (levelDataFileMiddle >> block && block != '!')
+    {
+        if (block == ';')
+        {
+            // Line break
+            yPos += cellSize;
+            xPos = 0;
+        }
+
+        else
+        {
+            if (block == '2')
+            {
+                createEntity(new Wall(xPos, yPos));
+            }
+            else if (block == '1')
+            {
+                createEntity(new IndestructibleWall(xPos, yPos));
+            }
+
+            xPos += cellSize;
+        }
+    }
+
+    levelDataFileMiddle.close();
+
+    while (levelDataFileBottom >> block && block != '!')
     {
         if (block == ';')
         {
@@ -60,9 +124,9 @@ void Reloaded::restart()
         }
     }
 
-    levelDataFile.close();
+    levelDataFileBottom.close();
 
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-    createEntity(new DonkeyKong(9 * cellSize, 0));
+    createEntity(new DonkeyKong(8 * cellSize - 22 * 2 * cellSize, 0));
 }

@@ -23,6 +23,7 @@ private:
     GUIElement * choiceTutorial; ///< The actual Sprite
     GUIElement * choiceOriginal; ///< The actual Sprite
     GUIElement * choiceReloaded; ///< The actual Sprite
+    GUIElement * selected;
 
 public:
     /**

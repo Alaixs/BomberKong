@@ -34,5 +34,6 @@
         <file>assets/sprites/t_bomb_nb.png</file>
         <file>assets/sprites/t_explosion_time.png</file>
         <file>assets/sprites/t_speed.png</file>
+        <file>assets/sprites/selected_menu.png</file>
     </qresource>
 </RCC>

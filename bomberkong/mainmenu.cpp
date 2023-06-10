@@ -61,6 +61,11 @@ MainMenu::MainMenu(QWidget* widget)
                                 );
     gui.push_back(choiceReloaded);
 
+    selected = new GUIElement(Coordinate(100, 400),
+                              Coordinate(32,32),
+                              QString("://assets/sprites/selected_menu.png"));
+    gui.push_back(selected);
+
     choiceTutorial->select(); // Choose the tutorial level by default
 }
 
@@ -95,18 +100,21 @@ void MainMenu::update()
             {
                 choiceTutorial->deselect();
                 choiceOriginal->select();
+                selected->setPos(Coordinate(100,500));
                 qDebug("Original selected");
             }
             else if (choiceOriginal->isElementSelected())
             {
                 choiceOriginal->deselect();
                 choiceReloaded->select();
+                selected->setPos(Coordinate(100,600));
                 qDebug("Reloaded selected");
             }
             else if (choiceReloaded->isElementSelected())
             {
                 choiceReloaded->deselect();
                 choiceTutorial->select();
+                selected->setPos(Coordinate(100,400));
                 qDebug("Tutorial selected");
             }
         }
@@ -117,18 +125,21 @@ void MainMenu::update()
             {
                 choiceTutorial->deselect();
                 choiceReloaded->select();
+                selected->setPos(Coordinate(100,600));
                 qDebug("Reloaded selected");
             }
             else if (choiceOriginal->isElementSelected())
             {
                 choiceOriginal->deselect();
                 choiceTutorial->select();
+                selected->setPos(Coordinate(100,400));
                 qDebug("Tutorial selected");
             }
             else if (choiceReloaded->isElementSelected())
             {
                 choiceReloaded->deselect();
                 choiceOriginal->select();
+                selected->setPos(Coordinate(100,500));
                 qDebug("Original selected");
             }
         }
