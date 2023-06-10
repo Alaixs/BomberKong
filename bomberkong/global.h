@@ -12,4 +12,6 @@ extern int cellSize;
 
 extern bool isPaused;
 
+extern int gameFont;
+
 #endif // GLOBAL_H

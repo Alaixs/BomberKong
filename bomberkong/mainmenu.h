@@ -1,9 +1,10 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+#include <list>
 #include "scene.h"
 #include "guielement.h"
-#include <list>
+#include "textlabel.h"
 
 
 /**
@@ -18,12 +19,14 @@ private:
 
     GUIElement * bg; ///< The actual Sprite
     GUIElement * logo; ///< The actual Sprite
-    GUIElement * pressStart; ///< The press start GUI
+    TextLabel * pressStart; ///< The press start GUI
     GUIElement * options; ///< The options cogwheel
-    GUIElement * choiceTutorial; ///< The actual Sprite
-    GUIElement * choiceOriginal; ///< The actual Sprite
-    GUIElement * choiceReloaded; ///< The actual Sprite
+    TextLabel * choiceTutorial; ///< The actual Sprite
+    TextLabel * choiceOriginal; ///< The actual Sprite
+    TextLabel * choiceReloaded; ///< The actual Sprite
     GUIElement * selected;
+    TextLabel * testLabel;
+
 
 public:
     /**

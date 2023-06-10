@@ -27,10 +27,7 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(logo);
 
     // "Press Start" Label
-    pressStart = new GUIElement(Coordinate(140, 750),
-                                    Coordinate(350, 30),
-                                    QString("://assets/sprites/t_press_start.png")
-                                );
+    pressStart = new TextLabel(0, 750, "PRESS SPACE");
     gui.push_back(pressStart);
 
     // Options
@@ -41,28 +38,19 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(options);
 
     // Tutorial level option
-    choiceTutorial = new GUIElement(Coordinate(190, 400),
-                                Coordinate(256, 64),
-                                QString("://assets/sprites/t_tutorial.png")
-                                );
+    choiceTutorial = new TextLabel(0, 400, "TUTORIAL");
     gui.push_back(choiceTutorial);
 
     // Original level option
-    choiceOriginal = new GUIElement(Coordinate(190, 500),
-                                Coordinate(256, 64),
-                                QString("://assets/sprites/t_original.png")
-                                );
+    choiceOriginal = new TextLabel(0, 500, "ORIGINAL");
     gui.push_back(choiceOriginal);
 
     // Reloaded level option
-    choiceReloaded = new GUIElement(Coordinate(190, 600),
-                                Coordinate(256, 64),
-                                QString("://assets/sprites/t_reloaded.png")
-                                );
+    choiceReloaded = new TextLabel(0, 600, "RELOADED");
     gui.push_back(choiceReloaded);
 
-    selected = new GUIElement(Coordinate(100, 400),
-                              Coordinate(32,32),
+    selected = new GUIElement(Coordinate(140, 405),
+                              Coordinate(48, 48),
                               QString("://assets/sprites/selected_menu.png"));
     gui.push_back(selected);
 
@@ -99,21 +87,21 @@ void MainMenu::update()
         {
             choiceTutorial->deselect();
             choiceOriginal->select();
-            selected->setPos(Coordinate(100,500));
+            selected->setPos(Coordinate(120,505));
             qDebug("Original selected");
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceReloaded->select();
-            selected->setPos(Coordinate(100,600));
+            selected->setPos(Coordinate(120,605));
             qDebug("Reloaded selected");
         }
         else if (choiceReloaded->isElementSelected())
         {
             choiceReloaded->deselect();
             choiceTutorial->select();
-            selected->setPos(Coordinate(100,400));
+            selected->setPos(Coordinate(120,405));
             qDebug("Tutorial selected");
         }
     }
@@ -124,21 +112,21 @@ void MainMenu::update()
         {
             choiceTutorial->deselect();
             choiceReloaded->select();
-            selected->setPos(Coordinate(100,600));
+            selected->setPos(Coordinate(120,605));
             qDebug("Reloaded selected");
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceTutorial->select();
-            selected->setPos(Coordinate(100,400));
+            selected->setPos(Coordinate(120,405));
             qDebug("Tutorial selected");
         }
         else if (choiceReloaded->isElementSelected())
         {
             choiceReloaded->deselect();
             choiceOriginal->select();
-            selected->setPos(Coordinate(100,500));
+            selected->setPos(Coordinate(120,505));
             qDebug("Original selected");
         }
     }

@@ -35,5 +35,6 @@
         <file>assets/sprites/t_explosion_time.png</file>
         <file>assets/sprites/t_speed.png</file>
         <file>assets/sprites/selected_menu.png</file>
+        <file>assets/fonts/upheavtt.ttf</file>
     </qresource>
 </RCC>

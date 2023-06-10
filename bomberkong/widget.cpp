@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <QSoundEffect>
+#include <QFontDatabase>
 #include "ui_widget.h"
 #include "global.h"
 #include "widget.h"
@@ -22,6 +23,8 @@ Widget::Widget(QWidget *parent)
 , ui(new Ui::Widget)
 {
 ui->setupUi(this);
+
+    gameFont = QFontDatabase::addApplicationFont("://assets/fonts/upheavtt.ttf");
 
     cellSize = 32;
     isPaused = false;

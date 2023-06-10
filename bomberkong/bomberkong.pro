@@ -32,6 +32,7 @@ SOURCES += \
     reloaded.cpp \
     scene.cpp \
     soundmanager.cpp \
+    textlabel.cpp \
     tutorial.cpp \
     widget.cpp \
     entity.cpp \
@@ -60,6 +61,7 @@ HEADERS += \
     reloaded.h \
     scene.h \
     soundmanager.h \
+    textlabel.h \
     tutorial.h \
     widget.h \
     entity.h \
