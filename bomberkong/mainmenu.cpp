@@ -60,6 +60,8 @@ MainMenu::MainMenu(QWidget* widget)
                                 QString("://assets/sprites/t_reloaded.png")
                                 );
     gui.push_back(choiceReloaded);
+
+    choiceTutorial->select(); // Choose the tutorial level by default
 }
 
 MainMenu::~MainMenu()
@@ -83,12 +85,63 @@ void MainMenu::update()
         pressStart->isVisible = !(pressStart->isVisible);
     }
 
-    logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*60 + 80));
+    logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*60 + 80)); // Animate the logo
 
-    // Start the tutorial
-    if (Input::isActionJustPressed(START))
+    if (timer %  8 == 0) // Another method should be used to prevent the "super sonic" choice change...
     {
-        dynamic_cast<Widget*>(root)->switchScene(1);
+        if (Input::isActionPressed(MOVE_DOWN))
+        {
+            if (choiceTutorial->isElementSelected())
+            {
+                choiceTutorial->deselect();
+                choiceOriginal->select();
+                qDebug("Original selected");
+            }
+            else if (choiceOriginal->isElementSelected())
+            {
+                choiceOriginal->deselect();
+                choiceReloaded->select();
+                qDebug("Reloaded selected");
+            }
+            else if (choiceReloaded->isElementSelected())
+            {
+                choiceReloaded->deselect();
+                choiceTutorial->select();
+                qDebug("Tutorial selected");
+            }
+        }
+
+        if (Input::isActionPressed(MOVE_UP))
+        {
+            if (choiceTutorial->isElementSelected())
+            {
+                choiceTutorial->deselect();
+                choiceReloaded->select();
+                qDebug("Reloaded selected");
+            }
+            else if (choiceOriginal->isElementSelected())
+            {
+                choiceOriginal->deselect();
+                choiceTutorial->select();
+                qDebug("Tutorial selected");
+            }
+            else if (choiceReloaded->isElementSelected())
+            {
+                choiceReloaded->deselect();
+                choiceOriginal->select();
+                qDebug("Original selected");
+            }
+        }
+    }
+
+    if (Input::isActionJustPressed(START)) // The player pressed space to start the game
+    {
+        if (choiceTutorial->isElementSelected()) // Start the tutorial level
+            dynamic_cast<Widget*>(root)->switchScene(TUTORIAL);
+        else if (choiceOriginal->isElementSelected()) // Start the Original level
+            dynamic_cast<Widget*>(root)->switchScene(ORIGINAL);
+        //else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
+            //dynamic_cast<Widget*>(root)->switchScene(2);
     }
 }
 

@@ -68,6 +68,11 @@ public:
      */
     virtual void deselect();
 
+    /**
+     * @brief Function to know if the element is currently selected
+     * @return The isSelected boolean
+     */
+    bool isElementSelected();
 
     /**
      * @brief Move the element on the screen

@@ -12,7 +12,4 @@ extern int cellSize;
 
 extern bool isPaused;
 
-extern int currentLevel; // The current level
-
-
 #endif // GLOBAL_H

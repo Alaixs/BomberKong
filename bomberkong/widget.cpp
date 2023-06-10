@@ -24,7 +24,6 @@ ui->setupUi(this);
 
     cellSize = 32;
     isPaused = false;
-    currentLevel = 0;
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -93,33 +92,41 @@ void Widget::paintEvent(QPaintEvent *)
 }
 
 
-void Widget::switchScene(int sceneId)
+void Widget::switchScene(SceneType sceneType)
 {
     //Scene * temp = currentScene;
 
-    switch (sceneId)
+    switch (sceneType)
     {
-        case 0:
+        case MAIN_MENU:
             currentScene = new MainMenu(this);
         break;
 
-        case 1:
+        case OPTIONS:
+            //TODO
+            break;
+
+        case TUTORIAL:
             currentScene = new Tutorial(this);
         break;
 
-        case 2:
+        case ORIGINAL:
             currentScene = new Original(this);
         break;
 
-        case 3:
+        case RELOADED:
+            // TODO
+            break;
+
+        case WIN_SCREEN:
             currentScene = new Win(this);
         break;
 
-        case 4:
+        case LOOSE_SCREEN:
             currentScene = new Loose(this);
         break;
 
-        case 5:
+        case ALTERNATIVE_ENDING:
             currentScene = new Alternative(this);
         break;
     }

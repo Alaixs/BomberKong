@@ -12,14 +12,21 @@ class PlayerCharacter : public Entity
 {
 
 private:
-    QPixmap sprite;              ///< The actual Sprite
-    Coordinate motion;           ///< direction
-    AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
+    QPixmap sprite;                 ///< The actual Sprite
+    Coordinate motion;              ///< direction
+    AnimationManager* animation;    ///< The actual animation ( the range in the sprite image)
 
-    bool flipped;                ///< False = left, True = false
-    bool isKO;                   ///< is the character KO, he is not controllable if true
-    int timer;                   ///< init timer
-    int nbLives;                 ///< The player's current lives count
+    bool flipped;                   ///< False = left, True = false
+    bool isKO;                      ///< is the character KO, he is not controllable if true
+    int timer;                      ///< init timer
+    int nbLives;                    ///< The player's current lives count
+
+    // Power-Up
+    int speedBonusNb;               ///< The number of speed Power-Up the player currently has
+    int maxBombBonusNb;             ///< The number of max bomb Power-Up the player currently has
+    int explosionRangeBonusNb;      ///< The number of explosion range bonus Power-Up the player currently has
+    int explosionTimeBonusNb;       ///< The number of explosion time bonus Power-Up the player currently has
+    bool armorOn;                   ///< Bool to check if the player is currently wearing an armor
 
 public:
     /**
@@ -76,6 +83,11 @@ public:
      * @return the hitboxe
      */
     QRect getRect();
+
+    /**
+     * @brief Set the player bonus count to 0 for every Power-Up type
+     */
+    void initBonus();
 
 };
 

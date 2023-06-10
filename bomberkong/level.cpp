@@ -43,6 +43,11 @@ Level::Level(QWidget* widget)
     pauseLabel->isVisible = false;
     gui.push_back(pauseLabel);
 
+    itsSceneType = ORIGINAL;
+    setOffsetLimit(21*cellSize, 21*cellSize);
+
+    bombOnScreenNb = 0;
+
     restart(); // Initialize the level
 }
 
@@ -55,7 +60,6 @@ Level::~Level()
         entities.pop_back();
     }
 }
-
 
 void Level::update()
 {
@@ -103,7 +107,7 @@ void Level::update()
 void Level::updateLivesGUI(int playerLives)
 {
     int i = 0;
-    // Iterate the first three elements (the hearts)
+    // Iterate the first three elements of the gui list (the hearts)
     for (std::list<GUIElement*>::iterator it = gui.begin(); it != gui.end() && i < 3; it++)
     {
         if (i > playerLives) // The player number of lives is less than i
@@ -180,20 +184,19 @@ void Level::deleteAllEntity()
 
 void Level::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3); // Go to the victory screen
+    dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN); // Go to the victory screen
 }
 
 
 void Level::loose()
 {
-    dynamic_cast<Widget*>(root)->switchScene(4); // Go the the game over screen
+    dynamic_cast<Widget*>(root)->switchScene(LOOSE_SCREEN); // Go the the game over screen
 }
 
 void Level::alternative()
 {
-    dynamic_cast<Widget*>(root)->switchScene(5); // Go to the alternative ending
+    dynamic_cast<Widget*>(root)->switchScene(ALTERNATIVE_ENDING); // Go to the alternative ending
 }
-
 
 void Level::restart()
 {
@@ -254,4 +257,26 @@ void Level::restart()
 void Level::createExplosion(int posX, int posY)
 {
     createEntity(new Explosion(posX, posY));
+}
+
+
+void Level::incrementBombNb()
+{
+    bombOnScreenNb++;
+}
+
+
+void Level::decrementBombNb()
+{
+    bombOnScreenNb--;
+}
+
+void Level::resetBombOnScreenNb()
+{
+    bombOnScreenNb = 0;
+}
+
+int Level::getBombOnScreenNb()
+{
+    return bombOnScreenNb;
 }

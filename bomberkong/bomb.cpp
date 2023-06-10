@@ -9,23 +9,27 @@
 #include "indestructiblewall.h"
 
 
-Bomb::Bomb(int posX, int posY)
+Bomb::Bomb(int posX, int posY, int explosionRange, int explosionTime)
     : Entity(posX, posY)
 {
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomb.png");
     animation->play(0, 2);
     timer = 187;
+    itsExplosionRange = explosionRange;
+    itsExplosionTime = explosionTime;
 }
 
 
-Bomb::Bomb(Coordinate position)
+Bomb::Bomb(Coordinate position, int explosionRange, int explosionTime)
     : Entity(position)
 {
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomb.png");
     animation->play(0, 2);
     timer = 187;
+    itsExplosionRange = explosionRange;
+    itsExplosionTime = explosionTime;
 }
 
 
@@ -38,22 +42,28 @@ Bomb::~Bomb()
 void Bomb::update()
 {
     animation->update();
-    timer--;
+    timer -= itsExplosionTime;
 
     // Final second, plays the flashing animation
-    if (timer == 62)
+    if (timer <= 62)
     {
         animation->play(2, 4);
     }
 
     // Create explosions in a + pattern around the bomb and disappear
-    if (timer == 0)
+    if (timer <= 0)
     {
+        dynamic_cast<Level*>(parent)->decrementBombNb();
+
         dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y);
-        dynamic_cast<Level*>(parent)->createExplosion(pos.x + cellSize, pos.y);
-        dynamic_cast<Level*>(parent)->createExplosion(pos.x - cellSize, pos.y);
-        dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y + cellSize);
-        dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y - cellSize);
+
+        for (int i = 1; i != itsExplosionRange+1; i++) // Loop to display the explosion based on its explosion range
+        {
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x + cellSize*i, pos.y);
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x - cellSize*i, pos.y);
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y + cellSize*i);
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y - cellSize*i);
+        }
 
         deleteEntity();
         explosionSfx();

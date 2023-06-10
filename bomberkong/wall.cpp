@@ -2,6 +2,7 @@
 
 #include "global.h"
 #include "explosion.h"
+#include "powerup.h"
 
 
 Wall::Wall(int posX, int posY)
