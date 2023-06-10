@@ -70,12 +70,12 @@ void PlayerCharacter::update()
     {
 
 
-    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1+(speedBonusNb*0.1); flipped = true; footstepsSfx(); }
-    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -(1+speedBonusNb*0.1); flipped = false; footstepsSfx(); }
+    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1+(speedBonusNb*0.20); flipped = true; footstepsSfx(); }
+    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -(1+speedBonusNb*0.20); flipped = false; footstepsSfx(); }
     else { motion.x = 0; }
 
-    if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1+speedBonusNb*0.1; footstepsSfx(); }
-    else if (Input::isActionPressed(MOVE_UP)) { motion.y = -(1+speedBonusNb*0.1); footstepsSfx(); }
+    if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1+speedBonusNb*0.20; footstepsSfx(); }
+    else if (Input::isActionPressed(MOVE_UP)) { motion.y = -(1+speedBonusNb*0.20); footstepsSfx(); }
     else { motion.y = 0; }
 
     if(Input::isActionPressed(PLACE_BOMB))

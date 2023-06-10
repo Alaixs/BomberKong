@@ -38,7 +38,6 @@ void Wall::draw(QPainter * painter)
 void Wall::dropPowerUp()
 {
     std::srand(std::time(0));
-
     int randomNumber = std::rand() % 5;
 
     switch (randomNumber) {
@@ -73,13 +72,13 @@ void Wall::collisionEvent(Entity * body)
     {
         deleteEntity();
 
-        // 20% chances to drop a Power-Up
-        //std::srand(std::time(0));
-        //int randomNumber = std::rand() % 100;
-        //std::cout << randomNumber << std::endl;
-        //if (randomNumber <= 20) {
+        // 25% chances to drop a Power-Up
+        std::srand(std::time(0));
+        int randomNumber = std::rand() % 100;
+
+        if (randomNumber <= 25) {
             dropPowerUp();
-        //}
+        }
     }
 }
 
