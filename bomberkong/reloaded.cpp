@@ -4,7 +4,7 @@ Reloaded::Reloaded(QWidget* widget)
     : Level(widget)
 {
     itsSceneType = RELOADED;
-    setOffsetLimit(21*cellSize, 0);
+    setOffsetLimit(21*cellSize, -482);
 
     currentMap.push_back(rand()%3);
     currentMap.push_back(rand()%3);
