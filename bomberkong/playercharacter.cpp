@@ -91,7 +91,7 @@ void PlayerCharacter::update()
             dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos,1+explosionRangeBonusNb, 1+explosionTimeBonusNb));
 
             // Reset the cooldown timer
-            timer = 20;
+            timer = 14;
 
             dynamic_cast<Level*>(parent)->incrementBombNb();
             }

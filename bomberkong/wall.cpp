@@ -37,7 +37,7 @@ void Wall::draw(QPainter * painter)
 
 void Wall::dropPowerUp()
 {
-    dynamic_cast<Level*>(parent)->createEntity(new PowerUp(pos.x, pos.y, BOMB_RANGE));
+    dynamic_cast<Level*>(parent)->createEntity(new PowerUp(pos.x, pos.y, BOMB_NB));
 }
 
 void Wall::collisionEvent(Entity * body)
