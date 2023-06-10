@@ -2,6 +2,7 @@
 #define GLOBAL_H
 
 #include <iostream>
+#include <QDebug>
 
 using namespace std;
 
