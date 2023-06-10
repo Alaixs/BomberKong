@@ -84,8 +84,6 @@ void PlayerCharacter::update()
 
     pos += motion * speed;
 
-
-
     if (pos.y >= dynamic_cast<Scene*>(parent)->getItsLowerLimit() // Prevent the scrolling from going under
         && pos.y <= dynamic_cast<Scene*>(parent)->getItsUpperLimit()) // and above the level
     {
@@ -170,7 +168,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
         else
         {
-            dynamic_cast<Level*>(parent)->setItsLevelType(ORIGINAL);
             dynamic_cast<Tutorial*>(parent)->nextLvl();
         }
     }

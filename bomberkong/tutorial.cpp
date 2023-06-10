@@ -178,7 +178,8 @@ void Tutorial::createExplosion(int posX, int posY)
     createEntity(new Explosion(posX, posY));
 }
 
+
 void Tutorial::nextLvl()
 {
-    dynamic_cast<Widget*>(root)->switchScene(2);
+    dynamic_cast<Widget*>(root)->switchScene(0);
 }
