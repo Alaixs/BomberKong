@@ -140,8 +140,8 @@ void MainMenu::update()
             dynamic_cast<Widget*>(root)->switchScene(TUTORIAL);
         else if (choiceOriginal->isElementSelected()) // Start the Original level
             dynamic_cast<Widget*>(root)->switchScene(ORIGINAL);
-        //else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
-            //dynamic_cast<Widget*>(root)->switchScene(2);
+        else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
+            dynamic_cast<Widget*>(root)->switchScene(RELOADED);
     }
 }
 

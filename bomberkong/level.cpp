@@ -41,9 +41,6 @@ Level::Level(QWidget* widget)
     pauseLabel->isVisible = false;
     gui.push_back(pauseLabel);
 
-    itsSceneType = ORIGINAL;
-    setOffsetLimit(21*cellSize, 21*cellSize);
-
     bombOnScreenNb = 0;
 }
 

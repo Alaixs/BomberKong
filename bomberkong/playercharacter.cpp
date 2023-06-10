@@ -64,8 +64,8 @@ PlayerCharacter::~PlayerCharacter()
 
 void PlayerCharacter::update()
 {
-    if (pos.y >= dynamic_cast<Scene*>(parent)->getItsLowerLimit() // Prevent the scrolling from going under
-        && pos.y <= dynamic_cast<Scene*>(parent)->getItsUpperLimit()) // and above the level
+    if (pos.y <= dynamic_cast<Scene*>(parent)->getItsLowerLimit() // Prevent the scrolling from going under
+        && pos.y >= dynamic_cast<Scene*>(parent)->getItsUpperLimit()) // and above the level
     {
         dynamic_cast<Scene*>(parent)->setCameraOffset(pos-Coordinate(0,256)); // Manage the scrolling
     }
@@ -136,14 +136,8 @@ void PlayerCharacter::update()
         {
             // Restart the current level if the player still have a life
             // Go all the way back to the tutorial otherwise
-            if(parent->getItsSceneType() == ORIGINAL)
-            {
-                dynamic_cast<Level*>(parent)->restart();
-            }
-            else
-            {
-                dynamic_cast<Tutorial*>(parent)->restart();
-            }
+            dynamic_cast<Level*>(parent)->restart();
+
             pos.x = 9.5 * cellSize;
             pos.y = 21 * cellSize;
             isKO = false;
