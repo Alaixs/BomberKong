@@ -137,9 +137,9 @@ void MainMenu::update()
     if (Input::isActionJustPressed(START)) // The player pressed space to start the game
     {
         if (choiceTutorial->isElementSelected()) // Start the tutorial level
-            dynamic_cast<Widget*>(root)->switchScene(1);
+            dynamic_cast<Widget*>(root)->switchScene(TUTORIAL);
         else if (choiceOriginal->isElementSelected()) // Start the Original level
-            dynamic_cast<Widget*>(root)->switchScene(2);
+            dynamic_cast<Widget*>(root)->switchScene(ORIGINAL);
         //else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
             //dynamic_cast<Widget*>(root)->switchScene(2);
     }

@@ -43,6 +43,9 @@ Level::Level(QWidget* widget)
     pauseLabel->isVisible = false;
     gui.push_back(pauseLabel);
 
+    itsSceneType = ORIGINAL;
+    setOffsetLimit(21*cellSize, 21*cellSize);
+
     restart(); // Initialize the level
 }
 
@@ -54,13 +57,6 @@ Level::~Level()
         delete entities.back();
         entities.pop_back();
     }
-}
-
-void::Level::initScrollingLimit()
-{
-    // Set the scrolling limit
-    if (itsLevelType == TUTORIAL || itsLevelType == ORIGINAL)
-        dynamic_cast<Scene*>(this)->setOffsetLimit(21*cellSize, 21*cellSize);
 }
 
 void Level::update()
@@ -186,18 +182,18 @@ void Level::deleteAllEntity()
 
 void Level::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3); // Go to the victory screen
+    dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN); // Go to the victory screen
 }
 
 
 void Level::loose()
 {
-    dynamic_cast<Widget*>(root)->switchScene(4); // Go the the game over screen
+    dynamic_cast<Widget*>(root)->switchScene(LOOSE_SCREEN); // Go the the game over screen
 }
 
 void Level::alternative()
 {
-    dynamic_cast<Widget*>(root)->switchScene(5); // Go to the alternative ending
+    dynamic_cast<Widget*>(root)->switchScene(ALTERNATIVE_ENDING); // Go to the alternative ending
 }
 
 void Level::restart()
@@ -259,15 +255,4 @@ void Level::restart()
 void Level::createExplosion(int posX, int posY)
 {
     createEntity(new Explosion(posX, posY));
-}
-
-void Level::setItsLevelType(LevelType levelType)
-{
-    itsLevelType = levelType;
-}
-
-
-LevelType Level::getItsLevelType()
-{
-    return itsLevelType;
 }

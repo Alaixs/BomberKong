@@ -17,6 +17,8 @@ Tutorial::Tutorial(QWidget* widget)
     : Level(widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+    itsSceneType = TUTORIAL;
+    setOffsetLimit(21*cellSize, 21*cellSize);
     restart();
 }
 
@@ -91,13 +93,13 @@ void Tutorial::deleteAllEntity()
 
 void Tutorial::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(1);
+    dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN);
 }
 
 
 void Tutorial::loose()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3);
+    dynamic_cast<Widget*>(root)->switchScene(LOOSE_SCREEN);
 }
 
 
@@ -181,5 +183,5 @@ void Tutorial::createExplosion(int posX, int posY)
 
 void Tutorial::nextLvl()
 {
-    dynamic_cast<Widget*>(root)->switchScene(0);
+    dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
 }

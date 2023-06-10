@@ -6,6 +6,9 @@
 #include <QPainter>
 #include <QWidget>
 
+// Enumeration for the different scene types
+enum SceneType { MAIN_MENU, OPTIONS, TUTORIAL, ORIGINAL, RELOADED,
+                 WIN_SCREEN, LOOSE_SCREEN, ALTERNATIVE_ENDING};
 
 /**
  * @brief The class of any scene on the game (pause, mainmenu, win, loose, ...)
@@ -18,6 +21,7 @@ protected:
     Coordinate cameraOffset;
     int itsLowerLimit; ///< The scrolling lower limit
     int itsUpperLimit; ///< The scrolling upper limit
+    SceneType itsSceneType;
 
 public:
     /**
@@ -56,6 +60,12 @@ public:
     void setOffsetLimit(int lowerLimit, int upperLimit);
 
     /**
+     * @brief
+     * @return
+     */
+    Coordinate getCameraOffset();
+
+    /**
      * @brief Getter for the scrolling lower limit
      * @return The scrolling lower limit
      */
@@ -67,7 +77,11 @@ public:
      */
     int getItsUpperLimit();
 
-    Coordinate getCameraOffset();
+    /**
+     * @brief Getter for the scene type
+     * @return The scene type
+     */
+    SceneType getItsSceneType();
 
 };
 

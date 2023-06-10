@@ -40,3 +40,9 @@ int Scene::getItsUpperLimit()
 {
     return itsUpperLimit;
 }
+
+SceneType Scene::getItsSceneType()
+{
+    return itsSceneType;
+}
+
