@@ -184,7 +184,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
         case BOMB_NB: // Collecting a max bomb bonus
             maxBombBonusNb++;
             dynamic_cast<PowerUp*>(body)->collected();
-            delete body;
             break;
 
         case BOMB_RANGE: // Collecting a bomb range bonus
