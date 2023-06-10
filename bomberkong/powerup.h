@@ -55,6 +55,23 @@ public:
      */
     void collected();
 
+    /**
+     * @brief update the entity (move, change direction, etc.)
+     */
+    void update();
+
+    /**
+     * @brief collisionEvent
+     * @param body : the entity that collide with the current entity
+     */
+    void collisionEvent(Entity* body);
+
+    /**
+     * @brief Create the hitbox
+     * @return the hitbox
+     */
+    QRect getRect();
+
 };
 
 #endif // POWERUP_H

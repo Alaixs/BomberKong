@@ -3,7 +3,7 @@
 #include "global.h"
 #include "explosion.h"
 #include "powerup.h"
-
+#include "level.h"
 
 Wall::Wall(int posX, int posY)
     : Entity(posX, posY)
@@ -35,12 +35,17 @@ void Wall::draw(QPainter * painter)
     );
 }
 
+void Wall::dropPowerUp()
+{
+    dynamic_cast<Level*>(parent)->createEntity(new PowerUp(pos.x, pos.y, BOMB_RANGE));
+}
 
 void Wall::collisionEvent(Entity * body)
 {
     if (dynamic_cast<Explosion*>(body) != nullptr)
     {
         deleteEntity();
+        dropPowerUp();
     }
 }
 

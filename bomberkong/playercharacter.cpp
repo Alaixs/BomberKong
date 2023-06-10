@@ -153,6 +153,7 @@ void PlayerCharacter::update()
 
 void PlayerCharacter::collisionEvent(Entity * body)
 {
+    // Collision with walls
     if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
     {
         // Offsets the player away from the collider
@@ -165,6 +166,56 @@ void PlayerCharacter::collisionEvent(Entity * body)
             pos.y += (distY / abs(distY)) * speed;
     }
 
+    // Collision with a Power-Up
+    if (dynamic_cast<PowerUp*>(body) != nullptr)
+    {
+        switch(dynamic_cast<PowerUp*>(body)->getItsType())
+        {
+        case SPEED: // Collecting a speed bonus
+            speedBonusNb++;
+            dynamic_cast<PowerUp*>(body)->collected();
+            delete body;
+            break;
+
+        case BOMB_NB: // Collecting a max bomb bonus
+            maxBombBonusNb++;
+            dynamic_cast<PowerUp*>(body)->collected();
+            delete body;
+            break;
+
+        case BOMB_RANGE: // Collecting a bomb range bonus
+            if (explosionRangeBonusNb < 5)
+            {
+                explosionRangeBonusNb++;
+                dynamic_cast<PowerUp*>(body)->collected();
+                delete body;
+            }
+            break;
+
+        case BOMB_TIME: // Collecting an explosion time bonus
+            if (explosionTimeBonusNb < 4)
+            {
+                explosionTimeBonusNb++;
+                dynamic_cast<PowerUp*>(body)->collected();
+                delete body;
+            }
+            break;
+
+        case ARMOR: // Collecting an armor
+            if (!armorOn)
+            {
+                armorOn = true;
+                dynamic_cast<PowerUp*>(body)->collected();
+                delete body;
+            }
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    // Collision with damaging entities
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
     {
         if (!armorOn) // The player can't take damage if he's wearing the armor
@@ -176,6 +227,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
             dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
             dynamic_cast<Level*>(parent)->resetBombOnScreenNb(); // Reset the number of bomb on the screen to 0
+            initBonus(); // Reset the player bonuses
         }
         else
         {
@@ -183,6 +235,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
     }
 
+    // Collision with BomberGirl
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
         if(parent->getItsSceneType() == ORIGINAL)
@@ -195,6 +248,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
     }
 
+    // Collision with a Bomb
     if(dynamic_cast<Bomb*>(body) != nullptr)
     {
         if(Input::isActionPressed(PUSH_BOMB) == false)

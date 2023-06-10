@@ -45,10 +45,15 @@ public:
     void collisionEvent(Entity * body);
 
     /**
-     * @brief Create the hitboxe
-     * @return the hitboxe
+     * @brief Create the hitbox
+     * @return the hitbox
      */
     QRect getRect();
+
+    /**
+     * @brief 20% of chance for the wall to drop a Power-Up
+     */
+    void dropPowerUp();
 
 };
 
