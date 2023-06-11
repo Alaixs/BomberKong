@@ -1,8 +1,7 @@
 #include "win.h"
-
+#include "widget.h"
 #include "global.h"
 #include "input.h"
-#include "widget.h"
 
 Win::Win(QWidget * widget) : Scene(widget)
 {
@@ -32,6 +31,7 @@ void Win::update()
 {
     bomberman->update();
     bombergirl->update();
+
     if (Input::isActionJustPressed(START))
     {
         changeOSTSound();

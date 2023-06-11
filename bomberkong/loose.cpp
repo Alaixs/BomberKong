@@ -1,7 +1,7 @@
 #include "loose.h"
 #include "soundmanager.h"
-#include "global.h"
 #include "widget.h"
+#include "global.h"
 #include "input.h"
 
 
@@ -33,6 +33,7 @@ void Loose::update()
 {
     dk->update();
     dk->timer++;
+
     if (Input::isActionJustPressed(START))
     {
         changeOSTSound();
