@@ -67,6 +67,11 @@ public:
     void collisionEvent(Entity* body);
 
     /**
+     * @brief plays sfx powerUp sound
+     */
+    void PowerUpSfx();
+
+    /**
      * @brief Create the hitbox
      * @return the hitbox
      */

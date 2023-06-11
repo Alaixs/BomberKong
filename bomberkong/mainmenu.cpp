@@ -82,6 +82,7 @@ void MainMenu::update()
 
     if (Input::isActionJustPressed(MOVE_DOWN))
     {
+        selectSfx();
         qDebug() << "ratio";
         if (choiceTutorial->isElementSelected())
         {
@@ -108,6 +109,7 @@ void MainMenu::update()
 
     if (Input::isActionJustPressed(MOVE_UP))
     {
+        selectSfx();
         if (choiceTutorial->isElementSelected())
         {
             choiceTutorial->deselect();
@@ -150,4 +152,9 @@ void MainMenu::draw(QPainter *painter)
     {
         (*it)->draw(painter);
     }
+}
+
+void MainMenu::selectSfx()
+{
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_select.wav", 1, false);
 }

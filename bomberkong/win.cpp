@@ -6,6 +6,7 @@
 
 Win::Win(QWidget * widget) : Scene(widget)
 {
+    changeSound();
     itsSceneType = WIN_SCREEN;
     setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
 
@@ -71,6 +72,6 @@ void Win::draw(QPainter * painter)
 void Win::changeSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.3, true);
 }
 
