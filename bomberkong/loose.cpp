@@ -1,6 +1,8 @@
 #include "loose.h"
 #include "soundmanager.h"
 #include "global.h"
+#include "widget.h"
+#include "input.h"
 
 
 Loose::Loose(QWidget* widget) : Scene(widget)
@@ -31,6 +33,8 @@ void Loose::update()
 {
     dk->update();
     dk->timer++;
+    if (Input::isActionJustPressed(START))
+        dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
 }
 
 
