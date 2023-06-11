@@ -1,6 +1,7 @@
 #include "win.h"
-
+#include "widget.h"
 #include "global.h"
+#include "input.h"
 
 
 Win::Win(QWidget * widget) : Scene(widget)
@@ -30,6 +31,11 @@ void Win::update()
 {
     bomberman->update();
     bombergirl->update();
+
+    if (Input::isActionJustPressed(START))
+    {
+        dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+    }
 }
 
 void Win::draw(QPainter * painter)
