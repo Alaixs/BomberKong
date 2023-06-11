@@ -1,5 +1,6 @@
 #include "powerup.h"
 #include "global.h"
+#include "soundmanager.h"
 
 PowerUp::PowerUp(int posX, int posY, PowerUpType type)
     : Entity(posX, posY)
@@ -51,7 +52,7 @@ PowerUpType PowerUp::getItsType()
 
 void PowerUp::draw(QPainter * painter)
 {
-    Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
+    Coordinate offset = parent->getCameraOffset();
     painter->drawPixmap(
         QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
         sprite
@@ -60,6 +61,7 @@ void PowerUp::draw(QPainter * painter)
 
 void PowerUp::collected()
 {
+    PowerUpSfx();
     deleteEntity();
 }
 
@@ -71,6 +73,11 @@ void PowerUp::update()
 void PowerUp::collisionEvent(Entity* body)
 {
 
+}
+
+void PowerUp::PowerUpSfx()
+{
+   SoundManager::getInstance().playSound("://assets/sounds/sfx_powerUp.wav", 0.5, false);
 }
 
 QRect PowerUp::getRect()

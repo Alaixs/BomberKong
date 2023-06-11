@@ -3,9 +3,9 @@
 #include "global.h"
 #include "input.h"
 
-
 Win::Win(QWidget * widget) : Scene(widget)
 {
+    changeSound();
     itsSceneType = WIN_SCREEN;
     setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
 
@@ -31,11 +31,16 @@ void Win::update()
 {
     bomberman->update();
     bombergirl->update();
+<<<<<<< HEAD
 
     if (Input::isActionJustPressed(START))
     {
         dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
     }
+=======
+    if (Input::isActionJustPressed(START))
+        dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+>>>>>>> 5b3f01aa44e6b94c3e1635647b73e32a6ccb888d
 }
 
 void Win::draw(QPainter * painter)
@@ -74,6 +79,6 @@ void Win::draw(QPainter * painter)
 void Win::changeSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.3, true);
 }
 

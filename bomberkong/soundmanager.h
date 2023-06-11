@@ -51,11 +51,8 @@ private:
     ~SoundManager();
 
     /**
-     * @brief Play a Sound In a new Thread
-     * @param soundEffect : the sound choose
-     * @param volume : the volume choose
+     * @brief Map of sound initialize
      */
-    void playSoundInThread(QSoundEffect* soundEffect, qreal volume);
     QMap<QString, QSoundEffect*> soundMap;
 
 };

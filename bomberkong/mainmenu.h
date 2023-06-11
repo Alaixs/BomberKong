@@ -51,6 +51,11 @@ public:
      */
     void draw(QPainter* painter);
 
+    /**
+     * @brief Plays sfx select sound
+     */
+    void selectSfx();
+
 };
 
 #endif // MAINMENU_H
