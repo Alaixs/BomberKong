@@ -5,8 +5,13 @@
 
 Win::Win(QWidget * widget) : Scene(widget)
 {
+    itsSceneType = WIN_SCREEN;
+    setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
+
     bomberman = new Dummy(9 * cellSize , 16 * cellSize);
     bombergirl = new BomberGirl(10 * cellSize, 16 * cellSize);
+    bombergirl->setParent(this);
+
     winLabel = new GUIElement(Coordinate(70, 200),
                         Coordinate(500,100),
                         "://assets/sprites/you_win.png");
@@ -23,8 +28,8 @@ Win::~Win()
 
 void Win::update()
 {
- //   bomberman->update();
-   // bombergirl->update();
+    bomberman->update();
+    bombergirl->update();
 }
 
 void Win::draw(QPainter * painter)
