@@ -6,7 +6,7 @@
 
 Win::Win(QWidget * widget) : Scene(widget)
 {
-    changeSound();
+    changeWinSound();
     itsSceneType = WIN_SCREEN;
     setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
 
@@ -33,7 +33,10 @@ void Win::update()
     bomberman->update();
     bombergirl->update();
     if (Input::isActionJustPressed(START))
+    {
+        changeOSTSound();
         dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+    }
 }
 
 void Win::draw(QPainter * painter)
@@ -69,9 +72,14 @@ void Win::draw(QPainter * painter)
     winLabel->draw(painter);
 }
 
-void Win::changeSound()
+void Win::changeWinSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
     SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.3, true);
 }
 
+void Win::changeOSTSound()
+{
+    SoundManager::getInstance().stopSound("://assets/sounds/sfx_winTheme.wav");
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
+}

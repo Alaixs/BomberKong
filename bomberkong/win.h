@@ -44,7 +44,12 @@ public:
     /**
      * @brief Stop the main theme music and change for the win sound
      */
-    void changeSound();
+    void changeWinSound();
+
+    /**
+     * @brief Stop the win sound and change for the main theme music
+     */
+    void changeOSTSound();
 };
 
 

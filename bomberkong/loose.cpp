@@ -10,7 +10,7 @@ Loose::Loose(QWidget* widget) : Scene(widget)
     itsSceneType = LOOSE_SCREEN;
     setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
 
-    changeSound();
+    changeLoseSound();
     dk = new DonkeyKong(8.5 * cellSize, 528);
     dk->setParent(this);
 
@@ -34,7 +34,10 @@ void Loose::update()
     dk->update();
     dk->timer++;
     if (Input::isActionJustPressed(START))
+    {
+        changeOSTSound();
         dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+    }
 }
 
 
@@ -70,8 +73,14 @@ void Loose::draw(QPainter * painter)
     go->draw(painter);
 }
 
-void Loose::changeSound()
+void Loose::changeLoseSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
     SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false);
+}
+
+void Loose::changeOSTSound()
+{
+    SoundManager::getInstance().stopSound("://assets/sounds/sfx_loseTheme.wav");
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
 }

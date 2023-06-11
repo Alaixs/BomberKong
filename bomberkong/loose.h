@@ -39,9 +39,14 @@ public:
     void draw(QPainter* painter);
 
     /**
-     * @brief Stop the main theme music and change for the loose sound
+     * @brief Stop the main theme music and change for the lose sound
      */
-    void changeSound();
+    void changeLoseSound();
+
+    /**
+     * @brief Stop the lose sound and change for the main theme music
+     */
+    void changeOSTSound();
 
 };
 
