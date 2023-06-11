@@ -127,6 +127,6 @@ void Reloaded::restart()
     levelDataFileBottom.close();
 
     // Create characters at their spawn points
-    createEntity(new BomberGirl(9.5 * cellSize - 22 * 2 * cellSize, 6 * cellSize));
-    createEntity(new DonkeyKong(9 * cellSize - 22 * 2 * cellSize, 0));
+    createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize - 22 * 2 * cellSize));
+    createEntity(new DonkeyKong(9 * cellSize, 0 - 22 * 2 * cellSize));
 }
