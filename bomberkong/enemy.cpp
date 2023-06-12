@@ -11,3 +11,8 @@ Enemy::Enemy(Coordinate pos)
 {
 
 }
+
+Enemy::~Enemy()
+{
+
+}
