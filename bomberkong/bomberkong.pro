@@ -18,6 +18,7 @@ SOURCES += \
     coordinate.cpp \
     donkeykong.cpp \
     dummy.cpp \
+    enemy.cpp \
     explosion.cpp \
     level.cpp \
     guielement.cpp \
@@ -42,6 +43,7 @@ SOURCES += \
 HEADERS += \
     alternative.h \
     dummy.h \
+    enemy.h \
     level.h \
     global.h \
     animationmanager.h \

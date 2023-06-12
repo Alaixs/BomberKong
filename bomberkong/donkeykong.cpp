@@ -40,10 +40,20 @@ void DonkeyKong::update()
     animation->update();
     timer--;
     if(timer <= 0){
-        dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
-        int random = rand() % 18;
-        newPos = random * cellSize - cellSize;
-        dist = newPos - pos.x;
+        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
+        {
+            dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
+            int random = rand() % 18;
+            newPos = random * cellSize - cellSize;
+            dist = newPos - pos.x;
+        }
+        else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
+        {
+            dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
+            int random = rand() % 18;
+            newPos = random * cellSize - cellSize;
+            dist = newPos - pos.x;
+        }
         timer = throwingRate;
         isThrowing = false;
     }
