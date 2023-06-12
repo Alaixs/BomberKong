@@ -90,11 +90,7 @@ void Barrel::draw(QPainter * painter)
             QRect(pos.x, endY - offset.y + 416, cellSize, cellSize),
             shadow,
             QRect(0, 0, 16, 16)
-<<<<<<< HEAD
             );
-=======
-        );
->>>>>>> 60474ac3eb47a4c84e6c4d202945a26a6b7fd2ff
     }
 }
 
