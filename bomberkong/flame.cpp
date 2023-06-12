@@ -6,7 +6,7 @@ Flame::Flame(int posX, int posY)
     : Enemy(posX, posY)
 {
     srand(time(NULL) % rand());
-
+    spawnCoordinate = Coordinate(posX, posY);
     isOnBoard = 0;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
@@ -19,9 +19,13 @@ Flame::Flame(int posX, int posY)
 Flame::Flame(Coordinate position)
     : Enemy(position)
 {
+    srand(time(NULL) % rand());
+    spawnCoordinate = position;
+    isOnBoard = 0;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
+    direction = rand() % 4;
     timer = 187;
 }
 
@@ -37,7 +41,7 @@ void Flame::update()
     animation->update();
     timer++;
     direction = (rand() + direction) % 4;
-    if (pos.y < 10 * cellSize - 20 * 2 * cellSize)
+    if (pos.y < 10 * cellSize - spawnCoordinate.y)
     {
         pos.y += 3;
     }
@@ -48,7 +52,7 @@ void Flame::update()
         {
             isOnBoard = 2;
         }
-        if (timer > 30)
+        if (timer > 10)
         {
             switch (direction)
             {

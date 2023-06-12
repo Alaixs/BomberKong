@@ -53,7 +53,7 @@ void DonkeyKong::update()
     if(timer == 0)
     {
         // Only throws barrels
-        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL || dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
+        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
         {
             // Spawns a barrel
             dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
@@ -62,6 +62,7 @@ void DonkeyKong::update()
             int random = rand() % 18;
             targetPos = random * cellSize - cellSize;
         }
+
         // Also throws flames
         else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
         {
@@ -75,6 +76,7 @@ void DonkeyKong::update()
                 // Throws a flame
                 dynamic_cast<Level*>(parent)->createEntity(new Flame(pos.x + 2 * cellSize, pos.y + cellSize));
             }
+            pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
         }
 
         timer = throwingRate; // Reset the timer

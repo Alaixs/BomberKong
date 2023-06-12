@@ -37,7 +37,7 @@ void PowerUp::loadSprite()
             sprite.load("://assets/sprites/t_bomb_nb.png");
             break;
         case BOMB_RANGE:
-            sprite.load("://assets/sprites/t_full_heart.png");
+            sprite.load("://assets/sprites/t_bomb_range.png");
             break;
         case BOMB_TIME:
             sprite.load("://assets/sprites/t_explosion_time.png");
