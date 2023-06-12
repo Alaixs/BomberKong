@@ -3,23 +3,25 @@
 #include "global.h"
 
 
-Barrel::Barrel(int posX, int posY)
+Barrel::Barrel(int posX, int posY, int endYPos)
     : Entity(posX, posY)
 {
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_barrel.png");
     animation->play(0, 3);
     timer = 187;
+    endY = endYPos;
 }
 
 
-Barrel::Barrel(Coordinate position)
+Barrel::Barrel(Coordinate position, int endYPos)
     : Entity(position)
 {
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_barrel.png");
     animation->play(0, 3);
     timer = 187;
+    endY = endYPos;
 }
 
 
@@ -36,7 +38,7 @@ void Barrel::update()
     pos.y += 3;
 
     // Delete the barrel once it leaves the screen
-    if (pos.y > 832)
+    if (pos.y > endY)
     {
         deleteEntity();
     }

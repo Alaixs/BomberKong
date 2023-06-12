@@ -29,6 +29,7 @@ protected:
     std::list<Entity*> entities;    ///< A list of the level entites
     std::list<GUIElement*> gui;     ///< A list of the level GUI Elements
     int bombOnScreenNb;               ///< The number on bomb on screen
+    PlayerCharacter* itsPlayer;
 
 public:
     GUIElement* pauseLabel;
@@ -143,6 +144,8 @@ public:
      * @return The entities list of the level
      */
     std::list<Entity*> getEntites();
+
+    PlayerCharacter* getItsPlayer();
 
 };
 

@@ -17,7 +17,8 @@
 Level::Level(QWidget* widget)
     : Scene(widget)
 {
-    createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+    itsPlayer = new PlayerCharacter(9.5 * cellSize, 21 * cellSize);
+    createEntity(itsPlayer);
 
     // Add 3 hearts inside the GUI list to display them on screen
     int x = 10, y = 10;
@@ -304,4 +305,9 @@ int Level::getBombOnScreenNb()
 std::list<Entity*> Level::getEntites()
 {
     return entities;
+}
+
+PlayerCharacter* Level::getItsPlayer()
+{
+    return itsPlayer;
 }
