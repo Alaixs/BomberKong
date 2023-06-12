@@ -320,7 +320,7 @@ QRect PlayerCharacter::getRect()
     return QRect(pos.x , pos.y, cellSize - 2, cellSize);
 }
 
-bool PlayerCharacter::isHammerOnEffect()
+bool PlayerCharacter::isOnHammerEffect()
 {
     return isHammer;
 }
