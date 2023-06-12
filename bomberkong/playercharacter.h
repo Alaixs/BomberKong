@@ -98,6 +98,10 @@ public:
      */
     void initInvincibility( int time);
 
+    /**
+     * @brief Return if the player have hammer
+     * @return if hammer is posseded by player
+     */
     bool isOnHammerEffect();
 
 };
