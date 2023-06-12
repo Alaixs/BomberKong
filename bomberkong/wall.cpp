@@ -83,6 +83,23 @@ void Wall::collisionEvent(Entity * body)
             }
         }
     }
+
+    if(dynamic_cast<PlayerCharacter*>(body) != nullptr)
+    {
+        deleteEntity();
+
+        if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // The Power-Up can't appear in the Original level
+        {
+            // 25% chances to drop a Power-Up
+            std::srand(std::time(0));
+            int randomNumber = std::rand() % 100;
+
+            if (randomNumber <= 99) {
+                dropPowerUp();
+            }
+        }
+    }
+
 }
 
 

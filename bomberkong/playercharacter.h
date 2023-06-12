@@ -18,7 +18,7 @@ private:
     AnimationManager* animation;    ///< The actual animation ( the range in the sprite image)
     AnimationManager* hammerAnimation;
 
-    bool isHammer;
+
     bool flipped;                   ///< False = left, True = false
     bool isKO;                      ///< is the character KO, he is not controllable if true
     int timer;                      ///< init timer
@@ -33,6 +33,8 @@ private:
     int invincibilityTimer;         ///< A timer for the player invincibility after losing an armor
 
 public:
+    bool isHammer;
+
     /**
      * @brief Create a playable character
      * @param posX : position on x axes
