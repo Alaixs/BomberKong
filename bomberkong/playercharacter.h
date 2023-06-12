@@ -95,6 +95,8 @@ public:
      */
     void initInvincibility( int time);
 
+    bool isOnHammerEffect();
+
 };
 
 #endif // PLAYERCHARACTER_H

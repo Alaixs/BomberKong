@@ -240,7 +240,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     }
 
     // Collision with damaging entities
-    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
+    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr || dynamic_cast<Flame*>(body) != nullptr)
     {
         if (invincibilityTimer == 0)
         {
@@ -318,4 +318,9 @@ void PlayerCharacter::footstepsSfx()
 QRect PlayerCharacter::getRect()
 {
     return QRect(pos.x , pos.y, cellSize - 2, cellSize);
+}
+
+bool PlayerCharacter::isOnHammerEffect()
+{
+    return isHammer;
 }
