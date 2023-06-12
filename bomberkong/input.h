@@ -38,6 +38,11 @@ class Input
 
 public:
     /**
+     * @brief Loads controls settings from config.ini
+     */
+    static void loadControlsConfig();
+
+    /**
      * @brief Called when the user presses a key
      *
      * This method is called whenever the user presses a key.

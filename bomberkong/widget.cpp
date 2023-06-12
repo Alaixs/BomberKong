@@ -28,6 +28,8 @@ ui->setupUi(this);
 
     gameFont = QFontDatabase::addApplicationFont("://assets/fonts/upheavtt.ttf");
 
+    Input::loadControlsConfig();
+
     cellSize = 32;
     isPaused = false;
 
