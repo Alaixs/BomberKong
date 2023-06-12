@@ -14,6 +14,7 @@
 #include "win.h"
 #include "tutorial.h"
 #include "reloaded.h"
+#include "settingsmenu.h"
 
 
 bool isPaused;
@@ -54,7 +55,7 @@ ui->setupUi(this);
     SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
 
     // Set the first scene to be the main menu
-    currentScene = new MainMenu(this);
+    currentScene = new SettingsMenu(this);
 
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
     timer.start(16); // Approx. 16ms
@@ -113,8 +114,8 @@ void Widget::switchScene(SceneType sceneType)
         break;
 
         case OPTIONS:
-            //TODO
-            break;
+            currentScene = new SettingsMenu(this);
+        break;
 
         case TUTORIAL:
             currentScene = new Tutorial(this);
