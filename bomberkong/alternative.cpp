@@ -1,7 +1,8 @@
 #include "alternative.h"
 
+#include "widget.h"
 #include "global.h"
-
+#include "input.h"
 
 int cellSize;
 
@@ -26,6 +27,11 @@ Alternative::Alternative(QWidget * widget) : Scene(widget)
 void Alternative::update()
 {
     bomberman->update();
+
+    if (Input::isActionJustPressed(START))
+    {
+        dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+    }
 }
 
 
