@@ -19,9 +19,7 @@ Wall::Wall(Coordinate pos)
 }
 
 
-Wall::~Wall() {
-
-}
+Wall::~Wall() {}
 
 
 void Wall::update() {}
@@ -37,12 +35,14 @@ void Wall::draw(QPainter * painter)
     );
 }
 
+
 void Wall::dropPowerUp()
 {
     std::srand(std::time(0));
-    int randomNumber = std::rand() % 5;
+    int randomNumber = std::rand() % 5; // Selects a random power up
 
-    switch (randomNumber) {
+    switch (randomNumber)
+    {
     case 0:
         dynamic_cast<Level*>(parent)->createEntity(new PowerUp(pos.x, pos.y, SPEED));
         break;
@@ -68,17 +68,19 @@ void Wall::dropPowerUp()
     }
 }
 
+
 void Wall::collisionEvent(Entity * body)
 {
     if (dynamic_cast<Explosion*>(body) != nullptr)
     {
+        // Destroy if colliding with an explosion
         deleteEntity();
 
         if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // The Power-Up can't appear in the Original level
         {
-            // 25% chances to drop a Power-Up
+            // Drops a power up with a 25% chance
             std::srand(std::time(0));
-            int randomNumber = std::rand() % 100;
+            int randomNumber = std::rand() % 25;
 
             if (randomNumber <= 99) {
                 dropPowerUp();

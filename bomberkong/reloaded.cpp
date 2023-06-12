@@ -61,6 +61,7 @@ void Reloaded::restart()
         }
         else
         {
+            // places the corresponding object
             if (block == '2')
             {
                 createEntity(new Wall(xPos, yPos));
@@ -88,6 +89,7 @@ void Reloaded::restart()
 
         else
         {
+            // places the corresponding object
             if (block == '2')
             {
                 createEntity(new Wall(xPos, yPos));
@@ -114,6 +116,7 @@ void Reloaded::restart()
         }
         else
         {
+            // places the corresponding object
             if (block == '2')
             {
                 createEntity(new Wall(xPos, yPos));

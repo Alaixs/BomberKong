@@ -17,7 +17,7 @@ class TextLabel : public GUIElement
 private:
     QString labelText;
     QFont font;
-    Alignement textAlign;
+    Alignement textAlign; // LEFT, CENTER or RIGHT
     int fontSize;
     QBrush textColor;
 
@@ -32,6 +32,11 @@ public:
      */
     TextLabel(int x, int y, int size, QString text, Alignement align = LEFT);
 
+    /**
+     * @brief Draws the label on the screen
+     *
+     * @param painter : The QPainter object used to draw the label
+     */
     void draw(QPainter* painter);
 
     /**

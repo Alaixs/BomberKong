@@ -45,6 +45,7 @@ void Original::restart()
         }
         else
         {
+            // Places the corresponding object
             if (block == '2')
             {
                 createEntity(new Wall(xPos, yPos));

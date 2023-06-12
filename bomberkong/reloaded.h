@@ -7,6 +7,9 @@ class Reloaded : public Level
 public:
     Reloaded(QWidget* widget);
 
+    /**
+     * @brief Create the level from a file
+     */
     void restart();
 };
 

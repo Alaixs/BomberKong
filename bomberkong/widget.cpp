@@ -27,11 +27,16 @@ ui->setupUi(this);
 
     setWindowTitle("BomberKong Reloaded");
 
+    // Loads the font used by the TextLabel object
     gameFont = QFontDatabase::addApplicationFont("://assets/fonts/upheavtt.ttf");
 
+    // Set the control scheme according to config.ini
     Input::loadControlsConfig();
 
     cellSize = 32;
+
+    // The scenes inherited from the Level class will no be updated
+    // if isPaused is set to true
     isPaused = false;
 
     // Screen dimensions
@@ -40,7 +45,7 @@ ui->setupUi(this);
 
     setFixedSize(width, height);
 
-    srand(time(nullptr));
+    srand(time(nullptr)); // Initializing the rng
 
     // preload sounds (avoid lag)
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_explosion.wav");
@@ -68,10 +73,11 @@ Widget::~Widget()
 }
 
 
-// Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
 {
+    // Updating the Input class states
     Input::keyPressedEvent(ev);
+
     if (ev->key() == Qt::Key_Escape)
     {
         isPaused = !isPaused; // Toggle the pause
@@ -79,7 +85,10 @@ void Widget::keyPressEvent(QKeyEvent *ev)
 }
 
 void Widget::keyReleaseEvent(QKeyEvent *ev)
-{Input::keyReleasedEvent(ev); }
+{
+    // Updating the Input class states
+    Input::keyReleasedEvent(ev);
+}
 
 
 // Updating the entities and the game
@@ -90,6 +99,8 @@ void Widget::gameUpdate()
     // Draw a frame
     repaint(0, 0, 1532, 1056);
 
+    // Reset all non persistant inputs
+    // This is the last instruction of a tick
     Input::resetFLInputs();
 }
 
@@ -105,6 +116,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::switchScene(SceneType sceneType)
 {
+    // Sets a pointer to the current scene to delete it after switching
     Scene * temp = currentScene;
 
     switch (sceneType)

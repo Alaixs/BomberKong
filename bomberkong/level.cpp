@@ -14,6 +14,7 @@
 #include "powerup.h"
 #include "textlabel.h"
 
+
 Level::Level(QWidget* widget)
     : Scene(widget)
 {
@@ -40,7 +41,7 @@ Level::Level(QWidget* widget)
         Coordinate(350, 30),
         "://assets/sprites/t_press_start.png"
     );
-    pauseLabel->isVisible = false;
+    pauseLabel->isVisible = false; // The pause label is hidden until the game is paused
     gui.push_back(pauseLabel);
 
     bombOnScreenNb = 0;
@@ -62,7 +63,7 @@ void Level::update()
     if (isPaused)
     {
         pauseLabel->isVisible = true;
-        return;
+        return; // Doesn't update the level is the game is paused
     }
     else
     {
@@ -115,22 +116,25 @@ void Level::updateLivesGUI(int playerLives)
 
 void Level::initPowerUpGUI()
 {
-    int x = 10, y = 750;
-    std::list<std::string> puSprites = {"t_speed", "t_explosion_time", "t_bomb_range", "t_bomb_nb"};
+    int x = 10, y = 750; // The position of the power up list
+    std::list<std::string> puSprites = {"t_speed", "t_explosion_time", "t_full_heart", "t_bomb_nb"};
+
     for (std::list<std::string>::iterator it = puSprites.begin(); it != puSprites.end(); it++)
     {
+        // Adds each power up inside the list
         std::string path = "://assets/sprites/" + (*it) + ".png";
-        gui.push_back
-            (
+        gui.push_back (
                 new GUIElement(
                     Coordinate(x, y),
                     Coordinate(48, 48),
                     QString::fromStdString(path)
-                    )
-                );
+                )
+        );
+        // Power up counter
         gui.push_back(new TextLabel(x+20, y+65, 30, "x0", CENTER));
         x += 60;
     }
+
     GUIElement * armor = new GUIElement(Coordinate(x+335, y), Coordinate(48, 48), "://assets/sprites/t_armor.png");
     armor->isVisible = false; // Armor Power-Up is invisible while the player wear one
     gui.push_back(armor);

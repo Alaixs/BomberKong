@@ -20,6 +20,9 @@ public:
     QPixmap texture;
     bool isVisible;
 
+
+    GUIElement(int posX, int posY);
+
     /**
      * @brief Create a GUI element
      * @param position : the coordinate of position on screen
@@ -33,7 +36,7 @@ public:
      * @param posX : the x value
      * @param posY : the y value
      */
-    GUIElement(int posX, int posY);
+    GUIElement(int posX, int posY, Coordinate newSize, QString source);
 
     /**
      * @brief Virtual destructor for GUI elements

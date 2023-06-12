@@ -8,17 +8,22 @@
 Lose::Lose(QWidget* widget) : Scene(widget)
 {
     itsSceneType = LOOSE_SCREEN;
+
+    // Sets the camera position
     setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
 
     changeLoseSound();
+
+    // Create a donkey kong dummy
     dk = new DonkeyKong(8.5 * cellSize, 528);
     dk->setParent(this);
 
+    // Create the "GAME OVER" label
     go = new GUIElement(
                 Coordinate(70, 200),
                 Coordinate(500,100),
                 "://assets/sprites/t_game_over.png"
-            );
+    );
 }
 
 
@@ -36,6 +41,7 @@ void Lose::update()
 
     if (Input::isActionJustPressed(START))
     {
+        // Return to the main menu when the player presses the start action
         changeOSTSound();
         dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
     }
