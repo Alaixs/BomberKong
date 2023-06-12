@@ -9,7 +9,7 @@
 /**
  * @brief The class of loose screen
  */
-class Loose : public Scene
+class Lose : public Scene
 {
 
 public:
@@ -20,12 +20,12 @@ public:
      * @brief Create a Loose screen
      * @param widget : the widget of loose scene
      */
-    Loose(QWidget* widget);
+    Lose(QWidget* widget);
 
     /**
      * @brief Destructor for a Loose object
      */
-    ~Loose();
+    ~Lose();
 
     /**
      * @brief Update the Loose screen

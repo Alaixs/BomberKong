@@ -1,11 +1,11 @@
-#include "loose.h"
+#include "lose.h"
 #include "soundmanager.h"
 #include "widget.h"
 #include "global.h"
 #include "input.h"
 
 
-Loose::Loose(QWidget* widget) : Scene(widget)
+Lose::Lose(QWidget* widget) : Scene(widget)
 {
     itsSceneType = LOOSE_SCREEN;
     setCameraOffset(Coordinate(9.5 * cellSize, 21 * cellSize - 256));
@@ -22,14 +22,14 @@ Loose::Loose(QWidget* widget) : Scene(widget)
 }
 
 
-Loose::~Loose()
+Lose::~Lose()
 {
     delete dk;
     delete go;
 }
 
 
-void Loose::update()
+void Lose::update()
 {
     dk->update();
     dk->timer++;
@@ -42,7 +42,7 @@ void Loose::update()
 }
 
 
-void Loose::draw(QPainter * painter)
+void Lose::draw(QPainter * painter)
 {
     // Draws a background in a checkerboard pattern
     for(int i = 0; i < 20; i++)
@@ -74,13 +74,13 @@ void Loose::draw(QPainter * painter)
     go->draw(painter);
 }
 
-void Loose::changeLoseSound()
+void Lose::changeLoseSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
     SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false);
 }
 
-void Loose::changeOSTSound()
+void Lose::changeOSTSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_loseTheme.wav");
     SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
