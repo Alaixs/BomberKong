@@ -172,6 +172,21 @@ void PlayerCharacter::update()
     if (!armorOn && invincibilityTimer != 0) // Decrease the invincibility time
     {
         invincibilityTimer--;
+
+        if(isHammer != true)
+        {
+            if(invincibilityTimer % 40 == 0)
+            {
+                sprite.load("://assets/sprites/t_bomberman.png");
+            }
+            else if(invincibilityTimer % 40 == 20)
+            {
+                sprite.load(":");
+            }
+        }
+
+
+
     }
 
     if(invincibilityTimer == 1 && isHammer == true)

@@ -27,6 +27,8 @@ private:
     int currentSelectedOption;
     bool waitingForInput;
 
+    GUIElement * bg;
+
 public:
     SettingsMenu(QWidget* root);
 

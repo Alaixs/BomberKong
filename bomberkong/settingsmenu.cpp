@@ -8,6 +8,12 @@
 SettingsMenu::SettingsMenu(QWidget* root)
     : Scene(root)
 {
+    // Background
+    bg = new GUIElement(Coordinate(0, 0),
+                        Coordinate(832, 832),
+                        QString("://assets/sprites/t_menu_bg.png")
+                        );
+
     windowTitle = new TextLabel(10, 100, 35, "SETTINGS");
 
     labelMoveUp = new TextLabel(10, 200, 35, "MOVE UP");
@@ -122,6 +128,7 @@ void SettingsMenu::update()
 
 void SettingsMenu::draw(QPainter* painter)
 {
+    bg->draw(painter);
     windowTitle->draw(painter);
 
     std::vector<TextLabel*>::iterator it;
