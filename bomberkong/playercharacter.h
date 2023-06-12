@@ -13,9 +13,12 @@ class PlayerCharacter : public Entity
 
 private:
     QPixmap sprite;                 ///< The actual Sprite
+    QPixmap hammerSprite;
     Coordinate motion;              ///< direction
     AnimationManager* animation;    ///< The actual animation ( the range in the sprite image)
+    AnimationManager* hammerAnimation;
 
+    bool isHammer;
     bool flipped;                   ///< False = left, True = false
     bool isKO;                      ///< is the character KO, he is not controllable if true
     int timer;                      ///< init timer

@@ -20,8 +20,12 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
 {
     animation = new AnimationManager();
+    hammerAnimation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomberman.png");
+    hammerSprite.load("://assets/sprites/t_hammer_Items.png");
+    isHammer = false;
     animation->play(0, 4);
+    hammerAnimation->play(0, 2);
     speed = 2;
     timer = 0;
     nbLives = 2;
@@ -35,6 +39,7 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
 {
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomberman.png");
+    isHammer = false;
     animation->play(0, 4);
     speed = 2;
     timer = 0;
@@ -68,6 +73,10 @@ void PlayerCharacter::update()
     dynamic_cast<Scene*>(parent)->setCameraOffset(pos); // Manage the scrolling
 
     animation->update();
+    if (isHammer)
+    {
+        hammerAnimation->update();
+    }
 
     if (!isKO) // If the player is controllable
     {
@@ -166,6 +175,10 @@ void PlayerCharacter::update()
         }
     }
 
+    if(invincibilityTimer == 5)
+    {
+        isHammer = false;
+    }
 }
 
 void PlayerCharacter::collisionEvent(Entity * body)
@@ -236,6 +249,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     if(dynamic_cast<Hammer*>(body) != nullptr)
     {
         initInvincibility(400);
+        isHammer = true;
         dynamic_cast<Hammer*>(body)->deleteEntity();
     }
 
@@ -307,6 +321,16 @@ void PlayerCharacter::draw(QPainter * painter)
             sprite.transformed(QTransform().scale(-1, 1)),
             QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
         );
+    }
+
+    if (isHammer)
+    {
+        Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
+        painter->drawPixmap(
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
+            hammerSprite,
+            QRect(hammerAnimation->getFrame() * 16, 0, 16, 16)
+            );
     }
 }
 
