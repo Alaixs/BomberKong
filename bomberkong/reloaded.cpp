@@ -10,6 +10,7 @@ Reloaded::Reloaded(QWidget* widget)
     currentMap.push_back(rand() % 3);
     currentMap.push_back(rand() % 3);
 
+    initPowerUpGUI();
     restart();
 }
 
