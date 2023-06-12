@@ -71,7 +71,7 @@ void Barrel::draw(QPainter * painter)
         QRect(animation->getFrame() * 16, 0, 16, 16)
     );
 
-    if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
+    if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL)
     {
         painter->drawPixmap(
             QRect(pos.x, endY - offset.y + 416, cellSize, cellSize),
