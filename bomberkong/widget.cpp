@@ -141,5 +141,5 @@ void Widget::switchScene(SceneType sceneType)
         break;
     }
 
-    delete temp;
+    //delete temp;
 }

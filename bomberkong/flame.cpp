@@ -46,7 +46,7 @@ void Flame::update()
         {
             isOnBoard = 2;
         }
-        if (!(rand()%4))
+        if (timer > 400)
         {
             switch (direction)
             {
@@ -68,6 +68,7 @@ void Flame::update()
                 flipped = false;
                 break;
             }
+            timer = 0;
         }
     }
     else
