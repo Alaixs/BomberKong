@@ -316,6 +316,17 @@ void PlayerCharacter::draw(QPainter * painter)
             sprite,
             QRect(animation->getFrame() * 16, 0, 16, 16)
         );
+
+        if(isHammer)
+        {
+            Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
+            painter->drawPixmap(
+                QRect(pos.x - 16, pos.y + 5 - offset.y + 416, cellSize, cellSize),
+                hammerSprite,
+                QRect(hammerAnimation->getFrame() * 16, 0, 16, 16)
+                );
+        }
+
     }
     else
     {
@@ -326,17 +337,19 @@ void PlayerCharacter::draw(QPainter * painter)
             sprite.transformed(QTransform().scale(-1, 1)),
             QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
         );
+
+        if(isHammer)
+        {
+            Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
+            painter->drawPixmap(
+                QRect(pos.x + 16, pos.y + 5 - offset.y + 416, cellSize, cellSize),
+                hammerSprite.transformed(QTransform().scale(-1, 1)),
+                QRect(hammerAnimation->getFrame() * 16, 0, 16, 16)
+                );
+        }
     }
 
-    if(isHammer)
-    {
-        Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
-        painter->drawPixmap(
-            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
-            hammerSprite,
-            QRect(hammerAnimation->getFrame() * 16, 0, 16, 16)
-            );
-    }
+
 }
 
 void PlayerCharacter::footstepsSfx()
