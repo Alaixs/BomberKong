@@ -17,6 +17,7 @@
 #include "playercharacter.h"
 #include "widget.h"
 #include "global.h"
+#include "powerup.h"
 
 /**
 * @brief The main scene for the level
@@ -124,6 +125,18 @@ public:
      * @return The number of bomb on the screen
      */
     int getBombOnScreenNb();
+
+    /**
+     * @brief Add the Power-Up GUI to the screen if the level isn't the Original one
+    */
+    void initPowerUpGUI();
+
+    /**
+     * @brief Update the Power-Up display based on the player collected Power-Up
+     * @param nb The number of Power-Up the player has collected
+     * @param type The type of Power-Up the player has collected
+     */
+    void updatePowerUpGUI(int nb, PowerUpType type);
 
 };
 

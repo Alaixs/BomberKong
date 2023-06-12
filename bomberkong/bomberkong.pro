@@ -18,6 +18,7 @@ SOURCES += \
     coordinate.cpp \
     donkeykong.cpp \
     dummy.cpp \
+    enemy.cpp \
     explosion.cpp \
     level.cpp \
     guielement.cpp \
@@ -37,11 +38,13 @@ SOURCES += \
     widget.cpp \
     entity.cpp \
     wall.cpp \
-    win.cpp
+    win.cpp \
+    flame.cpp
 
 HEADERS += \
     alternative.h \
     dummy.h \
+    enemy.h \
     level.h \
     global.h \
     animationmanager.h \
@@ -67,7 +70,8 @@ HEADERS += \
     entity.h \
     coordinate.h \
     wall.h \
-    win.h
+    win.h \
+    flame.h
 
 FORMS += \
     widget.ui

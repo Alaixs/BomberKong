@@ -72,12 +72,15 @@ void Wall::collisionEvent(Entity * body)
     {
         deleteEntity();
 
-        // 25% chances to drop a Power-Up
-        std::srand(std::time(0));
-        int randomNumber = std::rand() % 100;
+        if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // The Power-Up can't appear in the Original level
+        {
+            // 25% chances to drop a Power-Up
+            std::srand(std::time(0));
+            int randomNumber = std::rand() % 100;
 
-        if (randomNumber <= 25) {
-            dropPowerUp();
+            if (randomNumber <= 99) {
+                dropPowerUp();
+            }
         }
     }
 }

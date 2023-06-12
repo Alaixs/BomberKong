@@ -20,6 +20,7 @@ Tutorial::Tutorial(QWidget* widget)
     setOffsetLimit(21*cellSize, 21*cellSize);
 
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+    initPowerUpGUI();
     restart();
 }
 

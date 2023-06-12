@@ -37,5 +37,6 @@
         <file>assets/sprites/t_speed.png</file>
         <file>assets/sprites/selected_menu.png</file>
         <file>assets/fonts/upheavtt.ttf</file>
+        <file>assets/sprites/t_flame.png</file>
     </qresource>
 </RCC>
