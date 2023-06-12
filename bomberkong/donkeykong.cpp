@@ -46,29 +46,27 @@ void DonkeyKong::update()
             int random = rand() % 18;
             newPos = random * cellSize - cellSize;
             dist = newPos - pos.x;
+            if(timer <= cellSize)
+            {
+                pos.x += dist / cellSize;
+            }
         }
         else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
         {
             if (rand()%8)
             {
-                dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
+                dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize, dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y));
             }
             else
             {
                 dynamic_cast<Level*>(parent)->createEntity(new Flame(pos.x + 2 * cellSize, pos.y + cellSize));
             }
-            int random = rand() % 18;
-            newPos = random * cellSize - cellSize;
-            dist = newPos - pos.x;
         }
         timer = throwingRate;
         isThrowing = false;
+        pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x;
     }
 
-    if(timer <= cellSize)
-    {
-        pos.x += dist / cellSize;
-    }
 
     if(timer == 10)
     {

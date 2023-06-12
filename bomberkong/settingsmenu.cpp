@@ -23,7 +23,8 @@ SettingsMenu::SettingsMenu(QWidget* root)
     labelPlaceBomb = new TextLabel(10, 400, 35, "PLACE BOMB");
     labelPushBomb = new TextLabel(10, 450, 35, "PUSH BOMB");
     labelStart = new TextLabel(10, 500, 35, "START");
-    labelBack = new TextLabel(10, 700, 35, "< BACK");
+    labelReset = new TextLabel(10, 550, 35, "RESET");
+    labelBack = new TextLabel(10, 750, 35, "< BACK");
 
     options.push_back(labelMoveUp);
     options.push_back(labelMoveDown);
@@ -32,6 +33,7 @@ SettingsMenu::SettingsMenu(QWidget* root)
     options.push_back(labelPlaceBomb);
     options.push_back(labelPushBomb);
     options.push_back(labelStart);
+    options.push_back(labelReset);
     options.push_back(labelBack);
 
     currentSelectedOption = 0;
@@ -46,7 +48,7 @@ void SettingsMenu::update()
         options.at(currentSelectedOption)->setColor(Qt::white);
 
         currentSelectedOption++;
-        if (currentSelectedOption == 8)
+        if (currentSelectedOption == 9)
         {
             currentSelectedOption = 0;
         }
@@ -61,7 +63,7 @@ void SettingsMenu::update()
         currentSelectedOption--;
         if (currentSelectedOption == -1)
         {
-            currentSelectedOption = 7;
+            currentSelectedOption = 8;
         }
 
         options.at(currentSelectedOption)->setColor(Qt::red);
@@ -113,12 +115,27 @@ void SettingsMenu::update()
 
     if (Input::isActionJustPressed(START))
     {
-        if (currentSelectedOption == 7)
+        if (currentSelectedOption == 8)
         {
             dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
         }
-        if (currentSelectedOption)
+        else if (currentSelectedOption == 7)
         {
+            QSettings settings("../bomberkong/config.ini", QSettings::IniFormat);
+
+            settings.setValue("Controls/MoveUp", 16777235);
+            settings.setValue("Controls/MoveDown", 16777237);
+            settings.setValue("Controls/MoveLeft", 16777234);
+            settings.setValue("Controls/MoveRight", 16777236);
+            settings.setValue("Controls/PlaceBomb", 87);
+            settings.setValue("Controls/PushBomb", 88);
+            settings.setValue("Controls/Start", 32);
+
+            Input::loadControlsConfig();
+        }
+        else
+        {
+            qDebug() << currentSelectedOption;
             waitingForInput = true;
             options.at(currentSelectedOption)->setColor(Qt::green);
         }

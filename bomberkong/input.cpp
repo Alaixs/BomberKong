@@ -46,7 +46,6 @@ void Input::loadControlsConfig()
 
 void Input::keyPressedEvent(QKeyEvent* event)
 {
-    qDebug() << event->key();
     lastPressedKey = event->key();
 
     if (event->key() == keyMoveUp)

@@ -14,6 +14,8 @@ private:
     int timer;
     QPixmap sprite;              ///< The actual Sprite
     AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
+    int endY;
+    int endX;
 
 public:
     /**
@@ -22,7 +24,7 @@ public:
      * @param posX : position on X axis
      * @param posY : position on Y axis
      */
-    Barrel(int posX,int posY);
+    Barrel(int posX,int posY, int endYPos = 816);
 
     /**
      * @brief Create a Barrel
@@ -30,7 +32,7 @@ public:
      * @param posX : position on X axes
      * @param posY : position on Y axes
      */
-    Barrel(Coordinate pos);
+    Barrel(Coordinate pos, int endYPos = 816);
 
     /**
      * @brief Destructor for the Barrel object
