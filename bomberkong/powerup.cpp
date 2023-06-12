@@ -26,22 +26,22 @@ void PowerUp::loadSprite()
     switch(itsType) // Change the sprite based on the Power-Up type
     {
         case SPEED:
-                sprite.load("://assets/sprites/t_speed.png");
-                break;
+            sprite.load("://assets/sprites/t_speed.png");
+            break;
         case BOMB_NB:
-                sprite.load("://assets/sprites/t_bomb_nb.png");
-                break;
+            sprite.load("://assets/sprites/t_bomb_nb.png");
+            break;
         case BOMB_RANGE:
-                sprite.load("://assets/sprites/t_full_heart.png");
-                break;
+            sprite.load("://assets/sprites/t_full_heart.png");
+            break;
         case BOMB_TIME:
-                sprite.load("://assets/sprites/t_explosion_time.png");
-                break;
+            sprite.load("://assets/sprites/t_explosion_time.png");
+            break;
         case ARMOR:
-                sprite.load("://assets/sprites/t_armor.png");
-                break;
+            sprite.load("://assets/sprites/t_armor.png");
+            break;
         default:
-                break;
+            break;
     }
 }
 
