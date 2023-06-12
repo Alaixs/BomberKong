@@ -72,8 +72,6 @@ void MainMenu::update()
 {
     timer++;
 
-
-
     if (timer % 40 == 0)
     {
         // Blinking "press start" label
@@ -90,18 +88,29 @@ void MainMenu::update()
             choiceTutorial->deselect();
             choiceOriginal->select();
             selected->setPos(Coordinate(120,505));
+            selected->isVisible = true;
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceReloaded->select();
             selected->setPos(Coordinate(120,605));
+            selected->isVisible = true;
         }
         else if (choiceReloaded->isElementSelected())
         {
             choiceReloaded->deselect();
+            options->select();
+            options->texture.load("://assets/sprites/t_options_selected.png");
+            selected->isVisible = false;
+        }
+        else if (options->isElementSelected())
+        {
+            options->deselect();
             choiceTutorial->select();
+            options->texture.load("://assets/sprites/t_options.png");
             selected->setPos(Coordinate(120,405));
+            selected->isVisible = true;
         }
     }
 
@@ -111,20 +120,31 @@ void MainMenu::update()
         if (choiceTutorial->isElementSelected())
         {
             choiceTutorial->deselect();
+            options->select();
+            options->texture.load("://assets/sprites/t_options_selected.png");
+            selected->isVisible = false;
+        }
+        else if (options->isElementSelected())
+        {
+            options->deselect();
+            options->texture.load("://assets/sprites/t_options.png");
             choiceReloaded->select();
             selected->setPos(Coordinate(120,605));
-        }
-        else if (choiceOriginal->isElementSelected())
-        {
-            choiceOriginal->deselect();
-            choiceTutorial->select();
-            selected->setPos(Coordinate(120,405));
+            selected->isVisible = true;
         }
         else if (choiceReloaded->isElementSelected())
         {
             choiceReloaded->deselect();
             choiceOriginal->select();
             selected->setPos(Coordinate(120,505));
+            selected->isVisible = true;
+        }
+        else if (choiceOriginal->isElementSelected())
+        {
+            choiceOriginal->deselect();
+            choiceTutorial->select();
+            selected->setPos(Coordinate(120,405));
+            selected->isVisible = true;
         }
     }
 
@@ -136,6 +156,8 @@ void MainMenu::update()
             dynamic_cast<Widget*>(root)->switchScene(ORIGINAL);
         else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
             dynamic_cast<Widget*>(root)->switchScene(RELOADED);
+        //else if (options->isElementSelected()) // Start the Settings menu
+            //dynamic_cast<Widget*>(root)->switchScene(OPTIONS);
     }
 }
 
