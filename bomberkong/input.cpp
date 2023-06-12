@@ -33,8 +33,10 @@ int lastPressedKey = false;
 
 void Input::loadControlsConfig()
 {
+    // Opens config.ini as settings
     QSettings settings("../bomberkong/config.ini", QSettings::IniFormat);
 
+    // Load each action key code
     keyMoveUp = settings.value("Controls/MoveUp").toInt();
     keyMoveDown = settings.value("Controls/MoveDown").toInt();
     keyMoveLeft = settings.value("Controls/MoveLeft").toInt();
@@ -46,8 +48,11 @@ void Input::loadControlsConfig()
 
 void Input::keyPressedEvent(QKeyEvent* event)
 {
+    // Saves the last key pressed during this tick even if it is not
+    // associated with an action
     lastPressedKey = event->key();
 
+    // Updates the state of every action
     if (event->key() == keyMoveUp)
     {
         moveUp = true;
@@ -83,6 +88,7 @@ void Input::keyPressedEvent(QKeyEvent* event)
 
 void Input::keyReleasedEvent(QKeyEvent * event)
 {
+    // Updates the state of every action
     if (event->key() == keyMoveUp)
     {
         moveUp = false;
@@ -118,6 +124,7 @@ void Input::keyReleasedEvent(QKeyEvent * event)
 
 bool Input::isActionPressed(Actions action)
 {
+    // Returns the state of the corresponding action
     switch (action)
     {
         case MOVE_UP:
@@ -176,6 +183,7 @@ bool Input::isActionJustPressed(Actions action)
 
 void Input::resetFLInputs()
 {
+    // Reset non persistant inputs
     fl_start = false;
     fl_up = false;
     fl_down = false;

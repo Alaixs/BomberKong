@@ -82,5 +82,6 @@ Coordinate Coordinate::operator/=(int n)
 
 bool operator==(const Coordinate& c1, const Coordinate& c2)
 {
+    // Checks if the coordinates are equal on both X and Y axis
     return c1.x == c2.x && c1.y == c2.y;
 }

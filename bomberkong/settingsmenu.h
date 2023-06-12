@@ -10,6 +10,8 @@ class SettingsMenu : public Scene
 {
 
 private:
+    GUIElement * bg;
+
     TextLabel* windowTitle;
 
     TextLabel* labelMoveUp;
@@ -24,17 +26,24 @@ private:
 
     TextLabel* labelBack;
 
-    std::vector<TextLabel*> options;
+    std::vector<TextLabel*> options; ///< A list containing every selectable options
 
-    int currentSelectedOption;
-    bool waitingForInput;
+    int currentSelectedOption;       ///< The index of the currently selected option
+    bool waitingForInput;            ///< Is the menu currently waiting for the user to choose an key
 
-    GUIElement * bg;
 
 public:
     SettingsMenu(QWidget* root);
 
+    /**
+     * @brief Update the state of every updatable element in this menu
+     */
     void update();
+
+    /**
+     * @brief Draw the menu
+     * @param painter : The QPainter object used to draw the menu
+     */
     void draw(QPainter* painter);
 
 };

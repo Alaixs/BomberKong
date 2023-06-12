@@ -14,6 +14,8 @@ SettingsMenu::SettingsMenu(QWidget* root)
                         QString("://assets/sprites/t_menu_bg.png")
                         );
 
+
+    // Creates an element for each label
     windowTitle = new TextLabel(50, 100, 55, "SETTINGS");
 
     labelMoveUp = new TextLabel(70, 200, 35, "MOVE UP");
@@ -26,6 +28,7 @@ SettingsMenu::SettingsMenu(QWidget* root)
     labelReset = new TextLabel(70, 600, 35, "RESET");
     labelBack = new TextLabel(70, 750, 35, "< BACK");
 
+    // Adds every option inside a list
     options.push_back(labelMoveUp);
     options.push_back(labelMoveDown);
     options.push_back(labelMoveRight);
@@ -36,6 +39,7 @@ SettingsMenu::SettingsMenu(QWidget* root)
     options.push_back(labelReset);
     options.push_back(labelBack);
 
+    // Initialize the cursor
     currentSelectedOption = 0;
     options.at(currentSelectedOption)->setColor(Qt::red);
 }
@@ -43,11 +47,14 @@ SettingsMenu::SettingsMenu(QWidget* root)
 
 void SettingsMenu::update()
 {
+    // Navigation
     if (Input::isActionJustPressed(MOVE_DOWN))
     {
         options.at(currentSelectedOption)->setColor(Qt::white);
 
         currentSelectedOption++;
+
+        // Loops through the menu if the cursor is on the last option
         if (currentSelectedOption == 9)
         {
             currentSelectedOption = 0;
@@ -61,6 +68,8 @@ void SettingsMenu::update()
         options.at(currentSelectedOption)->setColor(Qt::white);
 
         currentSelectedOption--;
+
+        // Loops through the menu is the cursor is on the first element
         if (currentSelectedOption == -1)
         {
             currentSelectedOption = 8;
@@ -71,11 +80,13 @@ void SettingsMenu::update()
 
     if (waitingForInput)
     {
+        // Waits for the user to choose a key for the selected option
         int key = Input::getPressedKey();
         if (key != 0)
         {
             QSettings settings("../bomberkong/config.ini", QSettings::IniFormat);
 
+            // Saves the new key code
             switch (currentSelectedOption)
             {
                 case 0:
@@ -107,6 +118,7 @@ void SettingsMenu::update()
                     break;
             }
 
+            // Update control scheme
             Input::loadControlsConfig();
             options.at(currentSelectedOption)->setColor(Qt::red);
             waitingForInput = false;
@@ -117,12 +129,15 @@ void SettingsMenu::update()
     {
         if (currentSelectedOption == 8)
         {
+            // Returns to the main menu
             dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
         }
         else if (currentSelectedOption == 7)
         {
+            // Opens config.ini
             QSettings settings("../bomberkong/config.ini", QSettings::IniFormat);
 
+            // Resets all settings to their default value
             settings.setValue("Controls/MoveUp", 16777235);
             settings.setValue("Controls/MoveDown", 16777237);
             settings.setValue("Controls/MoveLeft", 16777234);
@@ -131,11 +146,11 @@ void SettingsMenu::update()
             settings.setValue("Controls/PushBomb", 88);
             settings.setValue("Controls/Start", 32);
 
+            // Update control scheme
             Input::loadControlsConfig();
         }
         else
         {
-            qDebug() << currentSelectedOption;
             waitingForInput = true;
             options.at(currentSelectedOption)->setColor(Qt::green);
         }
@@ -148,11 +163,10 @@ void SettingsMenu::draw(QPainter* painter)
     bg->draw(painter);
     windowTitle->draw(painter);
 
+    // Draw each option
     std::vector<TextLabel*>::iterator it;
     for (it = options.begin(); it != options.end(); ++it)
     {
         (*it)->draw(painter);
     }
-
-    //labelBack->draw(painter);
 }

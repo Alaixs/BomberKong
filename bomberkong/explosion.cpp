@@ -8,8 +8,10 @@ Explosion::Explosion(int posX, int posY)
     : Entity(posX, posY)
 {
     animation = new AnimationManager(2);
-    sprite.load("://assets/sprites/t_explosion.png");
     animation->play(0, 6);
+
+    sprite.load("://assets/sprites/t_explosion.png");
+
     timer = 12;
 }
 
@@ -18,8 +20,10 @@ Explosion::Explosion(Coordinate position)
     : Entity(position)
 {
     animation = new AnimationManager(2);
-    sprite.load("://assets/sprites/t_explosion.png");
     animation->play(0, 6);
+
+    sprite.load("://assets/sprites/t_explosion.png");
+
     timer = 12;
 }
 
@@ -32,9 +36,12 @@ Explosion::~Explosion()
 void Explosion::update()
 {
     animation->update();
+
     timer--;
+
     if (timer == 0)
     {
+        // Delete the explosion once the animation is finished
         deleteEntity();
     }
 }
@@ -42,6 +49,7 @@ void Explosion::update()
 
 void Explosion::draw(QPainter * painter)
 {
+    // Offsets the sprite according to the player character's position (vertical scrolling)
     Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
     painter->drawPixmap(
         QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),

@@ -10,12 +10,12 @@
  */
 class Bomb : public Entity
 {
-    int timer;                     ///< The number of frame the bomb will stay, also use to switch frame and explode
+    int timer;                      ///< The number of frame the bomb will stay, also use to switch frame and explode
     QPixmap sprite;                 ///< The actual Sprite
     AnimationManager* animation;    ///< The actual animation ( the range in the sprite image)
     SoundManager* soundManager;     ///< The explosion's sound
     int itsExplosionRange;          ///< The range of the explosion
-    int itsExplosionTime;              ///< The time before the bomb explode (NOT in second)
+    int itsExplosionTime;           ///< The time before the bomb explode (NOT in second)
 
 public:
     /**

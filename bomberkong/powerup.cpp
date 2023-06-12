@@ -1,6 +1,8 @@
 #include "powerup.h"
+
 #include "global.h"
 #include "soundmanager.h"
+
 
 PowerUp::PowerUp(int posX, int posY, PowerUpType type)
     : Entity(posX, posY)
@@ -9,6 +11,7 @@ PowerUp::PowerUp(int posX, int posY, PowerUpType type)
     loadSprite();
 }
 
+
 PowerUp::PowerUp(Coordinate pos, PowerUpType type)
     : Entity(pos)
 {
@@ -16,10 +19,12 @@ PowerUp::PowerUp(Coordinate pos, PowerUpType type)
     loadSprite();
 }
 
+
 PowerUp::~PowerUp()
 {
 
 }
+
 
 void PowerUp::loadSprite()
 {
@@ -45,19 +50,23 @@ void PowerUp::loadSprite()
     }
 }
 
+
 PowerUpType PowerUp::getItsType()
 {
     return itsType;
 }
 
+
 void PowerUp::draw(QPainter * painter)
 {
+    // Offsets the sprite according to the player character's position (vertical scrolling)
     Coordinate offset = parent->getCameraOffset();
     painter->drawPixmap(
         QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
         sprite
-        );
+    );
 }
+
 
 void PowerUp::collected()
 {
@@ -65,20 +74,24 @@ void PowerUp::collected()
     deleteEntity();
 }
 
+
 void PowerUp::update()
 {
 
 }
+
 
 void PowerUp::collisionEvent(Entity* body)
 {
 
 }
 
+
 void PowerUp::PowerUpSfx()
 {
    SoundManager::getInstance().playSound("://assets/sounds/sfx_powerUp.wav", 0.5, false);
 }
+
 
 QRect PowerUp::getRect()
 {

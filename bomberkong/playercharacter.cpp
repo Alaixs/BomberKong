@@ -8,7 +8,6 @@
 #include "level.h"
 #include "bombergirl.h"
 #include "indestructiblewall.h"
-#include "tutorial.h"
 #include "wall.h"
 #include "bomb.h"
 #include "barrel.h"
@@ -19,46 +18,61 @@
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
 {
-    animation = new AnimationManager();   
+    // Character
     sprite.load("://assets/sprites/t_bomberman.png");
+    animation = new AnimationManager();   
     animation->play(0, 4);
 
-    hammerAnimation = new AnimationManager();
+    // Hammer
     hammerSprite.load("://assets/sprites/t_hammer_Items.png");
+    hammerAnimation = new AnimationManager();
     hammerAnimation->play(0,2);
 
-    speed = 2;
     timer = 0;
+
+    speed = 2;
+
     hammerTimer = 0;
+
     nbLives = 2;
+
     isKO = false;
-    initBonus();
     isHammer = false;
+
+    initBonus();
 }
 
 
 PlayerCharacter::PlayerCharacter(Coordinate pos)
     : Entity(pos)
 {
-    animation = new AnimationManager();
+    // Character
     sprite.load("://assets/sprites/t_bomberman.png");
+    animation = new AnimationManager();
     animation->play(0, 4);
 
-    hammerAnimation = new AnimationManager();
+    // Hammer
     hammerSprite.load("://assets/sprites/t_hammer_Items.png");
+    hammerAnimation = new AnimationManager();
     hammerAnimation->play(0,2);
 
-    speed = 2;
     timer = 0;
+
+    speed = 2;
+
     hammerTimer = 0;
+
     nbLives = 2;
+
     isKO = false;
-    initBonus();
     isHammer = false;
+
+    initBonus();
 }
 
 void PlayerCharacter::initBonus()
 {
+    // Reset every bonus to 0
     speedBonusNb = 0;
     maxBombBonusNb = 0;
     explosionRangeBonusNb = 0;
@@ -87,17 +101,42 @@ void PlayerCharacter::update()
     if (!isKO) // If the player is controllable
     {
 
-    if (Input::isActionPressed(MOVE_RIGHT)) { motion.x = 1+(speedBonusNb*0.20); flipped = true; footstepsSfx(); }
-    else if (Input::isActionPressed(MOVE_LEFT)) { motion.x = -(1+speedBonusNb*0.20); flipped = false; footstepsSfx(); }
-    else { motion.x = 0; }
+    // Sets the player motion according to keyboard inputs
+    if (Input::isActionPressed(MOVE_RIGHT))
+    {
+        motion.x = 1;
+        flipped = true;
+        footstepsSfx();
+    }
+    else if (Input::isActionPressed(MOVE_LEFT))
+    {
+        motion.x = -1;
+        flipped = false;
+        footstepsSfx();
+    }
+    else
+    {
+        motion.x = 0;
+    }
 
-    if (Input::isActionPressed(MOVE_DOWN)) { motion.y = 1+speedBonusNb*0.20; footstepsSfx(); }
-    else if (Input::isActionPressed(MOVE_UP)) { motion.y = -(1+speedBonusNb*0.20); footstepsSfx(); }
-    else { motion.y = 0; }
+    if (Input::isActionPressed(MOVE_DOWN))
+    {
+        motion.y = 1;
+        footstepsSfx();
+    }
+    else if (Input::isActionPressed(MOVE_UP))
+    {
+        motion.y = -1;
+        footstepsSfx();
+    }
+    else
+    {
+        motion.y = 0;
+    }
 
     if(Input::isActionPressed(PLACE_BOMB) && hammerTimer == 0)
     {
-        if(dynamic_cast<Level*>(parent)->getBombOnScreenNb() < 1+maxBombBonusNb)
+        if(dynamic_cast<Level*>(parent)->getBombOnScreenNb() < 1 + maxBombBonusNb)
         {
             if (timer < 0)
             {
@@ -105,7 +144,7 @@ void PlayerCharacter::update()
             Coordinate bombPos(pos);
             bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
             bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
-            dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos,1+explosionRangeBonusNb, 1+explosionTimeBonusNb));
+            dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos, 1 + explosionRangeBonusNb, 1 + explosionTimeBonusNb));
 
             // Reset the cooldown timer
             timer = 14;
@@ -121,10 +160,13 @@ void PlayerCharacter::update()
         dynamic_cast<Level*>(parent)->alternative();
     }
 
-    pos += motion * speed;
+    // Updates position
+    pos += motion * speed * ((speedBonusNb * 0.2) + 1);
 
     if(timer >= 0)
+    {
         timer--;
+    }
 
     // Plays the running animation if the player is moving
     if (abs(motion.x) > 0 || abs(motion.y) > 0)
@@ -330,7 +372,7 @@ void PlayerCharacter::draw(QPainter * painter)
 {
     if (!flipped)
     {
-        // Draw the normal sprite
+        // Draws the normal sprite
         Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
         painter->drawPixmap(
             QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
@@ -338,6 +380,7 @@ void PlayerCharacter::draw(QPainter * painter)
             QRect(animation->getFrame() * 16, 0, 16, 16)
         );
 
+        // Draws the hammer
         if(isHammer)
         {
             Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
@@ -351,7 +394,7 @@ void PlayerCharacter::draw(QPainter * painter)
     }
     else
     {
-        // Draw the flipped sprite
+        // Draws the flipped sprite
         Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
         painter->drawPixmap(
             QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
@@ -359,6 +402,7 @@ void PlayerCharacter::draw(QPainter * painter)
             QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
         );
 
+        // Draws the hammer
         if(isHammer)
         {
             Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();

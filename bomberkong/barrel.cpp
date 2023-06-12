@@ -7,10 +7,13 @@ Barrel::Barrel(int posX, int posY, int endYPos)
     : Entity(posX, posY)
 {
     animation = new AnimationManager();
-    sprite.load("://assets/sprites/t_barrel.png");
     animation->play(0, 3);
+
+    sprite.load("://assets/sprites/t_barrel.png");
+
     timer = 187;
-    endY = endYPos;
+
+    endY = endYPos; // The position at which the barrel is destroyed (once not visible)
 }
 
 
@@ -18,10 +21,13 @@ Barrel::Barrel(Coordinate position, int endYPos)
     : Entity(position)
 {
     animation = new AnimationManager();
-    sprite.load("://assets/sprites/t_barrel.png");
     animation->play(0, 3);
+
+    sprite.load("://assets/sprites/t_barrel.png");
+
     timer = 187;
-    endY = endYPos;
+
+    endY = endYPos; // The position at which the barrel is destroyed (once not visible)
 }
 
 
@@ -34,7 +40,9 @@ Barrel::~Barrel()
 void Barrel::update()
 {
     animation->update();
+
     timer++;
+
     pos.y += 3;
 
     // Delete the barrel once it leaves the screen
@@ -47,6 +55,7 @@ void Barrel::update()
 
 void Barrel::draw(QPainter * painter)
 {
+    // Offsets the sprite according to the player character's position (vertical scrolling)
     Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
     painter->drawPixmap(
         QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),

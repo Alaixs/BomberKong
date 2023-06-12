@@ -61,8 +61,8 @@ MainMenu::MainMenu(QWidget* widget)
 
 MainMenu::~MainMenu()
 {
-    for (std::list<GUIElement*>::iterator it = gui.begin();
-         it != gui.end(); it++) // Loop to delete every elements inside the gui list
+    // Loop to delete every elements inside the gui list
+    for (std::list<GUIElement*>::iterator it = gui.begin(); it != gui.end(); it++)
     {
         delete (*it); // Delete the current element of the list
     }
@@ -82,6 +82,7 @@ void MainMenu::update()
 
     logo->setPos(Coordinate(logo->getPos().x, sin(0.06 * timer)*60 + 80)); // Animate the logo
 
+    // Menu navigation
     if (Input::isActionJustPressed(MOVE_DOWN))
     {
         selectSfx();

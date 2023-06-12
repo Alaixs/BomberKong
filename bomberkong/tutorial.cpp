@@ -20,8 +20,12 @@ Tutorial::Tutorial(QWidget* widget)
     itsSceneType = TUTORIAL;
     setOffsetLimit(21*cellSize, 21*cellSize);
 
+    // Create the player at its spawn point
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+
     initPowerUpGUI();
+
+    // Create the level layout (walls)
     restart();
 }
 
@@ -136,6 +140,7 @@ void Tutorial::restart()
         }
         else
         {
+            // places the corresponding object
             if (block == '2')
             {
                 createEntity(new Wall(xPos, yPos));
@@ -152,20 +157,19 @@ void Tutorial::restart()
     levelDataFile.close();
 
     // Create characters at their spawn points
-
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-
-    createEntity(new Hammer(2.5 * cellSize, 18 * cellSize));
-
     DonkeyKong * dk = new DonkeyKong(9 * cellSize, 0);
     dk->setParent(this);
     dk->throwingRate = 200;
     entities.push_back(dk);
 
+    createEntity(new Hammer(2.5 * cellSize, 18 * cellSize));
+
     startLabel = new GUIElement(Coordinate(140, 620),
                                 Coordinate(350, 30),
                                 QString("://assets/sprites/t_press_start.png"));
 
+    // Controls indications for the player
     gui.push_back(new GUIElement(
         Coordinate(425, 600),
         Coordinate(208, 128),

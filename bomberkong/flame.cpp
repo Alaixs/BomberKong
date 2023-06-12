@@ -6,6 +6,7 @@ Flame::Flame(int posX, int posY)
     : Enemy(posX, posY)
 {
     srand(time(NULL) % rand());
+
     isOnBoard = 0;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");

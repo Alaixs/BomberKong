@@ -13,11 +13,14 @@ Bomb::Bomb(int posX, int posY, int explosionRange, int explosionTime)
     : Entity(posX, posY)
 {
     animation = new AnimationManager();
-    sprite.load("://assets/sprites/t_bomb.png");
     animation->play(0, 2);
-    timer = 187;
+
+    sprite.load("://assets/sprites/t_bomb.png");
+
     itsExplosionRange = explosionRange;
     itsExplosionTime = explosionTime;
+
+    timer = 187 - explosionTime * 31;
 }
 
 
@@ -25,11 +28,14 @@ Bomb::Bomb(Coordinate position, int explosionRange, int explosionTime)
     : Entity(position)
 {
     animation = new AnimationManager();
-    sprite.load("://assets/sprites/t_bomb.png");
     animation->play(0, 2);
-    timer = 187;
+
+    sprite.load("://assets/sprites/t_bomb.png");
+
     itsExplosionRange = explosionRange;
     itsExplosionTime = explosionTime;
+
+    timer = 187 - explosionTime * 31;
 }
 
 
@@ -42,7 +48,7 @@ Bomb::~Bomb()
 void Bomb::update()
 {
     animation->update();
-    timer -= itsExplosionTime;
+    timer--;
 
     // Final second, plays the flashing animation
     if (timer <= 62)
@@ -53,26 +59,33 @@ void Bomb::update()
     // Create explosions in a + pattern around the bomb and disappear
     if (timer <= 0)
     {
+        // Keep track of how many bomb exists to prevent the player from placing too many of them
         dynamic_cast<Level*>(parent)->decrementBombNb();
 
         dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y);
 
         for (int i = 1; i != itsExplosionRange+1; i++) // Loop to display the explosion based on its explosion range
         {
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x + cellSize*i, pos.y);
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x - cellSize*i, pos.y);
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y + cellSize*i);
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y - cellSize*i);
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x + cellSize * i, pos.y); // Right
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x - cellSize * i, pos.y); // Left
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y + cellSize * i); // Down
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y - cellSize * i); // Up
         }
 
-        deleteEntity();
         explosionSfx();
+
+        deleteEntity();
     }
 }
 
 
 void Bomb::collisionEvent(Entity * body){
-   // Is pushed away when colliding with walls or the player
+    // Is pushed away when colliding with walls or the player
+
+    // Calculates on which axis the bomb is the closest to the collider and push it back on this axis
+    // This method allows a "sliding" movement. Otherwise, the bomb wont move as soon as it touches a
+    // wall, even if it only slides along it.
+
     if((dynamic_cast<PlayerCharacter*>(body) != nullptr && Input::isActionPressed(PUSH_BOMB)))
     {
         int distX = pos.x - body->getPos().x;
@@ -108,6 +121,7 @@ void Bomb::collisionEvent(Entity * body){
 
 void Bomb::draw(QPainter * painter)
 {
+    // Offsets the sprite according to the player character's position (vertical scrolling)
     Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
     painter->drawPixmap(
         QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
@@ -115,6 +129,7 @@ void Bomb::draw(QPainter * painter)
         QRect(animation->getFrame() * 16, 0, 16, 16)
     );
 }
+
 
 void Bomb::explosionSfx()
 {
