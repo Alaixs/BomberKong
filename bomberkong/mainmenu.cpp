@@ -156,8 +156,8 @@ void MainMenu::update()
             dynamic_cast<Widget*>(root)->switchScene(ORIGINAL);
         else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
             dynamic_cast<Widget*>(root)->switchScene(RELOADED);
-        //else if (options->isElementSelected()) // Start the Settings menu
-            //dynamic_cast<Widget*>(root)->switchScene(OPTIONS);
+        else if (options->isElementSelected()) // Start the Settings menu
+            dynamic_cast<Widget*>(root)->switchScene(OPTIONS);
     }
 }
 

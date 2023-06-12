@@ -20,6 +20,8 @@ private:
     TextLabel* labelPushBomb;
     TextLabel* labelStart;
 
+    TextLabel* labelReset;
+
     TextLabel* labelBack;
 
     std::vector<TextLabel*> options;
