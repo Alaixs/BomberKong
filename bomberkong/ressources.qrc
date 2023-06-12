@@ -38,5 +38,7 @@
         <file>assets/sprites/selected_menu.png</file>
         <file>assets/fonts/upheavtt.ttf</file>
         <file>assets/sprites/t_flame.png</file>
+        <file>assets/sprites/t_hammer_ground.png</file>
+        <file>assets/sprites/t_hammer_Items.png</file>
     </qresource>
 </RCC>

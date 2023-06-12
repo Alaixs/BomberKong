@@ -19,14 +19,19 @@
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
 {
-    animation = new AnimationManager();
+    animation = new AnimationManager();   
     sprite.load("://assets/sprites/t_bomberman.png");
     animation->play(0, 4);
+
+    hammerAnimation = new AnimationManager();
+    hammerSprite.load("://assets/sprites/t_hammer_Items.png");
+    hammerAnimation->play(0,2);
     speed = 2;
     timer = 0;
     nbLives = 2;
     isKO = false;
     initBonus();
+    isHammer = false;
 }
 
 
@@ -36,11 +41,17 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_bomberman.png");
     animation->play(0, 4);
+
+    hammerAnimation = new AnimationManager();
+    hammerSprite.load("://assets/sprites/t_hammer_Items.png");
+    hammerAnimation->play(0,2);
+
     speed = 2;
     timer = 0;
     nbLives = 2;
     isKO = false;
     initBonus();
+    isHammer = false;
 }
 
 void PlayerCharacter::initBonus()
@@ -68,6 +79,7 @@ void PlayerCharacter::update()
     dynamic_cast<Scene*>(parent)->setCameraOffset(pos); // Manage the scrolling
 
     animation->update();
+    hammerAnimation->update();
 
     if (!isKO) // If the player is controllable
     {
@@ -160,16 +172,22 @@ void PlayerCharacter::update()
     if (!armorOn && invincibilityTimer != 0) // Decrease the invincibility time
     {
         invincibilityTimer--;
-        if(invincibilityTimer % 10 == 0 && invincibilityTimer > 50)
-        {
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x,pos.y);
-        }
+    }
+
+    if(invincibilityTimer == 1 && isHammer == true)
+    {
+        isHammer = false;
     }
 
 }
 
 void PlayerCharacter::collisionEvent(Entity * body)
 {
+    if(dynamic_cast<Wall*>(body) != nullptr && isHammer)
+    {
+        dynamic_cast<Wall*>(body)->deleteEntity();
+    }
+
     // Collision with walls
     if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
     {
@@ -236,6 +254,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     if(dynamic_cast<Hammer*>(body) != nullptr)
     {
         initInvincibility(400);
+        isHammer = true;
         dynamic_cast<Hammer*>(body)->deleteEntity();
     }
 
@@ -308,6 +327,16 @@ void PlayerCharacter::draw(QPainter * painter)
             QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
         );
     }
+
+    if(isHammer)
+    {
+        Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
+        painter->drawPixmap(
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
+            hammerSprite,
+            QRect(hammerAnimation->getFrame() * 16, 0, 16, 16)
+            );
+    }
 }
 
 void PlayerCharacter::footstepsSfx()
@@ -318,4 +347,9 @@ void PlayerCharacter::footstepsSfx()
 QRect PlayerCharacter::getRect()
 {
     return QRect(pos.x , pos.y, cellSize - 2, cellSize);
+}
+
+bool PlayerCharacter::isOnHammerEffect()
+{
+    return isHammer;
 }

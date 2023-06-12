@@ -4,15 +4,15 @@
 Hammer::Hammer(int posX, int posY) : Entity(posX,posY)
 {
     animation = new AnimationManager;
-    sprite.load("://assets/sprites/t_bomb.png");
-    animation->play(0,2);
+    sprite.load("://assets/sprites/t_hammer_ground.png");
+    animation->play(0,5);
 }
 
 Hammer::Hammer(Coordinate pos) : Entity(pos)
 {
     animation = new AnimationManager;
-    sprite.load("://assets/sprites/t_bomb.png");
-    animation->play(0,2);
+    sprite.load("://assets/sprites/t_hammer_ground.png");
+    animation->play(0,5);
 }
 
 Hammer::~Hammer()

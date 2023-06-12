@@ -83,6 +83,7 @@ void Wall::collisionEvent(Entity * body)
             }
         }
     }
+
 }
 
 

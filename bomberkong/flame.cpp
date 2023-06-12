@@ -5,10 +5,12 @@
 Flame::Flame(int posX, int posY)
     : Enemy(posX, posY)
 {
+    srand(time(NULL) % rand());
     isOnBoard = 0;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
+    direction = rand() % 4;
     timer = 187;
 }
 
@@ -33,8 +35,7 @@ void Flame::update()
 {
     animation->update();
     timer++;
-    direction = rand() % 4;
-    srand(time(NULL)%rand());
+    direction = (rand() + direction) % 4;
     if (pos.y < 10 * cellSize - 20 * 2 * cellSize)
     {
         pos.y += 3;
@@ -46,7 +47,7 @@ void Flame::update()
         {
             isOnBoard = 2;
         }
-        if (!(rand()%4))
+        if (timer > 30)
         {
             switch (direction)
             {
@@ -60,12 +61,15 @@ void Flame::update()
 
             case 2:
                 pos.x += 3;
+                flipped = true;
                 break;
 
             case 3:
                 pos.x -= 3;
+                flipped = false;
                 break;
             }
+            timer = 0;
         }
     }
     else
@@ -113,17 +117,34 @@ void Flame::collisionEvent(Entity *body)
             break;
         }
     }
+
+    if (dynamic_cast<Explosion*>(body) != nullptr || (dynamic_cast<PlayerCharacter*>(body) != nullptr && dynamic_cast<PlayerCharacter*>(body)->isOnHammerEffect()))
+    {
+        deleteEntity();
+    }
 }
 
 
 void Flame::draw(QPainter * painter)
 {
     Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
-    painter->drawPixmap(
-        QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
-        sprite,
-        QRect(animation->getFrame() * 16, 0, 16, 16)
-        );
+    if (flipped)
+    {
+        painter->drawPixmap(
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
+            sprite.transformed(QTransform().scale(-1,1)),
+            QRect(animation->getFrame() * 16, 0, 16, 16)
+            );
+    }
+    else
+    {
+        painter->drawPixmap(
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
+            sprite,
+            QRect(animation->getFrame() * 16, 0, 16, 16)
+            );
+    }
+
 }
 
 

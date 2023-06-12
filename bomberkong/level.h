@@ -138,6 +138,12 @@ public:
      */
     void updatePowerUpGUI(int nb, PowerUpType type);
 
+    /**
+     * @brief Getter for the level entites
+     * @return The entities list of the level
+     */
+    std::list<Entity*> getEntites();
+
 };
 
 #endif // LEVEL_H
