@@ -12,6 +12,7 @@
 #include "indestructiblewall.h"
 #include "explosion.h"
 #include "powerup.h"
+#include "textlabel.h"
 
 Level::Level(QWidget* widget)
     : Scene(widget)
@@ -126,6 +127,7 @@ void Level::initPowerUpGUI()
                     QString::fromStdString(path)
                     )
                 );
+        gui.push_back(new TextLabel(x+20, y+65, 30, "x0", CENTER));
         x += 60;
     }
     GUIElement * armor = new GUIElement(Coordinate(x+335, y), Coordinate(48, 48), "://assets/sprites/t_armor.png");
@@ -135,61 +137,63 @@ void Level::initPowerUpGUI()
 
 void Level::updatePowerUpGUI(int nb, PowerUpType type)
 {
-    if (itsSceneType != ORIGINAL)
+    std::list<GUIElement*>::iterator it = gui.begin();
+
+    switch(type)
     {
-        std::list<GUIElement*>::iterator it = gui.begin();
+    case SPEED:
+        std::advance(it, 4); // Advance of 5 elements
+        std::cout << nb << std::endl;
+        (*it)->isVisible = false;
+        break;
 
-        switch(type)
+    case BOMB_TIME:
+        std::advance(it, 6); // Advance of 6 elements
+        if (nb < 4)
         {
-        case SPEED:
-            std::advance(it, 4); // Advance of 5 elements
             std::cout << nb << std::endl;
-            //(*it)->isVisible = false;
-            break;
-
-        case BOMB_TIME:
-            std::advance(it, 5); // Advance of 6 elements
-            if (nb < 4)
-            {
-                std::cout << nb << std::endl;
-                //(*it)->isVisible = false;
-            }
-            else
-            {
-                std::cout << "MAX" << std::endl;
-            }
-            break;
-
-        case BOMB_RANGE:
-            std::advance(it, 6); // Advance of 7 elements
-            if (nb < 5)
-            {
-                std::cout << nb << std::endl;
-                //(*it)->isVisible = false;
-            }
-            else
-            {
-                std::cout << "MAX" << std::endl;
-            }
-            break;
-
-        case BOMB_NB:
-            std::advance(it, 7); // Advance of 8 elements
-            //(*it)->isVisible = false;
-            std::cout << nb << std::endl;
-            break;
-
-        case ARMOR:
-            std::advance(it, 8); // Advance of 9 elements
-            if (nb == 1)
-                (*it)->isVisible = true;
-            else
-                (*it)->isVisible = false;
-            break;
-
-        default:
-            break;
+            (*it)->isVisible = false;
         }
+        else
+        {
+            std::cout << "MAX" << std::endl;
+        }
+        break;
+
+    case BOMB_RANGE:
+        std::advance(it, 8); // Advance of 8 elements
+        if (nb < 5)
+        {
+            std::cout << nb << std::endl;
+            (*it)->isVisible = false;
+        }
+        else
+        {
+            std::cout << "MAX" << std::endl;
+        }
+        break;
+
+    case BOMB_NB:
+        std::advance(it, 10); // Advance of 10 elements
+        (*it)->isVisible = false;
+        std::cout << nb << std::endl;
+        break;
+
+    case ARMOR:
+        std::advance(it, 12); // Advance of 12 elements
+        if (nb == 1)
+        {
+            (*it)->isVisible = true;
+        }
+        else
+        {
+            (*it)->isVisible = false;
+            std::cout << "Armor reset" << std::endl;
+        }
+        break;
+
+    default:
+        break;
     }
 }
 

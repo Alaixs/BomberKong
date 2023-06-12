@@ -1,4 +1,5 @@
 #include "reloaded.h"
+#include "hammer.h"
 
 Reloaded::Reloaded(QWidget* widget)
     : Level(widget)
@@ -10,6 +11,7 @@ Reloaded::Reloaded(QWidget* widget)
     currentMap.push_back(rand() % 3);
     currentMap.push_back(rand() % 3);
 
+    initPowerUpGUI();
     restart();
 }
 
@@ -130,4 +132,5 @@ void Reloaded::restart()
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize - 20 * 2 * cellSize));
     createEntity(new DonkeyKong(9 * cellSize, 0 - 20 * 2 * cellSize));
+    createEntity(new Hammer(14 * cellSize, 20 * cellSize));
 }
