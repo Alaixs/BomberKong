@@ -144,7 +144,7 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
     case SPEED:
         std::advance(it, 4); // Advance of 5 elements
         std::cout << nb << std::endl;
-        //(*it)->isVisible = false;
+        (*it)->isVisible = false;
         break;
 
     case BOMB_TIME:
@@ -152,7 +152,7 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
         if (nb < 4)
         {
             std::cout << nb << std::endl;
-            //(*it)->isVisible = false;
+            (*it)->isVisible = false;
         }
         else
         {
@@ -161,11 +161,11 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
         break;
 
     case BOMB_RANGE:
-        std::advance(it, 8); // Advance of 7 elements
+        std::advance(it, 8); // Advance of 8 elements
         if (nb < 5)
         {
             std::cout << nb << std::endl;
-            //(*it)->isVisible = false;
+            (*it)->isVisible = false;
         }
         else
         {
@@ -174,13 +174,13 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
         break;
 
     case BOMB_NB:
-        std::advance(it, 10); // Advance of 8 elements
-        //(*it)->isVisible = false;
+        std::advance(it, 10); // Advance of 10 elements
+        (*it)->isVisible = false;
         std::cout << nb << std::endl;
         break;
 
     case ARMOR:
-        std::advance(it, 12); // Advance of 9 elements
+        std::advance(it, 12); // Advance of 12 elements
         if (nb == 1)
         {
             (*it)->isVisible = true;
