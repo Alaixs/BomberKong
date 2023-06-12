@@ -23,7 +23,7 @@ SOURCES += \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
-    loose.cpp \
+    lose.cpp \
     main.cpp \
     mainmenu.cpp \
     original.cpp \
@@ -53,7 +53,7 @@ HEADERS += \
     guielement.h \
     indestructiblewall.h \
     input.h \
-    loose.h \
+    lose.h \
     mainmenu.h \
     original.h \
     playercharacter.h \

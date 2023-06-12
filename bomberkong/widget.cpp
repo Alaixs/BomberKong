@@ -1,4 +1,4 @@
-﻿#include "loose.h"
+﻿#include "lose.h"
 
 #include <fstream>
 #include <QSoundEffect>
@@ -132,7 +132,7 @@ void Widget::switchScene(SceneType sceneType)
         break;
 
         case LOOSE_SCREEN:
-            currentScene = new Loose(this);
+            currentScene = new Lose(this);
         break;
 
         case ALTERNATIVE_ENDING:
