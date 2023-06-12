@@ -40,5 +40,6 @@
         <file>assets/sprites/t_flame.png</file>
         <file>assets/sprites/t_hammer_ground.png</file>
         <file>assets/sprites/t_hammer_Items.png</file>
+        <file>assets/sprites/t_options_selected.png</file>
     </qresource>
 </RCC>
