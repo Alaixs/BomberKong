@@ -26,8 +26,10 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     hammerAnimation = new AnimationManager();
     hammerSprite.load("://assets/sprites/t_hammer_Items.png");
     hammerAnimation->play(0,2);
+
     speed = 2;
     timer = 0;
+    hammerTimer = 0;
     nbLives = 2;
     isKO = false;
     initBonus();
@@ -48,6 +50,7 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
 
     speed = 2;
     timer = 0;
+    hammerTimer = 0;
     nbLives = 2;
     isKO = false;
     initBonus();
@@ -92,7 +95,7 @@ void PlayerCharacter::update()
     else if (Input::isActionPressed(MOVE_UP)) { motion.y = -(1+speedBonusNb*0.20); footstepsSfx(); }
     else { motion.y = 0; }
 
-    if(Input::isActionPressed(PLACE_BOMB) && invincibilityTimer == 0)
+    if(Input::isActionPressed(PLACE_BOMB) && hammerTimer == 0)
     {
         if(dynamic_cast<Level*>(parent)->getBombOnScreenNb() < 1+maxBombBonusNb)
         {
@@ -169,7 +172,7 @@ void PlayerCharacter::update()
 
     }
 
-    if (!armorOn && invincibilityTimer != 0) // Decrease the invincibility time
+    if (!armorOn ) // Decrease the invincibility time
     {
         invincibilityTimer--;
 
@@ -184,12 +187,14 @@ void PlayerCharacter::update()
                 sprite.load(":");
             }
         }
-
-
-
     }
 
-    if(invincibilityTimer == 1 && isHammer == true)
+    if(hammerTimer > 0)
+    {
+        hammerTimer--;
+    }
+
+    if(hammerTimer == 0 && isHammer == true)
     {
         isHammer = false;
     }
@@ -269,7 +274,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
     if(dynamic_cast<Hammer*>(body) != nullptr)
     {
-        initInvincibility(400);
+        hammerTimer = 400;
         isHammer = true;
         dynamic_cast<Hammer*>(body)->deleteEntity();
     }
@@ -277,7 +282,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     // Collision with damaging entities
     if ((dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED && dynamic_cast<Barrel*>(body) != nullptr && !(dynamic_cast<Barrel*>(body)->getIsFlying())) || (dynamic_cast<Level*>(parent)->getItsSceneType() != RELOADED && dynamic_cast<Barrel*>(body) != nullptr) || dynamic_cast<Explosion*>(body) != nullptr)
     {
-        if (invincibilityTimer == 0)
+        if (invincibilityTimer <= 0 && hammerTimer == 0)
         {
             if (!armorOn) // The player can't take damage if he's wearing the armor or is invincible
             {

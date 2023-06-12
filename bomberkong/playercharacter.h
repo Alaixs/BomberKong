@@ -31,6 +31,7 @@ private:
     int explosionTimeBonusNb;       ///< The number of explosion time bonus Power-Up the player currently has
     bool armorOn;                   ///< Bool to check if the player is currently wearing an armor
     int invincibilityTimer;         ///< A timer for the player invincibility after losing an armor
+    int hammerTimer;
 
 public:
     bool isHammer;
