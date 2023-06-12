@@ -116,7 +116,7 @@ void Level::updateLivesGUI(int playerLives)
 void Level::initPowerUpGUI()
 {
     int x = 10, y = 750;
-    std::list<std::string> puSprites = {"t_speed", "t_explosion_time", "t_full_heart", "t_bomb_nb"};
+    std::list<std::string> puSprites = {"t_speed", "t_explosion_time", "t_bomb_range", "t_bomb_nb"};
     for (std::list<std::string>::iterator it = puSprites.begin(); it != puSprites.end(); it++)
     {
         std::string path = "://assets/sprites/" + (*it) + ".png";
