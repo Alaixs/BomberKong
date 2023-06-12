@@ -7,7 +7,7 @@ Flame::Flame(int posX, int posY)
 {
     srand(time(NULL) % rand());
     spawnCoordinate = Coordinate(posX, posY);
-    isOnBoard = 0;
+    isOnBoard = 1;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
@@ -21,7 +21,7 @@ Flame::Flame(Coordinate position)
 {
     srand(time(NULL) % rand());
     spawnCoordinate = position;
-    isOnBoard = 0;
+    isOnBoard = 1;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
@@ -39,87 +39,58 @@ Flame::~Flame()
 void Flame::update()
 {
     animation->update();
-    timer++;
-    direction = (rand() + direction) % 4;
-    if (pos.y < 10 * cellSize - spawnCoordinate.y)
+    timer--;
+
+    if(timer < 32)
     {
-        pos.y += 3;
+        if(direction == 0)
+        {
+            pos.y-= 1;
+        }
+        else if (direction == 1)
+        {
+            pos.y += 1;
+        }
+        else if (direction == 2)
+        {
+            pos.x -= 1;
+        }
+        else
+        {
+            pos.x += 1;
+        }
+
     }
 
-    if (isOnBoard > 0)
+    if(timer == 0)
     {
-        if (isOnBoard == 1)
-        {
-            isOnBoard = 2;
-        }
-        if (timer > 10)
-        {
-            switch (direction)
-            {
-            case 0:
-                pos.y += 3;
-                break;
-
-            case 1:
-                pos.y -= 3;
-                break;
-
-            case 2:
-                pos.x += 3;
-                flipped = true;
-                break;
-
-            case 3:
-                pos.x -= 3;
-                flipped = false;
-                break;
-            }
-            timer = 0;
-        }
+        timer = 187;
+        direction = (rand() + direction) % 4;
     }
-    else
-    {
-        pos.y += 3;
 
-        if(!(rand() % 9))
-        {
-            isOnBoard = 1;
-        }
-        if (pos.y > 832)
-        {
-            deleteEntity();
-        }
-    }
 }
 
 void Flame::collisionEvent(Entity *body)
 {
-    if(isOnBoard < 2)
-    {
-        if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
-        {
-            isOnBoard = 0;
-        }
-    }
-    else if(dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
-    {
-        switch (direction)
-        {
-        case 0:
-            pos.y -= 3;
-            break;
 
-        case 1:
+
+    if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+    {
+        if(direction == 0)
+        {
             pos.y += 3;
-            break;
-
-        case 2:
-            pos.x -= 3;
-            break;
-
-        case 3:
+        }
+        else if (direction == 1)
+        {
+            pos.y -= 3;
+        }
+        else if (direction == 2)
+        {
             pos.x += 3;
-            break;
+        }
+        else if (direction == 3)
+        {
+            pos.x -= 3;
         }
     }
 

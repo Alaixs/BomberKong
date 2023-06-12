@@ -53,13 +53,32 @@ void DonkeyKong::update()
         }
         else if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL)
         {
-            if (rand()%8)
+            if (false)
             {
                 dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize, dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y));
             }
             else
             {
-                dynamic_cast<Level*>(parent)->createEntity(new Flame(pos.x + 2 * cellSize, pos.y + cellSize));
+                Coordinate SpawnPos;
+                if(dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
+                {
+                    if(rand() % 2 == 0)
+                    {
+                        SpawnPos.x = rand() % 10 * cellSize;
+                        SpawnPos.y = ((rand() % 10) + 13) * cellSize ;
+                    }
+                    else
+                    {
+                        SpawnPos.x = ((rand() % 10) + 10) * cellSize;
+                        SpawnPos.y = ((rand() % 10) + 3) * cellSize ;
+                    }
+                }
+                else
+                {
+                    SpawnPos.x = rand() % 20 * cellSize;
+                    SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+                }
+                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos));
             }
             pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
         }

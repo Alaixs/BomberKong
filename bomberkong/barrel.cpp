@@ -76,11 +76,7 @@ void Barrel::draw(QPainter * painter)
         painter->drawPixmap(
             QRect(pos.x, endY - offset.y + 416, cellSize, cellSize),
             shadow,
-<<<<<<< HEAD
             QRect(0, 0, 16, 16)
-=======
-            QRect(0,0, 16, 16)
->>>>>>> 50f216d1c358c096658ea2a133a854eb406ffbe6
             );
     }
 }
