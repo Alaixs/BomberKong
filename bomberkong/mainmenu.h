@@ -19,7 +19,7 @@ private:
 
     GUIElement * bg; ///< The actual Sprite
     GUIElement * logo; ///< The actual Sprite
-    TextLabel * pressStart; ///< The press start GUI
+    GUIElement * pressStart; ///< The press start GUI
     GUIElement * options; ///< The options cogwheel
     TextLabel * choiceTutorial; ///< The actual Sprite
     TextLabel * choiceOriginal; ///< The actual Sprite

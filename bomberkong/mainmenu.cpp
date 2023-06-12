@@ -27,7 +27,9 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(logo);
 
     // "Press Start" Label
-    pressStart = new TextLabel(320, 750, 50, "PRESS SPACE", CENTER);
+    pressStart = new GUIElement(Coordinate(140, 720),
+                                Coordinate(350, 30),
+                                QString("://assets/sprites/t_press_start.png"));
     gui.push_back(pressStart);
 
     // Options
