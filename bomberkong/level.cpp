@@ -203,24 +203,24 @@ void Level::draw(QPainter* painter)
     // Draws a background in a checkerboard pattern
     for(int i = 0; i < 20; i++)
     {
-        for(int j = 0; j < 13; j++){
+        for(int j = 0; j < 40; j++){
             painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y + 416, cellSize, cellSize,
+                cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
             );
 
             painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y + 416, cellSize, cellSize,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
             );
 
             painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y + 416, cellSize, cellSize,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
                 QBrush(QColor(1, 133, 21))
             );
 
             painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y + 416, cellSize, cellSize,
+                cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
                 QBrush(QColor(1, 133, 21))
             );
         }
