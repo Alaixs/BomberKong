@@ -2,6 +2,7 @@
 
 #include <QDebug>
 #include <fstream>
+#include "hammer.h"
 #include "input.h"
 #include "global.h"
 #include "widget.h"
@@ -152,6 +153,8 @@ void Tutorial::restart()
     // Create characters at their spawn points
 
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
+
+    createEntity(new Hammer(2.5 * cellSize, 18 * cellSize));
 
     DonkeyKong * dk = new DonkeyKong(9 * cellSize, 0);
     dk->setParent(this);

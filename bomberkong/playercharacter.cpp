@@ -1,6 +1,7 @@
 #include "playercharacter.h"
 
 #include <QMessageBox>
+#include "hammer.h"
 #include "soundmanager.h"
 #include "input.h"
 #include "global.h"
@@ -52,9 +53,9 @@ void PlayerCharacter::initBonus()
     invincibilityTimer = 0;
 }
 
-void PlayerCharacter::initInvincibility()
+void PlayerCharacter::initInvincibility(int time)
 {
-    invincibilityTimer = 200;
+    invincibilityTimer = time;
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -83,7 +84,7 @@ void PlayerCharacter::update()
     else if (Input::isActionPressed(MOVE_UP)) { motion.y = -(1+speedBonusNb*0.20); footstepsSfx(); }
     else { motion.y = 0; }
 
-    if(Input::isActionPressed(PLACE_BOMB))
+    if(Input::isActionPressed(PLACE_BOMB) && invincibilityTimer == 0)
     {
         if(dynamic_cast<Level*>(parent)->getBombOnScreenNb() < 1+maxBombBonusNb)
         {
@@ -153,7 +154,12 @@ void PlayerCharacter::update()
     if (!armorOn && invincibilityTimer != 0) // Decrease the invincibility time
     {
         invincibilityTimer--;
+        if(invincibilityTimer % 10 == 0 && invincibilityTimer > 50)
+        {
+            dynamic_cast<Level*>(parent)->createExplosion(pos.x,pos.y);
+        }
     }
+
 }
 
 void PlayerCharacter::collisionEvent(Entity * body)
@@ -221,6 +227,12 @@ void PlayerCharacter::collisionEvent(Entity * body)
         }
     }
 
+    if(dynamic_cast<Hammer*>(body) != nullptr)
+    {
+        initInvincibility(400);
+        dynamic_cast<Hammer*>(body)->deleteEntity();
+    }
+
     // Collision with damaging entities
     if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
     {
@@ -240,7 +252,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
             else
             {
                 armorOn = false; // The player looses his armor
-                initInvincibility(); // The player has some frames of invincibility
+                initInvincibility(200); // The player has some frames of invincibility
                 dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, ARMOR); // Hide the armor GUI
             }
         }
