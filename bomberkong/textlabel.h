@@ -15,10 +15,11 @@ class TextLabel : public GUIElement
 {
 
 private:
-    QString text;
+    QString labelText;
     QFont font;
     Alignement textAlign;
     int fontSize;
+    QBrush textColor;
 
 public:
     /**
@@ -29,8 +30,23 @@ public:
      * @param size : The font size (in pixels)
      * @param t : The text
      */
-    TextLabel(int x, int y, int size, QString t, Alignement alignement = LEFT);
+    TextLabel(int x, int y, int size, QString text, Alignement align = LEFT);
+
     void draw(QPainter* painter);
+
+    /**
+     * @brief Changes the text displayed by the label
+     *
+     * @param text : The text to display
+     */
+    void setText(QString text);
+
+    /**
+     * @brief Changes the color of the label
+     *
+     * @param color : The new color
+     */
+    void setColor(QBrush color);
 
 };
 

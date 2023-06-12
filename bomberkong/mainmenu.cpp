@@ -72,7 +72,9 @@ void MainMenu::update()
 {
     timer++;
 
-    if (timer %  40 == 0)
+
+
+    if (timer % 40 == 0)
     {
         // Blinking "press start" label
         pressStart->isVisible = !(pressStart->isVisible);
