@@ -33,6 +33,7 @@ SOURCES += \
     powerup.cpp \
     reloaded.cpp \
     scene.cpp \
+    settingsmenu.cpp \
     soundmanager.cpp \
     textlabel.cpp \
     tutorial.cpp \
@@ -65,6 +66,7 @@ HEADERS += \
     powerup.h \
     reloaded.h \
     scene.h \
+    settingsmenu.h \
     soundmanager.h \
     textlabel.h \
     tutorial.h \

@@ -10,6 +10,7 @@ Flame::Flame(int posX, int posY)
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
+    direction = rand() % 4;
     timer = 187;
 }
 
@@ -34,7 +35,7 @@ void Flame::update()
 {
     animation->update();
     timer++;
-    direction = rand() % 4;
+    direction = (rand() + direction) % 4;
     if (pos.y < 10 * cellSize - 20 * 2 * cellSize)
     {
         pos.y += 3;
@@ -46,7 +47,7 @@ void Flame::update()
         {
             isOnBoard = 2;
         }
-        if (timer > 70)
+        if (timer > 30)
         {
             switch (direction)
             {
