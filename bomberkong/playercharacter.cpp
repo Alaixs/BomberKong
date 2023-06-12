@@ -179,11 +179,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
         case SPEED: // Collecting a speed bonus
             speedBonusNb++;
             dynamic_cast<PowerUp*>(body)->collected();
+            dynamic_cast<Level*>(parent)->updatePowerUpGUI(speedBonusNb, SPEED);
             break;
 
         case BOMB_NB: // Collecting a max bomb bonus
             maxBombBonusNb++;
             dynamic_cast<PowerUp*>(body)->collected();
+            dynamic_cast<Level*>(parent)->updatePowerUpGUI(maxBombBonusNb, BOMB_NB);
             break;
 
         case BOMB_RANGE: // Collecting a bomb range bonus
@@ -191,6 +193,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
             {
                 explosionRangeBonusNb++;
                 dynamic_cast<PowerUp*>(body)->collected();
+                dynamic_cast<Level*>(parent)->updatePowerUpGUI(explosionRangeBonusNb, BOMB_RANGE);
             }
             break;
 
@@ -199,6 +202,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
             {
                 explosionTimeBonusNb++;
                 dynamic_cast<PowerUp*>(body)->collected();
+                dynamic_cast<Level*>(parent)->updatePowerUpGUI(explosionTimeBonusNb, BOMB_TIME);
             }
             break;
 
@@ -208,7 +212,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
                 armorOn = true;
                 invincibilityTimer = 0;
                 dynamic_cast<PowerUp*>(body)->collected();
-
+                dynamic_cast<Level*>(parent)->updatePowerUpGUI(1, ARMOR);
             }
             break;
 
@@ -237,6 +241,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
             {
                 armorOn = false; // The player looses his armor
                 initInvincibility(); // The player has some frames of invincibility
+                dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, ARMOR); // Hide the armor GUI
             }
         }
     }

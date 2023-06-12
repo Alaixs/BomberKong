@@ -78,7 +78,7 @@ void Wall::collisionEvent(Entity * body)
             std::srand(std::time(0));
             int randomNumber = std::rand() % 100;
 
-            if (randomNumber <= 25) {
+            if (randomNumber <= 99) {
                 dropPowerUp();
             }
         }
