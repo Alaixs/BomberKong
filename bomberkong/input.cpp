@@ -27,6 +27,10 @@ bool fl_down = false;
 bool fl_up = false;
 
 
+// The value of the key that was pressed during this tick
+int lastPressedKey = false;
+
+
 void Input::loadControlsConfig()
 {
     QSettings settings("../bomberkong/config.ini", QSettings::IniFormat);
@@ -43,6 +47,8 @@ void Input::loadControlsConfig()
 void Input::keyPressedEvent(QKeyEvent* event)
 {
     qDebug() << event->key();
+    lastPressedKey = event->key();
+
     if (event->key() == keyMoveUp)
     {
         moveUp = true;
@@ -174,4 +180,12 @@ void Input::resetFLInputs()
     fl_start = false;
     fl_up = false;
     fl_down = false;
+
+    lastPressedKey = 0;
+}
+
+
+int Input::getPressedKey()
+{
+    return lastPressedKey;
 }

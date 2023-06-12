@@ -94,6 +94,13 @@ public:
      * @brief Reset not persistant inputs
      */
     static void resetFLInputs();
+
+    /**
+     * @brief Get the integer value of the last pressed key
+     *
+     * @return The value of the key
+     */
+    static int getPressedKey();
 };
 
 #endif // INPUT_H
