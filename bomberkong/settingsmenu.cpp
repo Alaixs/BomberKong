@@ -14,17 +14,17 @@ SettingsMenu::SettingsMenu(QWidget* root)
                         QString("://assets/sprites/t_menu_bg.png")
                         );
 
-    windowTitle = new TextLabel(10, 100, 35, "SETTINGS");
+    windowTitle = new TextLabel(50, 100, 55, "SETTINGS");
 
-    labelMoveUp = new TextLabel(10, 200, 35, "MOVE UP");
-    labelMoveDown = new TextLabel(10, 250, 35, "MOVE DOWN");
-    labelMoveRight = new TextLabel(10, 300, 35, "MOVE RIGHT");
-    labelMoveLeft = new TextLabel(10, 350, 35, "MOVE LEFT");
-    labelPlaceBomb = new TextLabel(10, 400, 35, "PLACE BOMB");
-    labelPushBomb = new TextLabel(10, 450, 35, "PUSH BOMB");
-    labelStart = new TextLabel(10, 500, 35, "START");
-    labelReset = new TextLabel(10, 550, 35, "RESET");
-    labelBack = new TextLabel(10, 750, 35, "< BACK");
+    labelMoveUp = new TextLabel(70, 200, 35, "MOVE UP");
+    labelMoveDown = new TextLabel(70, 250, 35, "MOVE DOWN");
+    labelMoveRight = new TextLabel(70, 300, 35, "MOVE RIGHT");
+    labelMoveLeft = new TextLabel(70, 350, 35, "MOVE LEFT");
+    labelPlaceBomb = new TextLabel(70, 400, 35, "PLACE BOMB");
+    labelPushBomb = new TextLabel(70, 450, 35, "PUSH BOMB");
+    labelStart = new TextLabel(70, 500, 35, "START");
+    labelReset = new TextLabel(70, 600, 35, "RESET");
+    labelBack = new TextLabel(70, 750, 35, "< BACK");
 
     options.push_back(labelMoveUp);
     options.push_back(labelMoveDown);
