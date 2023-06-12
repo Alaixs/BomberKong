@@ -104,7 +104,7 @@ void Widget::paintEvent(QPaintEvent *)
 
 void Widget::switchScene(SceneType sceneType)
 {
-    //Scene * temp = currentScene;
+    Scene * temp = currentScene;
 
     switch (sceneType)
     {
@@ -141,5 +141,5 @@ void Widget::switchScene(SceneType sceneType)
         break;
     }
 
-    //delete temp;
+    delete temp;
 }

@@ -24,6 +24,11 @@ public:
     Alternative(QWidget* widget);
 
     /**
+     * @brief Destructor for ab Alternative ending scene
+     */
+    ~Alternative();
+
+    /**
      * @brief Update th ealternative ending scene
      */
     void update();

@@ -23,6 +23,14 @@ Alternative::Alternative(QWidget * widget) : Scene(widget)
     gui.push_back(go);
 }
 
+Alternative::~Alternative()
+{
+    delete bomberman;
+    for (std::list<GUIElement*>::iterator it = gui.begin(); it != gui.end(); it++)
+    {
+        delete (*it);
+    }
+}
 
 void Alternative::update()
 {
