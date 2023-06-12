@@ -127,6 +127,11 @@ public:
     int getBombOnScreenNb();
 
     /**
+     * @brief Add the Power-Up GUI to the screen if the level isn't the Original one
+    */
+    void initPowerUpGUI();
+
+    /**
      * @brief Update the Power-Up display based on the player collected Power-Up
      * @param nb The number of Power-Up the player has collected
      * @param type The type of Power-Up the player has collected
