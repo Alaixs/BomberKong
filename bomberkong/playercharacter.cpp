@@ -236,6 +236,14 @@ void PlayerCharacter::collisionEvent(Entity * body)
                 dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
                 dynamic_cast<Level*>(parent)->resetBombOnScreenNb(); // Reset the number of bomb on the screen to 0
                 initBonus(); // Reset the player bonuses
+                if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // Reset the Power-Up GUI
+                {
+                    std::list<PowerUpType> types = {SPEED, BOMB_NB, BOMB_RANGE, BOMB_TIME, ARMOR};
+                    for (std::list<PowerUpType>::iterator it = types.begin(); it != types.end(); it++)
+                    {
+                        dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, (*it));
+                    }
+                }
             }
             else
             {

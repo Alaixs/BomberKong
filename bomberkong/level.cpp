@@ -182,9 +182,14 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
         case ARMOR:
             std::advance(it, 8); // Advance of 9 elements
             if (nb == 1)
+            {
                 (*it)->isVisible = true;
+            }
             else
+            {
                 (*it)->isVisible = false;
+                std::cout << "Armor reset" << std::endl;
+            }
             break;
 
         default:
