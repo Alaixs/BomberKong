@@ -41,5 +41,6 @@
         <file>assets/sprites/t_hammer_ground.png</file>
         <file>assets/sprites/t_hammer_Items.png</file>
         <file>assets/sprites/t_options_selected.png</file>
+        <file>assets/sprites/t_ombre.png</file>
     </qresource>
 </RCC>

@@ -8,6 +8,7 @@ Barrel::Barrel(int posX, int posY, int endYPos)
 {
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_barrel.png");
+    shadow.load("://assets/sprites/t_ombre.png");
     animation->play(0, 3);
     timer = 187;
     endY = endYPos;
@@ -40,7 +41,7 @@ void Barrel::update()
     pos.y += 3;
 
     // Delete the barrel once it leaves the screen
-    if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL || dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
+    if (dynamic_cast<Level*>(parent)->getItsSceneType() != RELOADED)
     {
         if (pos.y > endY)
         {
@@ -49,11 +50,11 @@ void Barrel::update()
     }
     else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
     {
-        if (pos.y == endY - 3)
+        if (pos.y > endY)
         {
             isFlying = false;
         }
-        else if (!isFlying)
+        if (!isFlying)
         {
             deleteEntity();
         }
@@ -69,6 +70,15 @@ void Barrel::draw(QPainter * painter)
         sprite,
         QRect(animation->getFrame() * 16, 0, 16, 16)
     );
+
+    if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
+    {
+        painter->drawPixmap(
+            QRect(pos.x, endY - offset.y + 416, cellSize, cellSize),
+            shadow,
+            QRect(animation->getFrame() * 16, 0, 16, 16)
+            );
+    }
 }
 
 

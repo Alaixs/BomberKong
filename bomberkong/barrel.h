@@ -14,6 +14,7 @@ class Barrel : public Entity
 private:
     int timer;
     QPixmap sprite;              ///< The actual Sprite
+    QPixmap shadow;              ///< The shadow of Tonneaux for throwing
     AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
     bool isFlying;
     int endY;

@@ -61,10 +61,11 @@ void DonkeyKong::update()
             {
                 dynamic_cast<Level*>(parent)->createEntity(new Flame(pos.x + 2 * cellSize, pos.y + cellSize));
             }
+            pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
         }
         timer = throwingRate;
         isThrowing = false;
-        pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+
     }
 
 
