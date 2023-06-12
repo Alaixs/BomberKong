@@ -169,7 +169,7 @@ void PlayerCharacter::update()
     if (!armorOn && invincibilityTimer != 0) // Decrease the invincibility time
     {
         invincibilityTimer--;
-        if(invincibilityTimer % 10 == 0 && invincibilityTimer > 50)
+        if(invincibilityTimer % 10 == 0 && invincibilityTimer > 50 && isHammer == true)
         {
             dynamic_cast<Level*>(parent)->createExplosion(pos.x,pos.y);
         }
