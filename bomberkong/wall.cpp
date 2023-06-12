@@ -19,7 +19,9 @@ Wall::Wall(Coordinate pos)
 }
 
 
-Wall::~Wall() {}
+Wall::~Wall() {
+
+}
 
 
 void Wall::update() {}

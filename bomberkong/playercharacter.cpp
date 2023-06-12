@@ -185,6 +185,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
 {
     if(dynamic_cast<Wall*>(body) != nullptr && isHammer)
     {
+        dynamic_cast<Wall*>(body)->dropPowerUp();
         dynamic_cast<Wall*>(body)->deleteEntity();
     }
 
@@ -321,7 +322,7 @@ void PlayerCharacter::draw(QPainter * painter)
         {
             Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
             painter->drawPixmap(
-                QRect(pos.x - 16, pos.y + 5 - offset.y + 416, cellSize, cellSize),
+                QRect(pos.x - 16, pos.y - offset.y + 416, cellSize, cellSize),
                 hammerSprite,
                 QRect(hammerAnimation->getFrame() * 16, 0, 16, 16)
                 );
@@ -342,7 +343,7 @@ void PlayerCharacter::draw(QPainter * painter)
         {
             Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
             painter->drawPixmap(
-                QRect(pos.x + 16, pos.y + 5 - offset.y + 416, cellSize, cellSize),
+                QRect(pos.x + 16, pos.y  - offset.y + 416, cellSize, cellSize),
                 hammerSprite.transformed(QTransform().scale(-1, 1)),
                 QRect(hammerAnimation->getFrame() * 16, 0, 16, 16)
                 );
