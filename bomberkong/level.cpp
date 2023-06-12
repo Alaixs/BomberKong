@@ -137,50 +137,47 @@ void Level::initPowerUpGUI()
 
 void Level::updatePowerUpGUI(int nb, PowerUpType type)
 {
+    std::string puNumber = "x" + to_string(nb);
     std::list<GUIElement*>::iterator it = gui.begin();
 
     switch(type)
     {
     case SPEED:
-        std::advance(it, 4); // Advance of 5 elements
-        std::cout << nb << std::endl;
-        (*it)->isVisible = false;
+        std::advance(it, 5); // Advance of 5 elements until the right text label
+        dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
         break;
 
     case BOMB_TIME:
-        std::advance(it, 6); // Advance of 6 elements
+        std::advance(it, 7); // Advance of 7 elements until the right text label
         if (nb < 4)
         {
-            std::cout << nb << std::endl;
-            (*it)->isVisible = false;
+            dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
         }
         else
         {
-            std::cout << "MAX" << std::endl;
+            dynamic_cast<TextLabel*>(*it)->setText("MAX");
         }
         break;
 
     case BOMB_RANGE:
-        std::advance(it, 8); // Advance of 8 elements
+        std::advance(it, 9); // Advance of 9 elements until the right text label
         if (nb < 5)
         {
-            std::cout << nb << std::endl;
-            (*it)->isVisible = false;
+            dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
         }
         else
         {
-            std::cout << "MAX" << std::endl;
+            dynamic_cast<TextLabel*>(*it)->setText("MAX");
         }
         break;
 
     case BOMB_NB:
-        std::advance(it, 10); // Advance of 10 elements
-        (*it)->isVisible = false;
-        std::cout << nb << std::endl;
+        std::advance(it, 11); // Advance of 11 elements until the right text label
+        dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
         break;
 
     case ARMOR:
-        std::advance(it, 12); // Advance of 12 elements
+        std::advance(it, 12); // Advance of 12 elements until the armor icon
         if (nb == 1)
         {
             (*it)->isVisible = true;
@@ -188,7 +185,6 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
         else
         {
             (*it)->isVisible = false;
-            std::cout << "Armor reset" << std::endl;
         }
         break;
 
