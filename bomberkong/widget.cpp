@@ -55,7 +55,7 @@ ui->setupUi(this);
     SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
 
     // Set the first scene to be the main menu
-    currentScene = new SettingsMenu(this);
+    currentScene = new MainMenu(this);
 
     connect(&timer, SIGNAL(timeout()), this, SLOT(gameUpdate()));
     timer.start(16); // Approx. 16ms

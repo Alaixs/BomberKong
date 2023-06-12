@@ -111,8 +111,9 @@ void SettingsMenu::update()
         {
             dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
         }
-        if (currentSelectedOption)
+        else
         {
+            qDebug() << currentSelectedOption;
             waitingForInput = true;
             options.at(currentSelectedOption)->setColor(Qt::green);
         }
