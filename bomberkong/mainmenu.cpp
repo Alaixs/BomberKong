@@ -27,7 +27,7 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(logo);
 
     // "Press Start" Label
-    pressStart = new TextLabel(0, 750, "PRESS SPACE");
+    pressStart = new TextLabel(320, 750, 50, "PRESS SPACE", CENTER);
     gui.push_back(pressStart);
 
     // Options
@@ -38,15 +38,15 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(options);
 
     // Tutorial level option
-    choiceTutorial = new TextLabel(0, 400, "TUTORIAL");
+    choiceTutorial = new TextLabel(320, 440, 50, "TUTORIAL", CENTER);
     gui.push_back(choiceTutorial);
 
     // Original level option
-    choiceOriginal = new TextLabel(0, 500, "ORIGINAL");
+    choiceOriginal = new TextLabel(320, 540, 50, "ORIGINAL", CENTER);
     gui.push_back(choiceOriginal);
 
     // Reloaded level option
-    choiceReloaded = new TextLabel(0, 600, "RELOADED");
+    choiceReloaded = new TextLabel(320, 640, 50, "RELOADED", CENTER);
     gui.push_back(choiceReloaded);
 
     selected = new GUIElement(Coordinate(140, 405),
@@ -83,27 +83,23 @@ void MainMenu::update()
     if (Input::isActionJustPressed(MOVE_DOWN))
     {
         selectSfx();
-        qDebug() << "ratio";
         if (choiceTutorial->isElementSelected())
         {
             choiceTutorial->deselect();
             choiceOriginal->select();
             selected->setPos(Coordinate(120,505));
-            qDebug("Original selected");
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceReloaded->select();
             selected->setPos(Coordinate(120,605));
-            qDebug("Reloaded selected");
         }
         else if (choiceReloaded->isElementSelected())
         {
             choiceReloaded->deselect();
             choiceTutorial->select();
             selected->setPos(Coordinate(120,405));
-            qDebug("Tutorial selected");
         }
     }
 
@@ -115,21 +111,18 @@ void MainMenu::update()
             choiceTutorial->deselect();
             choiceReloaded->select();
             selected->setPos(Coordinate(120,605));
-            qDebug("Reloaded selected");
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceTutorial->select();
             selected->setPos(Coordinate(120,405));
-            qDebug("Tutorial selected");
         }
         else if (choiceReloaded->isElementSelected())
         {
             choiceReloaded->deselect();
             choiceOriginal->select();
             selected->setPos(Coordinate(120,505));
-            qDebug("Original selected");
         }
     }
 
