@@ -300,3 +300,8 @@ int Level::getBombOnScreenNb()
 {
     return bombOnScreenNb;
 }
+
+std::list<Entity*> Level::getEntites()
+{
+    return entities;
+}

@@ -40,7 +40,7 @@ void DonkeyKong::update()
     animation->update();
     timer--;
     if(timer <= 0){
-        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
+        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL || dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
         {
             dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
             int random = rand() % 18;
