@@ -5,6 +5,7 @@
 Flame::Flame(int posX, int posY)
     : Enemy(posX, posY)
 {
+    isOnBoard = false;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
@@ -30,20 +31,75 @@ Flame::~Flame()
 
 void Flame::update()
 {
-    int random;
-    animation->update();
-    timer++;
-    srand(time(NULL));
-    random = rand() % 832;
-    while (pos.y < random)
+    if (isOnBoard)
+    {
+        if (isOnBoard == 1)
+        {
+            isOnBoard = 2;
+        }
+        animation->update();
+        timer++;
+        srand(time(NULL));
+        direction = rand() % 4;
+        switch (direction) {
+        case 0:
+            pos.y += 3;
+            break;
+
+        case 1:
+            pos.y -= 3;
+            break;
+
+        case 2:
+            pos.x += 3;
+            break;
+
+        case 3:
+            pos.x -= 3;
+            break;
+        }
+    }
+    else
     {
         pos.y += 3;
-    }
 
-    // Delete the barrel once it leaves the screen
-    if (pos.y > 832)
+        // Delete the barrel once it leaves the screen
+        if (rand() % 10 == 0)
+        {
+            isOnBoard = 1;
+        }
+        else if (pos.y > 832)
+        {
+            deleteEntity();
+        }
+    }
+}
+
+void Flame::collisionEvent(Entity *body)
+{
+    if(dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
     {
-        deleteEntity();
+        if (isOnBoard == 1)
+        {
+            isOnBoard = 0;
+        }
+        switch (direction) {
+        case 0:
+            pos.y -= 3;
+            break;
+
+        case 1:
+            pos.y += 3;
+            break;
+
+        case 2:
+            pos.x -= 3;
+            break;
+
+        case 3:
+            pos.x += 3;
+            break;
+        }
     }
 }
 

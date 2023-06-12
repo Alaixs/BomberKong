@@ -249,14 +249,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     // Collision with BomberGirl
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
-        if(parent->getItsSceneType() == ORIGINAL)
-        {
-            dynamic_cast<Level*>(parent)->win();
-        }
-        else
-        {
-            dynamic_cast<Tutorial*>(parent)->nextLvl();
-        }
+        dynamic_cast<Level*>(parent)->win();
     }
 
     // Collision with a Bomb
