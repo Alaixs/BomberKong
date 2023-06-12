@@ -65,11 +65,7 @@ PlayerCharacter::~PlayerCharacter()
 
 void PlayerCharacter::update()
 {
-    if (pos.y <= dynamic_cast<Scene*>(parent)->getItsLowerLimit() // Prevent the scrolling from going under
-        && pos.y >= dynamic_cast<Scene*>(parent)->getItsUpperLimit()) // and above the level
-    {
-        dynamic_cast<Scene*>(parent)->setCameraOffset(pos-Coordinate(0,256)); // Manage the scrolling
-    }
+    dynamic_cast<Scene*>(parent)->setCameraOffset(pos); // Manage the scrolling
 
     animation->update();
 
@@ -138,6 +134,16 @@ void PlayerCharacter::update()
             // Restart the current level if the player still have a life
             // Go all the way back to the tutorial otherwise
             dynamic_cast<Level*>(parent)->restart();
+
+            if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // Reset the Power-Up GUI and bonuses
+            {
+                initBonus(); // Reset the player bonuses
+                std::list<PowerUpType> types = {SPEED, BOMB_NB, BOMB_RANGE, BOMB_TIME, ARMOR};
+                for (std::list<PowerUpType>::iterator it = types.begin(); it != types.end(); it++)
+                {
+                    dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, (*it));
+                }
+            }
 
             pos.x = 9.5 * cellSize;
             pos.y = 21 * cellSize;
@@ -247,7 +253,6 @@ void PlayerCharacter::collisionEvent(Entity * body)
 
                 dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives); // Called the parent element to change the lives GUI
                 dynamic_cast<Level*>(parent)->resetBombOnScreenNb(); // Reset the number of bomb on the screen to 0
-                initBonus(); // Reset the player bonuses
             }
             else
             {
@@ -261,14 +266,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     // Collision with BomberGirl
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
-        if(parent->getItsSceneType() == ORIGINAL)
-        {
-            dynamic_cast<Level*>(parent)->win();
-        }
-        else
-        {
-            dynamic_cast<Tutorial*>(parent)->nextLvl();
-        }
+        dynamic_cast<Level*>(parent)->win();
     }
 
     // Collision with a Bomb

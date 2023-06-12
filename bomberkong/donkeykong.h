@@ -2,6 +2,7 @@
 #define DONKEYKONG_H
 #include "entity.h"
 #include "animationmanager.h"
+#include "flame.h"
 
 
 /**

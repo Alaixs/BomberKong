@@ -50,7 +50,6 @@ ui->setupUi(this);
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_select.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_powerUp.wav");
 
-
     //play main theme
     SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
 

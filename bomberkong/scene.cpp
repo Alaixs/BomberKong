@@ -20,10 +20,12 @@ void Scene::setCameraOffset(Coordinate offset)
     cameraOffset = offset;
 }
 
+
 Coordinate Scene::getCameraOffset()
 {
     return cameraOffset;
 }
+
 
 void Scene::setOffsetLimit(int lowerLimit, int upperLimit)
 {
@@ -31,18 +33,20 @@ void Scene::setOffsetLimit(int lowerLimit, int upperLimit)
     itsUpperLimit = upperLimit;
 }
 
+
 int Scene::getItsLowerLimit()
 {
     return itsLowerLimit;
 }
+
 
 int Scene::getItsUpperLimit()
 {
     return itsUpperLimit;
 }
 
+
 SceneType Scene::getItsSceneType()
 {
     return itsSceneType;
 }
-
