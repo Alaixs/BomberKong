@@ -2,6 +2,7 @@
 #define BARREL_H
 #include "animationmanager.h"
 #include "entity.h"
+#include "level.h"
 
 
 /**
@@ -14,6 +15,7 @@ private:
     int timer;
     QPixmap sprite;              ///< The actual Sprite
     AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
+    bool isFlying;
     int endY;
     int endX;
 
@@ -57,6 +59,12 @@ public:
      * @return the hitboxe
      */
     QRect getRect();
+
+    /**
+     * @brief getIsFlying
+     * @return if the barrel flying
+     */
+    bool getIsFlying();
 
 };
 

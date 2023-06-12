@@ -40,7 +40,7 @@ void DonkeyKong::update()
     animation->update();
     timer--;
     if(timer <= 0){
-        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL || dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
+        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
         {
             dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
             int random = rand() % 18;
@@ -51,7 +51,7 @@ void DonkeyKong::update()
                 pos.x += dist / cellSize;
             }
         }
-        else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
+        else if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL)
         {
             if (rand()%8)
             {

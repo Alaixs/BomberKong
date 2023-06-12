@@ -275,7 +275,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     }
 
     // Collision with damaging entities
-    if (dynamic_cast<Barrel*>(body) != nullptr || dynamic_cast<Explosion*>(body) != nullptr)
+    if ((dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED && dynamic_cast<Barrel*>(body) != nullptr && !(dynamic_cast<Barrel*>(body)->getIsFlying())) || (dynamic_cast<Level*>(parent)->getItsSceneType() != RELOADED && dynamic_cast<Barrel*>(body) != nullptr) || dynamic_cast<Explosion*>(body) != nullptr)
     {
         if (invincibilityTimer == 0)
         {

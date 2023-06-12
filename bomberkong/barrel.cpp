@@ -11,6 +11,7 @@ Barrel::Barrel(int posX, int posY, int endYPos)
     animation->play(0, 3);
     timer = 187;
     endY = endYPos;
+    isFlying = true;
 }
 
 
@@ -22,6 +23,7 @@ Barrel::Barrel(Coordinate position, int endYPos)
     animation->play(0, 3);
     timer = 187;
     endY = endYPos;
+    isFlying = true;
 }
 
 
@@ -38,9 +40,23 @@ void Barrel::update()
     pos.y += 3;
 
     // Delete the barrel once it leaves the screen
-    if (pos.y > endY)
+    if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL || dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
     {
-        deleteEntity();
+        if (pos.y > endY)
+        {
+            deleteEntity();
+        }
+    }
+    else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
+    {
+        if (pos.y == endY - 3)
+        {
+            isFlying = false;
+        }
+        else if (!isFlying)
+        {
+            deleteEntity();
+        }
     }
 }
 
@@ -59,4 +75,9 @@ void Barrel::draw(QPainter * painter)
 QRect Barrel::getRect()
 {
     return QRect(pos.x + 3, pos.y + 3, cellSize - 6, cellSize - 4);
+}
+
+bool Barrel::getIsFlying()
+{
+    return isFlying;
 }
