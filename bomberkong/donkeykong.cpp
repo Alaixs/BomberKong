@@ -64,7 +64,7 @@ void DonkeyKong::update()
         }
         timer = throwingRate;
         isThrowing = false;
-        pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x;
+        pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
     }
 
 
