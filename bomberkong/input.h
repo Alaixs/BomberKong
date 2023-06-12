@@ -3,6 +3,7 @@
 
 #include <QKeyEvent>
 #include <string>
+#include <QDebug>
 
 
 // [Arrow Keys] : Move character

@@ -5,7 +5,7 @@
 Flame::Flame(int posX, int posY)
     : Enemy(posX, posY)
 {
-    isOnBoard = false;
+    isOnBoard = 0;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
@@ -31,44 +31,52 @@ Flame::~Flame()
 
 void Flame::update()
 {
-    if (isOnBoard)
+    animation->update();
+    timer++;
+    direction = rand() % 4;
+    srand(time(NULL)%rand());
+    if (pos.y < 10 * cellSize - 20 * 2 * cellSize)
+    {
+        pos.y += 3;
+    }
+
+    if (isOnBoard > 0)
     {
         if (isOnBoard == 1)
         {
             isOnBoard = 2;
         }
-        animation->update();
-        timer++;
-        srand(time(NULL));
-        direction = rand() % 4;
-        switch (direction) {
-        case 0:
-            pos.y += 3;
-            break;
+        if (!(rand()%4))
+        {
+            switch (direction)
+            {
+            case 0:
+                pos.y += 3;
+                break;
 
-        case 1:
-            pos.y -= 3;
-            break;
+            case 1:
+                pos.y -= 3;
+                break;
 
-        case 2:
-            pos.x += 3;
-            break;
+            case 2:
+                pos.x += 3;
+                break;
 
-        case 3:
-            pos.x -= 3;
-            break;
+            case 3:
+                pos.x -= 3;
+                break;
+            }
         }
     }
     else
     {
         pos.y += 3;
 
-        // Delete the barrel once it leaves the screen
-        if (rand() % 10 == 0)
+        if(!(rand() % 9))
         {
             isOnBoard = 1;
         }
-        else if (pos.y > 832)
+        if (pos.y > 832)
         {
             deleteEntity();
         }
@@ -77,13 +85,17 @@ void Flame::update()
 
 void Flame::collisionEvent(Entity *body)
 {
-    if(dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+    if(isOnBoard < 2)
     {
-        if (isOnBoard == 1)
+        if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
         {
             isOnBoard = 0;
         }
-        switch (direction) {
+    }
+    else if(dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+    {
+        switch (direction)
+        {
         case 0:
             pos.y -= 3;
             break;

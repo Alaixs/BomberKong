@@ -49,7 +49,7 @@ void DonkeyKong::update()
         }
         else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED)
         {
-            if (rand()%5)
+            if (rand()%8)
             {
                 dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
             }
