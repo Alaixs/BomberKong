@@ -20,6 +20,7 @@ SOURCES += \
     dummy.cpp \
     enemy.cpp \
     explosion.cpp \
+    hammer.cpp \
     level.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     alternative.h \
     dummy.h \
     enemy.h \
+    hammer.h \
     level.h \
     global.h \
     animationmanager.h \

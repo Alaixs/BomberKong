@@ -93,7 +93,7 @@ public:
     /**
      * @brief Init the player invincibility
      */
-    void initInvincibility();
+    void initInvincibility( int time);
 
 };
 
