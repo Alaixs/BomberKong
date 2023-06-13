@@ -13,11 +13,12 @@ Flame::Flame(int posX, int posY)
     animation->play(0, 6);
     direction = rand() % 4;
     timer = 187;
+    yDirection = posY;
 }
 
 
-Flame::Flame(Coordinate position)
-    : Enemy(position)
+Flame::Flame(Coordinate position, int DKY)
+    : Enemy(position.x, DKY)
 {
     srand(time(NULL) % rand());
     spawnCoordinate = position;
@@ -27,6 +28,7 @@ Flame::Flame(Coordinate position)
     animation->play(0, 6);
     direction = rand() % 4;
     timer = 187;
+    yDirection = position.y;
 }
 
 
@@ -40,32 +42,42 @@ void Flame::update()
 {
     animation->update();
     timer--;
-
-    if(timer < 32)
+    if(isOnBoard == 0)
     {
-        if(direction == 0)
+        if(timer <= 0)
         {
-            pos.y-= 1;
-        }
-        else if (direction == 1)
-        {
-            pos.y += 1;
-        }
-        else if (direction == 2)
-        {
-            pos.x -= 1;
-        }
-        else
-        {
-            pos.x += 1;
+            timer = 187;
+            direction = (rand() + direction) % 4;
         }
 
+        if(timer < 32)
+        {
+            if(direction == 0)
+            {
+                pos.y-= 1;
+            }
+            else if (direction == 1)
+            {
+                pos.y += 1;
+            }
+            else if (direction == 2)
+            {
+                pos.x -= 1;
+            }
+            else
+            {
+                pos.x += 1;
+            }
+
+        }
     }
-
-    if(timer == 0)
+    else
     {
-        timer = 187;
-        direction = (rand() + direction) % 4;
+        pos.y += 1;
+        if(pos.y == yDirection )
+        {
+            isOnBoard = 0;
+        }
     }
 
 }
@@ -74,7 +86,9 @@ void Flame::collisionEvent(Entity *body)
 {
 
 
-    if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+    if ((dynamic_cast<Wall*>(body) != nullptr
+         || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+        && isOnBoard == 00)
     {
         if(direction == 0)
         {

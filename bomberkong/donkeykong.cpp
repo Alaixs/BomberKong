@@ -41,7 +41,6 @@ DonkeyKong::DonkeyKong(Coordinate pos)
 
 DonkeyKong::~DonkeyKong()
 {
-    qDebug("end");
     delete animation;
 }
 
@@ -54,7 +53,6 @@ void DonkeyKong::update()
 
     if(timer == 0)
     {
-        qDebug("Timer");
         // Only throws barrels
         if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
         {
@@ -69,7 +67,6 @@ void DonkeyKong::update()
         // Also throws flames
         else if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL)
         {
-            qDebug() << pos.x << pos.y;
             if (rand() % 4 > 0)
             {
                 // Throws a barrel
@@ -97,7 +94,7 @@ void DonkeyKong::update()
                     SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
                 }
                 // Throws a Flamme
-                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos));
+                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
             }
             pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
         }
