@@ -24,7 +24,7 @@ Jungle::Jungle(QWidget * widget, PlayerCharacter * player)
     *itsPlayer = *player;
     itsPlayer->setParent(this);
 
-    itsSceneType = GLAGLA;
+    itsSceneType = JUNGLEDK;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
     currentMap.push_back(rand() % 3);

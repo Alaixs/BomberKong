@@ -185,7 +185,7 @@ void Save::update()
         {
             dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
         }
-        else if (choiceConfirm->isElementSelected()) // Load the save file
+        else if (choiceConfirm->isElementSelected())
         {
             saveLevel();
         }

@@ -188,7 +188,7 @@ void Widget::switchScene(SceneType sceneType)
 }
 
 void Widget::startLvlFromSave(SceneType sceneType, PlayerCharacter * player)
-{
+{ 
     switch(sceneType)
     {
     case CHOCHO:
