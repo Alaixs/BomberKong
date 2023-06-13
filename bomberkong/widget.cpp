@@ -150,6 +150,18 @@ void Widget::switchScene(SceneType sceneType)
             currentScene = new BomberLand(this);
             break;
 
+        /*case CHOCHO:
+            currentScene = new ???(this);
+            break;*/
+
+        case GLAGLA:
+            currentScene = new Glagla(this);
+            break;
+
+        /*case JUNGLEDK:
+            currentScene = new ???(this);
+            break;*/
+
         case WIN_SCREEN:
             currentScene = new Win(this);
         break;
