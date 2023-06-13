@@ -47,9 +47,11 @@ void Monkey::update()
     {
         isOnGround = true;
 
+        // Select a target
         Coordinate nextTile(targetPosition);
         do
         {
+            // Select a tile right next to current position
             int dir = RNG::randomInt(0, 3);
             switch (dir)
             {
@@ -70,6 +72,7 @@ void Monkey::update()
         targetPosition = nextTile;
     }
 
+    // Move to target
     motion = targetPosition - pos;
     motion /= motion.length();
 
@@ -82,13 +85,12 @@ void Monkey::draw(QPainter* painter)
     // Offsets the sprite according to the player character's position (vertical scrolling)
     Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
 
-    qDebug() << offset.y;
-
     if (!isOnGround)
     {
         // Draws the liana
         int lianaLength = abs(targetPosition.y - (-1280)) / 32;
-        qDebug() << lianaLength;
+
+        // Draws a liana section for each cell between the target and the spawn point
         for (int i = 0; i < lianaLength; i++)
         {
             painter->drawPixmap(
@@ -97,6 +99,7 @@ void Monkey::draw(QPainter* painter)
                 QRect(0, 0, 16, 16)
                 );
         }
+        // Draws the tip of the liana
         painter->drawPixmap(
             QRect(pos.x, targetPosition.y - offset.y + 416, cellSize, cellSize),
             lianaSprite,

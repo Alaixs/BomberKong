@@ -19,6 +19,25 @@
 #include "powerup.h"
 
 
+/**
+ * @brief Rounds a value to the nearest multiple
+ * @param numToRound : The number you want to round up
+ * @param multiple : The multiple
+ * @return The rounded number
+ */
+int roundUp(int numToRound, int multiple)
+{
+    // Smaller multiple
+    int a = (numToRound / multiple) * multiple;
+
+    // Larger multiple
+    int b = a + multiple;
+
+    // Return of closest of two
+    return (numToRound - a > b - numToRound)? b : a;
+}
+
+
 PlayerCharacter::PlayerCharacter(int posX, int posY)
     : Entity(posX, posY)
 {
@@ -194,8 +213,8 @@ void PlayerCharacter::update()
                 {
                     // Place the bomb in the center of a cell
                     Coordinate bombPos(pos);
-                    bombPos.x = (((int) bombPos.x + cellSize / 2) / cellSize) * cellSize;
-                    bombPos.y = (((int) bombPos.y + cellSize / 2) / cellSize) * cellSize;
+                    bombPos.x = roundUp(bombPos.x, 32);
+                    bombPos.y = roundUp(bombPos.y, 32);
                     dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos, 1 + explosionRangeBonusNb, 1 + explosionTimeBonusNb));
 
                     // Reset the cooldown timer

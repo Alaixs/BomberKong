@@ -36,6 +36,8 @@ DonkeyKong::DonkeyKong(int posX, int posY, SceneType Lvl)
     timer = throwingRate;
 
     isThrowing = false;
+
+    hp = 3;
 }
 
 
@@ -52,6 +54,8 @@ DonkeyKong::DonkeyKong(Coordinate pos, SceneType Lvl)
     timer = throwingRate;
 
     isThrowing = false;
+
+    hp = 3;
 }
 
 
@@ -224,4 +228,19 @@ void DonkeyKong::draw(QPainter* painter)
 QRect DonkeyKong::getRect()
 {
     return QRect(pos.x, pos.y, 4 * cellSize, 4 * cellSize);
+}
+
+
+void DonkeyKong::collisionEvent(Entity* body)
+{
+    if (dynamic_cast<Explosion*>(body) != nullptr)
+    {
+        body->deleteEntity();
+
+        hp--;
+        if (hp == 0)
+        {
+            dynamic_cast<Level*>(parent)->win();
+        }
+    }
 }

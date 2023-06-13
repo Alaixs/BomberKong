@@ -52,10 +52,11 @@ void Jungle::restart()
     deleteAllEntity();
 
     // Loads data from a file
-    std::ifstream levelDataFileBottom, levelDataFileMiddle, levelDataFileTop;
+    std::ifstream levelDataFileBottom, levelDataFileMiddle, levelDataFileTop, levelDataFileEnd;
     levelDataFileBottom.open("../bomberkong/assets/maps/BAS_Reloaded.bkmap");
     levelDataFileMiddle.open("../bomberkong/assets/maps/MILIEU_Reloaded.bkmap");
-    levelDataFileTop.open("../bomberkong/assets/maps/HAUT_Reloaded.bkmap");
+    levelDataFileTop.open("../bomberkong/assets/maps/boss_final_room_1.bkmap");
+    levelDataFileEnd.open("../bomberkong/assets/maps/boss_final_room_2.bkmap");
 
     if (!levelDataFileTop.is_open() || !levelDataFileMiddle.is_open() || !levelDataFileBottom.is_open())
         qDebug() << "Could not open the file";
@@ -75,15 +76,36 @@ void Jungle::restart()
         while(levelDataFileMiddle >> block && block != '!'){};
     }
 
-    for(int i = 0; i < currentMap.at(2); i++)
-    {
-        while(levelDataFileTop >> block && block != '!'){};
-    }
-
-    int yPos = 4 * cellSize - 20 * 2 * cellSize;
+    int yPos = -1792;
     int xPos = 0;
 
-    while (levelDataFileTop >> block && block != '!')
+    while (levelDataFileEnd >> block)
+    {
+        if (block == ';')
+        {
+            // Line break
+            yPos += cellSize;
+            xPos = 0;
+        }
+        else
+        {
+            // places the corresponding object
+            if (block == '2')
+            {
+                createEntity(new Wall(xPos, yPos, itsSceneType));
+            }
+            else if (block == '1')
+            {
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
+            }
+
+            xPos += cellSize;
+        }
+    }
+
+    levelDataFileEnd.close();
+
+    while (levelDataFileTop >> block)
     {
         if (block == ';')
         {
@@ -164,10 +186,10 @@ void Jungle::restart()
 
     levelDataFileBottom.close();
 
-    // Create characters at their spawn points
-    createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize - 20 * 2 * cellSize));
 
-    DonkeyKong * dk = new DonkeyKong(9 * cellSize, - 20 * 2 * cellSize, itsSceneType);
+
+    // Create characters at their spawn points
+    DonkeyKong * dk = new DonkeyKong(8 * cellSize, - 20 * 2 * cellSize, itsSceneType);
     dk->throwingRate = 400;
     dk->setParent(this);
     entities.push_back(dk);
