@@ -111,14 +111,12 @@ void MainMenu::update()
             choiceReloaded->deselect();
             choiceJourney->select();
             selected->setPos(Coordinate(120,550));
-            qDebug("Journey selected");
         }
         else if (choiceJourney->isElementSelected())
         {
             choiceJourney->deselect();
             choiceLoad->select();
             selected->setPos(Coordinate(120,615));
-            qDebug("Load  selected");
         }
         else if (choiceLoad->isElementSelected())
         {
@@ -151,28 +149,34 @@ void MainMenu::update()
         {
             options->deselect();
             options->texture.load("://assets/sprites/t_options.png");
-            choiceJourney->select();
+            choiceLoad->select();
             selected->setPos(Coordinate(120,615));
+            selected->isVisible = true;
+        }
+        else if (choiceLoad->isElementSelected())
+        {
+            choiceLoad->deselect();
+            choiceJourney->select();
+            selected->setPos(Coordinate(120,550));
             selected->isVisible = true;
         }
         else if (choiceJourney->isElementSelected())
         {
             choiceJourney->deselect();
             choiceReloaded->select();
-            selected->setPos(Coordinate(120,550));
+            selected->setPos(Coordinate(120,485));
         }
-        else if (choiceJourney->isElementSelected())
+        else if (choiceReloaded->isElementSelected())
         {
-            choiceJourney->deselect();
-            choiceReloaded->select();
-            selected->setPos(Coordinate(120,550));
+            choiceReloaded->deselect();
+            choiceOriginal->select();
+            selected->setPos(Coordinate(120,420));
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceTutorial->select();
-            selected->setPos(Coordinate(120,405));
-            //selected->isVisible = true;
+            selected->setPos(Coordinate(120,355));
         }
     }
 
@@ -184,7 +188,11 @@ void MainMenu::update()
             dynamic_cast<Widget*>(root)->switchScene(ORIGINAL);
         else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
             dynamic_cast<Widget*>(root)->switchScene(RELOADED);
-        else if (options->isElementSelected()) // Start the Settings menu
+        /*else if (choiceJourney->isElementSelected()) // Start the first level of Journey (BomberLand)
+            dynamic_cast<Widget*>(root)->switchScene(BOMBERLAND);
+        else if (choiceLoad->isElementSelected()) // Open the Load menu
+            dynamic_cast<Widget*>(root)->switchScene(LOAD);*/
+        else if (options->isElementSelected()) // Open the Settings menu
             dynamic_cast<Widget*>(root)->switchScene(OPTIONS);
     }
 }
