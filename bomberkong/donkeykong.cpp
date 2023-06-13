@@ -5,6 +5,7 @@
 #include "fireball.h"
 #include "global.h"
 #include "icebloc.h"
+#include "jungle.h"
 #include "level.h"
 #include "barrel.h"
 #include "banana.h"
@@ -162,12 +163,29 @@ void DonkeyKong::update()
                 // Calling family
                 Coordinate monkeyTargetPos;
 
+                int yMin = 20;
+                if(dynamic_cast<Jungle*>(parent)->isBossRoomClose)
+                {
+                    yMin = -30;
+                }
+
                 do
                 {
-                    monkeyTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(-40, 20));
+                    monkeyTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(-38, yMin));
                 } while (dynamic_cast<Level*>(parent)->isPointInWall(monkeyTargetPos * cellSize));
-
-                dynamic_cast<Level*>(parent)->createEntity(new Monkey(monkeyTargetPos * cellSize, "://assets/sprites/t_didikong.png"));
+                int random = rand() % 3;
+                if(random == 0)
+                {
+                    dynamic_cast<Level*>(parent)->createEntity(new Monkey(monkeyTargetPos * cellSize, "://assets/sprites/t_didikong.png"));
+                }
+                else if(random == 1)
+                {
+                    dynamic_cast<Level*>(parent)->createEntity(new Monkey(monkeyTargetPos * cellSize, "://assets/sprites/t_dadakong.png"));
+                }
+                else
+                {
+                    dynamic_cast<Level*>(parent)->createEntity(new Monkey(monkeyTargetPos * cellSize, "://assets/sprites/t_funkykong.png"));
+                }
             }
             else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
             {

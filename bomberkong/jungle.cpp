@@ -6,6 +6,7 @@ Jungle::Jungle(QWidget* widget)
     : Level(widget)
 {
     itsSceneType = JUNGLEDK;
+    isBossRoomClose = false;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
     setOffsetLimit(352, -864);

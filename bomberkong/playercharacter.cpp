@@ -5,6 +5,7 @@
 #include "fireball.h"
 #include "hammer.h"
 #include "icebloc.h"
+#include "jungle.h"
 #include "monkey.h"
 #include "soundmanager.h"
 #include "input.h"
@@ -124,6 +125,19 @@ PlayerCharacter::~PlayerCharacter()
 
 void PlayerCharacter::update()
 {
+
+    if(pos.y < cellSize * -25 && dynamic_cast<Level*>(parent)->getItsSceneType() == JUNGLEDK)
+    {
+
+        if( dynamic_cast<Jungle*>(parent)->isBossRoomClose == false )
+        {
+            qDebug() << pos.x << pos.y;
+            dynamic_cast<Level*>(parent)->createEntity(new IndestructibleWall(9 * cellSize, - 12.5 * 2 * cellSize, dynamic_cast<Level*>(parent)->getItsSceneType()));
+            dynamic_cast<Level*>(parent)->createEntity(new IndestructibleWall(10 * cellSize, - 12.5 * 2 * cellSize, dynamic_cast<Level*>(parent)->getItsSceneType()));
+            dynamic_cast<Jungle*>(parent)->isBossRoomClose = true;
+        }
+    }
+
     dynamic_cast<Scene*>(parent)->setCameraOffset(pos); // Manage the scrolling
 
     animation->update();
