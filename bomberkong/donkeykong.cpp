@@ -35,7 +35,6 @@ DonkeyKong::DonkeyKong(int posX, int posY, SceneType Lvl)
     timer = throwingRate;
 
     isThrowing = false;
-    qDebug() << pos.x;
 }
 
 
@@ -66,7 +65,6 @@ void DonkeyKong::update()
     animation->update();
 
     timer--;
-    qDebug() << timer;
 
     if (dynamic_cast<Scene*>(parent)->getItsSceneType() != LOOSE_SCREEN)
     {

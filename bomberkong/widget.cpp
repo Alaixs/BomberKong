@@ -164,9 +164,9 @@ void Widget::switchScene(SceneType sceneType)
             currentScene = new Glagla(this);
             break;
 
-        /*case JUNGLEDK:
-            currentScene = new ???(this);
-            break;*/
+        case JUNGLEDK:
+            currentScene = new Jungle(this);
+            break;
 
         case WIN_SCREEN:
             currentScene = new Win(this);
@@ -199,9 +199,9 @@ void Widget::startLvlFromSave(SceneType sceneType, PlayerCharacter * player)
         currentScene = new Glagla(this, player);
         break;
 
-    /*case JUNGLEDK:
-            currentScene = new ???(this);
-            break;*/
+    case JUNGLEDK:
+        currentScene = new Jungle(this, player);
+        break;
 
     default:
         break;

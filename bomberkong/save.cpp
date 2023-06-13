@@ -205,8 +205,6 @@ void Save::draw(QPainter* painter)
 
 void Save::saveLevel()
 {
-    qDebug("Salut");
-
     itsSaveFile.open("../bomberkong/save.bksave");
     if (!itsSaveFile)
     {

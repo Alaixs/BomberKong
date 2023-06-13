@@ -195,7 +195,6 @@ void PlayerCharacter::update()
                     Coordinate bombPos(pos);
                     bombPos.x = (((int) bombPos.x + cellSize / 2) / cellSize) * cellSize;
                     bombPos.y = (((int) bombPos.y + cellSize / 2) / cellSize) * cellSize;
-                    qDebug() << bombPos.x;
                     dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos, 1 + explosionRangeBonusNb, 1 + explosionTimeBonusNb));
 
                     // Reset the cooldown timer
