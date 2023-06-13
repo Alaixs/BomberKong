@@ -247,6 +247,10 @@ void Level::draw(QPainter* painter)
 void Level::createEntity(Entity* entity)
 {
     entity->setParent(this);
+    if(typeid(*entity).name() == "Wall"  )
+    {
+        entity->setsprite();
+    }
     entities.push_back(entity);
 }
 

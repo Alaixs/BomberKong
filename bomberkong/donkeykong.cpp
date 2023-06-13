@@ -78,7 +78,7 @@ void DonkeyKong::update()
                 if(dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
                 {
                     if(rand() % 2 == 0)
-                    {
+                     {
                         SpawnPos.x = rand() % 10 * cellSize;
                         SpawnPos.y = ((rand() % 10) + 13) * cellSize ;
                     }

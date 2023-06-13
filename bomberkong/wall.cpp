@@ -8,16 +8,36 @@
 Wall::Wall(int posX, int posY)
     : Entity(posX, posY)
 {
-    sprite.load("://assets/sprites/t_walls.png");
+
 }
 
 
 Wall::Wall(Coordinate pos)
     : Entity(pos)
 {
-    sprite.load("://assets/sprites/t_walls.png");
+
 }
 
+void Wall::setSprite()
+{
+    qDebug("Wall");
+    if( dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL ||
+        dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL ||
+        dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED ||
+        dynamic_cast<Level*>(parent)->getItsSceneType() == BOMBERLAND ||
+        dynamic_cast<Level*>(parent)->getItsSceneType() == JUNGLEDK)
+    {
+        sprite.load("://assets/sprites/t_walls.png");
+    }
+    else if (dynamic_cast<Level*>(parent)->getItsSceneType() == CHOCHO)
+    {
+        sprite.load("://assets/sprites/t_bloc_chocho.png");
+    }
+    else if (dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
+    {
+        sprite.load("://assets/sprites/t_bloc_glagla.png");
+    }
+}
 
 Wall::~Wall() {}
 

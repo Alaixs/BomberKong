@@ -55,6 +55,8 @@ public:
      */
     void dropPowerUp();
 
+    void setSprite();
+
 };
 
 #endif // WALL_H
