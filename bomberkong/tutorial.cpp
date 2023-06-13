@@ -158,7 +158,10 @@ void Tutorial::restart()
 
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-    createEntity( new DonkeyKong(9 * cellSize, 0));
+    DonkeyKong * dk = new DonkeyKong(9 * cellSize, 0);
+    dk->throwingRate = 300;
+    dk->setParent(this);
+    entities.push_back(dk);
 
     createEntity(new Hammer(2.5 * cellSize, 18 * cellSize));
 

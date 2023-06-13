@@ -44,6 +44,12 @@ void Flame::update()
     timer--;
     if(isOnBoard == 0)
     {
+        if(timer <= 0)
+        {
+            timer = 187;
+            direction = (rand() + direction) % 4;
+        }
+
         if(timer < 32)
         {
             if(direction == 0)
@@ -63,12 +69,6 @@ void Flame::update()
                 pos.x += 1;
             }
 
-        }
-
-        if(timer <= 0)
-        {
-            timer = 187;
-            direction = (rand() + direction) % 4;
         }
     }
     else
