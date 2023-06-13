@@ -39,6 +39,7 @@ SOURCES += \
     playercharacter.cpp \
     powerup.cpp \
     reloaded.cpp \
+    save.cpp \
     scene.cpp \
     settingsmenu.cpp \
     soundmanager.cpp \
@@ -79,6 +80,7 @@ HEADERS += \
     playercharacter.h \
     powerup.h \
     reloaded.h \
+    save.h \
     scene.h \
     settingsmenu.h \
     soundmanager.h \

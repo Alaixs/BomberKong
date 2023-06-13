@@ -65,109 +65,112 @@ void DonkeyKong::update()
 
     timer--;
 
-    if(timer == 0)
+    if (dynamic_cast<Scene*>(parent)->getItsSceneType() != LOOSE_SCREEN)
     {
-        // Only throws barrels
-        if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
+        if(timer == 0)
         {
-            // Spawns a barrel
-            dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
-
-            // Chooses a random position
-            int random = rand() % 18;
-            targetPos = random * cellSize - cellSize;
-        }
-
-        // Also throws flames
-        else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED ||
-                 dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL ||
-                 dynamic_cast<Level*>(parent)->getItsSceneType() == BOMBERLAND)
-        {
-            if (rand() % 4 > 0)
+            // Only throws barrels
+            if (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
             {
-                // Throws a barrel
-                dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize, dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y));
+                // Spawns a barrel
+                dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize));
+
+                // Chooses a random position
+                int random = rand() % 18;
+                targetPos = random * cellSize - cellSize;
             }
-            else
+
+            // Also throws flames
+            else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED ||
+                     dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL ||
+                     dynamic_cast<Level*>(parent)->getItsSceneType() == BOMBERLAND)
             {
-                Coordinate SpawnPos;
-                if(dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
+                if (rand() % 4 > 0)
                 {
-                    if(rand() % 2 == 0)
-                     {
-                        SpawnPos.x = rand() % 10 * cellSize;
-                        SpawnPos.y = ((rand() % 10) + 13) * cellSize ;
-                    }
-                    else
-                    {
-                        SpawnPos.x = ((rand() % 10) + 10) * cellSize;
-                        SpawnPos.y = ((rand() % 10) + 3) * cellSize ;
-                    }
+                    // Throws a barrel
+                    dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize, dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y));
                 }
                 else
                 {
-                    SpawnPos.x = rand() % 20 * cellSize;
-                    SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+                    Coordinate SpawnPos;
+                    if(dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
+                    {
+                        if(rand() % 2 == 0)
+                         {
+                            SpawnPos.x = rand() % 10 * cellSize;
+                            SpawnPos.y = ((rand() % 10) + 13) * cellSize ;
+                        }
+                        else
+                        {
+                            SpawnPos.x = ((rand() % 10) + 10) * cellSize;
+                            SpawnPos.y = ((rand() % 10) + 3) * cellSize ;
+                        }
+                    }
+                    else
+                    {
+                        SpawnPos.x = rand() % 20 * cellSize;
+                        SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+                    }
+                    // Throws a Flamme
+                    dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
                 }
-                // Throws a Flamme
-                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
+                pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
             }
-            pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+            else if(dynamic_cast<Level*>(parent)->getItsSceneType() == CHOCHO)
+            {
+                Coordinate SpawnPos;
+                SpawnPos.x = rand() % 20 * cellSize;
+                SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+                pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+                if(rand()%2 == 1)
+                {
+                    // Throws a Flamme
+                    dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
+                }
+                else
+                {
+                    dynamic_cast<Level*>(parent)->createEntity(new FireBall(dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x,pos.y,dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y ));
+                }
+            }
+            else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
+            {
+                Coordinate SpawnPos;
+                SpawnPos.x = rand() % 20 * cellSize;
+                SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+                pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+                if(rand()%2 == 1)
+                {
+                    // Throws a Flamme
+                    dynamic_cast<Level*>(parent)->createEntity(new BlueFlamme(SpawnPos, pos.y));
+                }
+                else
+                {
+                    dynamic_cast<Level*>(parent)->createEntity(new IceBloc(SpawnPos.x, pos.y + cellSize,SpawnPos.y));
+                }
+            }
+
+            timer = throwingRate; // Reset the timer
+            isThrowing = false;
         }
-        else if(dynamic_cast<Level*>(parent)->getItsSceneType() == CHOCHO)
+
+        if(timer == 10)
         {
-            Coordinate SpawnPos;
-            SpawnPos.x = rand() % 20 * cellSize;
-            SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
-            pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
-            if(rand()%2 == 1)
-            {
-                // Throws a Flamme
-                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
-            }
-            else
-            {
-                dynamic_cast<Level*>(parent)->createEntity(new FireBall(dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x,pos.y,dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y ));
-            }
-        }
-        else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
-        {
-            Coordinate SpawnPos;
-            SpawnPos.x = rand() % 20 * cellSize;
-            SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
-            pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
-            if(rand()%2 == 1)
-            {
-                // Throws a Flamme
-                dynamic_cast<Level*>(parent)->createEntity(new BlueFlamme(SpawnPos, pos.y));
-            }
-            else
-            {
-                dynamic_cast<Level*>(parent)->createEntity(new IceBloc(SpawnPos.x, pos.y + cellSize,SpawnPos.y));
-            }
+            isThrowing = true;
         }
 
-        timer = throwingRate; // Reset the timer
-        isThrowing = false;
-    }
-
-    if(timer == 10)
-    {
-        isThrowing = true;
-    }
-
-    if(isThrowing)
-    {
-        animation->play(6,9);
-    }
-    else
-    {
-        animation->play(0,6);
-
-        if(dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
+        if(isThrowing)
         {
-            // Move to target
-            pos.x += (targetPos - pos.x) * 0.07;
+            animation->play(6,9);
+        }
+        else
+        {
+            animation->play(0,6);
+
+            if(dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
+            {
+                // Move to target
+                pos.x += (targetPos - pos.x) * 0.07;
+            }
         }
     }
 }
