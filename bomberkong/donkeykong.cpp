@@ -97,7 +97,7 @@ void DonkeyKong::update()
                     SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
                 }
                 // Throws a Flamme
-                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos));
+                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
             }
             pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
         }
