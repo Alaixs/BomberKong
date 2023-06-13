@@ -1,6 +1,16 @@
+#include <QSettings>
 #include "input.h"
 #include "widget.h"
 
+
+// The value of the key
+int keyMoveUp;
+int keyMoveDown;
+int keyMoveLeft;
+int keyMoveRight;
+int keyPlaceBomb;
+int keyPushBomb;
+int keyStart;
 
 // The state of every input
 bool moveUp = false;
@@ -13,80 +23,108 @@ bool start = false;
 
 //Those inputs are not persistent and are reseted at the end of the tick
 bool fl_start = false;
+bool fl_down = false;
+bool fl_up = false;
 
 
-void Input::keyPressedEvent(QKeyEvent * event)
+// The value of the key that was pressed during this tick
+int lastPressedKey = false;
+
+
+void Input::loadControlsConfig()
 {
-    switch (event->key())
+    // Opens config.ini as settings
+    QSettings settings("../bomberkong/config.ini", QSettings::IniFormat);
+
+    // Load each action key code
+    keyMoveUp = settings.value("Controls/MoveUp").toInt();
+    keyMoveDown = settings.value("Controls/MoveDown").toInt();
+    keyMoveLeft = settings.value("Controls/MoveLeft").toInt();
+    keyMoveRight = settings.value("Controls/MoveRight").toInt();
+    keyPlaceBomb = settings.value("Controls/PlaceBomb").toInt();
+    keyPushBomb = settings.value("Controls/PushBomb").toInt();
+    keyStart = settings.value("Controls/Start").toInt();
+}
+
+void Input::keyPressedEvent(QKeyEvent* event)
+{
+    // Saves the last key pressed during this tick even if it is not
+    // associated with an action
+    lastPressedKey = event->key();
+
+    // Updates the state of every action
+    if (event->key() == keyMoveUp)
     {
-        case Qt::Key_Up:
-            moveUp = true;
-            break;
-
-        case Qt::Key_Down:
-            moveDown = true;
-            break;
-
-        case Qt::Key_Left:
-            moveLeft = true;
-            break;
-
-        case Qt::Key_Right:
-            moveRight = true;
-            break;
-
-        case Qt::Key_W:
-            placeBomb = true;
-            break;
-
-        case Qt::Key_X:
-            pushBomb = true;
-            break;
-
-        case Qt::Key_Space:
-            fl_start = true;
-            break;
+        moveUp = true;
+        fl_up = true;
+    }
+    else if (event->key() == keyMoveDown)
+    {
+        moveDown = true;
+        fl_down = true;
+    }
+    else if (event->key() == keyMoveRight)
+    {
+        moveRight = true;
+    }
+    else if (event->key() == keyMoveLeft)
+    {
+        moveLeft = true;
+    }
+    else if (event->key() == keyPlaceBomb)
+    {
+        placeBomb = true;
+    }
+    else if (event->key() == keyPushBomb)
+    {
+        pushBomb = true;
+    }
+    else if (event->key() == keyStart)
+    {
+        fl_start = true;
     }
 }
 
 
 void Input::keyReleasedEvent(QKeyEvent * event)
 {
-    switch (event->key())
+    // Updates the state of every action
+    if (event->key() == keyMoveUp)
     {
-        case Qt::Key_Up:
-            moveUp = false;
-            break;
-
-        case Qt::Key_Down:
-            moveDown = false;
-            break;
-
-        case Qt::Key_Left:
-            moveLeft = false;
-            break;
-
-        case Qt::Key_Right:
-            moveRight = false;
-            break;
-
-        case Qt::Key_W:
-            placeBomb = false;
-            break;
-
-        case Qt::Key_X:
-            pushBomb = false;
-            break;
-
-        case Qt::Key_Space:
-            fl_start = false;
-            break;
+        moveUp = false;
+        fl_up = false;
+    }
+    else if (event->key() == keyMoveDown)
+    {
+        moveDown = false;
+        fl_down = false;
+    }
+    else if (event->key() == keyMoveRight)
+    {
+        moveRight = false;
+    }
+    else if (event->key() == keyMoveLeft)
+    {
+        moveLeft = false;
+    }
+    else if (event->key() == keyPlaceBomb)
+    {
+        placeBomb = false;
+    }
+    else if (event->key() == keyPushBomb)
+    {
+        pushBomb = false;
+    }
+    else if (event->key() == keyStart)
+    {
+        fl_start = false;
     }
 }
 
 
 bool Input::isActionPressed(Actions action)
 {
+    // Returns the state of the corresponding action
     switch (action)
     {
         case MOVE_UP:
@@ -128,6 +166,14 @@ bool Input::isActionJustPressed(Actions action)
             return fl_start;
             break;
 
+        case MOVE_UP:
+            return fl_up;
+            break;
+
+        case MOVE_DOWN:
+            return fl_down;
+            break;
+
         default:
             return false;
             break;
@@ -137,5 +183,16 @@ bool Input::isActionJustPressed(Actions action)
 
 void Input::resetFLInputs()
 {
+    // Reset non persistant inputs
     fl_start = false;
+    fl_up = false;
+    fl_down = false;
+
+    lastPressedKey = 0;
+}
+
+
+int Input::getPressedKey()
+{
+    return lastPressedKey;
 }

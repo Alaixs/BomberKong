@@ -40,6 +40,16 @@ public:
      * @param painter : the tools to display
      */
     void draw(QPainter* painter);
+
+    /**
+     * @brief Stop the main theme music and change for the win sound
+     */
+    void changeWinSound();
+
+    /**
+     * @brief Stop the win sound and change for the main theme music
+     */
+    void changeOSTSound();
 };
 
 

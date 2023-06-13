@@ -13,7 +13,7 @@
 #include "explosion.h"
 
 
-Game::Game(QWidget* widget)
+Original::Original(QWidget* widget)
     : Scene(widget)
 {
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
@@ -34,11 +34,13 @@ Game::Game(QWidget* widget)
 
 Game::~Game()
 {
+    /*
     while (entities.size() != 0)
     {
         delete entities.back();
         entities.pop_back();
     }
+    */
 }
 
 
@@ -93,22 +95,23 @@ void Game::draw(QPainter* painter)
     {
         for(int j = 0; j < 13; j++){
             painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j, cellSize, cellSize,
+                cellSize * 2 * i, cellSize * 2 * j - cameraOffset + 416, cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
             );
 
             painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset + 416 + cellSize, cellSize, cellSize,
                 QBrush(QColor(0, 161, 30))
             );
 
             painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j, cellSize, cellSize,
+                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset + 416, cellSize, cellSize,
                 QBrush(QColor(1, 133, 21))
             );
 
             painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset + 416, cellSize, cellSize,
+
                 QBrush(QColor(1, 133, 21))
             );
         }

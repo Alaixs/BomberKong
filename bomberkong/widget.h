@@ -25,15 +25,6 @@ enum gameState{
 };
 
 /**
- * @brief The enum of scene
- */
-enum Scenes {
-    MAIN_MENU,
-    LEVEL1
-};
-
-
-/**
  * @brief The Widget class, the class to make the window of the game
  */
 class Widget : public QWidget
@@ -73,7 +64,7 @@ public:
      */
     void keyReleaseEvent(QKeyEvent * ev);
 
-    int wMap;
+    int currentMap;
 
     gameState state = MENU;
 
@@ -88,9 +79,9 @@ public:
 
     /**
      * @brief Switch the actual scene
-     * @param sceneId : the id of the scene
+     * @param sceneType : The type of the scene
      */
-    void switchScene(int sceneId);
+    void switchScene(SceneType sceneType);
 
 private:
     Ui::Widget *ui;

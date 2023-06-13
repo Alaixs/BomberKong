@@ -2,55 +2,70 @@
 #define BARREL_H
 #include "animationmanager.h"
 #include "entity.h"
+#include "level.h"
 
 
 /**
- * @brief The class of barrel throw by Donkey Kong
+ * @brief The barrel throen by donkey kong
  */
 class Barrel : public Entity
 {
 
 private:
-    int timer ;                  ///< The number of frame the barrel will stay
+    int timer;
     QPixmap sprite;              ///< The actual Sprite
+    QPixmap shadow;              ///< The shadow of Tonneaux for throwing
     AnimationManager* animation; ///< The actual animation ( the range in the sprite image)
+    bool isFlying;
+    int endY;
+    int endX;
 
 public:
     /**
      * @brief Create a Barrel
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     *
+     * @param posX : position on X axis
+     * @param posY : position on Y axis
      */
-    Barrel(int posX,int posY);
+    Barrel(int posX,int posY, int endYPos = 816);
 
     /**
      * @brief Create a Barrel
-     * @param posX : position on x axes
-     * @param posY : position on y axes
+     *
+     * @param posX : position on X axes
+     * @param posY : position on Y axes
      */
-    Barrel(Coordinate pos);
+    Barrel(Coordinate pos, int endYPos = 816);
 
     /**
-     * @brief Destructor for a Barrel object
+     * @brief Destructor for the Barrel object
      */
     ~Barrel();
 
     /**
-     * @brief update the barrel (position, sprite, etc)
+     * @brief Update the barrel (position, animation, etc.)
      */
     void update();
 
     /**
-     * @brief Display the actual barrel
+     * @brief Display the barrel
+     *
      * @param painter : the tools to display
      */
     void draw(QPainter * painter);
 
     /**
-     * @brief create the hitboxe of the barrel
+     * @brief Create the hitbox of the barrel
+     *
      * @return the hitboxe
      */
     QRect getRect();
+
+    /**
+     * @brief getIsFlying
+     * @return if the barrel flying
+     */
+    bool getIsFlying();
 
 };
 

@@ -9,7 +9,7 @@
 /**
  * @brief The class of loose screen
  */
-class Loose : public Scene
+class Lose : public Scene
 {
 
 public:
@@ -20,12 +20,12 @@ public:
      * @brief Create a Loose screen
      * @param widget : the widget of loose scene
      */
-    Loose(QWidget* widget);
+    Lose(QWidget* widget);
 
     /**
      * @brief Destructor for a Loose object
      */
-    ~Loose();
+    ~Lose();
 
     /**
      * @brief Update the Loose screen
@@ -37,6 +37,16 @@ public:
      * @param painter : the tools to display
      */
     void draw(QPainter* painter);
+
+    /**
+     * @brief Stop the main theme music and change for the lose sound
+     */
+    void changeLoseSound();
+
+    /**
+     * @brief Stop the lose sound and change for the main theme music
+     */
+    void changeOSTSound();
 
 };
 

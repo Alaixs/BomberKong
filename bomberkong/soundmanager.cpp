@@ -28,12 +28,26 @@ void SoundManager::loadSound(const QString& soundFilePath) {
 }
 
 
-void SoundManager::playSound(const QString& soundFilePath, qreal volume) {
+void SoundManager::playSound(const QString& soundFilePath, qreal volume, bool looping) {
     QSoundEffect* soundEffect = soundMap.value(soundFilePath);
+
     if (soundEffect) {
+        soundEffect->setVolume(volume);
+        if (looping) {
+            soundEffect->setLoopCount(QSoundEffect::Infinite);
+        } else {
+            soundEffect->setLoopCount(1);
+        }
         if (!soundEffect->isPlaying()) {
-            soundEffect->setVolume(volume);
             soundEffect->play();
         }
     }
 }
+
+void SoundManager::stopSound(const QString& soundFilePath) {
+    QSoundEffect* soundEffect = soundMap.value(soundFilePath);
+    if (soundEffect) {
+        soundEffect->stop();
+    }
+}
+

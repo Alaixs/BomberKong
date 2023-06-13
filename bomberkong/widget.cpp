@@ -1,17 +1,20 @@
-﻿#include "loose.h"
+﻿#include "lose.h"
 
 #include <fstream>
 #include <QSoundEffect>
+#include <QFontDatabase>
 #include "ui_widget.h"
 #include "global.h"
 #include "widget.h"
 #include "soundmanager.h"
 #include "input.h"
-#include "game.h"
+#include "original.h"
 #include "alternative.h"
 #include "mainmenu.h"
 #include "win.h"
 #include "tutorial.h"
+#include "reloaded.h"
+#include "settingsmenu.h"
 
 
 bool isPaused;
@@ -22,9 +25,19 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
+    setWindowTitle("BomberKong Reloaded");
+
+    // Loads the font used by the TextLabel object
+    gameFont = QFontDatabase::addApplicationFont("://assets/fonts/upheavtt.ttf");
+
+    // Set the control scheme according to config.ini
+    Input::loadControlsConfig();
+
     cellSize = 32;
+
+    // The scenes inherited from the Level class will no be updated
+    // if isPaused is set to true
     isPaused = false;
-    wLvl = 0;
 
     // Screen dimensions
     int height = 26 * cellSize;
@@ -32,7 +45,7 @@ ui->setupUi(this);
 
     setFixedSize(width, height);
 
-    srand(time(nullptr));
+    srand(time(nullptr)); // Initializing the rng
 
     // preload sounds (avoid lag)
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_explosion.wav");
@@ -40,9 +53,11 @@ ui->setupUi(this);
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_mainTheme.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_loseTheme.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_winTheme.wav");
+    SoundManager::getInstance().loadSound("://assets/sounds/sfx_select.wav");
+    SoundManager::getInstance().loadSound("://assets/sounds/sfx_powerUp.wav");
 
     //play main theme
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
 
     // Set the first scene to be the main menu
     currentScene = new MainMenu(this);
@@ -58,10 +73,11 @@ Widget::~Widget()
 }
 
 
-// Updating the Input class states
 void Widget::keyPressEvent(QKeyEvent *ev)
 {
+    // Updating the Input class states
     Input::keyPressedEvent(ev);
+
     if (ev->key() == Qt::Key_Escape)
     {
         isPaused = !isPaused; // Toggle the pause
@@ -69,7 +85,10 @@ void Widget::keyPressEvent(QKeyEvent *ev)
 }
 
 void Widget::keyReleaseEvent(QKeyEvent *ev)
-{Input::keyReleasedEvent(ev); }
+{
+    // Updating the Input class states
+    Input::keyReleasedEvent(ev);
+}
 
 
 // Updating the entities and the game
@@ -80,6 +99,8 @@ void Widget::gameUpdate()
     // Draw a frame
     repaint(0, 0, 1532, 1056);
 
+    // Reset all non persistant inputs
+    // This is the last instruction of a tick
     Input::resetFLInputs();
 }
 
@@ -93,33 +114,42 @@ void Widget::paintEvent(QPaintEvent *)
 }
 
 
-void Widget::switchScene(int sceneId)
+void Widget::switchScene(SceneType sceneType)
 {
-    //Scene * temp = currentScene;
+    // Sets a pointer to the current scene to delete it after switching
+    Scene * temp = currentScene;
 
-    switch (sceneId)
+    switch (sceneType)
     {
-        case 0:
+        case MAIN_MENU:
             currentScene = new MainMenu(this);
         break;
 
-        case 1:
+        case OPTIONS:
+            currentScene = new SettingsMenu(this);
+        break;
+
+        case TUTORIAL:
             currentScene = new Tutorial(this);
         break;
 
-        case 2:
-            currentScene = new Game(this);
+        case ORIGINAL:
+            currentScene = new Original(this);
         break;
 
-        case 3:
+        case RELOADED:
+            currentScene = new Reloaded(this);
+            break;
+
+        case WIN_SCREEN:
             currentScene = new Win(this);
         break;
 
-        case 4:
-            currentScene = new Loose(this);
+        case LOOSE_SCREEN:
+            currentScene = new Lose(this);
         break;
 
-        case 5:
+        case ALTERNATIVE_ENDING:
             currentScene = new Alternative(this);
         break;
     }

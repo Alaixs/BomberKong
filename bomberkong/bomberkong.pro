@@ -18,27 +18,37 @@ SOURCES += \
     coordinate.cpp \
     donkeykong.cpp \
     dummy.cpp \
+    enemy.cpp \
     explosion.cpp \
-    game.cpp \
+    hammer.cpp \
+    level.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
-    loose.cpp \
+    lose.cpp \
     main.cpp \
     mainmenu.cpp \
+    original.cpp \
     playercharacter.cpp \
+    powerup.cpp \
+    reloaded.cpp \
     scene.cpp \
+    settingsmenu.cpp \
     soundmanager.cpp \
+    textlabel.cpp \
     tutorial.cpp \
     widget.cpp \
     entity.cpp \
     wall.cpp \
-    win.cpp
+    win.cpp \
+    flame.cpp
 
 HEADERS += \
     alternative.h \
     dummy.h \
-    game.h \
+    enemy.h \
+    hammer.h \
+    level.h \
     global.h \
     animationmanager.h \
     barrel.h \
@@ -49,17 +59,23 @@ HEADERS += \
     guielement.h \
     indestructiblewall.h \
     input.h \
-    loose.h \
+    lose.h \
     mainmenu.h \
+    original.h \
     playercharacter.h \
+    powerup.h \
+    reloaded.h \
     scene.h \
+    settingsmenu.h \
     soundmanager.h \
+    textlabel.h \
     tutorial.h \
     widget.h \
     entity.h \
     coordinate.h \
     wall.h \
-    win.h
+    win.h \
+    flame.h
 
 FORMS += \
     widget.ui

@@ -2,6 +2,7 @@
 
 #include <QDebug>
 #include <fstream>
+#include "hammer.h"
 #include "input.h"
 #include "global.h"
 #include "widget.h"
@@ -14,9 +15,17 @@
 
 
 Tutorial::Tutorial(QWidget* widget)
-    : Game(widget)
+    : Level(widget)
 {
+    itsSceneType = TUTORIAL;
+    setOffsetLimit(21*cellSize, 21*cellSize);
+
+    // Create the player at its spawn point
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
+
+    initPowerUpGUI();
+
+    // Create the level layout (walls)
     restart();
 }
 
@@ -91,13 +100,13 @@ void Tutorial::deleteAllEntity()
 
 void Tutorial::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(1);
+    dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN);
 }
 
 
 void Tutorial::loose()
 {
-    dynamic_cast<Widget*>(root)->switchScene(3);
+    dynamic_cast<Widget*>(root)->switchScene(LOOSE_SCREEN);
 }
 
 
@@ -131,6 +140,7 @@ void Tutorial::restart()
         }
         else
         {
+            // places the corresponding object
             if (block == '2')
             {
                 createEntity(new Wall(xPos, yPos));
@@ -147,18 +157,19 @@ void Tutorial::restart()
     levelDataFile.close();
 
     // Create characters at their spawn points
-
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-
     DonkeyKong * dk = new DonkeyKong(9 * cellSize, 0);
+    dk->throwingRate = 300;
     dk->setParent(this);
-    dk->throwingRate = 200;
     entities.push_back(dk);
+
+    createEntity(new Hammer(2.5 * cellSize, 18 * cellSize));
 
     startLabel = new GUIElement(Coordinate(140, 620),
                                 Coordinate(350, 30),
                                 QString("://assets/sprites/t_press_start.png"));
 
+    // Controls indications for the player
     gui.push_back(new GUIElement(
         Coordinate(425, 600),
         Coordinate(208, 128),
@@ -178,7 +189,8 @@ void Tutorial::createExplosion(int posX, int posY)
     createEntity(new Explosion(posX, posY));
 }
 
+
 void Tutorial::nextLvl()
 {
-    dynamic_cast<Widget*>(root)->switchScene(2);
+    dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
 }

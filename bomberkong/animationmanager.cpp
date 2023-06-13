@@ -6,6 +6,11 @@ AnimationManager::AnimationManager(const int interval)
     frameInterval = interval;
 }
 
+AnimationManager::~AnimationManager()
+{
+
+}
+
 void AnimationManager::setInterval(int interval)
 {
     frameInterval = interval;

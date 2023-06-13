@@ -1,6 +1,8 @@
 #include "alternative.h"
 
+#include "widget.h"
 #include "global.h"
+#include "input.h"
 
 
 int cellSize;
@@ -23,9 +25,27 @@ Alternative::Alternative(QWidget * widget) : Scene(widget)
 }
 
 
+Alternative::~Alternative()
+{
+    delete bomberman;
+
+    // Delete all GUI elements
+    for (std::list<GUIElement*>::iterator it = gui.begin(); it != gui.end(); it++)
+    {
+        delete (*it);
+    }
+}
+
+
 void Alternative::update()
 {
     bomberman->update();
+
+    // Returns to the main menu when the START action is pressed
+    if (Input::isActionJustPressed(START))
+    {
+        dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+    }
 }
 
 
@@ -59,6 +79,7 @@ void Alternative::draw(QPainter * painter)
 
     bomberman->draw(painter);
 
+    // Draw all GUI elements on top of the screen
     std::list<GUIElement*>::iterator it = gui.begin();
     while(it != gui.end())
     {

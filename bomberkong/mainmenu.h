@@ -1,9 +1,10 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+#include <list>
 #include "scene.h"
 #include "guielement.h"
-#include <list>
+#include "textlabel.h"
 
 
 /**
@@ -16,9 +17,16 @@ private:
     int timer;
     std::list<GUIElement*> gui;
 
-    GUIElement* bg;
-    GUIElement* logo;
-    GUIElement* pressStart;
+    GUIElement * bg; ///< The actual Sprite
+    GUIElement * logo; ///< The actual Sprite
+    GUIElement * pressStart; ///< The press start GUI
+    GUIElement * options; ///< The options cogwheel
+    TextLabel * choiceTutorial; ///< The actual Sprite
+    TextLabel * choiceOriginal; ///< The actual Sprite
+    TextLabel * choiceReloaded; ///< The actual Sprite
+    GUIElement * selected;
+    TextLabel * testLabel;
+
 
 public:
     /**
@@ -42,6 +50,11 @@ public:
      * @param painter : the tools to display
      */
     void draw(QPainter* painter);
+
+    /**
+     * @brief Plays sfx select sound
+     */
+    void selectSfx();
 
 };
 

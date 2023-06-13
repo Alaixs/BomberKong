@@ -3,6 +3,7 @@
 
 #include <QKeyEvent>
 #include <string>
+#include <QDebug>
 
 
 // [Arrow Keys] : Move character
@@ -37,6 +38,11 @@ class Input
 {
 
 public:
+    /**
+     * @brief Loads controls settings from config.ini
+     */
+    static void loadControlsConfig();
+
     /**
      * @brief Called when the user presses a key
      *
@@ -88,6 +94,13 @@ public:
      * @brief Reset not persistant inputs
      */
     static void resetFLInputs();
+
+    /**
+     * @brief Get the integer value of the last pressed key
+     *
+     * @return The value of the key
+     */
+    static int getPressedKey();
 };
 
 #endif // INPUT_H

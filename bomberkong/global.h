@@ -2,6 +2,7 @@
 #define GLOBAL_H
 
 #include <iostream>
+#include <QDebug>
 
 using namespace std;
 
@@ -12,7 +13,6 @@ extern int cellSize;
 
 extern bool isPaused;
 
-extern int wLvl; // The current level
-
+extern int gameFont;
 
 #endif // GLOBAL_H

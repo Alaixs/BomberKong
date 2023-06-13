@@ -2,6 +2,7 @@
 #define DONKEYKONG_H
 #include "entity.h"
 #include "animationmanager.h"
+#include "flame.h"
 
 
 /**
@@ -13,7 +14,7 @@ class DonkeyKong : public Entity
 private:
     QPixmap sprite;                 ///< The actual Sprite
     AnimationManager* animation;    ///< The actual animation
-    int newPos;                     ///< Pose where the DK send the next barrel
+    int targetPos;                  ///< Pose where the DK send the next barrel
     int dist;                       ///< Distance to the next x where DK send barrel
     bool isThrowing;                ///< Is DK actally throwing a barrel
 

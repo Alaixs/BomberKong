@@ -22,6 +22,11 @@ public:
     AnimationManager(int interval = 8);
 
     /**
+     * @brief Destructor for an AnimationManager
+     */
+    ~AnimationManager();
+
+    /**
      * @brief Sets the start and end frame of the animation
      * @param frameStart : the start frame
      * @param frameEnd : the end frame

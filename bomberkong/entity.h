@@ -2,6 +2,7 @@
 #define ENTITY_H
 #include "coordinate.h"
 #include <QPainter>
+#include "animationmanager.h"
 #include "scene.h"
 
 

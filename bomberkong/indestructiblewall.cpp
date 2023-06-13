@@ -31,8 +31,10 @@ void IndestructibleWall::update()
 
 void IndestructibleWall::draw(QPainter * painter)
 {
+    // Offsets the sprite according to the player character's position (vertical scrolling)
+    Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
     painter->drawPixmap(
-        QRect(pos.x, pos.y, cellSize, cellSize),
+        QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
         sprite,
         QRect(0, 0, 16, 16)
     );

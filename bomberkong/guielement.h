@@ -14,11 +14,14 @@ class GUIElement
 protected:
     Coordinate pos;
     Coordinate size;
-    QPixmap texture;
     bool isSelected;
 
 public:
+    QPixmap texture;
     bool isVisible;
+
+
+    GUIElement(int posX, int posY);
 
     /**
      * @brief Create a GUI element
@@ -33,7 +36,7 @@ public:
      * @param posX : the x value
      * @param posY : the y value
      */
-    GUIElement(int posX, int posY);
+    GUIElement(int posX, int posY, Coordinate newSize, QString source);
 
     /**
      * @brief Virtual destructor for GUI elements
@@ -68,6 +71,11 @@ public:
      */
     virtual void deselect();
 
+    /**
+     * @brief Function to know if the element is currently selected
+     * @return The isSelected boolean
+     */
+    bool isElementSelected();
 
     /**
      * @brief Move the element on the screen

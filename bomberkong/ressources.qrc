@@ -11,6 +11,8 @@
         <file>assets/sounds/sfx_mainTheme.wav</file>
         <file>assets/sounds/sfx_winTheme.wav</file>
         <file>assets/sounds/sfx_loseTheme.wav</file>
+        <file>assets/sounds/sfx_select.wav</file>
+        <file>assets/sounds/sfx_powerUp.wav</file>
         <file>assets/maps/Map.bkmap</file>
         <file>assets/sprites/t_donkeykong.png</file>
         <file>assets/sprites/you_win.png</file>
@@ -20,5 +22,26 @@
         <file>assets/sprites/t_menu_bg.png</file>
         <file>assets/sprites/t_move_controls.png</file>
         <file>assets/sprites/t_bomb_controls.png</file>
+        <file>assets/maps/BAS_Reloaded.bkmap</file>
+        <file>assets/maps/MILIEU_Reloaded.bkmap</file>
+        <file>assets/maps/HAUT_Reloaded.bkmap</file>
+        <file>assets/sprites/t_empty_heart.png</file>
+        <file>assets/sprites/t_full_heart.png</file>
+        <file>assets/sprites/t_options.png</file>
+        <file>assets/sprites/t_original.png</file>
+        <file>assets/sprites/t_reloaded.png</file>
+        <file>assets/sprites/t_tutorial.png</file>
+        <file>assets/sprites/t_armor.png</file>
+        <file>assets/sprites/t_bomb_nb.png</file>
+        <file>assets/sprites/t_explosion_time.png</file>
+        <file>assets/sprites/t_speed.png</file>
+        <file>assets/sprites/selected_menu.png</file>
+        <file>assets/fonts/upheavtt.ttf</file>
+        <file>assets/sprites/t_flame.png</file>
+        <file>assets/sprites/t_hammer_ground.png</file>
+        <file>assets/sprites/t_hammer_Items.png</file>
+        <file>assets/sprites/t_options_selected.png</file>
+        <file>assets/sprites/t_bomb_range.png</file>
+        <file>assets/sprites/t_ombre.png</file>
     </qresource>
 </RCC>

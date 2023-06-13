@@ -11,26 +11,26 @@
 /**
 * @brief The main scene for the level
 */
-class Game : public Scene
+class Level : public Scene
 {
 
 protected:
-    std::list<Entity*> entities;
-    std::list<GUIElement*> gui;
+    std::list<Entity*> entities; ///< The list of the level entity
+    std::list<GUIElement*> gui; ///< Delete the entity if false
 
 public:
     GUIElement* pauseLabel;
-    int wMap; // Which map is currently displayed
+    int whichMap; // Which map is currently displayed
 
     /**
     * @brief The main scene for the level
     */
-    Game(QWidget* widget);
+    Level(QWidget* widget);
 
     /**
      * @brief Destructor of the level
      */
-    ~Game();
+    ~Level();
 
     /**
      * @brief Update the level's items
