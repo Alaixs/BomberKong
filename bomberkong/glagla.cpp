@@ -1,5 +1,6 @@
 #include "glagla.h"
 #include "hammer.h"
+#include "icebloc.h"
 
 Glagla::Glagla(QWidget * widget)
     : Level(widget)
@@ -142,5 +143,7 @@ void Glagla::restart()
     entities.push_back(dk);
 
     createEntity(new Hammer(14 * cellSize, 20 * cellSize));
+
+    //createEntity(new IceBloc( 9.5 * cellSize, 21 * cellSize, 21 * cellSize));
 }
 

@@ -1,7 +1,9 @@
 #include "playercharacter.h"
 
 #include <QMessageBox>
+#include "blueflamme.h"
 #include "hammer.h"
+#include "icebloc.h"
 #include "soundmanager.h"
 #include "input.h"
 #include "global.h"
@@ -40,6 +42,8 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     isHammer = false;
 
     initBonus();
+
+    freeze = 0;
 }
 
 
@@ -68,6 +72,8 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     isHammer = false;
 
     initBonus();
+
+    freeze = 0;
 }
 
 void PlayerCharacter::initBonus()
@@ -328,7 +334,8 @@ void PlayerCharacter::collisionEvent(Entity * body)
     if ((dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr && !(dynamic_cast<Barrel*>(body)->getIsFlying()))
         || (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr)
         || dynamic_cast<Explosion*>(body) != nullptr
-        || dynamic_cast<Flame*>(body) != nullptr)
+        || dynamic_cast<Flame*>(body) != nullptr
+        || dynamic_cast<BlueFlamme*>(body) != nullptr)
     {
         if (invincibilityTimer <= 0 && hammerTimer == 0)
         {
@@ -348,6 +355,16 @@ void PlayerCharacter::collisionEvent(Entity * body)
                 initInvincibility(200); // The player has some frames of invincibility
                 dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, ARMOR); // Hide the armor GUI
             }
+        }
+    }
+    if(dynamic_cast<IceBloc*>(body) != nullptr )
+    {
+        freeze++;
+
+        if(freeze == 1000)
+        {
+            nbLives--;
+            isKO = true;
         }
     }
 

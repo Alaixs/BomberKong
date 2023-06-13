@@ -3,6 +3,7 @@
 #include <random>
 #include "blueflamme.h"
 #include "global.h"
+#include "icebloc.h"
 #include "level.h"
 #include "barrel.h"
 
@@ -105,8 +106,16 @@ void DonkeyKong::update()
             Coordinate SpawnPos;
             SpawnPos.x = rand() % 20 * cellSize;
             SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
-            // Throws a Flamme
-            dynamic_cast<Level*>(parent)->createEntity(new BlueFlamme(SpawnPos, pos.y));
+            pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+            if(rand()%2 == 3)
+            {
+                // Throws a Flamme
+                dynamic_cast<Level*>(parent)->createEntity(new BlueFlamme(SpawnPos, pos.y));
+            }
+            else
+            {
+                dynamic_cast<Level*>(parent)->createEntity(new IceBloc(SpawnPos.x, pos.y + cellSize,SpawnPos.y));
+            }
         }
 
         timer = throwingRate; // Reset the timer
