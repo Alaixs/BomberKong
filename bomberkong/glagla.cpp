@@ -1,5 +1,6 @@
 #include "glagla.h"
 #include "hammer.h"
+#include "icebloc.h"
 
 Glagla::Glagla(QWidget * widget)
     : Level(widget)
@@ -13,6 +14,33 @@ Glagla::Glagla(QWidget * widget)
     currentMap.push_back(rand() % 3);
 
     initPowerUpGUI();
+    restart();
+}
+
+Glagla::Glagla(QWidget * widget, PlayerCharacter * player)
+    : Level(widget)
+
+{
+    *itsPlayer = *player;
+    itsPlayer->setParent(this);
+
+    itsSceneType = GLAGLA;
+    setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
+
+    currentMap.push_back(rand() % 3);
+    currentMap.push_back(rand() % 3);
+    currentMap.push_back(rand() % 3);
+
+    initPowerUpGUI();
+
+    // Update the GUI based on the player stats
+    updateLivesGUI(itsPlayer->getItsLivesNb());
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(SPEED),SPEED);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(BOMB_TIME),BOMB_TIME);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(BOMB_RANGE),BOMB_RANGE);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(BOMB_NB),BOMB_NB);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(ARMOR),ARMOR);
+
     restart();
 }
 
@@ -136,11 +164,13 @@ void Glagla::restart()
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize - 20 * 2 * cellSize));
 
-    DonkeyKong * dk = new DonkeyKong(9 * cellSize, - 20 * 2 * cellSize);
+    DonkeyKong * dk = new DonkeyKong(9 * cellSize, - 20 * 2 * cellSize, itsSceneType);
     dk->throwingRate = 400;
     dk->setParent(this);
     entities.push_back(dk);
 
     createEntity(new Hammer(14 * cellSize, 20 * cellSize));
+
+    //createEntity(new IceBloc( 9.5 * cellSize, 21 * cellSize, 21 * cellSize));
 }
 

@@ -25,9 +25,11 @@ SOURCES += \
     dummy.cpp \
     enemy.cpp \
     explosion.cpp \
+    fireball.cpp \
     glagla.cpp \
     hammer.cpp \
     jungle.cpp \
+    icebloc.cpp \
     level.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
@@ -40,6 +42,7 @@ SOURCES += \
     playercharacter.cpp \
     powerup.cpp \
     reloaded.cpp \
+    save.cpp \
     scene.cpp \
     settingsmenu.cpp \
     soundmanager.cpp \
@@ -60,9 +63,11 @@ HEADERS += \
     bomberland.h \
     dummy.h \
     enemy.h \
+    fireball.h \
     glagla.h \
     hammer.h \
     jungle.h \
+    icebloc.h \
     level.h \
     global.h \
     animationmanager.h \
@@ -81,6 +86,7 @@ HEADERS += \
     playercharacter.h \
     powerup.h \
     reloaded.h \
+    save.h \
     scene.h \
     settingsmenu.h \
     soundmanager.h \

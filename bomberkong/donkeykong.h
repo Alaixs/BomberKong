@@ -24,13 +24,13 @@ public:
      * @param posX : position on x axes
      * @param posY : position on y axes
      */
-    DonkeyKong(int posX, int posY);
+    DonkeyKong(int posX, int posY, SceneType Lvl);
 
     /**
      * @brief Create a DK
      * @param pos : location coordinates
      */
-    DonkeyKong(Coordinate pos);
+    DonkeyKong(Coordinate pos , SceneType Lvl);
 
     /**
      * @brief Destructor for a DonkeyKong object

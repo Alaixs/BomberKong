@@ -1,7 +1,10 @@
 #include "playercharacter.h"
 
 #include <QMessageBox>
+#include "blueflamme.h"
+#include "fireball.h"
 #include "hammer.h"
+#include "icebloc.h"
 #include "soundmanager.h"
 #include "input.h"
 #include "global.h"
@@ -42,6 +45,8 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
     isHammer = false;
 
     initBonus();
+
+    freeze = 0;
 }
 
 
@@ -72,6 +77,8 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
     isHammer = false;
 
     initBonus();
+
+    freeze = 0;
 }
 
 void PlayerCharacter::initBonus()
@@ -143,7 +150,7 @@ void PlayerCharacter::update()
             isStunned = false;
         }
     }
-    else // Is KO
+    else
     {
         // Sets the player motion according to keyboard inputs
         if (Input::isActionPressed(MOVE_RIGHT))
@@ -250,7 +257,6 @@ void PlayerCharacter::update()
     {
         isHammer = false;
     }
-
 }
 
 void PlayerCharacter::collisionEvent(Entity * body)
@@ -338,7 +344,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
     if ((dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr && !(dynamic_cast<Barrel*>(body)->getIsFlying()))
         || (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr)
         || dynamic_cast<Explosion*>(body) != nullptr
-        || dynamic_cast<Flame*>(body) != nullptr)
+        || dynamic_cast<Flame*>(body) != nullptr
+        || dynamic_cast<BlueFlamme*>(body) != nullptr
+        || (dynamic_cast<FireBall*>(body) != nullptr
+            && !(dynamic_cast<FireBall*>(body)->getIsFlying()
+                 )
+            )
+        )
     {
         if (invincibilityTimer <= 0 && hammerTimer == 0)
         {
@@ -358,6 +370,16 @@ void PlayerCharacter::collisionEvent(Entity * body)
                 initInvincibility(200); // The player has some frames of invincibility
                 dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, ARMOR); // Hide the armor GUI
             }
+        }
+    }
+    if(dynamic_cast<IceBloc*>(body) != nullptr )
+    {
+        freeze++;
+
+        if(freeze == 300)
+        {
+            nbLives--;
+            isKO = true;
         }
     }
 
@@ -415,7 +437,7 @@ void PlayerCharacter::draw(QPainter * painter)
         painter->drawPixmap(
             QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
             sprite.transformed(QTransform().scale(-1, 1)),
-            QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
+            QRect((12 - animation->getFrame()) * 16, 0, 16, 16)
         );
 
         // Draws the hammer
@@ -435,6 +457,8 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
+    dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives);
+    std::cout << nbLives << std::endl;
     SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
 }
 
@@ -453,4 +477,46 @@ void PlayerCharacter::stun(int time)
 {
     isStunned = true;
     stunTimer = time;
+}
+
+
+void PlayerCharacter::setItsStats(int lifes, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor)
+{
+    nbLives = lifes;
+    speedBonusNb = speedNb;
+    maxBombBonusNb = bombNb;
+    explosionRangeBonusNb = bombRange;
+    explosionTimeBonusNb = bombTime;
+    armorOn = wearArmor;
+}
+
+
+int PlayerCharacter::getItsPUNumber(PowerUpType powerUp)
+{
+    switch(powerUp)
+    {
+    case SPEED:
+        return speedBonusNb;
+
+    case BOMB_NB:
+        return maxBombBonusNb;
+
+    case BOMB_RANGE:
+        return explosionRangeBonusNb;
+
+    case BOMB_TIME:
+        return explosionTimeBonusNb;
+
+    case ARMOR:
+        return armorOn;
+
+    default:
+        break;
+    }
+}
+
+
+int PlayerCharacter::getItsLivesNb()
+{
+    return nbLives;
 }

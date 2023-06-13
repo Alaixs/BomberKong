@@ -1,5 +1,5 @@
-#ifndef LOAD_H
-#define LOAD_H
+#ifndef SAVE_H
+#define SAVE_H
 
 #include <fstream>
 #include "scene.h"
@@ -7,7 +7,7 @@
 #include "textlabel.h"
 #include "powerup.h"
 
-class Load : public Scene
+class Save : public Scene
 {
 
 private:
@@ -26,15 +26,15 @@ private:
 
 public:
     /**
-     * @brief Create a new Load menu
+     * @brief Create a new Save menu
      * @param widget : the main widget
      */
-    Load(QWidget* root);
+    Save(QWidget* root);
 
     /**
-     * @brief Destructor for a Load menu
+     * @brief Destructor for a Save menu
      */
-    ~Load();
+    ~Save();
 
     /**
      * @brief Change the display of the Power-Up number
@@ -57,10 +57,10 @@ public:
     void draw(QPainter* painter);
 
     /**
-     * @brief Load the level based on the save file
+     * @brief Save the level in a save file
      */
-    void loadLevel();
+    void saveLevel();
 
 };
 
-#endif // LOAD_H
+#endif // SAVE_H

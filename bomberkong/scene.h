@@ -10,6 +10,7 @@
 enum SceneType { MAIN_MENU,
                  OPTIONS,
                  LOAD,
+                 SAVE,
                  TUTORIAL,
                  ORIGINAL,
                  RELOADED,
