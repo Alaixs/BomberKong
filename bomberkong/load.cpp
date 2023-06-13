@@ -48,64 +48,44 @@ Load::Load(QWidget* root)
     choiceReturn->setColor(Qt::red);
 
     // Level thumbnail
-    switch(level)
-    {
-    case 0: // Chocho
-        gui.push_back(
-            new GUIElement(
-                Coordinate(50, 175),
-                Coordinate(540, 150),
-                "://assets/sprites/t_chocho_thumbnail.png"
-                )
-            );
-        break;
-    case 1: // Glagla
-        gui.push_back(
-            new GUIElement(
-                Coordinate(50, 175),
-                Coordinate(540, 150),
-                "://assets/sprites/t_glagla_thumbnail.png"
-                )
-            );
-        break;
-    case 2: // Jungle DK
-        gui.push_back(
-            new GUIElement(
-                Coordinate(50, 175),
-                Coordinate(540, 150),
-                "://assets/sprites/t_jungle_thumbnail.png"
-                )
-            );
-        break;
+    std::string levelThumbnails[] = {
+        "://assets/sprites/t_chocho_thumbnail.png",
+        "://assets/sprites/t_glagla_thumbnail.png",
+        "://assets/sprites/t_jungle_thumbnail.png"
+    };
 
-    default:
-        break;
+    if (level >= 0 && level < 3) {
+        gui.push_back(
+            new GUIElement(
+                Coordinate(50, 175),
+                Coordinate(540, 150),
+                QString::fromStdString(levelThumbnails[level])
+                )
+            );
     }
 
-    // Life
+    // Hearts display
     int x = 50, y = 380;
+    std::string heartSprite;
     for (int i = -1; i != 2; i++)
     {
-        if (i < lives)
+        if (i < lives) // The player has more lives than i
         {
-            gui.push_back(
-                new GUIElement(
-                    Coordinate(x, y),
-                    Coordinate(48, 48),
-                    "://assets/sprites/t_full_heart.png"
-                    )
-                );
+            heartSprite = "://assets/sprites/t_full_heart.png";
         }
         else
         {
-            gui.push_back(
-                new GUIElement(
-                    Coordinate(x, y),
-                    Coordinate(48, 48),
-                    "://assets/sprites/t_empty_heart.png"
-                    )
-                );
+            heartSprite = "://assets/sprites/t_empty_heart.png";
         }
+
+        gui.push_back(
+            new GUIElement(
+                Coordinate(x, y),
+                Coordinate(48, 48),
+                QString::fromStdString(heartSprite)
+                )
+            );
+
         x += 60;
     }
 
@@ -134,17 +114,11 @@ Load::Load(QWidget* root)
     displayPUNumber(bombNb, BOMB_NB, 250, 555);
 
     // Add the armor icon with a text label "ON" if the player has one, "OFF" otherwise
-    GUIElement * armor = new GUIElement(Coordinate(50, 625), Coordinate(48, 48), "://assets/sprites/t_armor.png");
+    GUIElement* armor = new GUIElement(Coordinate(50, 625), Coordinate(48, 48), "://assets/sprites/t_armor.png");
     gui.push_back(armor);
 
-    if (wearArmor)
-    {
-        gui.push_back(new TextLabel(150, 660, 48, "ON", CENTER));
-    }
-    else
-    {
-        gui.push_back(new TextLabel(150, 660, 48, "OFF", CENTER));
-    }
+    std::string armorStatus = (wearArmor ? "ON" : "OFF");
+    gui.push_back(new TextLabel(150, 660, 48, QString::fromStdString(armorStatus), CENTER));
 }
 
 
@@ -162,49 +136,28 @@ Load::~Load()
 void Load::displayPUNumber(int nb, PowerUpType type, int x, int y)
 {
     std::string puNumber = "x" + std::to_string(nb);
+    QString labelText;
 
-    switch(type) // Update the right text label based on the Power-Up type
+    switch(type) // Change the number for the correct Power-Up
     {
     case SPEED:
-        if (nb < 4)
-        {
-            gui.push_back(new TextLabel(x, y, 30, QString::fromStdString(puNumber), CENTER));
-        }
-        else
-        {
-            gui.push_back(new TextLabel(x, y, 30, "MAX", CENTER));
-        }
-        break;
-
     case BOMB_TIME:
-        if (nb < 4)
-        {
-            gui.push_back(new TextLabel(x, y, 30, QString::fromStdString(puNumber), CENTER));
-        }
-        else
-        {
-            gui.push_back(new TextLabel(x, y, 30, "MAX", CENTER));
-        }
+        labelText = (nb < 4 ? QString::fromStdString(puNumber) : "MAX");
         break;
 
     case BOMB_RANGE:
-        if (nb < 5)
-        {
-            gui.push_back(new TextLabel(x, y, 30, QString::fromStdString(puNumber), CENTER));
-        }
-        else
-        {
-            gui.push_back(new TextLabel(x, y, 30, "MAX", CENTER));
-        }
+        labelText = (nb < 5 ? QString::fromStdString(puNumber) : "MAX");
         break;
 
     case BOMB_NB:
-        gui.push_back(new TextLabel(x, y, 30, QString::fromStdString(puNumber), CENTER));
+        labelText = QString::fromStdString(puNumber);
         break;
 
     default:
         break;
     }
+
+    gui.push_back(new TextLabel(x, y, 30, labelText, CENTER));
 }
 
 

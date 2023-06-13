@@ -249,6 +249,7 @@ void MainMenu::draw(QPainter *painter)
     }
 }
 
+
 void MainMenu::selectSfx()
 {
     SoundManager::getInstance().playSound("://assets/sounds/sfx_select.wav", 1, false);
