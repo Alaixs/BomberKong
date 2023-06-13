@@ -90,15 +90,36 @@ Load::~Load()
 
 void Load::update()
 {
+    if (Input::isActionPressed(MOVE_RIGHT) || Input::isActionPressed(MOVE_LEFT))
+    {
+        qDebug("Faut attendre que isJustPressed soit fait pour droite et gauche lol");
+        if (choiceReturn->isElementSelected())
+        {
+            choiceReturn->deselect();
+            choiceReturn->setColor(Qt::white);
+            choiceConfirm->select();
+            choiceConfirm->setColor(Qt::red);
+        }
+        else if (choiceConfirm->isElementSelected())
+        {
+            choiceConfirm->deselect();
+            choiceConfirm->setColor(Qt::white);
+            choiceReturn->select();
+            choiceReturn->setColor(Qt::red);
+        }
+    }
+
     if (Input::isActionJustPressed(START)) // The player pressed space to start the game
     {
         if (choiceReturn->isElementSelected()) // Return to the main menu
         {
             dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
         }
-        /*else if (choiceConfirm->isElementSelected()) // Load the save file
-
-           */
+        else if (choiceConfirm->isElementSelected()) // Load the save file
+        {
+            qDebug("TODO");
+            dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+        }
     }
 }
 
