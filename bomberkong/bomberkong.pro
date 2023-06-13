@@ -15,6 +15,7 @@ SOURCES += \
     barrel.cpp \
     bomb.cpp \
     bombergirl.cpp \
+    chocho.cpp \
     coordinate.cpp \
     donkeykong.cpp \
     dummy.cpp \
@@ -46,6 +47,7 @@ SOURCES += \
 
 HEADERS += \
     alternative.h \
+    chocho.h \
     dummy.h \
     enemy.h \
     glagla.h \
