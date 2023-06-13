@@ -9,6 +9,7 @@
 // Enumeration for the different scene types
 enum SceneType { MAIN_MENU,
                  OPTIONS,
+                 LOAD,
                  TUTORIAL,
                  ORIGINAL,
                  RELOADED,
