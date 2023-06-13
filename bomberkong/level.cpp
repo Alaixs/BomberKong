@@ -315,3 +315,20 @@ PlayerCharacter* Level::getItsPlayer()
 {
     return itsPlayer;
 }
+
+
+bool Level::isPointInWall(Coordinate pos)
+{
+    std::list<Entity*>::iterator it;
+    for (it = entities.begin(); it != entities.end(); it++)
+    {
+        if (dynamic_cast<Wall*>(*it) != nullptr || dynamic_cast<IndestructibleWall*>(*it) != nullptr)
+        {
+            if ((*it)->getRect().contains(pos.x, pos.y))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}

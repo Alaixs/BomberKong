@@ -17,7 +17,7 @@ Bomb::Bomb(int posX, int posY, int explosionRange, int explosionTime)
 
     sprite.load("://assets/sprites/t_bomb.png");
 
-    itsExplosionRange = explosionRange;
+    itsExplosionRange = 5;
     itsExplosionTime = explosionTime;
 
     timer = 187 - explosionTime * 31;
@@ -32,7 +32,7 @@ Bomb::Bomb(Coordinate position, int explosionRange, int explosionTime)
 
     sprite.load("://assets/sprites/t_bomb.png");
 
-    itsExplosionRange = explosionRange;
+    itsExplosionRange = 5;
     itsExplosionTime = explosionTime;
 
     timer = 187 - explosionTime * 31;
@@ -64,12 +64,56 @@ void Bomb::update()
 
         dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y);
 
-        for (int i = 1; i != itsExplosionRange+1; i++) // Loop to display the explosion based on its explosion range
+        // Up
+        for (int i = 1; i <= itsExplosionRange + 1; i++)
         {
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x + cellSize * i, pos.y); // Right
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x - cellSize * i, pos.y); // Left
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y + cellSize * i); // Down
-            dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y - cellSize * i); // Up
+            Coordinate explosionPos(pos.x, pos.y + cellSize * i);
+
+            dynamic_cast<Level*>(parent)->createExplosion(explosionPos.x, explosionPos.y);
+
+            if (dynamic_cast<Level*>(parent)->isPointInWall(explosionPos))
+            {
+                break;
+            }
+        }
+
+        // Down
+        for (int i = 1; i <= itsExplosionRange + 1; i++)
+        {
+            Coordinate explosionPos(pos.x, pos.y - cellSize * i);
+
+            dynamic_cast<Level*>(parent)->createExplosion(explosionPos.x, explosionPos.y);
+
+            if (dynamic_cast<Level*>(parent)->isPointInWall(explosionPos))
+            {
+                break;
+            }
+        }
+
+        // Left
+        for (int i = 1; i <= itsExplosionRange + 1; i++)
+        {
+            Coordinate explosionPos(pos.x - cellSize * i, pos.y);
+
+            dynamic_cast<Level*>(parent)->createExplosion(explosionPos.x, explosionPos.y);
+
+            if (dynamic_cast<Level*>(parent)->isPointInWall(explosionPos))
+            {
+                break;
+            }
+        }
+
+        // Right
+        for (int i = 1; i <= itsExplosionRange + 1; i++)
+        {
+            Coordinate explosionPos(pos.x + cellSize * i, pos.y);
+
+            dynamic_cast<Level*>(parent)->createExplosion(explosionPos.x, explosionPos.y);
+
+            if (dynamic_cast<Level*>(parent)->isPointInWall(explosionPos))
+            {
+                break;
+            }
         }
 
         explosionSfx();

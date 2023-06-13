@@ -147,6 +147,8 @@ public:
 
     PlayerCharacter* getItsPlayer();
 
+    bool isPointInWall(Coordinate point);
+
 };
 
 #endif // LEVEL_H
