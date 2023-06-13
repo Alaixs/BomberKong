@@ -150,7 +150,14 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
     {
     case SPEED:
         std::advance(it, 5); // Advance of 5 elements until the right text label
-        dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
+        if (nb < 4)
+        {
+            dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
+        }
+        else
+        {
+            dynamic_cast<TextLabel*>(*it)->setText("MAX");
+        }
         break;
 
     case BOMB_TIME:

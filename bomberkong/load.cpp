@@ -128,7 +128,14 @@ void Load::displayPUNumber(int nb, PowerUpType type, int x, int y)
     switch(type)
     {
     case SPEED:
-        gui.push_back(new TextLabel(x, y, 30, QString::fromStdString(puNumber), CENTER));
+        if (nb < 4)
+        {
+            gui.push_back(new TextLabel(x, y, 30, QString::fromStdString(puNumber), CENTER));
+        }
+        else
+        {
+            gui.push_back(new TextLabel(x, y, 30, "MAX", CENTER));
+        }
         break;
 
     case BOMB_TIME:
