@@ -38,6 +38,7 @@ SOURCES += \
     lose.cpp \
     main.cpp \
     mainmenu.cpp \
+    monkey.cpp \
     original.cpp \
     playercharacter.cpp \
     powerup.cpp \
@@ -82,6 +83,7 @@ HEADERS += \
     load.h \
     lose.h \
     mainmenu.h \
+    monkey.h \
     original.h \
     playercharacter.h \
     powerup.h \

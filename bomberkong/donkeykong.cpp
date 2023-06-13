@@ -9,6 +9,7 @@
 #include "barrel.h"
 #include "banana.h"
 #include "RNG.h"
+#include "monkey.h"
 
 
 DonkeyKong::DonkeyKong(int posX, int posY, SceneType Lvl)
@@ -143,6 +144,7 @@ void DonkeyKong::update()
             }
             else if(dynamic_cast<Level*>(parent)->getItsSceneType() == JUNGLEDK)
             {
+                // Throwing bananas
                 Coordinate bananaTargetPos;
 
                 do
@@ -150,8 +152,18 @@ void DonkeyKong::update()
                     bananaTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(-40, 20));
                 } while (dynamic_cast<Level*>(parent)->isPointInWall(bananaTargetPos * cellSize));
 
-                // Throws a Banana
                 dynamic_cast<Level*>(parent)->createEntity(new Banana(pos, bananaTargetPos * cellSize));
+
+
+                // Calling family
+                Coordinate monkeyTargetPos;
+
+                do
+                {
+                    monkeyTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(0, 20));
+                } while (dynamic_cast<Level*>(parent)->isPointInWall(monkeyTargetPos * cellSize));
+
+                dynamic_cast<Level*>(parent)->createEntity(new Monkey(monkeyTargetPos * cellSize, "://assets/sprites/t_didikong.png"));
             }
             else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
             {
