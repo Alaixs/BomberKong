@@ -1,14 +1,21 @@
 #ifndef LOAD_H
 #define LOAD_H
 
-#include "scene.h"
 #include <fstream>
+#include "scene.h"
+#include "guielement.h"
+#include "textlabel.h"
 
 class Load : public Scene
 {
 
 private:
+    std::list<GUIElement*> gui;
+
+    GUIElement * bg;
     std::ifstream itsSaveFile;
+    TextLabel * choiceReturn;
+    TextLabel * choiceConfirm;
 
 public:
     /**
@@ -16,6 +23,11 @@ public:
      * @param widget : the main widget
      */
     Load(QWidget* root);
+
+    /**
+     * @brief Destructor for a Load menu
+     */
+    ~Load();
 
     /**
      * @brief Update the state of every updatable element in this menu

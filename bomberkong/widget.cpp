@@ -28,7 +28,7 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
-    setWindowTitle("BomberKong Reloaded");
+    setWindowTitle("BomberKong Journey");
 
     // Loads the font used by the TextLabel object
     gameFont = QFontDatabase::addApplicationFont("://assets/fonts/upheavtt.ttf");

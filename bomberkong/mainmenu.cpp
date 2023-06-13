@@ -183,17 +183,29 @@ void MainMenu::update()
     if (Input::isActionJustPressed(START)) // The player pressed space to start the game
     {
         if (choiceTutorial->isElementSelected()) // Start the tutorial level
+        {
             dynamic_cast<Widget*>(root)->switchScene(TUTORIAL);
+        }
         else if (choiceOriginal->isElementSelected()) // Start the Original level
+        {
             dynamic_cast<Widget*>(root)->switchScene(ORIGINAL);
+        }
         else if (choiceReloaded->isElementSelected()) // Start the Reloaded level
+        {
             dynamic_cast<Widget*>(root)->switchScene(RELOADED);
+        }
         else if (choiceJourney->isElementSelected()) // Start the first level of Journey (BomberLand)
+        {
             dynamic_cast<Widget*>(root)->switchScene(BOMBERLAND);
+        }
         else if (choiceLoad->isElementSelected()) // Open the Load menu
+        {
             dynamic_cast<Widget*>(root)->switchScene(LOAD);
+        }
         else if (options->isElementSelected()) // Open the Settings menu
+        {
             dynamic_cast<Widget*>(root)->switchScene(OPTIONS);
+        }
     }
 }
 
