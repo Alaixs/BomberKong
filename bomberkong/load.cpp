@@ -4,7 +4,7 @@
 Load::Load(QWidget* root)
     : Scene(root)
 {
-
+    itsSaveFile.open("../bomberkong/save.bksave");
 }
 
 void Load::update()

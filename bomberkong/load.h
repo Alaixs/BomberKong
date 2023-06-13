@@ -2,14 +2,19 @@
 #define LOAD_H
 
 #include "scene.h"
+#include <fstream>
 
 class Load : public Scene
 {
 
 private:
-
+    std::ifstream itsSaveFile;
 
 public:
+    /**
+     * @brief Create a new Load menu
+     * @param widget : the main widget
+     */
     Load(QWidget* root);
 
     /**

@@ -18,6 +18,7 @@
 #include "settingsmenu.h"
 #include "bomberland.h"
 #include "load.h"
+#include "chocho.h"
 
 bool isPaused;
 
@@ -151,9 +152,9 @@ void Widget::switchScene(SceneType sceneType)
             currentScene = new BomberLand(this);
             break;
 
-        /*case CHOCHO:
-            currentScene = new ???(this);
-            break;*/
+        case CHOCHO:
+            currentScene = new Chocho(this);
+            break;
 
         case GLAGLA:
             currentScene = new Glagla(this);
