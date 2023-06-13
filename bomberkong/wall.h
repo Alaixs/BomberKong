@@ -14,13 +14,13 @@ public:
      * @param posX : position on x axes
      * @param posY : position on y axes
      */
-    Wall(int posX, int posY);
+    Wall(int posX, int posY, SceneType Lvl);
 
     /**
      * @brief Create a no playable wall
      * @param pos : location coordinates
      */
-    Wall(Coordinate pos);
+    Wall(Coordinate pos, SceneType Lvl);
 
     /**
      * @brief Destructor for a Wall object

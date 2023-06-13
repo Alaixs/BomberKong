@@ -20,6 +20,9 @@ public:
     void update() override;
     void draw(QPainter* painter) override;
 
+    QRect getRect();
+    void collisionEvent(Entity* body);
+
 };
 
 

@@ -1,4 +1,5 @@
-﻿#include "lose.h"
+﻿#include "glagla.h"
+#include "lose.h"
 
 #include <fstream>
 #include <QSoundEffect>
@@ -16,6 +17,9 @@
 #include "reloaded.h"
 #include "settingsmenu.h"
 #include "jungle.h"
+#include "bomberland.h"
+#include "load.h"
+#include "chocho.h"
 
 
 bool isPaused;
@@ -26,7 +30,7 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
-    setWindowTitle("BomberKong Reloaded");
+    setWindowTitle("BomberKong Journey");
 
     // Loads the font used by the TextLabel object
     gameFont = QFontDatabase::addApplicationFont("://assets/fonts/upheavtt.ttf");
@@ -130,8 +134,12 @@ void Widget::switchScene(SceneType sceneType)
             currentScene = new SettingsMenu(this);
         break;
 
+        case LOAD:
+            currentScene = new Load(this);
+            break;
+
         case TUTORIAL:
-            currentScene = new Tutorial(this);
+            currentScene = new Glagla(this);
         break;
 
         case ORIGINAL:
@@ -141,6 +149,22 @@ void Widget::switchScene(SceneType sceneType)
         case RELOADED:
             currentScene = new Jungle(this);
             break;
+
+        case BOMBERLAND:
+            currentScene = new BomberLand(this);
+            break;
+
+        case CHOCHO:
+            currentScene = new Chocho(this);
+            break;
+
+        case GLAGLA:
+            currentScene = new Glagla(this);
+            break;
+
+        /*case JUNGLEDK:
+            currentScene = new ???(this);
+            break;*/
 
         case WIN_SCREEN:
             currentScene = new Win(this);

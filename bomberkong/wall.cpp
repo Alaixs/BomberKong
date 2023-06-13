@@ -5,19 +5,48 @@
 #include "powerup.h"
 #include "level.h"
 
-Wall::Wall(int posX, int posY)
+Wall::Wall(int posX, int posY, SceneType Lvl)
     : Entity(posX, posY)
 {
-    sprite.load("://assets/sprites/t_walls.png");
+    if( Lvl == TUTORIAL ||
+        Lvl == ORIGINAL ||
+        Lvl == RELOADED ||
+        Lvl == BOMBERLAND ||
+        Lvl == JUNGLEDK)
+    {
+        sprite.load("://assets/sprites/t_walls.png");
+    }
+    else if (Lvl == CHOCHO)
+    {
+        sprite.load("://assets/sprites/t_bloc_chocho.png");
+    }
+    else if (Lvl == GLAGLA)
+    {
+        sprite.load("://assets/sprites/t_bloc_glagla.png");
+    }
 }
 
 
-Wall::Wall(Coordinate pos)
+Wall::Wall(Coordinate pos, SceneType Lvl)
     : Entity(pos)
 {
-    sprite.load("://assets/sprites/t_walls.png");
+    if( Lvl == TUTORIAL ||
+        Lvl == ORIGINAL ||
+        Lvl == RELOADED ||
+        Lvl == BOMBERLAND ||
+        Lvl == JUNGLEDK)
+    {
+        sprite.load("://assets/sprites/t_walls.png");
+    }
+    else if (Lvl == CHOCHO)
+    {
+        sprite.load("://assets/sprites/t_bloc_chocho.png");
+    }
+    else if (Lvl == GLAGLA)
+    {
+        sprite.load("://assets/sprites/t_bloc_glagla.png");
+    }
 }
-
 
 Wall::~Wall() {}
 

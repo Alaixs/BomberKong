@@ -9,7 +9,7 @@ Coordinate::Coordinate()
 }
 
 
-Coordinate::Coordinate(int xVal, int yVal)
+Coordinate::Coordinate(float xVal, float yVal)
 {
     x = xVal; // coordinate x
     y = yVal; // coordiante y
@@ -18,7 +18,7 @@ Coordinate::Coordinate(int xVal, int yVal)
 
 float Coordinate::length()
 {
-    return sqrt(pow(x, 2) + pow(y, 2));
+    return sqrt((x*x) + (y*y));
 }
 
 

@@ -1,11 +1,11 @@
-#include "jungle.h"
+#include "glagla.h"
 #include "hammer.h"
 
-
-Jungle::Jungle(QWidget* widget)
+Glagla::Glagla(QWidget * widget)
     : Level(widget)
+
 {
-    itsSceneType = JUNGLEDK;
+    itsSceneType = GLAGLA;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
     currentMap.push_back(rand() % 3);
@@ -16,8 +16,7 @@ Jungle::Jungle(QWidget* widget)
     restart();
 }
 
-
-void Jungle::restart()
+void Glagla::restart()
 {
     deleteAllEntity();
 
@@ -144,3 +143,4 @@ void Jungle::restart()
 
     createEntity(new Hammer(14 * cellSize, 20 * cellSize));
 }
+

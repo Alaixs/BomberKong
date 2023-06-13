@@ -1,11 +1,12 @@
-#include "jungle.h"
+#include "chocho.h"
+
 #include "hammer.h"
 
-
-Jungle::Jungle(QWidget* widget)
+Chocho::Chocho(QWidget * widget)
     : Level(widget)
+
 {
-    itsSceneType = JUNGLEDK;
+    itsSceneType = CHOCHO;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
     currentMap.push_back(rand() % 3);
@@ -16,8 +17,7 @@ Jungle::Jungle(QWidget* widget)
     restart();
 }
 
-
-void Jungle::restart()
+void Chocho::restart()
 {
     deleteAllEntity();
 
@@ -66,7 +66,7 @@ void Jungle::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos,itsSceneType));
+                createEntity(new Wall(xPos, yPos, itsSceneType));
             }
             else if (block == '1')
             {
@@ -94,7 +94,7 @@ void Jungle::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos,itsSceneType));
+                createEntity(new Wall(xPos, yPos, itsSceneType));
             }
             else if (block == '1')
             {
@@ -121,7 +121,7 @@ void Jungle::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos,itsSceneType));
+                createEntity(new Wall(xPos, yPos, itsSceneType));
             }
             else if (block == '1')
             {
@@ -144,3 +144,4 @@ void Jungle::restart()
 
     createEntity(new Hammer(14 * cellSize, 20 * cellSize));
 }
+

@@ -10,23 +10,29 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    RNG.cpp \
     alternative.cpp \
     animationmanager.cpp \
     banana.cpp \
     barrel.cpp \
+    blueflamme.cpp \
     bomb.cpp \
     bombergirl.cpp \
+    chocho.cpp \
+    bomberland.cpp \
     coordinate.cpp \
     donkeykong.cpp \
     dummy.cpp \
     enemy.cpp \
     explosion.cpp \
+    glagla.cpp \
     hammer.cpp \
     jungle.cpp \
     level.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
+    load.cpp \
     lose.cpp \
     main.cpp \
     mainmenu.cpp \
@@ -46,10 +52,15 @@ SOURCES += \
     flame.cpp
 
 HEADERS += \
+    RNG.h \
     alternative.h \
     banana.h \
+    blueflamme.h \
+    chocho.h \
+    bomberland.h \
     dummy.h \
     enemy.h \
+    glagla.h \
     hammer.h \
     jungle.h \
     level.h \
@@ -63,6 +74,7 @@ HEADERS += \
     guielement.h \
     indestructiblewall.h \
     input.h \
+    load.h \
     lose.h \
     mainmenu.h \
     original.h \

@@ -80,13 +80,14 @@ void Level::update()
             // Collision detection made by iterating on every entity and checking if it's
             // rect intersects with this entity.
             std::list<Entity*>::iterator collider;
-            for (collider = entities.begin(); collider != entities.end(); ++collider)
+            for (collider = it; collider != entities.end(); ++collider)
             {
-                if (it != collider) // So that entities won't collide with themselves
+                if (it != collider && dynamic_cast<IndestructibleWall*>(*it) == nullptr)
                 {
                     if ((*it)->getRect().intersects((*collider)->getRect()))
                     {
                         (*it)->collisionEvent(*collider);
+                        (*collider)->collisionEvent(*it);
                     }
                 }
             }
@@ -200,29 +201,92 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
 
 void Level::draw(QPainter* painter)
 {
-    // Draws a background in a checkerboard pattern
-    for(int i = 0; i < 20; i++)
+    if(itsSceneType == TUTORIAL ||
+        itsSceneType == ORIGINAL||
+        itsSceneType == RELOADED||
+        itsSceneType == BOMBERLAND||
+        itsSceneType == JUNGLEDK)
     {
-        for(int j = 0; j < 40; j++){
-            painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(0, 161, 30))
-            );
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0, 161, 30))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(0, 161, 30))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0, 161, 30))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(1, 133, 21))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(1, 133, 21))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(1, 133, 21))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(1, 133, 21))
+                );
+            }
+        }
+    }
+    else if(itsSceneType == GLAGLA)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(255,255,255))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(255,255,255))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(146, 180, 236))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(146, 180, 236))
+                    );
+            }
+        }
+    }
+    else if(itsSceneType == CHOCHO)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 13; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j, cellSize, cellSize,
+                    QBrush(QColor(255, 0, 0))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                    QBrush(QColor(255, 0, 0))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j, cellSize, cellSize,
+                    QBrush(QColor(200, 0, 0))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                    QBrush(QColor(200, 0, 0))
+                    );
+            }
         }
     }
 
@@ -247,6 +311,10 @@ void Level::draw(QPainter* painter)
 void Level::createEntity(Entity* entity)
 {
     entity->setParent(this);
+    if(typeid(*entity).name() == "Wall"  )
+    {
+        entity->setsprite();
+    }
     entities.push_back(entity);
 }
 
@@ -264,7 +332,25 @@ void Level::deleteAllEntity()
 
 void Level::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN); // Go to the victory screen
+    if( itsSceneType == TUTORIAL ||
+        itsSceneType == ORIGINAL ||
+        itsSceneType == RELOADED ||
+        itsSceneType == JUNGLEDK)
+    {
+        dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN); // Go to the victory screen
+    }
+    else if (itsSceneType == BOMBERLAND)
+    {
+         dynamic_cast<Widget*>(root)->switchScene(CHOCHO);
+    }
+    else if (itsSceneType == CHOCHO)
+    {
+         dynamic_cast<Widget*>(root)->switchScene(GLAGLA);
+    }
+    else if (itsSceneType == GLAGLA)
+    {
+         dynamic_cast<Widget*>(root)->switchScene(JUNGLEDK);
+    }
 }
 
 

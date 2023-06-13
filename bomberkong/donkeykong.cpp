@@ -1,10 +1,12 @@
 #include "donkeykong.h"
 
 #include <random>
+#include "blueflamme.h"
 #include "global.h"
 #include "level.h"
 #include "barrel.h"
 #include "banana.h"
+#include "RNG.h"
 
 
 DonkeyKong::DonkeyKong(int posX, int posY)
@@ -66,7 +68,8 @@ void DonkeyKong::update()
         }
 
         // Also throws flames
-        else if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL)
+        else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED ||
+                 dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
         {
             if (rand() % 4 > 0)
             {
@@ -79,7 +82,7 @@ void DonkeyKong::update()
                 if(dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
                 {
                     if(rand() % 2 == 0)
-                    {
+                     {
                         SpawnPos.x = rand() % 10 * cellSize;
                         SpawnPos.y = ((rand() % 10) + 13) * cellSize ;
                     }
@@ -98,6 +101,26 @@ void DonkeyKong::update()
                 dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
             }
             pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+        }
+        else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
+        {
+            Coordinate spawnPos;
+            spawnPos.x = rand() % 20 * cellSize;
+            spawnPos.y = ((rand() % 60) + 4) * cellSize ;
+            // Throws a Flamme
+            dynamic_cast<Level*>(parent)->createEntity(new Barrel(spawnPos, pos.y));
+        }
+        else if(dynamic_cast<Level*>(parent)->getItsSceneType() == JUNGLEDK)
+        {
+            Coordinate bananaTargetPos;
+
+            do
+            {
+                bananaTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(-40, 20));
+            } while (dynamic_cast<Level*>(parent)->isPointInWall(bananaTargetPos * cellSize));
+
+            // Throws a Banana
+            dynamic_cast<Level*>(parent)->createEntity(new Banana(pos, bananaTargetPos * cellSize));
         }
 
         timer = throwingRate; // Reset the timer

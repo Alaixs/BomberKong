@@ -20,8 +20,10 @@ private:
 
 
     bool flipped;                   ///< False = left, True = false
+    bool isStunned;
     bool isKO;                      ///< is the character KO, he is not controllable if true
     int timer;                      ///< init timer
+    int stunTimer;
     int nbLives;                    ///< The player's current lives count
 
     // Power-Up
@@ -106,6 +108,13 @@ public:
      * @return if hammer is posseded by player
      */
     bool isOnHammerEffect();
+
+    /**
+     * @brief Stuns the player.
+     *
+     * @param time : The duration of te stun
+     */
+    void stun(int time);
 
 };
 
