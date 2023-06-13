@@ -23,6 +23,7 @@ SOURCES += \
     dummy.cpp \
     enemy.cpp \
     explosion.cpp \
+    fireball.cpp \
     glagla.cpp \
     hammer.cpp \
     icebloc.cpp \
@@ -56,6 +57,7 @@ HEADERS += \
     bomberland.h \
     dummy.h \
     enemy.h \
+    fireball.h \
     glagla.h \
     hammer.h \
     icebloc.h \

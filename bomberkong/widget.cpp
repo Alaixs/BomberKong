@@ -4,6 +4,7 @@
 #include <fstream>
 #include <QSoundEffect>
 #include <QFontDatabase>
+#include "scene.h"
 #include "ui_widget.h"
 #include "global.h"
 #include "widget.h"

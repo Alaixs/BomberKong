@@ -2,6 +2,7 @@
 
 #include <random>
 #include "blueflamme.h"
+#include "fireball.h"
 #include "global.h"
 #include "icebloc.h"
 #include "level.h"
@@ -112,13 +113,29 @@ void DonkeyKong::update()
             }
             pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
         }
+        else if(dynamic_cast<Level*>(parent)->getItsSceneType() == CHOCHO)
+        {
+            Coordinate SpawnPos;
+            SpawnPos.x = rand() % 20 * cellSize;
+            SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+            pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+            if(rand()%2 == 1)
+            {
+                // Throws a Flamme
+                dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
+            }
+            else
+            {
+                dynamic_cast<Level*>(parent)->createEntity(new FireBall(dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x,pos.y,dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y ));
+            }
+        }
         else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
         {
             Coordinate SpawnPos;
             SpawnPos.x = rand() % 20 * cellSize;
             SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
             pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
-            if(rand()%2 == 3)
+            if(rand()%2 == 1)
             {
                 // Throws a Flamme
                 dynamic_cast<Level*>(parent)->createEntity(new BlueFlamme(SpawnPos, pos.y));
