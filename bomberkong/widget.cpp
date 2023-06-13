@@ -1,4 +1,5 @@
-﻿#include "lose.h"
+﻿#include "glagla.h"
+#include "lose.h"
 
 #include <fstream>
 #include <QSoundEffect>
@@ -135,7 +136,7 @@ void Widget::switchScene(SceneType sceneType)
             break;
 
         case TUTORIAL:
-            currentScene = new Tutorial(this);
+            currentScene = new Glagla(this);
         break;
 
         case ORIGINAL:
