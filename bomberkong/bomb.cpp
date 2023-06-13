@@ -65,7 +65,7 @@ void Bomb::update()
         dynamic_cast<Level*>(parent)->createExplosion(pos.x, pos.y);
 
         // Up
-        for (int i = 1; i <= itsExplosionRange + 1; i++)
+        for (int i = 1; i <= itsExplosionRange; i++)
         {
             Coordinate explosionPos(pos.x, pos.y + cellSize * i);
 
@@ -78,7 +78,7 @@ void Bomb::update()
         }
 
         // Down
-        for (int i = 1; i <= itsExplosionRange + 1; i++)
+        for (int i = 1; i <= itsExplosionRange; i++)
         {
             Coordinate explosionPos(pos.x, pos.y - cellSize * i);
 
@@ -91,7 +91,7 @@ void Bomb::update()
         }
 
         // Left
-        for (int i = 1; i <= itsExplosionRange + 1; i++)
+        for (int i = 1; i <= itsExplosionRange; i++)
         {
             Coordinate explosionPos(pos.x - cellSize * i, pos.y);
 
@@ -104,7 +104,7 @@ void Bomb::update()
         }
 
         // Right
-        for (int i = 1; i <= itsExplosionRange + 1; i++)
+        for (int i = 1; i <= itsExplosionRange; i++)
         {
             Coordinate explosionPos(pos.x + cellSize * i, pos.y);
 
