@@ -5,6 +5,7 @@
 #include "scene.h"
 #include "guielement.h"
 #include "textlabel.h"
+#include "powerup.h"
 
 class Load : public Scene
 {
@@ -16,6 +17,13 @@ private:
     std::ifstream itsSaveFile;
     TextLabel * choiceReturn;
     TextLabel * choiceConfirm;
+    int level;
+    int lifes;
+    int speed;
+    int bombNb;
+    int bombRange;
+    int bombTime;
+    bool wearArmor;
 
 public:
     /**
@@ -28,6 +36,13 @@ public:
      * @brief Destructor for a Load menu
      */
     ~Load();
+
+    /**
+     * @brief Destructor for a Load menu
+     * @param
+     * @param
+     */
+    void displayPUNumber(int nb, PowerUpType type, int x, int y);
 
     /**
      * @brief Update the state of every updatable element in this menu
