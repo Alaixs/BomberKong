@@ -26,6 +26,8 @@ public:
      */
     void restart() override;
 
+    bool isBossRoomClose;
+
 };
 
 #endif // JUNGLE_H
