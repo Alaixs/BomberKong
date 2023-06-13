@@ -4,6 +4,7 @@
 #include <fstream>
 #include <QSoundEffect>
 #include <QFontDatabase>
+#include "scene.h"
 #include "ui_widget.h"
 #include "global.h"
 #include "widget.h"
@@ -137,7 +138,7 @@ void Widget::switchScene(SceneType sceneType)
             break;
 
         case TUTORIAL:
-            currentScene = new Glagla(this);
+            currentScene = new Tutorial(this);
         break;
 
         case ORIGINAL:

@@ -2,6 +2,7 @@
 
 #include <QMessageBox>
 #include "blueflamme.h"
+#include "fireball.h"
 #include "hammer.h"
 #include "icebloc.h"
 #include "soundmanager.h"
@@ -187,8 +188,14 @@ void PlayerCharacter::update()
     }
     else // Player is KO
     {
-
-    animation->play(10, 12); // KO Animation
+    if(freeze >= 1)
+    {
+        animation->play(12,13); // Freeze animation
+    }
+    else
+    {
+        animation->play(10, 12); // KO Animation
+    }
 
     if (Input::isActionJustPressed(START))
     {
@@ -335,7 +342,12 @@ void PlayerCharacter::collisionEvent(Entity * body)
         || (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr)
         || dynamic_cast<Explosion*>(body) != nullptr
         || dynamic_cast<Flame*>(body) != nullptr
-        || dynamic_cast<BlueFlamme*>(body) != nullptr)
+        || dynamic_cast<BlueFlamme*>(body) != nullptr
+        || (dynamic_cast<FireBall*>(body) != nullptr
+            && !(dynamic_cast<FireBall*>(body)->getIsFlying()
+                 )
+            )
+        )
     {
         if (invincibilityTimer <= 0 && hammerTimer == 0)
         {
@@ -361,7 +373,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     {
         freeze++;
 
-        if(freeze == 1000)
+        if(freeze == 300)
         {
             nbLives--;
             isKO = true;
@@ -422,7 +434,7 @@ void PlayerCharacter::draw(QPainter * painter)
         painter->drawPixmap(
             QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
             sprite.transformed(QTransform().scale(-1, 1)),
-            QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
+            QRect((12 - animation->getFrame()) * 16, 0, 16, 16)
         );
 
         // Draws the hammer

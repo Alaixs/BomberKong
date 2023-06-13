@@ -63,5 +63,5 @@ void Original::restart()
 
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-    createEntity(new DonkeyKong(9 * cellSize, 0));
+    createEntity(new DonkeyKong(9 * cellSize, 0, itsSceneType));
 }
