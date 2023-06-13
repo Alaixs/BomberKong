@@ -80,7 +80,7 @@ void Wall::collisionEvent(Entity * body)
         {
             // Drops a power up with a 25% chance
             std::srand(std::time(0));
-            int randomNumber = std::rand() % 25;
+            int randomNumber = std::rand() % 100;
 
             if (randomNumber <= 25) {
                 dropPowerUp();
