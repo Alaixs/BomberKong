@@ -2,15 +2,24 @@
 
 #include <list>
 #include <cmath>
+#include <fstream>
 #include "input.h"
 #include "widget.h"
 #include "global.h"
-
 
 MainMenu::MainMenu(QWidget* widget)
     : Scene(widget)
 {
     timer = 0;
+
+    // Check if a save file exists (init the saveFileFound boolean)
+    std::ifstream saveFile;
+    saveFile.open("../bomberkong/save.bksave"); // Save file
+    saveFileFound = saveFile.is_open();
+    if (saveFileFound)
+    {
+        saveFile.close();
+    }
 
     // Background
     bg = new GUIElement(Coordinate(0, 0),
@@ -58,6 +67,10 @@ MainMenu::MainMenu(QWidget* widget)
     // Load save option
     choiceLoad = new TextLabel(310, 650, 50, "LOAD", CENTER);
     gui.push_back(choiceLoad);
+    if (!saveFileFound)
+    {
+        choiceLoad->setColor(Qt::gray);
+    }
 
     selected = new GUIElement(Coordinate(140, 355),
                               Coordinate(48, 48),
@@ -115,8 +128,17 @@ void MainMenu::update()
         else if (choiceJourney->isElementSelected())
         {
             choiceJourney->deselect();
-            choiceLoad->select();
-            selected->setPos(Coordinate(120,615));
+            if (!saveFileFound) // Save file wasn't found. Load option is not available
+            {
+                options->select();
+                options->texture.load("://assets/sprites/t_options_selected.png");
+                selected->isVisible = false;
+            }
+            else
+            {
+                choiceLoad->select();
+                selected->setPos(Coordinate(120,615));
+            }
         }
         else if (choiceLoad->isElementSelected())
         {
@@ -149,8 +171,16 @@ void MainMenu::update()
         {
             options->deselect();
             options->texture.load("://assets/sprites/t_options.png");
-            choiceLoad->select();
-            selected->setPos(Coordinate(120,615));
+            if (!saveFileFound) // Save file wasn't found. Load option is not available
+            {
+                choiceJourney->select();
+                selected->setPos(Coordinate(120,550));
+            }
+            else
+            {
+                choiceLoad->select();
+                selected->setPos(Coordinate(120,615));
+            }
             selected->isVisible = true;
         }
         else if (choiceLoad->isElementSelected())
