@@ -6,6 +6,7 @@ class Chocho : public Level
 {
 public:
     Chocho(QWidget * widget);
+    Chocho(QWidget * widget, PlayerCharacter * player);
 
     void restart();
 };

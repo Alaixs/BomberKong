@@ -175,7 +175,31 @@ void Widget::switchScene(SceneType sceneType)
         case ALTERNATIVE_ENDING:
             currentScene = new Alternative(this);
         break;
+
+        default:
+            break;
     }
 
     //delete temp;
+}
+
+void Widget::startLvlFromSave(SceneType sceneType, PlayerCharacter * player)
+{
+    switch(sceneType)
+    {
+    case CHOCHO:
+        currentScene = new Chocho(this, player);
+        break;
+
+    case GLAGLA:
+        currentScene = new Glagla(this, player);
+        break;
+
+    /*case JUNGLEDK:
+            currentScene = new ???(this);
+            break;*/
+
+    default:
+        break;
+    }
 }

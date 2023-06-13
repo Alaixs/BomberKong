@@ -17,6 +17,33 @@ Glagla::Glagla(QWidget * widget)
     restart();
 }
 
+Glagla::Glagla(QWidget * widget, PlayerCharacter * player)
+    : Level(widget)
+
+{
+    *itsPlayer = *player;
+    itsPlayer->setParent(this);
+
+    itsSceneType = GLAGLA;
+    setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
+
+    currentMap.push_back(rand() % 3);
+    currentMap.push_back(rand() % 3);
+    currentMap.push_back(rand() % 3);
+
+    initPowerUpGUI();
+
+    // Update the GUI based on the player stats
+    updateLivesGUI(itsPlayer->getItsLivesNb());
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(SPEED),SPEED);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(BOMB_TIME),BOMB_TIME);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(BOMB_RANGE),BOMB_RANGE);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(BOMB_NB),BOMB_NB);
+    updatePowerUpGUI(itsPlayer->getItsPUNumber(ARMOR),ARMOR);
+
+    restart();
+}
+
 void Glagla::restart()
 {
     deleteAllEntity();

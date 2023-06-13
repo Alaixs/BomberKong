@@ -442,6 +442,8 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
+    dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives);
+    std::cout << nbLives << std::endl;
     SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
 }
 
@@ -453,4 +455,43 @@ QRect PlayerCharacter::getRect()
 bool PlayerCharacter::isOnHammerEffect()
 {
     return isHammer;
+}
+
+void PlayerCharacter::setItsStats(int lifes, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor)
+{
+    nbLives = lifes;
+    speedBonusNb = speedNb;
+    maxBombBonusNb = bombNb;
+    explosionRangeBonusNb = bombRange;
+    explosionTimeBonusNb = bombTime;
+    armorOn = wearArmor;
+}
+
+int PlayerCharacter::getItsPUNumber(PowerUpType powerUp)
+{
+    switch(powerUp)
+    {
+    case SPEED:
+        return speedBonusNb;
+
+    case BOMB_NB:
+        return maxBombBonusNb;
+
+    case BOMB_RANGE:
+        return explosionRangeBonusNb;
+
+    case BOMB_TIME:
+        return explosionTimeBonusNb;
+
+    case ARMOR:
+        return armorOn;
+
+    default:
+        break;
+    }
+}
+
+int PlayerCharacter::getItsLivesNb()
+{
+    return nbLives;
 }

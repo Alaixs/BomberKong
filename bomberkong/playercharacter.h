@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "animationmanager.h"
 #include "soundmanager.h"
+#include "powerup.h"
 
 /**
  * @brief The class of the Player's Character
@@ -17,7 +18,6 @@ private:
     Coordinate motion;              ///< direction
     AnimationManager* animation;    ///< The actual animation ( the range in the sprite image)
     AnimationManager* hammerAnimation;
-
 
     bool flipped;                   ///< False = left, True = false
     bool isKO;                      ///< is the character KO, he is not controllable if true
@@ -109,6 +109,28 @@ public:
      */
     bool isOnHammerEffect();
 
+    /**
+     * @param lifes : The player number of lifes
+     * @param speedNb : The number of speed bonuses
+     * @param bombNb : The number of bomb number bonuses
+     * @param bombRange :The number of bomb range bonuses
+     * @param bombTime : The number of explosion time bonuses
+     * @param wearArmor : If the player is wearing an armor or not
+     */
+    void setItsStats(int lifes, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor);
+
+    /**
+     * @brief Getter for a Power-Up number
+     * @param powerUp : The type of the Power-Up number we want
+     * @return The number of the Power-Up the player has from the PU Type
+     */
+    int getItsPUNumber(PowerUpType powerUp);
+
+    /**
+     * @brief Getter for the player number of lives
+     * @return The player number of lives
+     */
+    int getItsLivesNb();
 };
 
 #endif // PLAYERCHARACTER_H

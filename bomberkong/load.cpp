@@ -3,6 +3,7 @@
 #include "textlabel.h"
 #include "input.h"
 #include "powerup.h"
+#include "global.h"
 
 Load::Load(QWidget* root)
     : Scene(root)
@@ -46,7 +47,7 @@ Load::Load(QWidget* root)
 
     // Life
     int x = 50, y = 380;
-    for (int i = 0; i != 3; i++)
+    for (int i = -1; i != 2; i++)
     {
         if (i < lifes)
         {
@@ -108,6 +109,7 @@ Load::Load(QWidget* root)
     }
 }
 
+
 Load::~Load()
 {
     // Loop to delete every elements inside the gui list
@@ -122,7 +124,6 @@ Load::~Load()
 void Load::displayPUNumber(int nb, PowerUpType type, int x, int y)
 {
     std::string puNumber = "x" + std::to_string(nb);
-    std::list<GUIElement*>::iterator it = gui.begin();
 
     switch(type)
     {
@@ -161,6 +162,7 @@ void Load::displayPUNumber(int nb, PowerUpType type, int x, int y)
     }
 }
 
+
 void Load::update()
 {
     if (Input::isActionPressed(MOVE_RIGHT) || Input::isActionPressed(MOVE_LEFT))
@@ -190,8 +192,7 @@ void Load::update()
         }
         else if (choiceConfirm->isElementSelected()) // Load the save file
         {
-            qDebug("TODO");
-            dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+            loadLevel();
         }
     }
 }
@@ -203,5 +204,29 @@ void Load::draw(QPainter* painter)
     for (it = gui.begin(); it != gui.end(); it++)
     {
         (*it)->draw(painter);
+    }
+}
+
+void Load::loadLevel()
+{
+    PlayerCharacter * player = new PlayerCharacter(9.5 * cellSize, 21 * cellSize);
+    player->setItsStats(lifes, speed, bombNb, bombRange, bombTime, wearArmor);
+
+    switch(level)
+    {
+    case 0:
+        dynamic_cast<Widget*>(root)->startLvlFromSave(CHOCHO, player);
+        break;
+
+    case 1:
+        dynamic_cast<Widget*>(root)->startLvlFromSave(GLAGLA, player);
+        break;
+
+    case 2:
+        dynamic_cast<Widget*>(root)->startLvlFromSave(JUNGLEDK, player);
+        break;
+
+    default:
+        break;
     }
 }

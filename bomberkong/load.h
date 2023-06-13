@@ -11,19 +11,18 @@ class Load : public Scene
 {
 
 private:
-    std::list<GUIElement*> gui;
-
-    GUIElement * bg;
-    std::ifstream itsSaveFile;
-    TextLabel * choiceReturn;
-    TextLabel * choiceConfirm;
-    int level;
-    int lifes;
-    int speed;
-    int bombNb;
-    int bombRange;
-    int bombTime;
-    bool wearArmor;
+    std::list<GUIElement*> gui;     ///< A list if GUI Elements
+    GUIElement * bg;                ///< The background
+    std::ifstream itsSaveFile;      ///< The save file
+    TextLabel * choiceReturn;       ///< The Return choice text label
+    TextLabel * choiceConfirm;      ///< The Confirm choice text label
+    int level;                      ///< The level of the save file
+    int lifes;                      ///< The number of lifes the player has
+    int speed;                      ///< The number of speed Power-Up the player has
+    int bombNb;                     ///< The number of BombNb Power-Up the player has
+    int bombRange;                  ///< The number of BombRange Power-Up the player has
+    int bombTime;                   ///< The number of BombTime Power-Up the player has
+    bool wearArmor;                 ///< Boolean to know if the player was wearing an armor
 
 public:
     /**
@@ -38,9 +37,11 @@ public:
     ~Load();
 
     /**
-     * @brief Destructor for a Load menu
-     * @param
-     * @param
+     * @brief Change the display of the Power-Up number
+     * @param nb : The number of Power-Up
+     * @param type : The type of the Power-Up
+     * @param x : The x coord
+     * @param y : The y coord
      */
     void displayPUNumber(int nb, PowerUpType type, int x, int y);
 
@@ -54,6 +55,11 @@ public:
      * @param painter : The QPainter object used to draw the menu
      */
     void draw(QPainter* painter);
+
+    /**
+     * @brief Load the level based on the save file
+     */
+    void loadLevel();
 
 };
 
