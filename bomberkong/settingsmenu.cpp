@@ -42,6 +42,39 @@ SettingsMenu::SettingsMenu(QWidget* root)
     // Initialize the cursor
     currentSelectedOption = 0;
     options.at(currentSelectedOption)->setColor(Qt::red);
+
+    displayBindings();
+}
+
+
+void SettingsMenu::displayBindings()
+{
+    // Opens config.ini
+    QSettings settings("../bomberkong/config.ini", QSettings::IniFormat);
+
+    QString keyName;
+
+    // Display the binding for each action
+    keyName = QKeySequence(settings.value("Controls/MoveUp").toInt()).toString();
+    options.at(0)->setText("MOVE UP - [" + keyName + "]");
+
+    keyName = QKeySequence(settings.value("Controls/MoveDown").toInt()).toString();
+    options.at(1)->setText("MOVE DOWN - [" + keyName + "]");
+
+    keyName = QKeySequence(settings.value("Controls/MoveRight").toInt()).toString();
+    options.at(2)->setText("MOVE RIGHT - [" + keyName + "]");
+
+    keyName = QKeySequence(settings.value("Controls/MoveLeft").toInt()).toString();
+    options.at(3)->setText("MOVE LEFT - [" + keyName + "]");
+
+    keyName = QKeySequence(settings.value("Controls/PlaceBomb").toInt()).toString();
+    options.at(4)->setText("PLACE BOMB - [" + keyName + "]");
+
+    keyName = QKeySequence(settings.value("Controls/PushBomb").toInt()).toString();
+    options.at(5)->setText("PUSH BOMB - [" + keyName + "]");
+
+    keyName = QKeySequence(settings.value("Controls/Start").toInt()).toString();
+    options.at(6)->setText("START - [" + keyName + "]");
 }
 
 
@@ -120,6 +153,7 @@ void SettingsMenu::update()
 
             // Update control scheme
             Input::loadControlsConfig();
+            displayBindings();
             options.at(currentSelectedOption)->setColor(Qt::red);
             waitingForInput = false;
         }
@@ -148,6 +182,8 @@ void SettingsMenu::update()
 
             // Update control scheme
             Input::loadControlsConfig();
+
+            displayBindings();
         }
         else
         {
