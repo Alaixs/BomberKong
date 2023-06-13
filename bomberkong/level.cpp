@@ -240,22 +240,22 @@ void Level::draw(QPainter* painter)
             for(int j = 0; j < 40; j++){
                 painter->fillRect(
                     cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                    QBrush(QColor(154, 197, 244))
+                    QBrush(QColor(180,207,250))
                     );
 
                 painter->fillRect(
                     cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                    QBrush(QColor(154, 197, 244))
+                    QBrush(QColor(180,207,250))
                     );
 
                 painter->fillRect(
                     cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                    QBrush(QColor(153, 219, 245))
+                    QBrush(QColor(0,107,206))
                     );
 
                 painter->fillRect(
                     cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                    QBrush(QColor(153, 219, 245))
+                    QBrush(QColor(0,107,206 ))
                     );
             }
         }

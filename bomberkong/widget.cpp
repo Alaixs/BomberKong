@@ -138,7 +138,7 @@ void Widget::switchScene(SceneType sceneType)
             break;
 
         case TUTORIAL:
-            currentScene = new Glagla(this);
+            currentScene = new Tutorial(this);
         break;
 
         case ORIGINAL:

@@ -80,7 +80,8 @@ void DonkeyKong::update()
 
         // Also throws flames
         else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED ||
-                 dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
+                 dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL ||
+                 dynamic_cast<Level*>(parent)->getItsSceneType() == BOMBERLAND)
         {
             if (rand() % 4 > 0)
             {
