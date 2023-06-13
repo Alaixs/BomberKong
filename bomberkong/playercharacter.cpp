@@ -456,8 +456,6 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    dynamic_cast<Level*>(parent)->updateLivesGUI(nbLives);
-    std::cout << nbLives << std::endl;
     SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
 }
 
