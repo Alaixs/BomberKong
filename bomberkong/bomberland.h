@@ -6,9 +6,20 @@
 class BomberLand : public Reloaded
 {
 public:
+    /**
+     * @brief Constructor for a BomberLand level
+     * @param widget : The main widget
+     */
     BomberLand(QWidget* widget);
+
+    /**
+     * @brief Destructor for a BomberLand level
+     */
     ~BomberLand();
 
+    /**
+     * @brief Called when the player finish the level. Shows the save menu and get to the next level (Chocho)
+     */
     void win();
 };
 

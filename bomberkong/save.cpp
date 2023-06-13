@@ -25,18 +25,20 @@ Save::Save(QWidget* root, int levelToSave, PlayerCharacter * player)
                         );
     gui.push_back(bg);
 
-    // Text
+    // Create all the text labels
     gui.push_back(new TextLabel(320, 75, 64, "Save ?", CENTER));
     gui.push_back(new TextLabel(50, 160, 48, "Level", LEFT));
     gui.push_back(new TextLabel(50, 370, 48, "Life", LEFT));
     gui.push_back(new TextLabel(50, 470, 48, "Power-Up", LEFT));
     gui.push_back(new TextLabel(50, 610, 48, "Armor", LEFT));
 
+    // Choices text labels
     choiceReturn = new TextLabel(60, 750, 48, "Don't save", LEFT);
     gui.push_back(choiceReturn);
     choiceConfirm = new TextLabel(360, 750, 48, "Confirm", LEFT);
     gui.push_back(choiceConfirm);
 
+    // Default selection
     choiceReturn->select();
     choiceReturn->setColor(Qt::red);
 
@@ -44,7 +46,7 @@ Save::Save(QWidget* root, int levelToSave, PlayerCharacter * player)
     int x = 50, y = 380;
     for (int i = -1; i != 2; i++)
     {
-        if (i < lives)
+        if (i < lives) // The player has more lives than i
         {
             gui.push_back(
                 new GUIElement(
@@ -91,6 +93,8 @@ Save::Save(QWidget* root, int levelToSave, PlayerCharacter * player)
     displayPUNumber(bombRange, BOMB_RANGE, 190, 555);
     displayPUNumber(bombNb, BOMB_NB, 250, 555);
 
+
+    // Add the armor icon with a text label "ON" if the player has one, "OFF" otherwise
     GUIElement * armor = new GUIElement(Coordinate(50, 625), Coordinate(48, 48), "://assets/sprites/t_armor.png");
     gui.push_back(armor);
 
@@ -120,7 +124,7 @@ void Save::displayPUNumber(int nb, PowerUpType type, int x, int y)
 {
     std::string puNumber = "x" + std::to_string(nb);
 
-    switch(type)
+    switch(type) // Update the right text label based on the Power-Up type
     {
     case SPEED:
         if (nb < 4)
@@ -186,15 +190,15 @@ void Save::update()
         }
     }
 
-    if (Input::isActionJustPressed(START)) // The player pressed space to start the game
+    if (Input::isActionJustPressed(START))
     {
         if (choiceReturn->isElementSelected()) // Return to the main menu
         {
             dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
         }
-        else if (choiceConfirm->isElementSelected())
+        else if (choiceConfirm->isElementSelected()) // Player chooses to save its progress
         {
-            saveLevel();
+            saveData();
         }
     }
 }
@@ -202,6 +206,7 @@ void Save::update()
 
 void Save::draw(QPainter* painter)
 {
+    // Draw every elements of the GUI list
     std::list<GUIElement*>::iterator it;
     for (it = gui.begin(); it != gui.end(); it++)
     {
@@ -210,20 +215,21 @@ void Save::draw(QPainter* painter)
 }
 
 
-void Save::saveLevel()
+void Save::saveData()
 {
-    itsSaveFile.open("../bomberkong/save.bksave");
+    itsSaveFile.open("../bomberkong/save.bksave"); // Save file
     if (!itsSaveFile)
     {
         qDebug("Unable to open the file.");
     }
     else
     {
+        // Write the data inside the .bksave file
         itsSaveFile << level << " " << lives << " " << speed << " " << bombTime << " " << bombRange << " " << bombNb << " " << wearArmor;
         itsSaveFile.close();
     }
 
-    switch(level)
+    switch(level) // Go to the next level
     {
     case 0:
         dynamic_cast<Widget*>(root)->startLvlFromSave(CHOCHO,itsPlayer);

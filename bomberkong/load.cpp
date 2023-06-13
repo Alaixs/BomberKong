@@ -8,7 +8,7 @@
 Load::Load(QWidget* root)
     : Scene(root)
 {
-    itsSaveFile.open("../bomberkong/save.bksave");
+    itsSaveFile.open("../bomberkong/save.bksave"); // Save file
     if (!itsSaveFile)
     {
         qDebug("Unable to load the save file.");
@@ -17,6 +17,7 @@ Load::Load(QWidget* root)
     {
         while (!itsSaveFile.eof())
         {
+            // Read and store the data from the save file
             itsSaveFile >> level >> lives >> speed >> bombTime >> bombRange >> bombNb >> wearArmor;
         }
         itsSaveFile.close();
@@ -29,19 +30,20 @@ Load::Load(QWidget* root)
                         );
     gui.push_back(bg);
 
-    // Text
-
+    // Create all the text labels
     gui.push_back(new TextLabel(320, 75, 64, "Load", CENTER));
     gui.push_back(new TextLabel(50, 160, 48, "Level", LEFT));
     gui.push_back(new TextLabel(50, 370, 48, "Life", LEFT));
     gui.push_back(new TextLabel(50, 470, 48, "Power-Up", LEFT));
     gui.push_back(new TextLabel(50, 610, 48, "Armor", LEFT));
 
+    // Choices text labels
     choiceReturn = new TextLabel(100, 750, 48, "Return", LEFT);
     gui.push_back(choiceReturn);
     choiceConfirm = new TextLabel(350, 750, 48, "Confirm", LEFT);
     gui.push_back(choiceConfirm);
 
+    // Default selection
     choiceReturn->select();
     choiceReturn->setColor(Qt::red);
 
@@ -96,6 +98,7 @@ Load::Load(QWidget* root)
     displayPUNumber(bombRange, BOMB_RANGE, 190, 555);
     displayPUNumber(bombNb, BOMB_NB, 250, 555);
 
+    // Add the armor icon with a text label "ON" if the player has one, "OFF" otherwise
     GUIElement * armor = new GUIElement(Coordinate(50, 625), Coordinate(48, 48), "://assets/sprites/t_armor.png");
     gui.push_back(armor);
 
@@ -125,7 +128,7 @@ void Load::displayPUNumber(int nb, PowerUpType type, int x, int y)
 {
     std::string puNumber = "x" + std::to_string(nb);
 
-    switch(type)
+    switch(type) // Update the right text label based on the Power-Up type
     {
     case SPEED:
         if (nb < 4)
@@ -191,13 +194,13 @@ void Load::update()
         }
     }
 
-    if (Input::isActionJustPressed(START)) // The player pressed space to start the game
+    if (Input::isActionJustPressed(START))
     {
         if (choiceReturn->isElementSelected()) // Return to the main menu
         {
             dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
         }
-        else if (choiceConfirm->isElementSelected()) // Load the save file
+        else if (choiceConfirm->isElementSelected()) // Player chooses to load the save file
         {
             loadLevel();
         }
@@ -207,6 +210,7 @@ void Load::update()
 
 void Load::draw(QPainter* painter)
 {
+    // Draw every elements of the GUI list
     std::list<GUIElement*>::iterator it;
     for (it = gui.begin(); it != gui.end(); it++)
     {
@@ -216,10 +220,11 @@ void Load::draw(QPainter* painter)
 
 void Load::loadLevel()
 {
+    // Create a new player with the data extracted from the save file
     PlayerCharacter * player = new PlayerCharacter(9.5 * cellSize, 21 * cellSize);
     player->setItsStats(lives, speed, bombNb, bombRange, bombTime, wearArmor);
 
-    switch(level)
+    switch(level) // Start the level
     {
     case 0:
         dynamic_cast<Widget*>(root)->startLvlFromSave(CHOCHO, player);

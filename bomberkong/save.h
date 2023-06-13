@@ -61,9 +61,9 @@ public:
     void draw(QPainter* painter);
 
     /**
-     * @brief Save the level in a save file
+     * @brief Save the data in a save file
      */
-    void saveLevel();
+    void saveData();
 
 };
 

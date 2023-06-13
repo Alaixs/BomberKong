@@ -176,5 +176,6 @@ void Glagla::restart()
 
 void Glagla::win()
 {
+    // Open the save menu and go to the next level (Jungle DK)
     dynamic_cast<Widget*>(root)->saveGame(2, itsPlayer);
 }

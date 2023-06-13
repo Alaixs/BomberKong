@@ -175,5 +175,6 @@ void Chocho::restart()
 
 void Chocho::win()
 {
+    // Open the save menu and go to the next level (Glagla)
     dynamic_cast<Widget*>(root)->saveGame(1, itsPlayer);
 }
