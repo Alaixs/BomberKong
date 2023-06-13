@@ -172,3 +172,8 @@ void Chocho::restart()
     createEntity(new Hammer(14 * cellSize, 20 * cellSize));
 }
 
+
+void Chocho::win()
+{
+    dynamic_cast<Widget*>(root)->saveGame(1, itsPlayer);
+}

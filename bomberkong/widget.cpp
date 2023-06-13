@@ -20,6 +20,7 @@
 #include "bomberland.h"
 #include "load.h"
 #include "chocho.h"
+#include "save.h"
 
 bool isPaused;
 
@@ -127,11 +128,11 @@ void Widget::switchScene(SceneType sceneType)
     {
         case MAIN_MENU:
             currentScene = new MainMenu(this);
-        break;
+            break;
 
         case OPTIONS:
             currentScene = new SettingsMenu(this);
-        break;
+            break;
 
         case LOAD:
             currentScene = new Load(this);
@@ -139,11 +140,11 @@ void Widget::switchScene(SceneType sceneType)
 
         case TUTORIAL:
             currentScene = new Tutorial(this);
-        break;
+            break;
 
         case ORIGINAL:
             currentScene = new Original(this);
-        break;
+            break;
 
         case RELOADED:
             currentScene = new Reloaded(this);
@@ -167,15 +168,15 @@ void Widget::switchScene(SceneType sceneType)
 
         case WIN_SCREEN:
             currentScene = new Win(this);
-        break;
+            break;
 
         case LOOSE_SCREEN:
             currentScene = new Lose(this);
-        break;
+            break;
 
         case ALTERNATIVE_ENDING:
             currentScene = new Alternative(this);
-        break;
+            break;
 
         default:
             break;
@@ -203,4 +204,9 @@ void Widget::startLvlFromSave(SceneType sceneType, PlayerCharacter * player)
     default:
         break;
     }
+}
+
+void Widget::saveGame(int level, PlayerCharacter * player)
+{
+    currentScene = new Save(this, level, player);
 }

@@ -91,6 +91,8 @@ public:
      */
     void startLvlFromSave(SceneType sceneType, PlayerCharacter * player);
 
+    void saveGame(int level, PlayerCharacter * player);
+
 private:
     Ui::Widget *ui;
     std::list<Entity*> entities; ///< A vector toring all entities active in the game world

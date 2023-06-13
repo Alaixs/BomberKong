@@ -17,7 +17,7 @@ Load::Load(QWidget* root)
     {
         while (!itsSaveFile.eof())
         {
-            itsSaveFile >> level >> lifes >> speed >> bombTime >> bombRange >> bombNb >> wearArmor;
+            itsSaveFile >> level >> lives >> speed >> bombTime >> bombRange >> bombNb >> wearArmor;
         }
         itsSaveFile.close();
     }
@@ -49,7 +49,7 @@ Load::Load(QWidget* root)
     int x = 50, y = 380;
     for (int i = -1; i != 2; i++)
     {
-        if (i < lifes)
+        if (i < lives)
         {
             gui.push_back(
                 new GUIElement(
@@ -210,7 +210,7 @@ void Load::draw(QPainter* painter)
 void Load::loadLevel()
 {
     PlayerCharacter * player = new PlayerCharacter(9.5 * cellSize, 21 * cellSize);
-    player->setItsStats(lifes, speed, bombNb, bombRange, bombTime, wearArmor);
+    player->setItsStats(lives, speed, bombNb, bombRange, bombTime, wearArmor);
 
     switch(level)
     {

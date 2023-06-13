@@ -9,6 +9,7 @@ public:
     Chocho(QWidget * widget, PlayerCharacter * player);
 
     void restart();
+    void win();
 };
 
 

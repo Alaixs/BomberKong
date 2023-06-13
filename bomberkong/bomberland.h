@@ -8,6 +8,8 @@ class BomberLand : public Reloaded
 public:
     BomberLand(QWidget* widget);
     ~BomberLand();
+
+    void win();
 };
 
 #endif // BOMBERLAND_H

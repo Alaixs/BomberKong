@@ -11,6 +11,7 @@ public:
     Glagla(QWidget * widget, PlayerCharacter * player);
 
     void restart();
+    void win();
 };
 
 #endif // GLAGLA_H

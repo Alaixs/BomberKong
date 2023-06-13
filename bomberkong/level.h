@@ -73,7 +73,7 @@ public:
      * Triggered when the player touches bombergirl, the scene is then switched to
      * the victory screen.
      */
-    void win();
+    virtual void win();
 
     /**
      * @brief Triggered when the player takes damage.

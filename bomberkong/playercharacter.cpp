@@ -469,9 +469,9 @@ bool PlayerCharacter::isOnHammerEffect()
     return isHammer;
 }
 
-void PlayerCharacter::setItsStats(int lifes, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor)
+void PlayerCharacter::setItsStats(int lives, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor)
 {
-    nbLives = lifes;
+    nbLives = lives;
     speedBonusNb = speedNb;
     maxBombBonusNb = bombNb;
     explosionRangeBonusNb = bombRange;

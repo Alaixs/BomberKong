@@ -6,6 +6,7 @@
 #include "guielement.h"
 #include "textlabel.h"
 #include "powerup.h"
+#include "playercharacter.h"
 
 class Save : public Scene
 {
@@ -13,11 +14,12 @@ class Save : public Scene
 private:
     std::list<GUIElement*> gui;     ///< A list if GUI Elements
     GUIElement * bg;                ///< The background
-    std::ifstream itsSaveFile;      ///< The save file
+    std::ofstream itsSaveFile;      ///< The save file
     TextLabel * choiceReturn;       ///< The Return choice text label
     TextLabel * choiceConfirm;      ///< The Confirm choice text label
+    PlayerCharacter * itsPlayer;    ///< The player
     int level;                      ///< The level of the save file
-    int lifes;                      ///< The number of lifes the player has
+    int lives;                      ///< The number of lives the player has
     int speed;                      ///< The number of speed Power-Up the player has
     int bombNb;                     ///< The number of BombNb Power-Up the player has
     int bombRange;                  ///< The number of BombRange Power-Up the player has
@@ -28,8 +30,10 @@ public:
     /**
      * @brief Create a new Save menu
      * @param widget : the main widget
+     * @param levelToSave : The level to save
+     * @param player : The player
      */
-    Save(QWidget* root);
+    Save(QWidget* root, int levelToSave, PlayerCharacter * player);
 
     /**
      * @brief Destructor for a Save menu

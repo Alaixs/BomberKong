@@ -174,3 +174,7 @@ void Glagla::restart()
     //createEntity(new IceBloc( 9.5 * cellSize, 21 * cellSize, 21 * cellSize));
 }
 
+void Glagla::win()
+{
+    dynamic_cast<Widget*>(root)->saveGame(2, itsPlayer);
+}

@@ -110,14 +110,14 @@ public:
     bool isOnHammerEffect();
 
     /**
-     * @param lifes : The player number of lifes
+     * @param lives : The player number of lives
      * @param speedNb : The number of speed bonuses
      * @param bombNb : The number of bomb number bonuses
      * @param bombRange :The number of bomb range bonuses
      * @param bombTime : The number of explosion time bonuses
      * @param wearArmor : If the player is wearing an armor or not
      */
-    void setItsStats(int lifes, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor);
+    void setItsStats(int lives, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor);
 
     /**
      * @brief Getter for a Power-Up number
