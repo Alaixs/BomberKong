@@ -331,7 +331,25 @@ void Level::deleteAllEntity()
 
 void Level::win()
 {
-    dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN); // Go to the victory screen
+    if( itsSceneType == TUTORIAL ||
+        itsSceneType == ORIGINAL ||
+        itsSceneType == RELOADED ||
+        itsSceneType == JUNGLEDK)
+    {
+        dynamic_cast<Widget*>(root)->switchScene(WIN_SCREEN); // Go to the victory screen
+    }
+    else if (itsSceneType == BOMBERLAND)
+    {
+         dynamic_cast<Widget*>(root)->switchScene(CHOCHO);
+    }
+    else if (itsSceneType == CHOCHO)
+    {
+         dynamic_cast<Widget*>(root)->switchScene(GLAGLA);
+    }
+    else if (itsSceneType == GLAGLA)
+    {
+         dynamic_cast<Widget*>(root)->switchScene(JUNGLEDK);
+    }
 }
 
 
