@@ -31,6 +31,10 @@ private:
     int currentSelectedOption;       ///< The index of the currently selected option
     bool waitingForInput;            ///< Is the menu currently waiting for the user to choose an key
 
+    /**
+     * @brief Displays key bindings
+     */
+    void displayBindings();
 
 public:
     SettingsMenu(QWidget* root);
