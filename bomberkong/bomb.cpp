@@ -17,7 +17,7 @@ Bomb::Bomb(int posX, int posY, int explosionRange, int explosionTime)
 
     sprite.load("://assets/sprites/t_bomb.png");
 
-    itsExplosionRange = 5;
+    itsExplosionRange = explosionRange;
     itsExplosionTime = explosionTime;
 
     timer = 187 - explosionTime * 31;
@@ -32,7 +32,7 @@ Bomb::Bomb(Coordinate position, int explosionRange, int explosionTime)
 
     sprite.load("://assets/sprites/t_bomb.png");
 
-    itsExplosionRange = 5;
+    itsExplosionRange = explosionRange;
     itsExplosionTime = explosionTime;
 
     timer = 187 - explosionTime * 31;
