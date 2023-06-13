@@ -1,16 +1,13 @@
 #ifndef BOMBERLAND_H
 #define BOMBERLAND_H
 #include "level.h"
+#include "reloaded.h"
 
-class BomberLand : public Level
+class BomberLand : public Reloaded
 {
 public:
     BomberLand(QWidget* widget);
-
-    /**
-     * @brief Create the level from a file
-     */
-    void restart();
+    ~BomberLand();
 };
 
 #endif // BOMBERLAND_H
