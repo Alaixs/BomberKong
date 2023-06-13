@@ -8,10 +8,21 @@
 #include "barrel.h"
 
 
-DonkeyKong::DonkeyKong(int posX, int posY)
+DonkeyKong::DonkeyKong(int posX, int posY, SceneType Lvl)
     : Entity(posX, posY)
 {
-    sprite.load("://assets/sprites/t_donkeykong.png");
+    if(Lvl == CHOCHO)
+    {
+        sprite.load("://assets/sprites/t_donkeykong_fire.png");
+    }
+    else if(Lvl == GLAGLA)
+    {
+        sprite.load("://assets/sprites/t_donkeykong_ice.png");
+    }
+    else
+    {
+        sprite.load("://assets/sprites/t_donkeykong.png");
+    }
 
     animation = new AnimationManager();
     animation->play(0, 6);
@@ -25,7 +36,7 @@ DonkeyKong::DonkeyKong(int posX, int posY)
 }
 
 
-DonkeyKong::DonkeyKong(Coordinate pos)
+DonkeyKong::DonkeyKong(Coordinate pos, SceneType Lvl)
     : Entity(pos)
 {
     sprite.load("://assets/sprites/t_donkeykong.png");

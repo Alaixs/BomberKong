@@ -361,7 +361,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     {
         freeze++;
 
-        if(freeze == 1000)
+        if(freeze == 300)
         {
             nbLives--;
             isKO = true;

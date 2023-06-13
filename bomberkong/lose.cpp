@@ -15,7 +15,7 @@ Lose::Lose(QWidget* widget) : Scene(widget)
     changeLoseSound();
 
     // Create a donkey kong dummy
-    dk = new DonkeyKong(8.5 * cellSize, 528);
+    dk = new DonkeyKong(8.5 * cellSize, 528, itsSceneType);
     dk->setParent(this);
 
     // Create the "GAME OVER" label
