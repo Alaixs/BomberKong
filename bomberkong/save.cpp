@@ -27,7 +27,7 @@ Save::Save(QWidget* root, int levelToSave, PlayerCharacter * player)
 
     // Create all the text labels
     gui.push_back(new TextLabel(320, 75, 64, "Save ?", CENTER));
-    gui.push_back(new TextLabel(50, 160, 48, "Level", LEFT));
+    gui.push_back(new TextLabel(50, 160, 48, "Next level", LEFT));
     gui.push_back(new TextLabel(50, 370, 48, "Life", LEFT));
     gui.push_back(new TextLabel(50, 470, 48, "Power-Up", LEFT));
     gui.push_back(new TextLabel(50, 610, 48, "Armor", LEFT));
@@ -41,6 +41,41 @@ Save::Save(QWidget* root, int levelToSave, PlayerCharacter * player)
     // Default selection
     choiceReturn->select();
     choiceReturn->setColor(Qt::red);
+
+    // Level thumbnail
+    switch(level)
+    {
+    case 0: // Chocho
+        gui.push_back(
+            new GUIElement(
+                Coordinate(50, 175),
+                Coordinate(540, 150),
+                "://assets/sprites/t_chocho_thumbnail.png"
+                )
+            );
+        break;
+    case 1: // Glagla
+        gui.push_back(
+            new GUIElement(
+                Coordinate(50, 175),
+                Coordinate(540, 150),
+                "://assets/sprites/t_glagla_thumbnail.png"
+                )
+            );
+        break;
+    case 2: // Jungle DK
+        gui.push_back(
+            new GUIElement(
+                Coordinate(50, 175),
+                Coordinate(540, 150),
+                "://assets/sprites/t_jungle_thumbnail.png"
+                )
+            );
+        break;
+
+    default:
+        break;
+    }
 
     // Life
     int x = 50, y = 380;

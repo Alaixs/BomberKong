@@ -47,6 +47,41 @@ Load::Load(QWidget* root)
     choiceReturn->select();
     choiceReturn->setColor(Qt::red);
 
+    // Level thumbnail
+    switch(level)
+    {
+    case 0: // Chocho
+        gui.push_back(
+            new GUIElement(
+                Coordinate(50, 175),
+                Coordinate(540, 150),
+                "://assets/sprites/t_chocho_thumbnail.png"
+                )
+            );
+        break;
+    case 1: // Glagla
+        gui.push_back(
+            new GUIElement(
+                Coordinate(50, 175),
+                Coordinate(540, 150),
+                "://assets/sprites/t_glagla_thumbnail.png"
+                )
+            );
+        break;
+    case 2: // Jungle DK
+        gui.push_back(
+            new GUIElement(
+                Coordinate(50, 175),
+                Coordinate(540, 150),
+                "://assets/sprites/t_jungle_thumbnail.png"
+                )
+            );
+        break;
+
+    default:
+        break;
+    }
+
     // Life
     int x = 50, y = 380;
     for (int i = -1; i != 2; i++)

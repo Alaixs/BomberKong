@@ -301,7 +301,7 @@ void PlayerCharacter::collisionEvent(Entity * body)
     }
 
     // Collision with walls
-    if (dynamic_cast<Wall*>(body) != nullptr)// || dynamic_cast<IndestructibleWall*>(body) != nullptr)
+    if (dynamic_cast<Wall*>(body) != nullptr || dynamic_cast<IndestructibleWall*>(body) != nullptr)
     {
         // Offsets the player away from the collider
         int distX = pos.x - body->getPos().x;

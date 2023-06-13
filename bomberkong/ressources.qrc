@@ -53,5 +53,8 @@
         <file>assets/sprites/t_dk_fireball.png</file>
         <file>assets/sprites/t_liana.png</file>
         <file>assets/sprites/t_walls_jungle.png</file>
+        <file>assets/sprites/t_jungle_thumbnail.png</file>
+        <file>assets/sprites/t_glagla_thumbnail.png</file>
+        <file>assets/sprites/t_chocho_thumbnail.png</file>
     </qresource>
 </RCC>
