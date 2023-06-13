@@ -9,9 +9,12 @@ class Monkey : public Entity
 
 private:
     QPixmap sprite;
+    QPixmap lianaSprite;
     AnimationManager* animation;
     Coordinate motion;
     Coordinate targetPosition;
+    bool isOnGround;
+    int timer;
 
 public:
     Monkey(Coordinate dropPosition, QString spriteSource);

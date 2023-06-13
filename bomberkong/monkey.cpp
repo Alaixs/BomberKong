@@ -6,13 +6,20 @@
 
 
 Monkey::Monkey(Coordinate dropPosition, QString spriteSource)
-    : Entity(dropPosition)
+    : Entity(dropPosition.x, -1280)
 {
 
     sprite.load(spriteSource);
+    lianaSprite.load("://assets/sprites/t_liana.png");
 
     animation = new AnimationManager();
-    targetPosition = pos;
+    animation->play(4, 8);
+
+    targetPosition = dropPosition;
+
+    isOnGround = false;
+
+    timer = 625;
 }
 
 
@@ -24,8 +31,22 @@ Monkey::~Monkey()
 
 void Monkey::update()
 {
+    if (isOnGround)
+    {
+        timer--;
+    }
+
+    if (timer == 0)
+    {
+        deleteEntity();
+    }
+
+    animation->update();
+
     if ((targetPosition - pos).length() <= 2)
     {
+        isOnGround = true;
+
         Coordinate nextTile(targetPosition);
         do
         {
@@ -60,15 +81,60 @@ void Monkey::draw(QPainter* painter)
 {
     // Offsets the sprite according to the player character's position (vertical scrolling)
     Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
-    painter->drawPixmap(
-        QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
-        sprite,
-        QRect(animation->getFrame() * 16, 0, 16, 16)
-    );
+
+    qDebug() << offset.y;
+
+    if (!isOnGround)
+    {
+        // Draws the liana
+        int lianaLength = abs(targetPosition.y - (-1280)) / 32;
+        qDebug() << lianaLength;
+        for (int i = 0; i < lianaLength; i++)
+        {
+            painter->drawPixmap(
+                QRect(pos.x, (-1280) + (i * 32) - offset.y + 416, cellSize, cellSize),
+                lianaSprite,
+                QRect(0, 0, 16, 16)
+                );
+        }
+        painter->drawPixmap(
+            QRect(pos.x, targetPosition.y - offset.y + 416, cellSize, cellSize),
+            lianaSprite,
+            QRect(0, 16, 16, 16)
+            );
+    }
+
+    if (motion.x <= 0)
+    {
+        // Draws the normal sprite
+        Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
+        painter->drawPixmap(
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
+            sprite,
+            QRect(animation->getFrame() * 16, 0, 16, 16)
+        );
+    }
+    else
+    {
+        // Draws the flipped sprite
+        Coordinate offset = dynamic_cast<Scene*>(parent)->getCameraOffset();
+        painter->drawPixmap(
+            QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
+            sprite.transformed(QTransform().scale(-1, 1)),
+            QRect((8 - animation->getFrame()) * 16, 0, 16, 16)
+        );
+    }
 }
 
 
 QRect Monkey::getRect()
 {
-    return QRect(pos.x, pos.y, 16, 16);
+    if (isOnGround)
+    {
+        return QRect(pos.x + 5, pos.y + 5, 22, 22);
+    }
+    else
+    {
+        return QRect(0, 0, 0, 0);
+    }
 }

@@ -5,6 +5,7 @@
 #include "fireball.h"
 #include "hammer.h"
 #include "icebloc.h"
+#include "monkey.h"
 #include "soundmanager.h"
 #include "input.h"
 #include "global.h"
@@ -343,11 +344,11 @@ void PlayerCharacter::collisionEvent(Entity * body)
     if ((dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr && !(dynamic_cast<Barrel*>(body)->getIsFlying()))
         || (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr)
         || dynamic_cast<Explosion*>(body) != nullptr
+        || dynamic_cast<Monkey*>(body) != nullptr
         || dynamic_cast<Flame*>(body) != nullptr
         || dynamic_cast<BlueFlamme*>(body) != nullptr
         || (dynamic_cast<FireBall*>(body) != nullptr
-            && !(dynamic_cast<FireBall*>(body)->getIsFlying()
-                 )
+            && !(dynamic_cast<FireBall*>(body)->getIsFlying())
             )
         )
     {

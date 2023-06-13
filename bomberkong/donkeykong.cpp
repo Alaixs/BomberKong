@@ -160,7 +160,7 @@ void DonkeyKong::update()
 
                 do
                 {
-                    monkeyTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(0, 20));
+                    monkeyTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(-40, 20));
                 } while (dynamic_cast<Level*>(parent)->isPointInWall(monkeyTargetPos * cellSize));
 
                 dynamic_cast<Level*>(parent)->createEntity(new Monkey(monkeyTargetPos * cellSize, "://assets/sprites/t_didikong.png"));

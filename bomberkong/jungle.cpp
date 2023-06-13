@@ -8,6 +8,8 @@ Jungle::Jungle(QWidget* widget)
     itsSceneType = JUNGLEDK;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
+    setOffsetLimit(352, -864);
+
     currentMap.push_back(rand() % 3);
     currentMap.push_back(rand() % 3);
     currentMap.push_back(rand() % 3);
