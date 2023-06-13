@@ -14,13 +14,13 @@ public:
      * @param posX : position on x axes
      * @param posY : position on y axes
      */
-    Wall(int posX, int posY);
+    Wall(int posX, int posY, SceneType Lvl);
 
     /**
      * @brief Create a no playable wall
      * @param pos : location coordinates
      */
-    Wall(Coordinate pos);
+    Wall(Coordinate pos, SceneType Lvl);
 
     /**
      * @brief Destructor for a Wall object
@@ -54,8 +54,6 @@ public:
      * @brief 20% of chance for the wall to drop a Power-Up
      */
     void dropPowerUp();
-
-    void setSprite();
 
 };
 

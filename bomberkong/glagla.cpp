@@ -65,11 +65,11 @@ void Glagla::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;
@@ -93,11 +93,11 @@ void Glagla::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;
@@ -120,11 +120,11 @@ void Glagla::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;

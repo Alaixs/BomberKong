@@ -3,17 +3,47 @@
 #include "global.h"
 
 
-IndestructibleWall::IndestructibleWall(int posX, int posY)
+IndestructibleWall::IndestructibleWall(int posX, int posY, SceneType Lvl)
     : Entity(posX, posY)
 {
-    sprite.load("://assets/sprites/t_walls.png");
+    if( Lvl == TUTORIAL ||
+        Lvl == ORIGINAL ||
+        Lvl == RELOADED ||
+        Lvl == BOMBERLAND ||
+        Lvl == JUNGLEDK)
+    {
+        sprite.load("://assets/sprites/t_walls.png");
+    }
+    else if (Lvl == CHOCHO)
+    {
+        sprite.load("://assets/sprites/t_bloc_chocho.png");
+    }
+    else if (Lvl == GLAGLA)
+    {
+        sprite.load("://assets/sprites/t_bloc_glagla.png");
+    }
 }
 
 
-IndestructibleWall::IndestructibleWall(Coordinate pos)
+IndestructibleWall::IndestructibleWall(Coordinate pos, SceneType Lvl)
     : Entity(pos)
 {
-    sprite.load("://assets/sprites/t_walls.png");
+    if( Lvl == TUTORIAL ||
+        Lvl == ORIGINAL ||
+        Lvl == RELOADED ||
+        Lvl == BOMBERLAND ||
+        Lvl == JUNGLEDK)
+    {
+        sprite.load("://assets/sprites/t_walls.png");
+    }
+    else if (Lvl == CHOCHO)
+    {
+        sprite.load("://assets/sprites/t_bloc_chocho.png");
+    }
+    else if (Lvl == GLAGLA)
+    {
+        sprite.load("://assets/sprites/t_bloc_glagla.png");
+    }
 }
 
 

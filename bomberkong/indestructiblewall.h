@@ -16,13 +16,13 @@ public:
      * @param posX : position on x axes
      * @param posY : position on y axes
      */
-    IndestructibleWall(int posX, int posY);
+    IndestructibleWall(int posX, int posY, SceneType Lvl);
 
     /**
      * @brief Create a Indestructible wall
      * @param pos : location coordinates
      */
-    IndestructibleWall(Coordinate pos);
+    IndestructibleWall(Coordinate pos, SceneType Lvl);
 
     /**
      * @brief Destructor for an IndestructibleWall object
