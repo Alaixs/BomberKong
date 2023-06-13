@@ -16,6 +16,7 @@ SOURCES += \
     bomb.cpp \
     bombergirl.cpp \
     chocho.cpp \
+    bomberland.cpp \
     coordinate.cpp \
     donkeykong.cpp \
     dummy.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
     guielement.cpp \
     indestructiblewall.cpp \
     input.cpp \
+    load.cpp \
     lose.cpp \
     main.cpp \
     mainmenu.cpp \
@@ -48,6 +50,7 @@ SOURCES += \
 HEADERS += \
     alternative.h \
     chocho.h \
+    bomberland.h \
     dummy.h \
     enemy.h \
     glagla.h \
@@ -63,6 +66,7 @@ HEADERS += \
     guielement.h \
     indestructiblewall.h \
     input.h \
+    load.h \
     lose.h \
     mainmenu.h \
     original.h \

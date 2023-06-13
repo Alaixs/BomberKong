@@ -15,7 +15,8 @@
 #include "tutorial.h"
 #include "reloaded.h"
 #include "settingsmenu.h"
-
+#include "bomberland.h"
+#include "load.h"
 
 bool isPaused;
 
@@ -129,6 +130,10 @@ void Widget::switchScene(SceneType sceneType)
             currentScene = new SettingsMenu(this);
         break;
 
+        case LOAD:
+            currentScene = new Load(this);
+            break;
+
         case TUTORIAL:
             currentScene = new Tutorial(this);
         break;
@@ -139,6 +144,10 @@ void Widget::switchScene(SceneType sceneType)
 
         case RELOADED:
             currentScene = new Reloaded(this);
+            break;
+
+        case BOMBERLAND:
+            currentScene = new BomberLand(this);
             break;
 
         case WIN_SCREEN:
