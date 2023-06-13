@@ -18,7 +18,7 @@ Tutorial::Tutorial(QWidget* widget)
     : Level(widget)
 {
     itsSceneType = TUTORIAL;
-    setOffsetLimit(21*cellSize, 21*cellSize);
+    setOffsetLimit(374, 374);
 
     // Create the player at its spawn point
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));

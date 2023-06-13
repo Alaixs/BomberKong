@@ -426,13 +426,13 @@ bool Level::isPointInWall(Coordinate point)
     std::list<Entity*>::iterator it;
     for (it = entities.begin(); it != entities.end(); it++)
     {
-//        if (dynamic_cast<Wall*>(*it) != nullptr || dynamic_cast<IndestructibleWall*>(*it) != nullptr)
-//        {
-        if ((*it)->getRect().contains(point.x, point.y))
+        if (dynamic_cast<Wall*>(*it) != nullptr || dynamic_cast<IndestructibleWall*>(*it) != nullptr)
         {
-            return true;
+            if ((*it)->getRect().contains(point.x, point.y))
+            {
+                return true;
+            }
         }
-//        }
     }
     return false;
 }

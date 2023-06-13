@@ -59,6 +59,7 @@ void Bomb::update()
     // Create explosions in a + pattern around the bomb and disappear
     if (timer <= 0)
     {
+        qDebug() << itsExplosionRange;
         // Keep track of how many bomb exists to prevent the player from placing too many of them
         dynamic_cast<Level*>(parent)->decrementBombNb();
 
