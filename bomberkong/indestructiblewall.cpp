@@ -9,8 +9,7 @@ IndestructibleWall::IndestructibleWall(int posX, int posY, SceneType Lvl)
     if( Lvl == TUTORIAL ||
         Lvl == ORIGINAL ||
         Lvl == RELOADED ||
-        Lvl == BOMBERLAND ||
-        Lvl == JUNGLEDK)
+        Lvl == BOMBERLAND)
     {
         sprite.load("://assets/sprites/t_walls.png");
     }
@@ -21,6 +20,10 @@ IndestructibleWall::IndestructibleWall(int posX, int posY, SceneType Lvl)
     else if (Lvl == GLAGLA)
     {
         sprite.load("://assets/sprites/t_bloc_glagla.png");
+    }
+    else if (Lvl == JUNGLEDK)
+    {
+        sprite.load("://assets/sprites/t_walls_jungle.png");
     }
 }
 
@@ -31,8 +34,7 @@ IndestructibleWall::IndestructibleWall(Coordinate pos, SceneType Lvl)
     if( Lvl == TUTORIAL ||
         Lvl == ORIGINAL ||
         Lvl == RELOADED ||
-        Lvl == BOMBERLAND ||
-        Lvl == JUNGLEDK)
+        Lvl == BOMBERLAND)
     {
         sprite.load("://assets/sprites/t_walls.png");
     }
@@ -43,6 +45,10 @@ IndestructibleWall::IndestructibleWall(Coordinate pos, SceneType Lvl)
     else if (Lvl == GLAGLA)
     {
         sprite.load("://assets/sprites/t_bloc_glagla.png");
+    }
+    else if (Lvl == JUNGLEDK)
+    {
+        sprite.load("://assets/sprites/t_walls_jungle.png");
     }
 }
 

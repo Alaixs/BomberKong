@@ -52,5 +52,6 @@
         <file>assets/sprites/t_donkeykong_ice.png</file>
         <file>assets/sprites/t_dk_fireball.png</file>
         <file>assets/sprites/t_liana.png</file>
+        <file>assets/sprites/t_walls_jungle.png</file>
     </qresource>
 </RCC>

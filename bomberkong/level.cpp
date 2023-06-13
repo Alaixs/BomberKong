@@ -211,8 +211,7 @@ void Level::draw(QPainter* painter)
     if(itsSceneType == TUTORIAL ||
         itsSceneType == ORIGINAL||
         itsSceneType == RELOADED||
-        itsSceneType == BOMBERLAND||
-        itsSceneType == JUNGLEDK)
+        itsSceneType == BOMBERLAND)
     {
         // Draws a background in a checkerboard pattern
         for(int i = 0; i < 20; i++)
@@ -292,6 +291,34 @@ void Level::draw(QPainter* painter)
                 painter->fillRect(
                     cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
                     QBrush(QColor(230, 72, 72))
+                    );
+            }
+        }
+    }
+    else if (itsSceneType == JUNGLEDK)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(55, 117, 70))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(55, 117, 70))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(37, 99, 52))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(37, 99, 52))
                     );
             }
         }
