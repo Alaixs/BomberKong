@@ -1,4 +1,5 @@
 #include "coordinate.h"
+#include <math.h>
 
 
 Coordinate::Coordinate()
@@ -12,6 +13,12 @@ Coordinate::Coordinate(int xVal, int yVal)
 {
     x = xVal; // coordinate x
     y = yVal; // coordiante y
+}
+
+
+float Coordinate::length()
+{
+    return sqrt(pow(x, 2) + pow(y, 2));
 }
 
 

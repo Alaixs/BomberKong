@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     alternative.cpp \
     animationmanager.cpp \
+    banana.cpp \
     barrel.cpp \
     bomb.cpp \
     bombergirl.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     enemy.cpp \
     explosion.cpp \
     hammer.cpp \
+    jungle.cpp \
     level.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
@@ -45,9 +47,11 @@ SOURCES += \
 
 HEADERS += \
     alternative.h \
+    banana.h \
     dummy.h \
     enemy.h \
     hammer.h \
+    jungle.h \
     level.h \
     global.h \
     animationmanager.h \

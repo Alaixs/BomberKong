@@ -15,6 +15,7 @@
 #include "tutorial.h"
 #include "reloaded.h"
 #include "settingsmenu.h"
+#include "jungle.h"
 
 
 bool isPaused;
@@ -138,7 +139,7 @@ void Widget::switchScene(SceneType sceneType)
         break;
 
         case RELOADED:
-            currentScene = new Reloaded(this);
+            currentScene = new Jungle(this);
             break;
 
         case WIN_SCREEN:

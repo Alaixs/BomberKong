@@ -4,6 +4,7 @@
 #include "global.h"
 #include "level.h"
 #include "barrel.h"
+#include "banana.h"
 
 
 DonkeyKong::DonkeyKong(int posX, int posY)

@@ -27,7 +27,7 @@ public:
      * @param posX : position on X axis
      * @param posY : position on Y axis
      */
-    Barrel(int posX,int posY, int endYPos = 816);
+    Barrel(int posX, int posY, int endYPos = 816);
 
     /**
      * @brief Create a Barrel

@@ -20,6 +20,12 @@ public:
     Coordinate();
 
     /**
+     * @brief Calculates the amplitude of the vector
+     * @return The amplitude of the vector
+     */
+    float length();
+
+    /**
      * @brief Create new coordinate with entry
      * @param xVal : the x value
      * @param yVal : the y value
