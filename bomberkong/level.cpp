@@ -80,13 +80,14 @@ void Level::update()
             // Collision detection made by iterating on every entity and checking if it's
             // rect intersects with this entity.
             std::list<Entity*>::iterator collider;
-            for (collider = entities.begin(); collider != entities.end(); ++collider)
+            for (collider = it; collider != entities.end(); ++collider)
             {
-                if (it != collider) // So that entities won't collide with themselves
+                if (it != collider && dynamic_cast<IndestructibleWall*>(*it) == nullptr)
                 {
                     if ((*it)->getRect().intersects((*collider)->getRect()))
                     {
                         (*it)->collisionEvent(*collider);
+                        (*collider)->collisionEvent(*it);
                     }
                 }
             }

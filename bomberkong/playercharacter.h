@@ -20,8 +20,10 @@ private:
     AnimationManager* hammerAnimation;
 
     bool flipped;                   ///< False = left, True = false
+    bool isStunned;
     bool isKO;                      ///< is the character KO, he is not controllable if true
     int timer;                      ///< init timer
+    int stunTimer;
     int nbLives;                    ///< The player's current lives count
 
     // Power-Up
@@ -111,6 +113,13 @@ public:
 
     /**
      * @param lives : The player number of lives
+     * @brief Stuns the player.
+     * @param time : The duration of te stun
+     */
+    void stun(int time);
+
+    /**
+     * @param lifes : The player number of lifes
      * @param speedNb : The number of speed bonuses
      * @param bombNb : The number of bomb number bonuses
      * @param bombRange :The number of bomb range bonuses

@@ -17,10 +17,12 @@
 #include "tutorial.h"
 #include "reloaded.h"
 #include "settingsmenu.h"
+#include "jungle.h"
 #include "bomberland.h"
 #include "load.h"
 #include "chocho.h"
 #include "save.h"
+
 
 bool isPaused;
 
@@ -147,7 +149,7 @@ void Widget::switchScene(SceneType sceneType)
             break;
 
         case RELOADED:
-            currentScene = new Reloaded(this);
+            currentScene = new Jungle(this);
             break;
 
         case BOMBERLAND:

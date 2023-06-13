@@ -1,10 +1,11 @@
-#include "reloaded.h"
+#include "jungle.h"
 #include "hammer.h"
 
-Reloaded::Reloaded(QWidget* widget)
+
+Jungle::Jungle(QWidget* widget)
     : Level(widget)
 {
-    itsSceneType = RELOADED;
+    itsSceneType = JUNGLEDK;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
     currentMap.push_back(rand() % 3);
@@ -15,7 +16,8 @@ Reloaded::Reloaded(QWidget* widget)
     restart();
 }
 
-void Reloaded::restart()
+
+void Jungle::restart()
 {
     deleteAllEntity();
 
@@ -64,7 +66,7 @@ void Reloaded::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos, itsSceneType));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
@@ -134,9 +136,11 @@ void Reloaded::restart()
 
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize - 20 * 2 * cellSize));
+
     DonkeyKong * dk = new DonkeyKong(9 * cellSize, - 20 * 2 * cellSize, itsSceneType);
     dk->throwingRate = 400;
     dk->setParent(this);
     entities.push_back(dk);
+
     createEntity(new Hammer(14 * cellSize, 20 * cellSize));
 }
