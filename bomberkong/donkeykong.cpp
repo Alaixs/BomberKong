@@ -1,6 +1,7 @@
 #include "donkeykong.h"
 
 #include <random>
+#include "blueflamme.h"
 #include "global.h"
 #include "level.h"
 #include "barrel.h"
@@ -65,7 +66,8 @@ void DonkeyKong::update()
         }
 
         // Also throws flames
-        else if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL)
+        else if (dynamic_cast<Level*>(parent)->getItsSceneType() == RELOADED ||
+                 dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
         {
             if (rand() % 4 > 0)
             {
@@ -97,6 +99,14 @@ void DonkeyKong::update()
                 dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
             }
             pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+        }
+        else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
+        {
+            Coordinate SpawnPos;
+            SpawnPos.x = rand() % 20 * cellSize;
+            SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+            // Throws a Flamme
+            dynamic_cast<Level*>(parent)->createEntity(new BlueFlamme(SpawnPos, pos.y));
         }
 
         timer = throwingRate; // Reset the timer

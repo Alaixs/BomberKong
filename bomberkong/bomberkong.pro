@@ -13,6 +13,7 @@ SOURCES += \
     alternative.cpp \
     animationmanager.cpp \
     barrel.cpp \
+    blueflamme.cpp \
     bomb.cpp \
     bombergirl.cpp \
     chocho.cpp \
@@ -49,6 +50,7 @@ SOURCES += \
 
 HEADERS += \
     alternative.h \
+    blueflamme.h \
     chocho.h \
     bomberland.h \
     dummy.h \

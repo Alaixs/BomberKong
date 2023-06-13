@@ -200,29 +200,92 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
 
 void Level::draw(QPainter* painter)
 {
-    // Draws a background in a checkerboard pattern
-    for(int i = 0; i < 20; i++)
+    if(itsSceneType == TUTORIAL ||
+        itsSceneType == ORIGINAL||
+        itsSceneType == RELOADED||
+        itsSceneType == BOMBERLAND||
+        itsSceneType == JUNGLEDK)
     {
-        for(int j = 0; j < 40; j++){
-            painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(0, 161, 30))
-            );
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0, 161, 30))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(0, 161, 30))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0, 161, 30))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(1, 133, 21))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(1, 133, 21))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(1, 133, 21))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(1, 133, 21))
+                );
+            }
+        }
+    }
+    else if(itsSceneType == GLAGLA)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(255,255,255))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(255,255,255))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(146, 180, 236))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(146, 180, 236))
+                    );
+            }
+        }
+    }
+    else if(itsSceneType == CHOCHO)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 13; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j, cellSize, cellSize,
+                    QBrush(QColor(255, 0, 0))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                    QBrush(QColor(255, 0, 0))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j, cellSize, cellSize,
+                    QBrush(QColor(200, 0, 0))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize, cellSize, cellSize,
+                    QBrush(QColor(200, 0, 0))
+                    );
+            }
         }
     }
 
