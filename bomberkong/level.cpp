@@ -291,11 +291,13 @@ void Level::draw(QPainter* painter)
 
     // Draws all the entities on screen
     std::list<Entity*>::iterator it = entities.begin();
+    it++;
     while (it != entities.end())
     {
         (*it)->draw(painter);
         it++;
     }
+    (*entities.begin())->draw(painter);
 
     // Draws every GUI elements on the screen
     std::list<GUIElement*>::iterator gui_it = gui.begin();

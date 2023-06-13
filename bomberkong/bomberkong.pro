@@ -25,6 +25,7 @@ SOURCES += \
     explosion.cpp \
     glagla.cpp \
     hammer.cpp \
+    icebloc.cpp \
     level.cpp \
     guielement.cpp \
     indestructiblewall.cpp \
@@ -57,6 +58,7 @@ HEADERS += \
     enemy.h \
     glagla.h \
     hammer.h \
+    icebloc.h \
     level.h \
     global.h \
     animationmanager.h \

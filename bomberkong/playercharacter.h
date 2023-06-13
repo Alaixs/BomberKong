@@ -33,6 +33,8 @@ private:
     int invincibilityTimer;         ///< A timer for the player invincibility after losing an armor
     int hammerTimer;
 
+    int freeze;
+
 public:
     bool isHammer;
 
