@@ -40,18 +40,26 @@ MainMenu::MainMenu(QWidget* widget)
     gui.push_back(options);
 
     // Tutorial level option
-    choiceTutorial = new TextLabel(320, 440, 50, "TUTORIAL", CENTER);
+    choiceTutorial = new TextLabel(320, 390, 50, "TUTORIAL", CENTER);
     gui.push_back(choiceTutorial);
 
     // Original level option
-    choiceOriginal = new TextLabel(320, 540, 50, "ORIGINAL", CENTER);
+    choiceOriginal = new TextLabel(320, 455, 50, "ORIGINAL", CENTER);
     gui.push_back(choiceOriginal);
 
     // Reloaded level option
-    choiceReloaded = new TextLabel(320, 640, 50, "RELOADED", CENTER);
+    choiceReloaded = new TextLabel(320, 520, 50, "RELOADED", CENTER);
     gui.push_back(choiceReloaded);
 
-    selected = new GUIElement(Coordinate(140, 405),
+    // Journey level option
+    choiceJourney = new TextLabel(305, 585, 50, "JOURNEY", CENTER);
+    gui.push_back(choiceJourney);
+
+    // Load save option
+    choiceLoad = new TextLabel(310, 650, 50, "LOAD", CENTER);
+    gui.push_back(choiceLoad);
+
+    selected = new GUIElement(Coordinate(140, 355),
                               Coordinate(48, 48),
                               QString("://assets/sprites/selected_menu.png"));
     gui.push_back(selected);
@@ -90,19 +98,31 @@ void MainMenu::update()
         {
             choiceTutorial->deselect();
             choiceOriginal->select();
-            selected->setPos(Coordinate(120,505));
-            selected->isVisible = true;
+            selected->setPos(Coordinate(120,420));
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceReloaded->select();
-            selected->setPos(Coordinate(120,605));
-            selected->isVisible = true;
+            selected->setPos(Coordinate(120,485));
         }
         else if (choiceReloaded->isElementSelected())
         {
             choiceReloaded->deselect();
+            choiceJourney->select();
+            selected->setPos(Coordinate(120,550));
+            qDebug("Journey selected");
+        }
+        else if (choiceJourney->isElementSelected())
+        {
+            choiceJourney->deselect();
+            choiceLoad->select();
+            selected->setPos(Coordinate(120,615));
+            qDebug("Load  selected");
+        }
+        else if (choiceLoad->isElementSelected())
+        {
+            choiceLoad->deselect();
             options->select();
             options->texture.load("://assets/sprites/t_options_selected.png");
             selected->isVisible = false;
@@ -112,7 +132,7 @@ void MainMenu::update()
             options->deselect();
             choiceTutorial->select();
             options->texture.load("://assets/sprites/t_options.png");
-            selected->setPos(Coordinate(120,405));
+            selected->setPos(Coordinate(120,355));
             selected->isVisible = true;
         }
     }
@@ -131,23 +151,28 @@ void MainMenu::update()
         {
             options->deselect();
             options->texture.load("://assets/sprites/t_options.png");
-            choiceReloaded->select();
-            selected->setPos(Coordinate(120,605));
+            choiceJourney->select();
+            selected->setPos(Coordinate(120,615));
             selected->isVisible = true;
         }
-        else if (choiceReloaded->isElementSelected())
+        else if (choiceJourney->isElementSelected())
         {
-            choiceReloaded->deselect();
-            choiceOriginal->select();
-            selected->setPos(Coordinate(120,505));
-            selected->isVisible = true;
+            choiceJourney->deselect();
+            choiceReloaded->select();
+            selected->setPos(Coordinate(120,550));
+        }
+        else if (choiceJourney->isElementSelected())
+        {
+            choiceJourney->deselect();
+            choiceReloaded->select();
+            selected->setPos(Coordinate(120,550));
         }
         else if (choiceOriginal->isElementSelected())
         {
             choiceOriginal->deselect();
             choiceTutorial->select();
             selected->setPos(Coordinate(120,405));
-            selected->isVisible = true;
+            //selected->isVisible = true;
         }
     }
 

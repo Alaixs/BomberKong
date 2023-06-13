@@ -21,9 +21,11 @@ private:
     GUIElement * logo; ///< The actual Sprite
     GUIElement * pressStart; ///< The press start GUI
     GUIElement * options; ///< The options cogwheel
-    TextLabel * choiceTutorial; ///< The actual Sprite
-    TextLabel * choiceOriginal; ///< The actual Sprite
-    TextLabel * choiceReloaded; ///< The actual Sprite
+    TextLabel * choiceTutorial; ///< The TUTORIAL level label
+    TextLabel * choiceOriginal; ///< The ORIGINAL level label
+    TextLabel * choiceReloaded; ///< The RELOADED level label
+    TextLabel * choiceJourney; ///< The JOURNEY level label
+    TextLabel * choiceLoad; ///< The LOAD label
     GUIElement * selected;
     TextLabel * testLabel;
 
