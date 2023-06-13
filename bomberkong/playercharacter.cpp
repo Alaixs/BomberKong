@@ -270,9 +270,12 @@ void PlayerCharacter::collisionEvent(Entity * body)
         switch(dynamic_cast<PowerUp*>(body)->getItsType())
         {
         case SPEED: // Collecting a speed bonus
-            speedBonusNb++;
-            dynamic_cast<PowerUp*>(body)->collected();
-            dynamic_cast<Level*>(parent)->updatePowerUpGUI(speedBonusNb, SPEED);
+            if(speedBonusNb < 4 )
+            {
+                speedBonusNb++;
+                dynamic_cast<PowerUp*>(body)->collected();
+                dynamic_cast<Level*>(parent)->updatePowerUpGUI(speedBonusNb, SPEED);
+            }
             break;
 
         case BOMB_NB: // Collecting a max bomb bonus
