@@ -91,6 +91,8 @@ public:
      */
     virtual QRect getRect();
 
+    virtual void setsprite();
+
 };
 
 #endif // ENTITY_H

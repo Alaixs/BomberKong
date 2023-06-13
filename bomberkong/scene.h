@@ -7,8 +7,18 @@
 #include <QWidget>
 
 // Enumeration for the different scene types
-enum SceneType { MAIN_MENU, OPTIONS, TUTORIAL, ORIGINAL, RELOADED,
-                 WIN_SCREEN, LOOSE_SCREEN, ALTERNATIVE_ENDING};
+enum SceneType { MAIN_MENU,
+                 OPTIONS,
+                 TUTORIAL,
+                 ORIGINAL,
+                 RELOADED,
+                 BOMBERLAND,
+                 CHOCHO,
+                 GLAGLA,
+                 JUNGLEDK,
+                 WIN_SCREEN,
+                 LOOSE_SCREEN,
+                 ALTERNATIVE_ENDING};
 
 /**
  * @brief The class of any scene on the game (pause, mainmenu, win, loose, ...)

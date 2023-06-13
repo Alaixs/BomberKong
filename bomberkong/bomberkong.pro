@@ -20,6 +20,7 @@ SOURCES += \
     dummy.cpp \
     enemy.cpp \
     explosion.cpp \
+    glagla.cpp \
     hammer.cpp \
     level.cpp \
     guielement.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
     alternative.h \
     dummy.h \
     enemy.h \
+    glagla.h \
     hammer.h \
     level.h \
     global.h \

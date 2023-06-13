@@ -62,3 +62,8 @@ bool Entity::isActive()
 {
     return active;
 }
+
+void Entity::setsprite()
+{
+
+}
