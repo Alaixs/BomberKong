@@ -171,9 +171,8 @@ void Save::displayPUNumber(int nb, PowerUpType type, int x, int y)
 
 void Save::update()
 {
-    if (Input::isActionPressed(MOVE_RIGHT) || Input::isActionPressed(MOVE_LEFT))
+    if (Input::isActionJustPressed(MOVE_RIGHT) || Input::isActionJustPressed(MOVE_LEFT))
     {
-        qDebug("Faut attendre que isJustPressed soit fait pour droite et gauche lol");
         if (choiceReturn->isElementSelected())
         {
             choiceReturn->deselect();
