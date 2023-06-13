@@ -6,3 +6,14 @@ Load::Load(QWidget* root)
 {
 
 }
+
+void Load::update()
+{
+
+}
+
+
+void Load::draw(QPainter* painter)
+{
+
+}
