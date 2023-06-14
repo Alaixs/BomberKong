@@ -75,11 +75,12 @@ void Win::draw(QPainter * painter)
 void Win::changeWinSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.3, true);
+    SoundManager::getInstance().stopSound("://assets/sounds/sfx_ostBossBattle.wav");
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_winTheme.wav", 0.3, false, true);
 }
 
 void Win::changeOSTSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_winTheme.wav");
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, false, true);
 }

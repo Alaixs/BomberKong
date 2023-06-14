@@ -13,6 +13,7 @@
         <file>assets/sounds/sfx_loseTheme.wav</file>
         <file>assets/sounds/sfx_select.wav</file>
         <file>assets/sounds/sfx_powerUp.wav</file>
+        <file>assets/sounds/sfx_ostBossBattle.wav</file>
         <file>assets/maps/Map.bkmap</file>
         <file>assets/sprites/t_donkeykong.png</file>
         <file>assets/sprites/you_win.png</file>

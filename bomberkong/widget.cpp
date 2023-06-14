@@ -62,9 +62,10 @@ ui->setupUi(this);
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_winTheme.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_select.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_powerUp.wav");
+    SoundManager::getInstance().loadSound("://assets/sounds/sfx_ostBossBattle.wav");
 
     //play main theme
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, false, true);
 
     // Set the first scene to be the main menu
     currentScene = new MainMenu(this);

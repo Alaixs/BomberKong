@@ -81,9 +81,9 @@ public:
     void footstepsSfx();
 
     /**
-     * @brief StopAllSounds
+     * @brief Play the sound of the OST boss battle
      */
-    void stopAllSounds();
+    void ostBossSfx();
 
     SoundManager* soundManager;///< All the sound use by this class
 

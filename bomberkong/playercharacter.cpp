@@ -126,12 +126,14 @@ PlayerCharacter::~PlayerCharacter()
 void PlayerCharacter::update()
 {
 
+
     if(pos.y < cellSize * -25 && dynamic_cast<Level*>(parent)->getItsSceneType() == JUNGLEDK)
     {
 
         if( dynamic_cast<Jungle*>(parent)->isBossRoomClose == false )
         {
-            qDebug() << pos.x << pos.y;
+            //play the boss battle OST
+            ostBossSfx();
             dynamic_cast<Level*>(parent)->createEntity(new IndestructibleWall(9 * cellSize, - 12.5 * 2 * cellSize, dynamic_cast<Level*>(parent)->getItsSceneType()));
             dynamic_cast<Level*>(parent)->createEntity(new IndestructibleWall(10 * cellSize, - 12.5 * 2 * cellSize, dynamic_cast<Level*>(parent)->getItsSceneType()));
             dynamic_cast<Jungle*>(parent)->isBossRoomClose = true;
@@ -491,7 +493,13 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false, false);
+}
+
+void PlayerCharacter::ostBossSfx()
+{
+    SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_ostBossBattle.wav", 0.5, false, false);
 }
 
 QRect PlayerCharacter::getRect()
