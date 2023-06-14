@@ -1,5 +1,7 @@
 #include "jungle.h"
+
 #include "hammer.h"
+#include "RNG.h"
 
 
 Jungle::Jungle(QWidget* widget)
@@ -11,9 +13,9 @@ Jungle::Jungle(QWidget* widget)
 
     setOffsetLimit(352, -864);
 
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
 
     initPowerUpGUI();
     restart();
@@ -30,9 +32,9 @@ Jungle::Jungle(QWidget * widget, PlayerCharacter * player)
     itsSceneType = JUNGLEDK;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
 
     initPowerUpGUI();
 

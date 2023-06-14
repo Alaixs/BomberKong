@@ -1,6 +1,9 @@
 #include "glagla.h"
+
 #include "hammer.h"
 #include "icebloc.h"
+#include "RNG.h"
+
 
 Glagla::Glagla(QWidget * widget)
     : Level(widget)
@@ -9,9 +12,9 @@ Glagla::Glagla(QWidget * widget)
     itsSceneType = GLAGLA;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
 
     initPowerUpGUI();
     restart();
@@ -27,9 +30,9 @@ Glagla::Glagla(QWidget * widget, PlayerCharacter * player)
     itsSceneType = GLAGLA;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
 
     initPowerUpGUI();
 

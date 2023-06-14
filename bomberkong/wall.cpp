@@ -4,6 +4,8 @@
 #include "explosion.h"
 #include "powerup.h"
 #include "level.h"
+#include "RNG.h"
+
 
 Wall::Wall(int posX, int posY, SceneType Lvl)
     : Entity(posX, posY)
@@ -73,8 +75,7 @@ void Wall::draw(QPainter * painter)
 
 void Wall::dropPowerUp()
 {
-    std::srand(std::time(0));
-    int randomNumber = std::rand() % 5; // Selects a random power up
+    int randomNumber = RNG::randomInt(0, 4); // Selects a random power up
 
     switch (randomNumber)
     {
@@ -114,8 +115,7 @@ void Wall::collisionEvent(Entity * body)
         if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // The Power-Up can't appear in the Original level
         {
             // Drops a power up with a 25% chance
-            std::srand(std::time(0));
-            int randomNumber = std::rand() % 100;
+            int randomNumber = RNG::randomInt(1, 100);
 
             if (randomNumber <= 25) {
                 dropPowerUp();

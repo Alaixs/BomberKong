@@ -237,4 +237,5 @@ void Save::toNextLevel()
 
     default:
             break;
+    }
 }
