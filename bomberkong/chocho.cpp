@@ -8,7 +8,7 @@ Chocho::Chocho(QWidget * widget)
 
 {
     itsSceneType = CHOCHO;
-    setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
+    setOffsetLimit(352, -864);
 
     currentMap.push_back(RNG::randomInt(0, 2));
     currentMap.push_back(RNG::randomInt(0, 2));
@@ -26,11 +26,11 @@ Chocho::Chocho(QWidget * widget, PlayerCharacter * player)
     itsPlayer->setParent(this);
 
     itsSceneType = CHOCHO;
-    setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
+    setOffsetLimit(352, -864);
 
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
 
     initPowerUpGUI();
 

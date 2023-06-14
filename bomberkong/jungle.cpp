@@ -30,7 +30,8 @@ Jungle::Jungle(QWidget * widget, PlayerCharacter * player)
     itsPlayer->setParent(this);
 
     itsSceneType = JUNGLEDK;
-    setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
+
+    setOffsetLimit(352, -864);
 
     currentMap.push_back(RNG::randomInt(0, 2));
     currentMap.push_back(RNG::randomInt(0, 2));

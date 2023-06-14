@@ -5,6 +5,8 @@ BomberLand::BomberLand(QWidget* widget)
     : Reloaded(widget)
 {
     itsSceneType = BOMBERLAND;
+
+    setOffsetLimit(352, -864);
 }
 
 BomberLand::~BomberLand()
