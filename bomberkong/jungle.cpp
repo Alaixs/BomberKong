@@ -26,6 +26,8 @@ Jungle::Jungle(QWidget * widget, PlayerCharacter * player)
 {
     *itsPlayer = *player;
     itsPlayer->setParent(this);
+    isBossRoomClose = false;
+
 
     itsSceneType = JUNGLEDK;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);

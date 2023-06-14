@@ -83,11 +83,11 @@ void Lose::draw(QPainter * painter)
 void Lose::changeLoseSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false, false);
 }
 
 void Lose::changeOSTSound()
 {
     SoundManager::getInstance().stopSound("://assets/sounds/sfx_loseTheme.wav");
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, false, true);
 }

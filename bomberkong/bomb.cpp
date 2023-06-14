@@ -178,7 +178,7 @@ void Bomb::draw(QPainter * painter)
 
 void Bomb::explosionSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_explosion.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_explosion.wav", 0.5, true, false);
 }
 
 
