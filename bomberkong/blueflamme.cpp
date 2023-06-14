@@ -1,17 +1,17 @@
 #include "blueflamme.h"
 #include "global.h"
+#include "RNG.h"
 
 
 BlueFlamme::BlueFlamme(int posX, int posY)
     : Enemy(posX, posY)
 {
-    srand(time(NULL) % rand());
     spawnCoordinate = Coordinate(posX, posY);
     isOnBoard = 1;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_blue_flamme.png");
     animation->play(0, 6);
-    direction = rand() % 4;
+    direction = RNG::randomInt(0, 4);
     timer = 187;
     yDirection = posY;
 }
@@ -20,13 +20,12 @@ BlueFlamme::BlueFlamme(int posX, int posY)
 BlueFlamme::BlueFlamme(Coordinate position, int DKY)
     : Enemy(position.x, DKY)
 {
-    srand(time(NULL) % rand());
     spawnCoordinate = position;
     isOnBoard = 1;
     animation = new AnimationManager();
     sprite.load("://assets/sprites//t_blue_flamme.png");
     animation->play(0, 6);
-    direction = rand() % 4;
+    direction = RNG::randomInt(0, 3);
     timer = 187;
     yDirection = position.y;
 }
@@ -47,7 +46,7 @@ void BlueFlamme::update()
         if(timer <= 0)
         {
             timer = 187;
-            direction = (rand() + direction) % 4;
+            direction = RNG::randomInt(0, 3);
         }
 
         if(timer < 32)

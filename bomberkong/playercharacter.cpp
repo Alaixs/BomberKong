@@ -18,6 +18,7 @@
 #include "barrel.h"
 #include "explosion.h"
 #include "powerup.h"
+#include "RNG.h"
 
 
 /**
@@ -125,8 +126,6 @@ PlayerCharacter::~PlayerCharacter()
 
 void PlayerCharacter::update()
 {
-
-
     if(pos.y < cellSize * -25 && dynamic_cast<Level*>(parent)->getItsSceneType() == JUNGLEDK)
     {
 

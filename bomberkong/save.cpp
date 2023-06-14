@@ -181,7 +181,7 @@ void Save::update()
     {
         if (choiceReturn->isElementSelected()) // Return to the main menu
         {
-            dynamic_cast<Widget*>(root)->switchScene(MAIN_MENU);
+            toNextLevel();
         }
         else if (choiceConfirm->isElementSelected()) // Player chooses to save its progress
         {
@@ -216,21 +216,26 @@ void Save::saveData()
         itsSaveFile.close();
     }
 
+    toNextLevel();
+}
+
+void Save::toNextLevel()
+{
     switch(level) // Go to the next level
     {
     case 0:
-        dynamic_cast<Widget*>(root)->startLvlFromSave(CHOCHO,itsPlayer);
-        break;
+            dynamic_cast<Widget*>(root)->startLvlFromSave(CHOCHO,itsPlayer);
+            break;
 
     case 1:
-        dynamic_cast<Widget*>(root)->startLvlFromSave(GLAGLA,itsPlayer);
-        break;
+            dynamic_cast<Widget*>(root)->startLvlFromSave(GLAGLA,itsPlayer);
+            break;
 
     case 2:
-        dynamic_cast<Widget*>(root)->startLvlFromSave(JUNGLEDK,itsPlayer);
-        break;
+            dynamic_cast<Widget*>(root)->startLvlFromSave(JUNGLEDK,itsPlayer);
+            break;
 
     default:
-        break;
+            break;
     }
 }

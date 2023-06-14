@@ -1,12 +1,15 @@
 #include "original.h"
 
+#include "RNG.h"
+
+
 Original::Original(QWidget* widget)
     : Level(widget)
 {
     itsSceneType = ORIGINAL;
     setOffsetLimit(21*cellSize, 21*cellSize);
 
-    currentMap.push_back(rand()%3);
+    currentMap.push_back(RNG::randomInt(0, 2));
     restart();
 }
 

@@ -65,6 +65,11 @@ public:
      */
     void saveData();
 
+    /**
+     * @brief Go to the next level
+     */
+    void toNextLevel();
+
 };
 
 #endif // SAVE_H

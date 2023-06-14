@@ -1,5 +1,8 @@
 #include "reloaded.h"
+
 #include "hammer.h"
+#include "RNG.h"
+
 
 Reloaded::Reloaded(QWidget* widget)
     : Level(widget)
@@ -7,9 +10,9 @@ Reloaded::Reloaded(QWidget* widget)
     itsSceneType = RELOADED;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
 
     initPowerUpGUI();
     restart();

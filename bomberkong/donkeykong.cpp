@@ -92,7 +92,7 @@ void DonkeyKong::update()
                      dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL ||
                      dynamic_cast<Level*>(parent)->getItsSceneType() == BOMBERLAND)
             {
-                if (rand() % 4 > 0)
+                if (RNG::randomInt(0, 3) > 0)
                 {
                     // Throws a barrel
                     dynamic_cast<Level*>(parent)->createEntity(new Barrel(pos.x + 2 * cellSize, pos.y + cellSize, dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().y));
@@ -102,42 +102,42 @@ void DonkeyKong::update()
                     Coordinate SpawnPos;
                     if(dynamic_cast<Level*>(parent)->getItsSceneType() == TUTORIAL)
                     {
-                        if(rand() % 2 == 0)
+                        if(RNG::randomInt(0, 1) == 0)
                          {
-                            SpawnPos.x = rand() % 10 * cellSize;
-                            SpawnPos.y = ((rand() % 10) + 13) * cellSize ;
+                            SpawnPos.x = RNG::randomInt(0, 9) * cellSize;
+                            SpawnPos.y = RNG::randomInt(13, 22) * cellSize ;
                         }
                         else
                         {
-                            SpawnPos.x = ((rand() % 10) + 10) * cellSize;
-                            SpawnPos.y = ((rand() % 10) + 3) * cellSize ;
+                            SpawnPos.x = RNG::randomInt(10, 19) * cellSize;
+                            SpawnPos.y = RNG::randomInt(3, 12) * cellSize ;
                         }
                     }
                     else
                     {
-                        SpawnPos.x = rand() % 20 * cellSize;
-                        SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
+                        SpawnPos.x = RNG::randomInt(0, 19) * cellSize;
+                        SpawnPos.y = RNG::randomInt(4, 63) * cellSize ;
                     }
                     // Throws a Flamme
                     dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
                 }
-                pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+                targetPos = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
             }
             else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
             {
                 Coordinate spawnPos;
-                spawnPos.x = rand() % 20 * cellSize;
-                spawnPos.y = ((rand() % 60) + 4) * cellSize ;
+                spawnPos.x = RNG::randomInt(0, 19) * cellSize;
+                spawnPos.y = RNG::randomInt(4, 63) * cellSize ;
                 // Throws a Flamme
                 dynamic_cast<Level*>(parent)->createEntity(new Barrel(spawnPos, pos.y));
             }
             else if(dynamic_cast<Level*>(parent)->getItsSceneType() == CHOCHO)
             {
                 Coordinate SpawnPos;
-                SpawnPos.x = rand() % 20 * cellSize;
-                SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
-                pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
-                if(rand()%2 == 1)
+                SpawnPos.x = RNG::randomInt(0, 19) * cellSize;
+                SpawnPos.y = RNG::randomInt(4, 63) * cellSize ;
+                targetPos = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+                if(RNG::randomInt(0, 1) == 1)
                 {
                     // Throws a Flamme
                     dynamic_cast<Level*>(parent)->createEntity(new Flame(SpawnPos, pos.y));
@@ -173,7 +173,7 @@ void DonkeyKong::update()
                 {
                     monkeyTargetPos = Coordinate(RNG::randomInt(0, 20), RNG::randomInt(-38, yMin));
                 } while (dynamic_cast<Level*>(parent)->isPointInWall(monkeyTargetPos * cellSize));
-                int random = rand() % 3;
+                int random = RNG::randomInt(0, 2);
                 if(random == 0)
                 {
                     dynamic_cast<Level*>(parent)->createEntity(new Monkey(monkeyTargetPos * cellSize, "://assets/sprites/t_didikong.png"));
@@ -190,10 +190,10 @@ void DonkeyKong::update()
             else if(dynamic_cast<Level*>(parent)->getItsSceneType() == GLAGLA)
             {
                 Coordinate SpawnPos;
-                SpawnPos.x = rand() % 20 * cellSize;
-                SpawnPos.y = ((rand() % 60) + 4) * cellSize ;
-                pos.x = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
-                if(rand() % 2 == 1)
+                SpawnPos.x = RNG::randomInt(0, 19) * cellSize;
+                SpawnPos.y = RNG::randomInt(4, 63) * cellSize ;
+                targetPos = dynamic_cast<Level*>(parent)->getItsPlayer()->getPos().x - 2 * cellSize;
+                if(RNG::randomInt(0, 1) == 1)
                 {
                     // Throws a Flamme
                     dynamic_cast<Level*>(parent)->createEntity(new BlueFlamme(SpawnPos, pos.y));
@@ -221,11 +221,8 @@ void DonkeyKong::update()
         {
             animation->play(0,6);
 
-            if(dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL)
-            {
-                // Move to target
-                pos.x += (targetPos - pos.x) * 0.07;
-            }
+            // Move to target
+            pos.x += (targetPos - pos.x) * 0.07;
         }
     }
 }

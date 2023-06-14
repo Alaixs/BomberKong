@@ -52,8 +52,6 @@ ui->setupUi(this);
 
     setFixedSize(width, height);
 
-    srand(time(nullptr)); // Initializing the rng
-
     // preload sounds (avoid lag)
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_explosion.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_footsteps.wav");
@@ -150,7 +148,7 @@ void Widget::switchScene(SceneType sceneType)
             break;
 
         case RELOADED:
-            currentScene = new Jungle(this);
+            currentScene = new Reloaded(this);
             break;
 
         case BOMBERLAND:
