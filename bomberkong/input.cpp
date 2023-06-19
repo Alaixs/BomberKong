@@ -25,7 +25,8 @@ bool start = false;
 bool fl_start = false;
 bool fl_down = false;
 bool fl_up = false;
-
+bool fl_right = false;
+bool fl_left = false;
 
 // The value of the key that was pressed during this tick
 int lastPressedKey = false;
@@ -66,10 +67,12 @@ void Input::keyPressedEvent(QKeyEvent* event)
     else if (event->key() == keyMoveRight)
     {
         moveRight = true;
+        fl_right = true;
     }
     else if (event->key() == keyMoveLeft)
     {
         moveLeft = true;
+        fl_left = true;
     }
     else if (event->key() == keyPlaceBomb)
     {
@@ -102,10 +105,12 @@ void Input::keyReleasedEvent(QKeyEvent * event)
     else if (event->key() == keyMoveRight)
     {
         moveRight = false;
+        fl_right = false;
     }
     else if (event->key() == keyMoveLeft)
     {
         moveLeft = false;
+        fl_left = false;
     }
     else if (event->key() == keyPlaceBomb)
     {
@@ -174,6 +179,14 @@ bool Input::isActionJustPressed(Actions action)
             return fl_down;
             break;
 
+        case MOVE_RIGHT:
+            return fl_right;
+            break;
+
+        case MOVE_LEFT:
+            return fl_left;
+            break;
+
         default:
             return false;
             break;
@@ -187,6 +200,8 @@ void Input::resetFLInputs()
     fl_start = false;
     fl_up = false;
     fl_down = false;
+    fl_right = false;
+    fl_left = false;
 
     lastPressedKey = 0;
 }

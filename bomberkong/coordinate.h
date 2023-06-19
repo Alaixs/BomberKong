@@ -11,8 +11,8 @@
 class Coordinate{
 
 public:
-    int x;
-    int y;
+    float x;
+    float y;
 
     /**
      * @brief Create new coordinate with 0,0 by default
@@ -24,8 +24,13 @@ public:
      * @param xVal : the x value
      * @param yVal : the y value
      */
-    Coordinate(int xVal, int yVal);
+    Coordinate(float xVal, float yVal);
 
+    /**
+     * @brief Calculates the magnitude of the vector
+     * @return The amplitude of the vector
+     */
+    float length();
 
     /**
      * @brief Operator + overloading

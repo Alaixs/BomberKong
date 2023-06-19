@@ -1,8 +1,10 @@
-﻿#include "lose.h"
+﻿#include "glagla.h"
+#include "lose.h"
 
 #include <fstream>
 #include <QSoundEffect>
 #include <QFontDatabase>
+#include "scene.h"
 #include "ui_widget.h"
 #include "global.h"
 #include "widget.h"
@@ -15,6 +17,11 @@
 #include "tutorial.h"
 #include "reloaded.h"
 #include "settingsmenu.h"
+#include "jungle.h"
+#include "bomberland.h"
+#include "load.h"
+#include "chocho.h"
+#include "save.h"
 
 
 bool isPaused;
@@ -25,7 +32,7 @@ Widget::Widget(QWidget *parent)
 {
 ui->setupUi(this);
 
-    setWindowTitle("BomberKong Reloaded");
+    setWindowTitle("BomberKong Journey");
 
     // Loads the font used by the TextLabel object
     gameFont = QFontDatabase::addApplicationFont("://assets/fonts/upheavtt.ttf");
@@ -45,8 +52,6 @@ ui->setupUi(this);
 
     setFixedSize(width, height);
 
-    srand(time(nullptr)); // Initializing the rng
-
     // preload sounds (avoid lag)
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_explosion.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_footsteps.wav");
@@ -55,9 +60,10 @@ ui->setupUi(this);
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_winTheme.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_select.wav");
     SoundManager::getInstance().loadSound("://assets/sounds/sfx_powerUp.wav");
+    SoundManager::getInstance().loadSound("://assets/sounds/sfx_ostBossBattle.wav");
 
     //play main theme
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, true);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_mainTheme.wav", 0.03, false, true);
 
     // Set the first scene to be the main menu
     currentScene = new MainMenu(this);
@@ -123,36 +129,85 @@ void Widget::switchScene(SceneType sceneType)
     {
         case MAIN_MENU:
             currentScene = new MainMenu(this);
-        break;
+            break;
 
         case OPTIONS:
             currentScene = new SettingsMenu(this);
-        break;
+            break;
+
+        case LOAD:
+            currentScene = new Load(this);
+            break;
 
         case TUTORIAL:
             currentScene = new Tutorial(this);
-        break;
+            break;
 
         case ORIGINAL:
             currentScene = new Original(this);
-        break;
+            break;
 
         case RELOADED:
             currentScene = new Reloaded(this);
             break;
 
+        case BOMBERLAND:
+            currentScene = new BomberLand(this);
+            break;
+
+        case CHOCHO:
+            currentScene = new Chocho(this);
+            break;
+
+        case GLAGLA:
+            currentScene = new Glagla(this);
+            break;
+
+        case JUNGLEDK:
+            currentScene = new Jungle(this);
+            break;
+
         case WIN_SCREEN:
             currentScene = new Win(this);
-        break;
+            break;
 
         case LOOSE_SCREEN:
             currentScene = new Lose(this);
-        break;
+            break;
 
         case ALTERNATIVE_ENDING:
             currentScene = new Alternative(this);
-        break;
+            break;
+
+        default:
+            break;
     }
 
     //delete temp;
+}
+
+void Widget::startLvlFromSave(SceneType sceneType, PlayerCharacter * player)
+{ 
+    switch(sceneType)
+    {
+    case CHOCHO:
+        currentScene = new Chocho(this, player);
+        break;
+
+    case GLAGLA:
+        currentScene = new Glagla(this, player);
+        break;
+
+    case JUNGLEDK:
+        currentScene = new Jungle(this, player);
+        break;
+
+    default:
+        break;
+    }
+}
+
+void Widget::saveGame(int level, PlayerCharacter * player)
+{
+    currentScene = new Save(this, level, player);
 }

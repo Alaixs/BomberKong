@@ -53,7 +53,7 @@ void Dummy::draw(QPainter * painter)
 
 void Dummy::loseThemeSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_loseTheme.wav", 0.5, false, false);
 }
 
 

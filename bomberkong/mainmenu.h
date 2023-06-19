@@ -14,19 +14,19 @@ class MainMenu : public Scene
 {
 
 private:
-    int timer;
-    std::list<GUIElement*> gui;
-
-    GUIElement * bg; ///< The actual Sprite
-    GUIElement * logo; ///< The actual Sprite
-    GUIElement * pressStart; ///< The press start GUI
-    GUIElement * options; ///< The options cogwheel
-    TextLabel * choiceTutorial; ///< The actual Sprite
-    TextLabel * choiceOriginal; ///< The actual Sprite
-    TextLabel * choiceReloaded; ///< The actual Sprite
-    GUIElement * selected;
-    TextLabel * testLabel;
-
+    int timer;                      ///< Timer for the blinking "press start" label
+    bool saveFileFound;             ///< Bool to know if a save file was found
+    std::list<GUIElement*> gui;     ///< A list of GUI Elements
+    GUIElement * bg;                ///< The actual Sprite
+    GUIElement * logo;              ///< The actual Sprite
+    GUIElement * pressStart;        ///< The press start GUI
+    GUIElement * options;           ///< The options cogwheel
+    TextLabel * choiceTutorial;     ///< The TUTORIAL level label
+    TextLabel * choiceOriginal;     ///< The ORIGINAL level label
+    TextLabel * choiceReloaded;     ///< The RELOADED level label
+    TextLabel * choiceJourney;      ///< The JOURNEY level label
+    TextLabel * choiceLoad;         ///< The LOAD label
+    GUIElement * selected;          ///< The currently selected label
 
 public:
     /**

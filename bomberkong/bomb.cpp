@@ -59,6 +59,7 @@ void Bomb::update()
     // Create explosions in a + pattern around the bomb and disappear
     if (timer <= 0)
     {
+        qDebug() << itsExplosionRange;
         // Keep track of how many bomb exists to prevent the player from placing too many of them
         dynamic_cast<Level*>(parent)->decrementBombNb();
 
@@ -177,7 +178,7 @@ void Bomb::draw(QPainter * painter)
 
 void Bomb::explosionSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_explosion.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_explosion.wav", 0.5, true, false);
 }
 
 

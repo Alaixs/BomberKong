@@ -1,17 +1,18 @@
 #include "flame.h"
+
 #include "global.h"
+#include "RNG.h"
 
 
 Flame::Flame(int posX, int posY)
     : Enemy(posX, posY)
 {
-    srand(time(NULL) % rand());
     spawnCoordinate = Coordinate(posX, posY);
     isOnBoard = 1;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
-    direction = rand() % 4;
+    direction = RNG::randomInt(0, 3);
     timer = 187;
     yDirection = posY;
 }
@@ -20,13 +21,12 @@ Flame::Flame(int posX, int posY)
 Flame::Flame(Coordinate position, int DKY)
     : Enemy(position.x, DKY)
 {
-    srand(time(NULL) % rand());
     spawnCoordinate = position;
     isOnBoard = 1;
     animation = new AnimationManager();
     sprite.load("://assets/sprites/t_flame.png");
     animation->play(0, 6);
-    direction = rand() % 4;
+    direction = RNG::randomInt(0, 3);
     timer = 187;
     yDirection = position.y;
 }
@@ -47,7 +47,7 @@ void Flame::update()
         if(timer <= 0)
         {
             timer = 187;
-            direction = (rand() + direction) % 4;
+            direction = RNG::randomInt(0, 3);
         }
 
         if(timer < 32)

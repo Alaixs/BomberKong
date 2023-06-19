@@ -1,7 +1,12 @@
 #include "playercharacter.h"
 
 #include <QMessageBox>
+#include "blueflamme.h"
+#include "fireball.h"
 #include "hammer.h"
+#include "icebloc.h"
+#include "jungle.h"
+#include "monkey.h"
 #include "soundmanager.h"
 #include "input.h"
 #include "global.h"
@@ -13,6 +18,26 @@
 #include "barrel.h"
 #include "explosion.h"
 #include "powerup.h"
+#include "RNG.h"
+
+
+/**
+ * @brief Rounds a value to the nearest multiple
+ * @param numToRound : The number you want to round up
+ * @param multiple : The multiple
+ * @return The rounded number
+ */
+int roundUp(int numToRound, int multiple)
+{
+    // Smaller multiple
+    int a = (numToRound / multiple) * multiple;
+
+    // Larger multiple
+    int b = a + multiple;
+
+    // Return of closest of two
+    return (numToRound - a > b - numToRound)? b : a;
+}
 
 
 PlayerCharacter::PlayerCharacter(int posX, int posY)
@@ -36,10 +61,14 @@ PlayerCharacter::PlayerCharacter(int posX, int posY)
 
     nbLives = 2;
 
+    isStunned = false;
+
     isKO = false;
     isHammer = false;
 
     initBonus();
+
+    freeze = 0;
 }
 
 
@@ -62,12 +91,16 @@ PlayerCharacter::PlayerCharacter(Coordinate pos)
 
     hammerTimer = 0;
 
+    isStunned = false;
+
     nbLives = 2;
 
     isKO = false;
     isHammer = false;
 
     initBonus();
+
+    freeze = 0;
 }
 
 void PlayerCharacter::initBonus()
@@ -93,125 +126,143 @@ PlayerCharacter::~PlayerCharacter()
 
 void PlayerCharacter::update()
 {
+    if(pos.y < cellSize * -25 && dynamic_cast<Level*>(parent)->getItsSceneType() == JUNGLEDK)
+    {
+
+        if( dynamic_cast<Jungle*>(parent)->isBossRoomClose == false )
+        {
+            //play the boss battle OST
+            ostBossSfx();
+            dynamic_cast<Level*>(parent)->createEntity(new IndestructibleWall(9 * cellSize, - 12.5 * 2 * cellSize, dynamic_cast<Level*>(parent)->getItsSceneType()));
+            dynamic_cast<Level*>(parent)->createEntity(new IndestructibleWall(10 * cellSize, - 12.5 * 2 * cellSize, dynamic_cast<Level*>(parent)->getItsSceneType()));
+            dynamic_cast<Jungle*>(parent)->isBossRoomClose = true;
+        }
+    }
+
     dynamic_cast<Scene*>(parent)->setCameraOffset(pos); // Manage the scrolling
 
     animation->update();
     hammerAnimation->update();
 
-    if (!isKO) // If the player is controllable
+    if (isKO)
     {
+        animation->play(10, 12); // KO Animation
 
-    // Sets the player motion according to keyboard inputs
-    if (Input::isActionPressed(MOVE_RIGHT))
-    {
-        motion.x = 1;
-        flipped = true;
-        footstepsSfx();
-    }
-    else if (Input::isActionPressed(MOVE_LEFT))
-    {
-        motion.x = -1;
-        flipped = false;
-        footstepsSfx();
-    }
-    else
-    {
-        motion.x = 0;
-    }
-
-    if (Input::isActionPressed(MOVE_DOWN))
-    {
-        motion.y = 1;
-        footstepsSfx();
-    }
-    else if (Input::isActionPressed(MOVE_UP))
-    {
-        motion.y = -1;
-        footstepsSfx();
-    }
-    else
-    {
-        motion.y = 0;
-    }
-
-    if(Input::isActionPressed(PLACE_BOMB) && hammerTimer == 0)
-    {
-        if(dynamic_cast<Level*>(parent)->getBombOnScreenNb() < 1 + maxBombBonusNb)
+        if (Input::isActionJustPressed(START))
         {
-            if (timer < 0)
+            if (nbLives > -1)
             {
-            // Place the bomb in the center of a cell
-            Coordinate bombPos(pos);
-            bombPos.x = ((bombPos.x + cellSize / 2) / cellSize) * cellSize;
-            bombPos.y = ((bombPos.y + cellSize / 2) / cellSize) * cellSize;
-            dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos, 1 + explosionRangeBonusNb, 1 + explosionTimeBonusNb));
+                // Restart the current level if the player still have a life
+                // Go all the way back to the tutorial otherwise
+                dynamic_cast<Level*>(parent)->restart();
 
-            // Reset the cooldown timer
-            timer = 14;
+                if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // Reset the Power-Up GUI and bonuses
+                {
+                    initBonus(); // Reset the player bonuses
+                    std::list<PowerUpType> types = {SPEED, BOMB_NB, BOMB_RANGE, BOMB_TIME, ARMOR};
+                    for (std::list<PowerUpType>::iterator it = types.begin(); it != types.end(); it++)
+                    {
+                        dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, (*it));
+                    }
+                }
 
-            dynamic_cast<Level*>(parent)->incrementBombNb();
+                pos.x = 9.5 * cellSize;
+                pos.y = 21 * cellSize;
+                isKO = false;
+            }
+            else
+            {
+                dynamic_cast<Level*>(parent)->loose();
             }
         }
     }
-
-    if(pos.y > 25 * cellSize)
+    else if (isStunned)
     {
-        // Triggers the alternative ending
-        dynamic_cast<Level*>(parent)->alternative();
-    }
-
-    // Updates position
-    pos += motion * speed * ((speedBonusNb * 0.2) + 1);
-
-    if(timer >= 0)
-    {
-        timer--;
-    }
-
-    // Plays the running animation if the player is moving
-    if (abs(motion.x) > 0 || abs(motion.y) > 0)
-    {
-        animation->play(4, 8);
+        animation->play(10, 12); // KO Animation
+        stunTimer--;
+        if (stunTimer == 0)
+        {
+            isStunned = false;
+        }
     }
     else
     {
-        animation->play(0, 4);
-    }
-
-    }
-    else // Player is KO
-    {
-
-    animation->play(10, 12); // KO Animation
-
-    if (Input::isActionJustPressed(START))
-    {
-        if (nbLives > -1)
+        // Sets the player motion according to keyboard inputs
+        if (Input::isActionPressed(MOVE_RIGHT))
         {
-            // Restart the current level if the player still have a life
-            // Go all the way back to the tutorial otherwise
-            dynamic_cast<Level*>(parent)->restart();
-
-            if (dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL) // Reset the Power-Up GUI and bonuses
-            {
-                initBonus(); // Reset the player bonuses
-                std::list<PowerUpType> types = {SPEED, BOMB_NB, BOMB_RANGE, BOMB_TIME, ARMOR};
-                for (std::list<PowerUpType>::iterator it = types.begin(); it != types.end(); it++)
-                {
-                    dynamic_cast<Level*>(parent)->updatePowerUpGUI(0, (*it));
-                }
-            }
-
-            pos.x = 9.5 * cellSize;
-            pos.y = 21 * cellSize;
-            isKO = false;
+            motion.x = 1;
+            flipped = true;
+            footstepsSfx();
+        }
+        else if (Input::isActionPressed(MOVE_LEFT))
+        {
+            motion.x = -1;
+            flipped = false;
+            footstepsSfx();
         }
         else
         {
-            dynamic_cast<Level*>(parent)->loose();
+            motion.x = 0;
         }
-    }
 
+        if (Input::isActionPressed(MOVE_DOWN))
+        {
+            motion.y = 1;
+            footstepsSfx();
+        }
+        else if (Input::isActionPressed(MOVE_UP))
+        {
+            motion.y = -1;
+            footstepsSfx();
+        }
+        else
+        {
+            motion.y = 0;
+        }
+
+        if(Input::isActionPressed(PLACE_BOMB) && hammerTimer == 0)
+        {
+            if(dynamic_cast<Level*>(parent)->getBombOnScreenNb() < 1 + maxBombBonusNb)
+            {
+                if (timer < 0)
+                {
+                    // Place the bomb in the center of a cell
+                    Coordinate bombPos(pos);
+                    bombPos.x = roundUp(bombPos.x, 32);
+                    bombPos.y = roundUp(bombPos.y, 32);
+                    dynamic_cast<Level*>(parent)->createEntity(new Bomb(bombPos, 1 + explosionRangeBonusNb, 1 + explosionTimeBonusNb));
+
+                    // Reset the cooldown timer
+                    timer = 14;
+
+                    dynamic_cast<Level*>(parent)->incrementBombNb();
+                }
+            }
+        }
+
+        if(pos.y > 25 * cellSize)
+        {
+            // Triggers the alternative ending
+            dynamic_cast<Level*>(parent)->alternative();
+        }
+
+        // Updates position
+        pos += motion * speed * ((speedBonusNb * 0.2) + 1);
+
+        if(timer >= 0)
+        {
+            timer--;
+        }
+
+        // Plays the running animation if the player is moving
+        if (abs(motion.x) > 0 || abs(motion.y) > 0)
+        {
+            animation->play(4, 8);
+        }
+        else
+        {
+            animation->play(0, 4);
+        }
     }
 
     if (!armorOn ) // Decrease the invincibility time
@@ -240,7 +291,6 @@ void PlayerCharacter::update()
     {
         isHammer = false;
     }
-
 }
 
 void PlayerCharacter::collisionEvent(Entity * body)
@@ -328,7 +378,13 @@ void PlayerCharacter::collisionEvent(Entity * body)
     if ((dynamic_cast<Level*>(parent)->getItsSceneType() != ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr && !(dynamic_cast<Barrel*>(body)->getIsFlying()))
         || (dynamic_cast<Level*>(parent)->getItsSceneType() == ORIGINAL && dynamic_cast<Barrel*>(body) != nullptr)
         || dynamic_cast<Explosion*>(body) != nullptr
-        || dynamic_cast<Flame*>(body) != nullptr)
+        || dynamic_cast<Monkey*>(body) != nullptr
+        || dynamic_cast<Flame*>(body) != nullptr
+        || dynamic_cast<BlueFlamme*>(body) != nullptr
+        || (dynamic_cast<FireBall*>(body) != nullptr
+            && !(dynamic_cast<FireBall*>(body)->getIsFlying())
+            )
+        )
     {
         if (invincibilityTimer <= 0 && hammerTimer == 0)
         {
@@ -350,10 +406,21 @@ void PlayerCharacter::collisionEvent(Entity * body)
             }
         }
     }
+    if(dynamic_cast<IceBloc*>(body) != nullptr )
+    {
+        freeze++;
+
+        if(freeze == 300)
+        {
+            nbLives--;
+            isKO = true;
+        }
+    }
 
     // Collision with BomberGirl
     if (dynamic_cast<BomberGirl*>(body) != nullptr)
     {
+        pos.x = 9.5 * cellSize; pos.y = 21 * cellSize; // Reset the player position
         dynamic_cast<Level*>(parent)->win();
     }
 
@@ -405,7 +472,7 @@ void PlayerCharacter::draw(QPainter * painter)
         painter->drawPixmap(
             QRect(pos.x, pos.y - offset.y + 416, cellSize, cellSize),
             sprite.transformed(QTransform().scale(-1, 1)),
-            QRect((11 - animation->getFrame()) * 16, 0, 16, 16)
+            QRect((12 - animation->getFrame()) * 16, 0, 16, 16)
         );
 
         // Draws the hammer
@@ -425,7 +492,13 @@ void PlayerCharacter::draw(QPainter * painter)
 
 void PlayerCharacter::footstepsSfx()
 {
-    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false);
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_footsteps.wav", 0.5, false, false);
+}
+
+void PlayerCharacter::ostBossSfx()
+{
+    SoundManager::getInstance().stopSound("://assets/sounds/sfx_mainTheme.wav");
+    SoundManager::getInstance().playSound("://assets/sounds/sfx_ostBossBattle.wav", 0.5, false, false);
 }
 
 QRect PlayerCharacter::getRect()
@@ -436,4 +509,52 @@ QRect PlayerCharacter::getRect()
 bool PlayerCharacter::isOnHammerEffect()
 {
     return isHammer;
+}
+
+void PlayerCharacter::stun(int time)
+{
+    isStunned = true;
+    stunTimer = time;
+}
+
+
+void PlayerCharacter::setItsStats(int lives, int speedNb, int bombNb, int bombRange, int bombTime, bool wearArmor)
+{
+    nbLives = lives;
+    speedBonusNb = speedNb;
+    maxBombBonusNb = bombNb;
+    explosionRangeBonusNb = bombRange;
+    explosionTimeBonusNb = bombTime;
+    armorOn = wearArmor;
+}
+
+
+int PlayerCharacter::getItsPUNumber(PowerUpType powerUp)
+{
+    switch(powerUp)
+    {
+    case SPEED:
+        return speedBonusNb;
+
+    case BOMB_NB:
+        return maxBombBonusNb;
+
+    case BOMB_RANGE:
+        return explosionRangeBonusNb;
+
+    case BOMB_TIME:
+        return explosionTimeBonusNb;
+
+    case ARMOR:
+        return armorOn;
+
+    default:
+        break;
+    }
+}
+
+
+int PlayerCharacter::getItsLivesNb()
+{
+    return nbLives;
 }

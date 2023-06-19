@@ -29,9 +29,10 @@ public:
      * @brief Play a Sound
      * @param soundFilePath : path of the sound file
      * @param volume : the volume to choose
+     * @param playMultipleTimes : Flag indicating if the sound can be played multiple at the same time  or no
      * @param looping : flag indicating if the sound should be looped
      */
-    void playSound(const QString& soundFilePath, qreal volume, bool looping);
+    void playSound(const QString& soundFilePath, qreal volume, bool playMultipleTimes, bool looping);
 
     /**
      * @brief Stop a sounds who's playing

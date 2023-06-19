@@ -9,6 +9,7 @@
 #include "soundmanager.h"
 #include "guielement.h"
 #include "scene.h"
+#include "playercharacter.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -82,6 +83,15 @@ public:
      * @param sceneType : The type of the scene
      */
     void switchScene(SceneType sceneType);
+
+    /**
+     * @brief Start a level from a save file
+     * @param sceneType : The type of the scene
+     * @param player : The player
+     */
+    void startLvlFromSave(SceneType sceneType, PlayerCharacter * player);
+
+    void saveGame(int level, PlayerCharacter * player);
 
 private:
     Ui::Widget *ui;

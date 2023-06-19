@@ -28,8 +28,8 @@ class Level : public Scene
 protected:
     std::list<Entity*> entities;    ///< A list of the level entites
     std::list<GUIElement*> gui;     ///< A list of the level GUI Elements
-    int bombOnScreenNb;               ///< The number on bomb on screen
-    PlayerCharacter* itsPlayer;
+    int bombOnScreenNb;             ///< The number on bomb on screen
+    PlayerCharacter* itsPlayer;     ///< The player
 
 public:
     GUIElement* pauseLabel;
@@ -73,7 +73,7 @@ public:
      * Triggered when the player touches bombergirl, the scene is then switched to
      * the victory screen.
      */
-    void win();
+    virtual void win();
 
     /**
      * @brief Triggered when the player takes damage.

@@ -1,12 +1,15 @@
 #include "original.h"
 
+#include "RNG.h"
+
+
 Original::Original(QWidget* widget)
     : Level(widget)
 {
     itsSceneType = ORIGINAL;
     setOffsetLimit(21*cellSize, 21*cellSize);
 
-    currentMap.push_back(rand()%3);
+    currentMap.push_back(RNG::randomInt(0, 2));
     restart();
 }
 
@@ -48,11 +51,11 @@ void Original::restart()
             // Places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;
@@ -63,5 +66,5 @@ void Original::restart()
 
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-    createEntity(new DonkeyKong(9 * cellSize, 0));
+    createEntity(new DonkeyKong(9 * cellSize, 0, itsSceneType));
 }

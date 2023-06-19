@@ -1,5 +1,8 @@
 #include "reloaded.h"
+
 #include "hammer.h"
+#include "RNG.h"
+
 
 Reloaded::Reloaded(QWidget* widget)
     : Level(widget)
@@ -7,9 +10,9 @@ Reloaded::Reloaded(QWidget* widget)
     itsSceneType = RELOADED;
     setOffsetLimit(21 * cellSize, -20 * 2 * cellSize);
 
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
-    currentMap.push_back(rand() % 3);
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
+    currentMap.push_back(RNG::randomInt(0, 2));
 
     initPowerUpGUI();
     restart();
@@ -64,11 +67,11 @@ void Reloaded::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos, itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;
@@ -92,11 +95,11 @@ void Reloaded::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;
@@ -119,11 +122,11 @@ void Reloaded::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;
@@ -134,7 +137,7 @@ void Reloaded::restart()
 
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize - 20 * 2 * cellSize));
-    DonkeyKong * dk = new DonkeyKong(9 * cellSize, - 20 * 2 * cellSize);
+    DonkeyKong * dk = new DonkeyKong(9 * cellSize, - 20 * 2 * cellSize, itsSceneType);
     dk->throwingRate = 400;
     dk->setParent(this);
     entities.push_back(dk);

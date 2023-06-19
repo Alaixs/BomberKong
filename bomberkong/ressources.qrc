@@ -13,6 +13,7 @@
         <file>assets/sounds/sfx_loseTheme.wav</file>
         <file>assets/sounds/sfx_select.wav</file>
         <file>assets/sounds/sfx_powerUp.wav</file>
+        <file>assets/sounds/sfx_ostBossBattle.wav</file>
         <file>assets/maps/Map.bkmap</file>
         <file>assets/sprites/t_donkeykong.png</file>
         <file>assets/sprites/you_win.png</file>
@@ -28,9 +29,6 @@
         <file>assets/sprites/t_empty_heart.png</file>
         <file>assets/sprites/t_full_heart.png</file>
         <file>assets/sprites/t_options.png</file>
-        <file>assets/sprites/t_original.png</file>
-        <file>assets/sprites/t_reloaded.png</file>
-        <file>assets/sprites/t_tutorial.png</file>
         <file>assets/sprites/t_armor.png</file>
         <file>assets/sprites/t_bomb_nb.png</file>
         <file>assets/sprites/t_explosion_time.png</file>
@@ -43,5 +41,21 @@
         <file>assets/sprites/t_options_selected.png</file>
         <file>assets/sprites/t_bomb_range.png</file>
         <file>assets/sprites/t_ombre.png</file>
+        <file>assets/sprites/t_banana.png</file>
+        <file>assets/sprites/t_bloc_chocho.png</file>
+        <file>assets/sprites/t_bloc_glagla.png</file>
+        <file>assets/sprites/t_blue_flamme.png</file>
+        <file>assets/sprites/t_dadakong.png</file>
+        <file>assets/sprites/t_didikong.png</file>
+        <file>assets/sprites/t_funkykong.png</file>
+        <file>assets/sprites/t_ice_bloc.png</file>
+        <file>assets/sprites/t_donkeykong_fire.png</file>
+        <file>assets/sprites/t_donkeykong_ice.png</file>
+        <file>assets/sprites/t_dk_fireball.png</file>
+        <file>assets/sprites/t_liana.png</file>
+        <file>assets/sprites/t_walls_jungle.png</file>
+        <file>assets/sprites/t_jungle_thumbnail.png</file>
+        <file>assets/sprites/t_glagla_thumbnail.png</file>
+        <file>assets/sprites/t_chocho_thumbnail.png</file>
     </qresource>
 </RCC>

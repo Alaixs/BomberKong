@@ -18,6 +18,17 @@ Scene::~Scene()
 void Scene::setCameraOffset(Coordinate offset)
 {
     cameraOffset = offset;
+
+    if (cameraOffset.y > itsLowerLimit)
+    {
+        cameraOffset.y = itsLowerLimit;
+    }
+
+    if (cameraOffset.y < itsUpperLimit)
+    {
+        cameraOffset.y = itsUpperLimit;
+    }
+
 }
 
 

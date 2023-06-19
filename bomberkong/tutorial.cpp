@@ -18,7 +18,7 @@ Tutorial::Tutorial(QWidget* widget)
     : Level(widget)
 {
     itsSceneType = TUTORIAL;
-    setOffsetLimit(21*cellSize, 21*cellSize);
+    setOffsetLimit(374, 374);
 
     // Create the player at its spawn point
     createEntity(new PlayerCharacter(9.5 * cellSize, 21 * cellSize));
@@ -143,11 +143,11 @@ void Tutorial::restart()
             // places the corresponding object
             if (block == '2')
             {
-                createEntity(new Wall(xPos, yPos));
+                createEntity(new Wall(xPos, yPos,itsSceneType));
             }
             else if (block == '1')
             {
-                createEntity(new IndestructibleWall(xPos, yPos));
+                createEntity(new IndestructibleWall(xPos, yPos, itsSceneType));
             }
 
             xPos += cellSize;
@@ -158,7 +158,7 @@ void Tutorial::restart()
 
     // Create characters at their spawn points
     createEntity(new BomberGirl(9.5 * cellSize, 6 * cellSize));
-    DonkeyKong * dk = new DonkeyKong(9 * cellSize, 0);
+    DonkeyKong * dk = new DonkeyKong(9 * cellSize, 0, itsSceneType);
     dk->throwingRate = 300;
     dk->setParent(this);
     entities.push_back(dk);

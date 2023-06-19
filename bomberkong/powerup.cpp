@@ -89,7 +89,7 @@ void PowerUp::collisionEvent(Entity* body)
 
 void PowerUp::PowerUpSfx()
 {
-   SoundManager::getInstance().playSound("://assets/sounds/sfx_powerUp.wav", 0.5, false);
+   SoundManager::getInstance().playSound("://assets/sounds/sfx_powerUp.wav", 0.5, true, false);
 }
 
 

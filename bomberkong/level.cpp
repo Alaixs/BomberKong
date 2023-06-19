@@ -80,13 +80,14 @@ void Level::update()
             // Collision detection made by iterating on every entity and checking if it's
             // rect intersects with this entity.
             std::list<Entity*>::iterator collider;
-            for (collider = entities.begin(); collider != entities.end(); ++collider)
+            for (collider = it; collider != entities.end(); ++collider)
             {
-                if (it != collider) // So that entities won't collide with themselves
+                if (it != collider && dynamic_cast<IndestructibleWall*>(*it) == nullptr)
                 {
                     if ((*it)->getRect().intersects((*collider)->getRect()))
                     {
                         (*it)->collisionEvent(*collider);
+                        (*collider)->collisionEvent(*it);
                     }
                 }
             }
@@ -149,7 +150,14 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
     {
     case SPEED:
         std::advance(it, 5); // Advance of 5 elements until the right text label
-        dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
+        if (nb < 4)
+        {
+            dynamic_cast<TextLabel*>(*it)->setText(QString::fromStdString(puNumber));
+        }
+        else
+        {
+            dynamic_cast<TextLabel*>(*it)->setText("MAX");
+        }
         break;
 
     case BOMB_TIME:
@@ -200,39 +208,131 @@ void Level::updatePowerUpGUI(int nb, PowerUpType type)
 
 void Level::draw(QPainter* painter)
 {
-    // Draws a background in a checkerboard pattern
-    for(int i = 0; i < 20; i++)
+    if(itsSceneType == TUTORIAL ||
+        itsSceneType == ORIGINAL||
+        itsSceneType == RELOADED||
+        itsSceneType == BOMBERLAND)
     {
-        for(int j = 0; j < 40; j++){
-            painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(0, 161, 30))
-            );
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0, 161, 30))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(0, 161, 30))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0, 161, 30))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(1, 133, 21))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(1, 133, 21))
+                );
 
-            painter->fillRect(
-                cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
-                QBrush(QColor(1, 133, 21))
-            );
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(1, 133, 21))
+                );
+            }
+        }
+    }
+    else if(itsSceneType == GLAGLA)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(180,207,250))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(180,207,250))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0,107,206))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(0,107,206 ))
+                    );
+            }
+        }
+    }
+    else if(itsSceneType == CHOCHO)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(194, 16, 16))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(194, 16, 16))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(230, 72, 72))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(230, 72, 72))
+                    );
+            }
+        }
+    }
+    else if (itsSceneType == JUNGLEDK)
+    {
+        // Draws a background in a checkerboard pattern
+        for(int i = 0; i < 20; i++)
+        {
+            for(int j = 0; j < 40; j++){
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(55, 117, 70))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(55, 117, 70))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i + cellSize, cellSize * 2 * j - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(37, 99, 52))
+                    );
+
+                painter->fillRect(
+                    cellSize * 2 * i, cellSize * 2 * j + cellSize - cameraOffset.y - 30 * cellSize , cellSize, cellSize,
+                    QBrush(QColor(37, 99, 52))
+                    );
+            }
         }
     }
 
     // Draws all the entities on screen
     std::list<Entity*>::iterator it = entities.begin();
+    it++;
     while (it != entities.end())
     {
         (*it)->draw(painter);
         it++;
     }
+    (*entities.begin())->draw(painter);
 
     // Draws every GUI elements on the screen
     std::list<GUIElement*>::iterator gui_it = gui.begin();
@@ -247,6 +347,10 @@ void Level::draw(QPainter* painter)
 void Level::createEntity(Entity* entity)
 {
     entity->setParent(this);
+    if(typeid(*entity).name() == "Wall"  )
+    {
+        entity->setsprite();
+    }
     entities.push_back(entity);
 }
 
@@ -317,14 +421,14 @@ PlayerCharacter* Level::getItsPlayer()
 }
 
 
-bool Level::isPointInWall(Coordinate pos)
+bool Level::isPointInWall(Coordinate point)
 {
     std::list<Entity*>::iterator it;
     for (it = entities.begin(); it != entities.end(); it++)
     {
         if (dynamic_cast<Wall*>(*it) != nullptr || dynamic_cast<IndestructibleWall*>(*it) != nullptr)
         {
-            if ((*it)->getRect().contains(pos.x, pos.y))
+            if ((*it)->getRect().contains(point.x, point.y))
             {
                 return true;
             }

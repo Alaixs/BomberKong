@@ -28,7 +28,7 @@ void SoundManager::loadSound(const QString& soundFilePath) {
 }
 
 
-void SoundManager::playSound(const QString& soundFilePath, qreal volume, bool looping) {
+void SoundManager::playSound(const QString& soundFilePath, qreal volume, bool playMultipleTimes, bool looping) {
     QSoundEffect* soundEffect = soundMap.value(soundFilePath);
 
     if (soundEffect) {
@@ -38,7 +38,7 @@ void SoundManager::playSound(const QString& soundFilePath, qreal volume, bool lo
         } else {
             soundEffect->setLoopCount(1);
         }
-        if (!soundEffect->isPlaying()) {
+        if (!soundEffect->isPlaying() || playMultipleTimes) {
             soundEffect->play();
         }
     }
